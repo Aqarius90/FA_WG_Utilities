@@ -5,212 +5,252 @@
     <title>FA WRD tools</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
     <div class="container">
-        <h1>WRD TOOLS</h1>
+        <h1>FA WRD TOOLS</h1>
     </div>
-    <div class="row">
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="DeckCode">
-      </div>
-        <div class="col-sm-2">
-          <button type="button" class="btn btn-default btn-block">DECODE</button>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="DeckCode">
+          </div>
+          <div class="col-sm-1">
+            <button type="button" class="btn btn-default btn-block">DECODE</button>
+          </div>
+          <div class="col-sm-1">
+            <button type="button" class="btn btn-default btn-block">CLEAR</button>
+          </div>
         </div>
-        <div class="col-sm-2">
-          <button type="button" class="btn btn-default btn-block">CLEAR</button>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-9">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-xs-1">
-                <button type="button"  class="btn btn-default btn-block">NATO</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button"  class="btn btn-default btn-block">REDFOR</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">BD</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">CMW</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">EU</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">LJ</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">NORAD</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">SCAN</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">BRDNL</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">NSWP</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">RD</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">RKA</button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">ANZ</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">BRD</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">CAN</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">DEN</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">FRA</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">JAP</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">NED</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">NOR</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">ROK</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">SWE</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">UK</button>
-              </div>
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">USA</button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-1">
-                <button type="button" class="btn btn-default btn-block">ISR</button>
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-              <div class="col-xs-1">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-block">CZS</button>
-              </div>
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-block">DDR</button>
-              </div>
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-block">DPRK</button>
-              </div>
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-block">POL</button>
-              </div>
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-block">PRC</button>
-              </div>
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-block">USSR</button>
-              </div>
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-block">FIN</button>
-              </div>
-              <div class="col-sm-1">
-                <button type="button" class="btn btn-default btn-block">YU</button>
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button type="button"  class="btn btn-default btn-block">
+                      <img src="flags/nato.png" class="img-responsive" width="100%" overflow="hidden" padding="0">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button"  class="btn btn-default btn-block">
+                      <img src="flags/REDFOR.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/BD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/COM.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/EU.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/LJ.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/NORAD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/SCA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/BRDNL.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/NSWP.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/RD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/RKA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/ANZAC.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/BRD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/CAN.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/DEN.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/FRA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="flags/JAP.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">NED</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">NOR</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">ROK</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">SWE</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">UK</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">USA</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">ISR</button>
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">CZS</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">DDR</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">DPRK</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">POL</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">PRC</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">USSR</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">FIN</button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">YU</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">Marine
-                </button>
-              </div>
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">Airborne
-                </button>
-              </div>
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">Mechanized
-                </button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">Armoured
-                </button>
-              </div>
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">Motorized
-                </button>
-              </div>
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">Support
-                </button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <button type="button" class="btn btn-default btn-block">General
-                </button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">A
-                </button>
-              </div>
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">B
-                </button>
-              </div>
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-default btn-block">C
-                </button>
+          <div class="col-sm-3">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">Marine
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">Airborne
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">Mechanized
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">Armoured
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">Motorized
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">Support
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <button type="button" class="btn btn-default btn-block">General
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">A
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">B
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-default btn-block">C
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -219,8 +259,7 @@
     </div>
 
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Overview</a></li>
+        <li class="active"><a href="#">Deck</a></li>
         <li><a href="#">Logistics</a></li>
         <li><a href="#">Support</a></li>
         <li><a href="#">Tank</a></li>
