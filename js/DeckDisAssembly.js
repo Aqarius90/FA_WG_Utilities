@@ -1,30 +1,30 @@
 ﻿    function  DeckDisAssembly
     {
-        MainDB MainCardDatabase = new MainDB();
-        Dictionaries Dicts = new Dictionaries();
+        /*MainDB MainCardDatabase = new MainDB();
+        Dictionaries Dicts = new Dictionaries();*/
 
-        public string sSide { get; set; }
-        public string sNation { get; set; }
-        public string sSpec { get; set; }
-        public string sEra { get; set; }
-        public int i3Cards {get; set;}
-        public int i2Cards {get; set;}
-        public int i1Cards { get; set;}
-        public int iSide { get; set; }
-        public VehicleCard[] Cards0T = new VehicleCard[72];
-        public VehicleCard[] Cards1T = new VehicleCard[72];
-        public VehicleCard[] Cards2T = new VehicleCard[72];
-        public List<VehicleCard> LOG = new List<VehicleCard>();
-        public List<VehicleCard> INF = new List<VehicleCard>();
-        public List<VehicleCard> SUP = new List<VehicleCard>();
-        public List<VehicleCard> TNK = new List<VehicleCard>();
-        public List<VehicleCard> REC = new List<VehicleCard>();
-        public List<VehicleCard> VEH = new List<VehicleCard>();
-        public List<VehicleCard> HEL = new List<VehicleCard>();
-        public List<VehicleCard> AIR = new List<VehicleCard>();
-        public List<VehicleCard> NAV = new List<VehicleCard>();
-        public Weapon nullWeapon = new Weapon(0, 0, 0, 0, 0, 0, 0, "", 0, "", "", "NONE");
-        
+        var sSide = "NONE";
+        var sNation = "NONE";
+        var sSpec = "NONE";
+        var sEra = "NONE";
+        var i3Cards = 0;
+        var i2Cards = 0;
+        var i1Cards = 0;
+        var iSide = 0;
+        var Cards0T = [];
+        var Cards1T = [];
+        var Cards2T = [];
+        var List<VehicleCard> LOG = new List<VehicleCard>();
+        var List<VehicleCard> INF = new List<VehicleCard>();
+        var List<VehicleCard> SUP = new List<VehicleCard>();
+        var List<VehicleCard> TNK = new List<VehicleCard>();
+        var List<VehicleCard> REC = new List<VehicleCard>();
+        var List<VehicleCard> VEH = new List<VehicleCard>();
+        var List<VehicleCard> HEL = new List<VehicleCard>();
+        var List<VehicleCard> AIR = new List<VehicleCard>();
+        var List<VehicleCard> NAV = new List<VehicleCard>();
+        var Weapon nullWeapon = new Weapon(0, 0, 0, 0, 0, 0, 0, "", 0, "", "", "NONE"); //???
+
         public DeckDisAssembly()
         {
             //sSide = "BLU";
@@ -102,7 +102,7 @@
                 sEra += caDeckChars[i];
             }
             sEra = Dicts.lookupERA(Convert.ToInt32(sEra, 2));
-            
+
             string s3Count = null;
             for (int i = 14; i <= 17; i++)
             {
@@ -208,7 +208,7 @@
                 Cards0T[i1Cards].sVeterancy = sVet;
                 Cards0T[i1Cards].iVet = Convert.ToInt32(Cards0T[i1Cards].sVeterancy, 2);
                 Cards0T[i1Cards] = toGen(Cards0T[i1Cards]);
-                
+
                 i1Cards++;
             }
             cardDisplaySort(Cards0T, Cards1T, Cards2T);
@@ -232,7 +232,7 @@
                     if (Card.Unit.caUnitData[25] == '1')
                     {
                         NAV.Add(Card);
-                    }  
+                    }
                 }
             }
 
@@ -276,7 +276,7 @@
                     else if (Card.Unit.caUnitData[25] == '1')
                     {
                         NAV.Add(Card);
-                    } 
+                    }
                 }
             }
             foreach (VehicleCard Card in c0T)
@@ -319,7 +319,7 @@
                     else if (Card.Unit.caUnitData[25] == '1')
                     {
                         NAV.Add(Card);
-                    } 
+                    }
                 }
             }
         }
@@ -407,7 +407,7 @@
                     {
                         lcDeckChar.Add(caUtil[i]);
                     }
-                }                
+                }
             }
 
             foreach (VehicleCard CA in currentDeck.Cards1T)
@@ -460,7 +460,7 @@
 
             return Dicts.lookupB36(lcDeckChar.ToArray());
 
-			
+
         }
 		*/
 /*
@@ -474,7 +474,7 @@
                     {
                         Cards0T[i] = Cards0T[i + 1];
                     }
-                    i1Cards--; 
+                    i1Cards--;
                 }
                 else if (Cards1T[j] != null && Cards1T[j].iArrayIndex == ID)
                 {
