@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/WeaponData.js"></script>
+	  <script src="js/WeaponData.js"></script>
     <script src="js/Database.js"></script>
     <script src="js/DeckDisAssembly.js"></script>
     <script src="js/Main.js"></script>
@@ -23,13 +23,13 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="DeckCode">
+            <input type="text" class="form-control" id="sDeckString">
           </div>
           <div class="col-sm-1">
-            <button type="button" class="btn btn-default btn-block">DECODE</button>
+            <button type="button" class="btn btn-default btn-block btn-top-line" onclick="btDecode()">DECODE</button>
           </div>
           <div class="col-sm-1">
-            <button type="button" class="btn btn-default btn-block">CLEAR</button>
+            <button type="button" class="btn btn-default btn-block btn-top-line">CLEAR</button>
           </div>
         </div>
         <div class="row">
@@ -296,13 +296,14 @@
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
         <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>
-        <li><a href="#Support">Support</a></li>
-        <li><a href="#Tank">Tank</a></li>
-        <li><a href="#Recon">Recon</a></li>
-        <li><a href="#Vehicle">Vehicle</a></li>
-        <li><a href="#Helo">Helo</a></li>
-        <li><a href="#Air">Air</a></li>
-        <li><a href="#Naval">Naval</a></li>
+        <li><a href="#Support" data-toggle="tab">Support</a></li>
+        <li><a href="#Tank" data-toggle="tab">Tank</a></li>
+        <li><a href="#Recon" data-toggle="tab">Recon</a></li>
+        <li><a href="#Vehicle" data-toggle="tab">Vehicle</a></li>
+        <li><a href="#Helo" data-toggle="tab">Helo</a></li>
+        <li><a href="#Air" data-toggle="tab">Air</a></li>
+        <li><a href="#Naval" data-toggle="tab">Naval</a></li>
+        <li><a href="#DEBUG" data-toggle="tab">DEBUG</a></li>
     </ul>
     <div id="my-tab-content" class="tab-content">
         <div class="tab-pane active" id="Deck">
@@ -535,7 +536,6 @@
               <div class="col-sm-8">
               </div>
               <div class="col-sm-4">
-
               </div>
             </div>
           </div>
@@ -708,8 +708,21 @@
             </div>
           </div>
         </div>
+        <div class="tab-pane" id="DEBUG">
+          <div class="container">
+            <p>DEBUG</p>
+            <p id="debug">test</p>
+              <table id="debugTable" style="width:100%">
+                <tbody>
+                  <tr>
+                    <th>bin</th>
+                    <th>parsing</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
     </div>
-
   </div>
 
 

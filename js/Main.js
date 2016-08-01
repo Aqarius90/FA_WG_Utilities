@@ -1,20 +1,22 @@
-﻿var Dicts = new Dictionaries();
-var MasterDeck = new DeckDisAssembly();
+﻿//var Dicts = new Dictionaries();
+window.MasterDeck = new DeckAssembly();
+window.CardsDB = [[],[]];
+initMainDB();
 var selectedCards = [];
 var deckpoints = 0;
 var deckpoitstotal = 45;
 
-GUIDisplay(MasterDeck)
+//GUIDisplay(MasterDeck)
 
 function btDecode()
 {
-    MasterDeck.decodeDeck(txtEncodeDeck.Text);
+    DeckDisAssembly();
     //GUIDisplay(MasterDeck);
     //txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
 }
 
 
-/*     
+/*
         List<VehicleCard> decklist { get; set; }
         ObservableCollection<deckRow> LOGLIST = new ObservableCollection<deckRow>();
         ObservableCollection<deckRow> INFLIST = new ObservableCollection<deckRow>();
@@ -23,7 +25,7 @@ function btDecode()
         ObservableCollection<deckRow> RECLIST = new ObservableCollection<deckRow>();
         ObservableCollection<deckRow> VEHLIST = new ObservableCollection<deckRow>();
         ObservableCollection<deckRow> HELLIST = new ObservableCollection<deckRow>();
-        ObservableCollection<deckRow> AIRLIST = new ObservableCollection<deckRow>(); 
+        ObservableCollection<deckRow> AIRLIST = new ObservableCollection<deckRow>();
         SpecMatrix MainMatrix = new SpecMatrix();
 */
 /*
@@ -2181,7 +2183,7 @@ function btDecode()
                 TallyPoints(Card);
                 counter++;
             }
-        }      
+        }
         private void displaySupUnits(List<VehicleCard> unitlist)
         {
             int counter = 0;
@@ -5351,7 +5353,7 @@ function btDecode()
                         TlLOGunitTAV.Content = Card.Transport.iaArmor[3];
                         ShowWeapon(Card.Transport.W1, TlLLB1);
                         ShowWeapon(Card.Transport.W2, TlLLB2);
-                        ShowWeapon(Card.Transport.W3, TlLLB3); 
+                        ShowWeapon(Card.Transport.W3, TlLLB3);
                     }
                     else
                     {
@@ -5374,7 +5376,7 @@ function btDecode()
                         TlLOGunitTAV.Content = "";
                         ShowWeapon(MasterDeck.nullWeapon, TlLLB1);
                         ShowWeapon(MasterDeck.nullWeapon, TlLLB2);
-                        ShowWeapon(MasterDeck.nullWeapon, TlLLB3); 
+                        ShowWeapon(MasterDeck.nullWeapon, TlLLB3);
 
                     }
                     break;
@@ -5421,7 +5423,7 @@ function btDecode()
                         TlINFunitTAV.Content = Card.Transport.iaArmor[3];
                         ShowWeapon(Card.Transport.W1, TlILB1);
                         ShowWeapon(Card.Transport.W2, TlILB2);
-                        ShowWeapon(Card.Transport.W3, TlILB3); 
+                        ShowWeapon(Card.Transport.W3, TlILB3);
                     }
                     else
                     {
@@ -5444,7 +5446,7 @@ function btDecode()
                         TlINFunitTAV.Content = "";
                         ShowWeapon(MasterDeck.nullWeapon, TlILB1);
                         ShowWeapon(MasterDeck.nullWeapon, TlILB2);
-                        ShowWeapon(MasterDeck.nullWeapon, TlILB3); 
+                        ShowWeapon(MasterDeck.nullWeapon, TlILB3);
 
                     }
                     break;
@@ -5491,7 +5493,7 @@ function btDecode()
                         TlSUPunitTAV.Content = Card.Transport.iaArmor[3];
                         ShowWeapon(Card.Transport.W1, TlSLB1);
                         ShowWeapon(Card.Transport.W2, TlSLB2);
-                        ShowWeapon(Card.Transport.W3, TlSLB3); 
+                        ShowWeapon(Card.Transport.W3, TlSLB3);
                     }
                     else
                     {
@@ -5514,7 +5516,7 @@ function btDecode()
                         TlSUPunitTAV.Content = "";
                         ShowWeapon(MasterDeck.nullWeapon, TlSLB1);
                         ShowWeapon(MasterDeck.nullWeapon, TlSLB2);
-                        ShowWeapon(MasterDeck.nullWeapon, TlSLB3); 
+                        ShowWeapon(MasterDeck.nullWeapon, TlSLB3);
 
                     }
                     break;
@@ -5561,7 +5563,7 @@ function btDecode()
                         TlTNKunitTAV.Content = Card.Transport.iaArmor[3];
                         ShowWeapon(Card.Transport.W1, TlTLB1);
                         ShowWeapon(Card.Transport.W2, TlTLB2);
-                        ShowWeapon(Card.Transport.W3, TlTLB3); 
+                        ShowWeapon(Card.Transport.W3, TlTLB3);
                     }
                     else
                     {
@@ -5584,7 +5586,7 @@ function btDecode()
                         TlTNKunitTAV.Content = "";
                         ShowWeapon(MasterDeck.nullWeapon, TlTLB1);
                         ShowWeapon(MasterDeck.nullWeapon, TlTLB2);
-                        ShowWeapon(MasterDeck.nullWeapon, TlTLB3); 
+                        ShowWeapon(MasterDeck.nullWeapon, TlTLB3);
 
                     }
                     break;
@@ -5631,7 +5633,7 @@ function btDecode()
                         TlRECunitTAV.Content = Card.Transport.iaArmor[3];
                         ShowWeapon(Card.Transport.W1, TlRLB1);
                         ShowWeapon(Card.Transport.W2, TlRLB2);
-                        ShowWeapon(Card.Transport.W3, TlRLB3); 
+                        ShowWeapon(Card.Transport.W3, TlRLB3);
                     }
                     else
                     {
@@ -5654,7 +5656,7 @@ function btDecode()
                         TlRECunitTAV.Content = "";
                         ShowWeapon(MasterDeck.nullWeapon, TlRLB1);
                         ShowWeapon(MasterDeck.nullWeapon, TlRLB2);
-                        ShowWeapon(MasterDeck.nullWeapon, TlRLB3); 
+                        ShowWeapon(MasterDeck.nullWeapon, TlRLB3);
 
                     }
                     break;
@@ -5701,7 +5703,7 @@ function btDecode()
                         TlVEHunitTAV.Content = Card.Transport.iaArmor[3];
                         ShowWeapon(Card.Transport.W1, TlVLB1);
                         ShowWeapon(Card.Transport.W2, TlVLB2);
-                        ShowWeapon(Card.Transport.W3, TlVLB3); 
+                        ShowWeapon(Card.Transport.W3, TlVLB3);
                     }
                     else
                     {
@@ -5724,7 +5726,7 @@ function btDecode()
                         TlVEHunitTAV.Content = "";
                         ShowWeapon(MasterDeck.nullWeapon, TlVLB1);
                         ShowWeapon(MasterDeck.nullWeapon, TlVLB2);
-                        ShowWeapon(MasterDeck.nullWeapon, TlVLB3); 
+                        ShowWeapon(MasterDeck.nullWeapon, TlVLB3);
 
                     }
                     break;
@@ -5771,7 +5773,7 @@ function btDecode()
                         TlHELunitTAV.Content = Card.Transport.iaArmor[3];
                         ShowWeapon(Card.Transport.W1, TlHLB1);
                         ShowWeapon(Card.Transport.W2, TlHLB2);
-                        ShowWeapon(Card.Transport.W3, TlHLB3); 
+                        ShowWeapon(Card.Transport.W3, TlHLB3);
                     }
                     else
                     {
@@ -5794,7 +5796,7 @@ function btDecode()
                         TlHELunitTAV.Content = "";
                         ShowWeapon(MasterDeck.nullWeapon, TlHLB1);
                         ShowWeapon(MasterDeck.nullWeapon, TlHLB2);
-                        ShowWeapon(MasterDeck.nullWeapon, TlHLB3); 
+                        ShowWeapon(MasterDeck.nullWeapon, TlHLB3);
 
                     }
                     break;
@@ -5841,7 +5843,7 @@ function btDecode()
                         TlAIRunitTAV.Content = Card.Transport.iaArmor[3];
                         ShowWeapon(Card.Transport.W1, TlALB1);
                         ShowWeapon(Card.Transport.W2, TlALB2);
-                        ShowWeapon(Card.Transport.W3, TlALB3); 
+                        ShowWeapon(Card.Transport.W3, TlALB3);
                     }
                     else
                     {
@@ -5864,7 +5866,7 @@ function btDecode()
                         TlAIRunitTAV.Content = "";
                         ShowWeapon(MasterDeck.nullWeapon, TlALB1);
                         ShowWeapon(MasterDeck.nullWeapon, TlALB2);
-                        ShowWeapon(MasterDeck.nullWeapon, TlALB3); 
+                        ShowWeapon(MasterDeck.nullWeapon, TlALB3);
 
                     }
                     break;
@@ -5935,11 +5937,11 @@ function btDecode()
                     return optika + ": Poor";
                 case 2:
                     return optika + ": Medium";
-                case 3:                     
+                case 3:
                     return optika + ": Good";
-                case 4:               
+                case 4:
                     return optika + ": Very good";
-                case 5:                 
+                case 5:
                     return optika + ": Exceptional";
             }
             return "Steevie Wonder";
@@ -5974,7 +5976,7 @@ function btDecode()
             }
             temp = Math.Round(temp / 100);
             int iAv = (int)temp;
-            
+
             switch (Card.iArrayIndex)
             {
                 case 0:  { A200.Content = iAv; A100.Content = iAv; A200.Visibility = Visibility.Visible; A100.Visibility = Visibility.Visible; break; }
@@ -9724,7 +9726,7 @@ function btDecode()
             laAIRc82.Content = "";
             AIRco82.Content = "";
             #endregion AUX
-			
+
 			#region numbers
 			A100.Visibility = Visibility.Hidden;
 			A101.Visibility = Visibility.Hidden;
@@ -9798,7 +9800,7 @@ function btDecode()
 			A176.Visibility = Visibility.Hidden;
 			A177.Visibility = Visibility.Hidden;
 			A178.Visibility = Visibility.Hidden;
-			
+
 			A200.Visibility = Visibility.Hidden;
 			A201.Visibility = Visibility.Hidden;
 			A202.Visibility = Visibility.Hidden;
@@ -9946,7 +9948,7 @@ function btDecode()
 			laAIR61.Visibility = Visibility.Hidden;
 			laAIR71.Visibility = Visibility.Hidden;
 			laAIR81.Visibility = Visibility.Hidden;
-			
+
 			laLOG02.Visibility = Visibility.Hidden;
 			laLOG12.Visibility = Visibility.Hidden;
 			laLOG22.Visibility = Visibility.Hidden;
@@ -10105,8 +10107,7 @@ function btDecode()
         }
 */
 
-        #region CLICK COMMANDS
-        
+
 /*
         #region Delete buttons
         private void btLOG0_Click(object sender, RoutedEventArgs e)
@@ -10625,7 +10626,7 @@ function btDecode()
                     else
                     {
                         btLOGEliteAdd.IsEnabled = false;
-                    } 
+                    }
                 }
                 else
                 {
@@ -11260,7 +11261,7 @@ function btDecode()
                     else
                     {
                         btVEHEliteAdd.IsEnabled = false;
-                    } 
+                    }
                 }
                 else
                 {
@@ -11388,7 +11389,7 @@ function btDecode()
                     else
                     {
                         btHELEliteAdd.IsEnabled = false;
-                    } 
+                    }
                 }
                 else
                 {
@@ -11516,7 +11517,7 @@ function btDecode()
                     else
                     {
                         btAIREliteAdd.IsEnabled = false;
-                    } 
+                    }
                 }
                 else
                 {
@@ -11675,11 +11676,11 @@ function btDecode()
         {
             MasterDeck = new DeckDisAssembly();
             resetDisplay();
-            GUIDisplay(MasterDeck); 
+            GUIDisplay(MasterDeck);
             double[] flagstr = new double[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
             showFlags(flagstr);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
-        }        
+        }
         #endregion
 */
 /*
@@ -11896,6 +11897,3 @@ function btDecode()
         }
 
         #endregion Specialtyconverter*/
-    }
-
-}

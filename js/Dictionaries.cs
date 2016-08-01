@@ -9,7 +9,6 @@ namespace FADeckBuilder
 {
     class Dictionaries
     {
-        public Dictionary<char, int> UTFlook = new Dictionary<char, int>();
         public Dictionary<string, char> B36look = new Dictionary<string, char>();
         public Dictionary<int, string> NATlook = new Dictionary<int, string>();
         public Dictionary<int, string> SPClook = new Dictionary<int, string>();
@@ -26,74 +25,6 @@ namespace FADeckBuilder
             buildVET();
             buildB36();
 
-        }
-
-        public void buildUTF()
-        {
-            UTFlook.Add('A', 0);
-            UTFlook.Add('B', 1);
-            UTFlook.Add('C', 2);
-            UTFlook.Add('D', 3);
-            UTFlook.Add('E', 4);
-            UTFlook.Add('F', 5);
-            UTFlook.Add('G', 6);
-            UTFlook.Add('H', 7);
-            UTFlook.Add('I', 8);
-            UTFlook.Add('J', 9);
-            UTFlook.Add('K', 10);
-            UTFlook.Add('L', 11);
-            UTFlook.Add('M', 12);
-            UTFlook.Add('N', 13);
-            UTFlook.Add('O', 14);
-            UTFlook.Add('P', 15);
-            UTFlook.Add('Q', 16);
-            UTFlook.Add('R', 17);
-            UTFlook.Add('S', 18);
-            UTFlook.Add('T', 19);
-            UTFlook.Add('U', 20);
-            UTFlook.Add('V', 21);
-            UTFlook.Add('W', 22);
-            UTFlook.Add('X', 23);
-            UTFlook.Add('Y', 24);
-            UTFlook.Add('Z', 25);
-            UTFlook.Add('a', 26);
-            UTFlook.Add('b', 27);
-            UTFlook.Add('c', 28);
-            UTFlook.Add('d', 29);
-            UTFlook.Add('e', 30);
-            UTFlook.Add('f', 31);
-            UTFlook.Add('g', 32);
-            UTFlook.Add('h', 33);
-            UTFlook.Add('i', 34);
-            UTFlook.Add('j', 35);
-            UTFlook.Add('k', 36);
-            UTFlook.Add('l', 37);
-            UTFlook.Add('m', 38);
-            UTFlook.Add('n', 39);
-            UTFlook.Add('o', 40);
-            UTFlook.Add('p', 41);
-            UTFlook.Add('q', 42);
-            UTFlook.Add('r', 43);
-            UTFlook.Add('s', 44);
-            UTFlook.Add('t', 45);
-            UTFlook.Add('u', 46);
-            UTFlook.Add('v', 47);
-            UTFlook.Add('w', 48);
-            UTFlook.Add('x', 49);
-            UTFlook.Add('y', 50);
-            UTFlook.Add('z', 51);
-            UTFlook.Add('0', 52);
-            UTFlook.Add('1', 53);
-            UTFlook.Add('2', 54);
-            UTFlook.Add('3', 55);
-            UTFlook.Add('4', 56);
-            UTFlook.Add('5', 57);
-            UTFlook.Add('6', 58);
-            UTFlook.Add('7', 59);
-            UTFlook.Add('8', 60);
-            UTFlook.Add('9', 61);
-            UTFlook.Add('+', 62);
-            UTFlook.Add('/', 63);
         }
 
         public void buildB36()
@@ -166,7 +97,7 @@ namespace FADeckBuilder
 
         public void buildNAT()
         {
-            NATlook.Add(10, "USA");		
+            NATlook.Add(10, "USA");
             NATlook.Add(26, "UK");
             NATlook.Add(42, "FRA");
             NATlook.Add(58, "BRD");
@@ -189,9 +120,9 @@ namespace FADeckBuilder
             NATlook.Add(266, "DDR");
             NATlook.Add(282, "USSR");
             NATlook.Add(298, "POL");
-            NATlook.Add(314, "CZS");  
-            NATlook.Add(330, "PRC");  
-            NATlook.Add(346, "DPRK"); 
+            NATlook.Add(314, "CZS");
+            NATlook.Add(330, "PRC");
+            NATlook.Add(346, "DPRK");
             NATlook.Add(356, "RD");
             NATlook.Add(357, "NSWP");
             NATlook.Add(359, "SOVKOR");
@@ -255,7 +186,7 @@ namespace FADeckBuilder
             int i4s=0, i6s=0, i8s=0;
             /*          **EUGEN** deck decoding
              * ->bin blob grouped into bytes (8bit, padded to 0), back to bin blob
-             * ->new bin blob cut to 6bits, converted to chars, then grouped by 4 (= as padding)             
+             * ->new bin blob cut to 6bits, converted to chars, then grouped by 4 (= as padding)
             */
             foreach (char x in caBinary)
             {
