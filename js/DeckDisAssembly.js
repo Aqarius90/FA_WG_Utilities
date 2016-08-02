@@ -2,17 +2,17 @@
 {
     /*MainDB MainCardDatabase = new MainDB();
     Dictionaries Dicts = new Dictionaries();*/
-    var sSide = "NONE";
-    var sNation = "NONE";
-    var sSpec = "NONE";
-    var sEra = "NONE";
-    var i3Cards = 0;
-    var i2Cards = 0;
-    var i1Cards = 0;
-    var iSide = 0;
-    var Cards0T = [];
-    var Cards1T = [];
-    var Cards2T = [];
+    this.sSide = "NONE";
+    this.sNation = "NONE";
+    this.sSpec = "NONE";
+    this.sEra = "NONE";
+    this.i3Cards = 0;
+    this.i2Cards = 0;
+    this.i1Cards = 0;
+    this.iSide = 0;
+    this.Cards0T = [];
+    this.Cards1T = [];
+    this.Cards2T = [];
     /*var List<VehicleCard> LOG = new List<VehicleCard>();
     var List<VehicleCard> INF = new List<VehicleCard>();
     var List<VehicleCard> SUP = new List<VehicleCard>();
@@ -73,8 +73,39 @@ function debugUnitsOut(){
     var row = table.insertRow(table.rows.length);
     var binary = row.insertCell(0);
     var parse = row.insertCell(1);
-    binary.innerHTML = Cards2T[i].id;
-    parse.innerHTML = Cards2T[i].name;
+    binary.innerHTML = MasterDeck.Cards2T[i].Unit.iUnitID;
+    parse.innerHTML = MasterDeck.Cards2T[i].Unit.sNameU;
+    row = table.insertRow(table.rows.length);
+    binary = row.insertCell(0);
+    parse = row.insertCell(1);
+    binary.innerHTML = MasterDeck.Cards2T[i].Transport.iUnitID;
+    parse.innerHTML = MasterDeck.Cards2T[i].Transport.sNameU;
+    row = table.insertRow(table.rows.length);
+    binary = row.insertCell(0);
+    parse = row.insertCell(1);
+    binary.innerHTML = MasterDeck.Cards2T[i].Craft.iUnitID;
+    parse.innerHTML = MasterDeck.Cards2T[i].Craft.sNameU;
+  }
+  for (var i = 0; i < i2Cards; i++) {
+    var table = document.getElementById("debugTable");
+    var row = table.insertRow(table.rows.length);
+    var binary = row.insertCell(0);
+    var parse = row.insertCell(1);
+    binary.innerHTML = MasterDeck.Cards1T[i].Unit.iUnitID;
+    parse.innerHTML = MasterDeck.Cards1T[i].Unit.sNameU;
+    row = table.insertRow(table.rows.length);
+    binary = row.insertCell(0);
+    parse = row.insertCell(1);
+    binary.innerHTML = MasterDeck.Cards1T[i].Transport.iUnitID;
+    parse.innerHTML = MasterDeck.Cards1T[i].Transport.sNameU;
+  }
+  for (var i = 0; i < i1Cards; i++) {
+    var table = document.getElementById("debugTable");
+    var row = table.insertRow(table.rows.length);
+    var binary = row.insertCell(0);
+    var parse = row.insertCell(1);
+    binary.innerHTML = MasterDeck.Cards0T[i].Unit.iUnitID;
+    parse.innerHTML = MasterDeck.Cards0T[i].Unit.sNameU;
   }
 }
 
@@ -244,9 +275,9 @@ function decodeDeck (deckCode)
         sEra +=  deckBinary.charAt(i);
     }
     sEra = parseInt(sEra, 2);
-    if (sEra == 0) { sEra = "MOTO"; } else
-    if (sEra == 1) { sEra = "ARM"; } else
-    if (sEra == 2) { sEra = "SUP"; }
+    if (sEra == 0) { sEra = "C"; } else
+    if (sEra == 1) { sEra = "B"; } else
+    if (sEra == 2) { sEra = "A"; }
 
     //Units
     var s3Count = "";
@@ -268,7 +299,6 @@ function decodeDeck (deckCode)
     var iPC = 23; //pos counter
     for (var i = 0; i < i3Cards; i++) //for each unit
     {
-    console.log(i);
         var sVet = "", sUnit = "", sIFV = "", sCraft = "";
         for (var j = iPC; j <= (iPC + 2); j++) //find vet
         {
@@ -290,85 +320,73 @@ function decodeDeck (deckCode)
             sCraft += deckBinary.charAt(j);
         }
         iPC += 10;
-        console.log(sUnit);
-        console.log(iSide);
-        //var dcUnit = CardsDB[parseInt(sUnit, 2)][iSide];
         var iUnit = parseInt(sUnit, 2);
-        console.log(iUnit);
-        var temp = CardsDB[iUnit,iSide];
-        console.log(temp);
+        var iIFV = parseInt(sIFV, 2);
+        var iCraft = parseInt(sCraft, 2);
+        var Unit = CardsDB[iUnit][iSide];
+        var Ifv = CardsDB[iIFV][iSide];
+        var Craft = CardsDB[iCraft][iSide];
+        MasterDeck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, Craft);
+        MasterDeck.Cards2T[i].Unit.sUnitData = MasterDeck.Cards2T[i].Unit.sUnitData.substr(0, 17)+ "000000001";//is not regular inf
+        //Cards2T[i] = toGen(Cards2T[i]);   <<TO IMPLEMENT LATER
+    }
 
-        window.MasterDeck.Cards2T[i] = CardsDB[iUnit,iSide];
-        console.log(Cards2T[i].name);
-        //Datacard dcIFV = MainCardDatabase.dbQuery(Convert.ToInt32(sIFV, 2), iSide);
-        //Datacard dcCraft = MainCardDatabase.dbQuery(Convert.ToInt32(sCraft, 2), iSide);
-        //VehicleCard vcCard = new VehicleCard(dcUnit, dcIFV, dcCraft);
-        //Cards2T[i] = vcCard;
-        //Cards2T[i].sVeterancy = sVet;
-        //Cards2T[i].iVet = Convert.ToInt32(Cards2T[i].sVeterancy, 2);
-        //Cards2T[i].Unit.caUnitData[18] = '0'; //is not regular inf
-        //Cards2T[i].Unit.caUnitData[25] = '1'; // is naval deployed
-        //Cards2T[i] = toGen(Cards2T[i]);
-
-        debugUnitsOut();
-    }}/*
     for (var i = 0; i < i2Cards; i++)
     {
         var sVet = "", sUnit = "", sIFV = "";
         for (var j = iPC; j <= (iPC + 2); j++)
         {
-            sVet += caDeckChars[j];
+            sVet += deckBinary.charAt(j);
         }
         iPC += 3;
         for (var j = iPC; j <= (iPC + 9); j++)
         {
-            sUnit += caDeckChars[j];
+            sUnit += deckBinary.charAt(j);
         }
         iPC += 10;
         for (var j = iPC; j <= (iPC + 9); j++)
         {
-            sIFV += caDeckChars[j];
+            sIFV += deckBinary.charAt(j);
         }
         iPC += 10;
-        Datacard dcUnit = MainCardDatabase.dbQuery(Convert.ToInt32(sUnit, 2), iSide);
-        Datacard dcIFV = MainCardDatabase.dbQuery(Convert.ToInt32(sIFV, 2), iSide);
-        VehicleCard vcCard = new VehicleCard(dcUnit, dcIFV);
-        Cards1T[i] = vcCard;
-        Cards1T[i].sVeterancy = sVet;
-        Cards1T[i].iVet = Convert.ToInt32(Cards1T[i].sVeterancy, 2);
-        if (Cards1T[i].Unit.caUnitData[18] == '1')// if not inf
+        var iUnit = parseInt(sUnit, 2);
+        var iIFV = parseInt(sIFV, 2);
+        var Unit = CardsDB[iUnit][iSide];
+        var Ifv = CardsDB[iIFV][iSide];
+        MasterDeck.Cards1T[i] = new VehicleCard(sVet, Unit, Ifv, 0);
+        if (MasterDeck.Cards1T[i].Unit.sUnitData.charAt(18) == '1')// if not inf
         {
-            Cards1T[i].Unit.caUnitData[25] = '1'; // is naval deployed
+              MasterDeck.Cards1T[i].Unit.sUnitData = MasterDeck.Cards1T[i].Unit.sUnitData.substr(0, 17)+ "000000001"; // is naval
         };
-        Cards1T[i] = toGen(Cards1T[i]);
+        //Cards1T[i] = toGen(Cards1T[i]); <<TO IMPLEMENT LATER
     }
-    var iLenght = caDeckChars.Length - iPC;
-    while (iLenght > 12)
+
+    var iLength = deckBinary.length - iPC;
+    while (iLength > 12)
     {
         var sVet = "", sUnit = "";
         for (var j = iPC; j <= (iPC + 2); j++)
         {
-            sVet += caDeckChars[j];
+            sVet += deckBinary.charAt(j);
         }
         iPC += 3;
         for (var j = iPC; j <= (iPC + 9); j++)
         {
-            sUnit += caDeckChars[j];
-                }
-                iPC += 10;
-                iLenght = caDeckChars.Length - iPC;
+            sUnit += deckBinary.charAt(j);
+        }
+        iPC += 10;
+        iLength = deckBinary.length - iPC;
 
-                Datacard dcUnit = MainCardDatabase.dbQuery(Convert.ToInt32(sUnit, 2), iSide);
-                VehicleCard vcCard = new VehicleCard(dcUnit);
-                Cards0T[i1Cards] = vcCard;
-                Cards0T[i1Cards].sVeterancy = sVet;
-                Cards0T[i1Cards].iVet = Convert.ToInt32(Cards0T[i1Cards].sVeterancy, 2);
-                Cards0T[i1Cards] = toGen(Cards0T[i1Cards]);
+        var iUnit = parseInt(sUnit, 2);
+        var Unit = CardsDB[iUnit][iSide];
+        MasterDeck.Cards0T[i1Cards] = new VehicleCard(sVet, Unit, 0, 0);
+        //Cards0T[i1Cards] = toGen(Cards0T[i1Cards]); <<TO IMPLEMENT LATER
+        i1Cards++;
+    }
+    //cardDisplaySort(Cards0T, Cards1T, Cards2T);
+    debugUnitsOut();
+}
 
-                i1Cards++;
-            }
-            cardDisplaySort(Cards0T, Cards1T, Cards2T);
-        }*/
 /*
         private void cardDisplaySort(VehicleCard[] c0T, VehicleCard[] c1T, VehicleCard[] c2T)
         {

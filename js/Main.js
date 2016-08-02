@@ -1,6 +1,9 @@
 ﻿//var Dicts = new Dictionaries();
 window.MasterDeck = new DeckAssembly();
-window.CardsDB = [[],[]];
+window.CardsDB = new Array(1024);
+for (var i = 0; i < 1025; i++) {
+  CardsDB[i]=Array(2);
+}
 initMainDB();
 var selectedCards = [];
 var deckpoints = 0;
@@ -11,10 +14,138 @@ var deckpoitstotal = 45;
 function btDecode()
 {
     DeckDisAssembly();
-    //GUIDisplay(MasterDeck);
+    GUIDisplay();
     //txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
 }
 
+function GUIDisplay()
+{
+
+  //  updatePointsDisplay(MainMatrix.blank);
+  //  deckpoints = 0;
+  /*  deckpoitstotal = 45;
+    resetDisplay();
+    dgDebug.Items.Clear();
+    #region header display, nation list
+    //nation
+    int key = Dicts.NATlook.FirstOrDefault(x => x.Value == DAmain.sNation).Key;
+    switch (key)
+    {
+        case 10:{displayUSA(); break; }
+        case 26:{displayUK(); break; }
+        case 42:{displayFRA(); break;}
+        case 58:{displayBRD(); break;}
+        case 74:{displayCAN(); break;}
+        case 90:{displayDEN(); break;}
+        case 106:{displaySWE(); break;}
+        case 122:{displayNOR(); break;}
+        case 138:{displayANZAC(); break;}
+        case 154:{displayJAP(); break;}
+        case 170:{displayROK(); break;}
+        case 186:{displayNED(); break;}
+        case 192:{displayEU(); break;}
+        case 193:{displaySCA(); break;}
+        case 194:{displayCOM(); break;}
+        case 195:{displayBD(); break;}
+        case 198:{displayLJ(); break;}
+        case 200:{displayNORAD(); break;}
+        case 201:{displayBDRNL(); break;}
+        case 202:{displayNato(); break;}
+        case 266:{displayDDR(); break;}
+        case 282:{displayUSSR(); break;}
+        case 298:{displayPOL(); break;}
+        case 314:{displayCZS(); break;}
+        case 330:{displayPRC(); break;}
+        case 346:{displayDPRK(); break;}
+        case 356:{displayRD(); break;}
+        case 357:{displayNSWP(); break;}
+        case 359:{displayRKA(); break;}
+        case 362:{displayREDFOR(); break;}
+    }
+    var converter = new System.Windows.Media.BrushConverter();
+    var brush = (Brush)converter.ConvertFromString("Lime");
+    //spec
+    key = Dicts.SPClook.FirstOrDefault(x => x.Value == DAmain.sSpec).Key;
+    switch (key)
+    {
+        case 0://moto
+            btMotorized.BorderBrush = brush;
+            updatePointsDisplay(MainMatrix.moto);
+            lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
+            break;
+        case 1://arm
+            btArmoured.BorderBrush = brush;
+            updatePointsDisplay(MainMatrix.armoured);
+            lbSpec.Content = "+4 cards, +2XP, -1 cost: Tank";
+            break;
+        case 2://sup
+            btSupport.BorderBrush = brush;
+            updatePointsDisplay(MainMatrix.support);
+            lbSpec.Content = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";
+            break;
+        case 3://mar
+            btMarine.BorderBrush = brush;
+            updatePointsDisplay(MainMatrix.marine);
+            lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Vehicle";
+            break;
+        case 4://mec
+            btMechanized.BorderBrush = brush;
+            updatePointsDisplay(MainMatrix.mech);
+            lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";
+            break;
+        case 5://air
+            btAirborne.BorderBrush = brush;
+            updatePointsDisplay(MainMatrix.airborne);
+            lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";
+            break;
+        case 6://nav
+            break;
+        case 7://gen
+            btGeneral.BorderBrush = brush;
+            updatePointsDisplay(MainMatrix.general);
+            lbSpec.Content = "no bonus";
+            break;
+    }
+    key = Dicts.ERAlook.FirstOrDefault(x => x.Value == DAmain.sEra).Key;
+    switch (key)
+    {
+        case 0://C
+            btCatC.BorderBrush = brush;
+            lbEra.Content = "+10AP";
+            deckpoitstotal += 10;
+            break;
+        case 1://B
+            btCatB.BorderBrush = brush;
+            lbEra.Content = "+5AP";
+            deckpoitstotal += 5;
+            break;
+        case 2://A
+            btCatA.BorderBrush = brush;
+            lbEra.Content = "+0AP";
+            break;
+    }
+    #endregion header display
+    decklist = MasterDeck.dbDeckList();
+    listUnits(decklist);
+    dgDeckLog.ItemsSource = LOGLIST;
+    dgDeckInf.ItemsSource = INFLIST;
+    dgDeckSup.ItemsSource = SUPLIST;
+    dgDeckTnk.ItemsSource = TNKLIST;
+    dgDeckRec.ItemsSource = RECLIST;
+    dgDeckVeh.ItemsSource = VEHLIST;
+    dgDeckHel.ItemsSource = HELLIST;
+    dgDeckAir.ItemsSource = AIRLIST;
+    displayLogUnits(MasterDeck.LOG);
+    displayInfUnits(MasterDeck.INF);
+    displaySupUnits(MasterDeck.SUP);
+    displayTnkUnits(MasterDeck.TNK);
+    displayRecUnits(MasterDeck.REC);
+    displayVehUnits(MasterDeck.VEH);
+    displayHelUnits(MasterDeck.HEL);
+    displayAirUnits(MasterDeck.AIR);
+    LBPoints.Content = deckpoints + "/" + deckpoitstotal;
+    PrintDebug();*/
+}
 
 /*
         List<VehicleCard> decklist { get; set; }
@@ -821,139 +952,7 @@ function btDecode()
         }
         #endregion ENCODE SELECT LAND
 */
-/*
-        private void GUIDisplay(DeckDisAssembly DAmain)
-        {
-            updatePointsDisplay(MainMatrix.blank);
-            deckpoints = 0;
-            deckpoitstotal = 45;
-            resetDisplay();
-            dgDebug.Items.Clear();
-            #region header display, nation list
-            //nation
-            int key = Dicts.NATlook.FirstOrDefault(x => x.Value == DAmain.sNation).Key;
-            switch (key)
-            {
-                case 10:{displayUSA(); break; }
-                case 26:{displayUK(); break; }
-                case 42:{displayFRA(); break;}
-                case 58:{displayBRD(); break;}
-                case 74:{displayCAN(); break;}
-                case 90:{displayDEN(); break;}
-                case 106:{displaySWE(); break;}
-                case 122:{displayNOR(); break;}
-                case 138:{displayANZAC(); break;}
-                case 154:{displayJAP(); break;}
-                case 170:{displayROK(); break;}
-                case 186:{displayNED(); break;}
-                case 192:{displayEU(); break;}
-                case 193:{displaySCA(); break;}
-                case 194:{displayCOM(); break;}
-                case 195:{displayBD(); break;}
-                case 198:{displayLJ(); break;}
-                case 200:{displayNORAD(); break;}
-                case 201:{displayBDRNL(); break;}
-                case 202:{displayNato(); break;}
-                case 266:{displayDDR(); break;}
-                case 282:{displayUSSR(); break;}
-                case 298:{displayPOL(); break;}
-                case 314:{displayCZS(); break;}
-                case 330:{displayPRC(); break;}
-                case 346:{displayDPRK(); break;}
-                case 356:{displayRD(); break;}
-                case 357:{displayNSWP(); break;}
-                case 359:{displayRKA(); break;}
-                case 362:{displayREDFOR(); break;}
-            }
 
-            var converter = new System.Windows.Media.BrushConverter();
-            var brush = (Brush)converter.ConvertFromString("Lime");
-            //spec
-            key = Dicts.SPClook.FirstOrDefault(x => x.Value == DAmain.sSpec).Key;
-            switch (key)
-            {
-                case 0://moto
-                    btMotorized.BorderBrush = brush;
-                    updatePointsDisplay(MainMatrix.moto);
-                    lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
-                    break;
-                case 1://arm
-                    btArmoured.BorderBrush = brush;
-                    updatePointsDisplay(MainMatrix.armoured);
-                    lbSpec.Content = "+4 cards, +2XP, -1 cost: Tank";
-                    break;
-                case 2://sup
-                    btSupport.BorderBrush = brush;
-                    updatePointsDisplay(MainMatrix.support);
-                    lbSpec.Content = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";
-                    break;
-                case 3://mar
-                    btMarine.BorderBrush = brush;
-                    updatePointsDisplay(MainMatrix.marine);
-                    lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Vehicle";
-                    break;
-                case 4://mec
-                    btMechanized.BorderBrush = brush;
-                    updatePointsDisplay(MainMatrix.mech);
-                    lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";
-                    break;
-                case 5://air
-                    btAirborne.BorderBrush = brush;
-                    updatePointsDisplay(MainMatrix.airborne);
-                    lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";
-                    break;
-                case 6://nav
-                    break;
-                case 7://gen
-                    btGeneral.BorderBrush = brush;
-                    updatePointsDisplay(MainMatrix.general);
-                    lbSpec.Content = "no bonus";
-                    break;
-            }
-
-            key = Dicts.ERAlook.FirstOrDefault(x => x.Value == DAmain.sEra).Key;
-            switch (key)
-            {
-                case 0://C
-                    btCatC.BorderBrush = brush;
-                    lbEra.Content = "+10AP";
-                    deckpoitstotal += 10;
-                    break;
-                case 1://B
-                    btCatB.BorderBrush = brush;
-                    lbEra.Content = "+5AP";
-                    deckpoitstotal += 5;
-                    break;
-                case 2://A
-                    btCatA.BorderBrush = brush;
-                    lbEra.Content = "+0AP";
-                    break;
-            }
-            #endregion header display
-
-
-            decklist = MasterDeck.dbDeckList();
-            listUnits(decklist);
-            dgDeckLog.ItemsSource = LOGLIST;
-            dgDeckInf.ItemsSource = INFLIST;
-            dgDeckSup.ItemsSource = SUPLIST;
-            dgDeckTnk.ItemsSource = TNKLIST;
-            dgDeckRec.ItemsSource = RECLIST;
-            dgDeckVeh.ItemsSource = VEHLIST;
-            dgDeckHel.ItemsSource = HELLIST;
-            dgDeckAir.ItemsSource = AIRLIST;
-            displayLogUnits(MasterDeck.LOG);
-            displayInfUnits(MasterDeck.INF);
-            displaySupUnits(MasterDeck.SUP);
-            displayTnkUnits(MasterDeck.TNK);
-            displayRecUnits(MasterDeck.REC);
-            displayVehUnits(MasterDeck.VEH);
-            displayHelUnits(MasterDeck.HEL);
-            displayAirUnits(MasterDeck.AIR);
-            LBPoints.Content = deckpoints + "/" + deckpoitstotal;
-            PrintDebug();
-        }
-*/
 /*
         private void updatePointsDisplay(int[][] DA)
         {
