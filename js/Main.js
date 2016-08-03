@@ -1,150 +1,21 @@
-﻿//var Dicts = new Dictionaries();
-window.MasterDeck = new DeckAssembly();
+//var Dicts = new Dictionaries();
+window.Deck = new DeckAssembly();
 window.CardsDB = new Array(1024);
+window.GUI = new ModelGUI();
 for (var i = 0; i < 1025; i++) {
   CardsDB[i]=Array(2);
 }
 initMainDB();
 var selectedCards = [];
-var deckpoints = 0;
-var deckpoitstotal = 45;
 
 //GUIDisplay(MasterDeck)
 
 function btDecode()
 {
+    debugClear();
     DeckDisAssembly();
     GUIDisplay();
     //txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
-}
-
-function GUIDisplay()
-{
-
-  //  updatePointsDisplay(MainMatrix.blank);
-  //  deckpoints = 0;
-  /*  deckpoitstotal = 45;
-    resetDisplay();
-    dgDebug.Items.Clear();
-    #region header display, nation list
-    //nation
-    int key = Dicts.NATlook.FirstOrDefault(x => x.Value == DAmain.sNation).Key;
-    switch (key)
-    {
-        case 10:{displayUSA(); break; }
-        case 26:{displayUK(); break; }
-        case 42:{displayFRA(); break;}
-        case 58:{displayBRD(); break;}
-        case 74:{displayCAN(); break;}
-        case 90:{displayDEN(); break;}
-        case 106:{displaySWE(); break;}
-        case 122:{displayNOR(); break;}
-        case 138:{displayANZAC(); break;}
-        case 154:{displayJAP(); break;}
-        case 170:{displayROK(); break;}
-        case 186:{displayNED(); break;}
-        case 192:{displayEU(); break;}
-        case 193:{displaySCA(); break;}
-        case 194:{displayCOM(); break;}
-        case 195:{displayBD(); break;}
-        case 198:{displayLJ(); break;}
-        case 200:{displayNORAD(); break;}
-        case 201:{displayBDRNL(); break;}
-        case 202:{displayNato(); break;}
-        case 266:{displayDDR(); break;}
-        case 282:{displayUSSR(); break;}
-        case 298:{displayPOL(); break;}
-        case 314:{displayCZS(); break;}
-        case 330:{displayPRC(); break;}
-        case 346:{displayDPRK(); break;}
-        case 356:{displayRD(); break;}
-        case 357:{displayNSWP(); break;}
-        case 359:{displayRKA(); break;}
-        case 362:{displayREDFOR(); break;}
-    }
-    var converter = new System.Windows.Media.BrushConverter();
-    var brush = (Brush)converter.ConvertFromString("Lime");
-    //spec
-    key = Dicts.SPClook.FirstOrDefault(x => x.Value == DAmain.sSpec).Key;
-    switch (key)
-    {
-        case 0://moto
-            btMotorized.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.moto);
-            lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
-            break;
-        case 1://arm
-            btArmoured.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.armoured);
-            lbSpec.Content = "+4 cards, +2XP, -1 cost: Tank";
-            break;
-        case 2://sup
-            btSupport.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.support);
-            lbSpec.Content = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";
-            break;
-        case 3://mar
-            btMarine.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.marine);
-            lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Vehicle";
-            break;
-        case 4://mec
-            btMechanized.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.mech);
-            lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";
-            break;
-        case 5://air
-            btAirborne.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.airborne);
-            lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";
-            break;
-        case 6://nav
-            break;
-        case 7://gen
-            btGeneral.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.general);
-            lbSpec.Content = "no bonus";
-            break;
-    }
-    key = Dicts.ERAlook.FirstOrDefault(x => x.Value == DAmain.sEra).Key;
-    switch (key)
-    {
-        case 0://C
-            btCatC.BorderBrush = brush;
-            lbEra.Content = "+10AP";
-            deckpoitstotal += 10;
-            break;
-        case 1://B
-            btCatB.BorderBrush = brush;
-            lbEra.Content = "+5AP";
-            deckpoitstotal += 5;
-            break;
-        case 2://A
-            btCatA.BorderBrush = brush;
-            lbEra.Content = "+0AP";
-            break;
-    }
-    #endregion header display
-    decklist = MasterDeck.dbDeckList();
-    listUnits(decklist);
-    dgDeckLog.ItemsSource = LOGLIST;
-    dgDeckInf.ItemsSource = INFLIST;
-    dgDeckSup.ItemsSource = SUPLIST;
-    dgDeckTnk.ItemsSource = TNKLIST;
-    dgDeckRec.ItemsSource = RECLIST;
-    dgDeckVeh.ItemsSource = VEHLIST;
-    dgDeckHel.ItemsSource = HELLIST;
-    dgDeckAir.ItemsSource = AIRLIST;
-    displayLogUnits(MasterDeck.LOG);
-    displayInfUnits(MasterDeck.INF);
-    displaySupUnits(MasterDeck.SUP);
-    displayTnkUnits(MasterDeck.TNK);
-    displayRecUnits(MasterDeck.REC);
-    displayVehUnits(MasterDeck.VEH);
-    displayHelUnits(MasterDeck.HEL);
-    displayAirUnits(MasterDeck.AIR);
-    LBPoints.Content = deckpoints + "/" + deckpoitstotal;
-    PrintDebug();*/
 }
 
 /*
@@ -159,45 +30,8 @@ function GUIDisplay()
         ObservableCollection<deckRow> AIRLIST = new ObservableCollection<deckRow>();
         SpecMatrix MainMatrix = new SpecMatrix();
 */
+
 /*
-        #region encode flag displays, list units per nation displays
-        private void showFlags(double[] x)
-        {
-            btNATO.Opacity = x[0];
-            btREDFOR.Opacity = x[1];
-
-            btBD.Opacity = x[2];
-            btCOM.Opacity = x[3];
-            btEU.Opacity = x[4];
-            btLJ.Opacity = x[5];
-            btNORAD.Opacity = x[6];
-            btSCA.Opacity = x[7];
-            btNSWP.Opacity = x[8];
-            btRD.Opacity = x[9];
-            btRKA.Opacity = x[10];
-
-            btANZAC.Opacity = x[11];
-            btBRD.Opacity = x[12];
-            btCAN.Opacity = x[13];
-            btDEN.Opacity = x[14];
-            btFRA.Opacity = x[15];
-            btJAP.Opacity = x[16];
-            btNED.Opacity = x[17];
-            btNOR.Opacity = x[18];
-            btROK.Opacity = x[19];
-            btSWE.Opacity = x[20];
-            btUK.Opacity = x[21];
-            btUSA.Opacity = x[22];
-
-            btCZS.Opacity = x[23];
-            btDDR.Opacity = x[24];
-            btDPRK.Opacity = x[25];
-            btPOL.Opacity = x[26];
-            btPRC.Opacity = x[27];
-            btUSSR.Opacity = x[28];
-            btDutch.Opacity = x[29];
-        }
-
         private void listUnits(List<VehicleCard> dcUnits) //available units datagrid
         {
             foreach (VehicleCard x in dcUnits)
@@ -818,18 +652,9 @@ function GUIDisplay()
             MasterDeck.sNation = "USA";
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
-        }
+        }*/
 
-        private void displayUSA()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+10%, +15AP";
-            deckpoitstotal += 15;
-        }
+/*
 
         private void btCZS_Click(object sender, RoutedEventArgs e)
         {

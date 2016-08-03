@@ -8,8 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	  <script src="js/WeaponData.js"></script>
+    <script src="js/WeaponData.js"></script>
+    <script src="js/Display.js"></script>
     <script src="js/Database.js"></script>
+    <script src="js/debugFunctions.js"></script>
     <script src="js/DeckDisAssembly.js"></script>
     <script src="js/Main.js"></script>
 </head>
@@ -23,13 +25,13 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="sDeckString">
+            <input id="sDeckString" type="text" class="form-control">
           </div>
           <div class="col-sm-1">
-            <button type="button" class="btn btn-default btn-block btn-top-line" onclick="btDecode()">DECODE</button>
+            <button id="bDecode" type="button" class="btn btn-default btn-block btn-top-line" onclick="btDecode()">DECODE</button>
           </div>
           <div class="col-sm-1">
-            <button type="button" class="btn btn-default btn-block btn-top-line">CLEAR</button>
+            <button id="bClear" type="button" class="btn btn-default btn-block btn-top-line">CLEAR</button>
           </div>
         </div>
         <div class="row">
@@ -38,132 +40,132 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-sm-1">
-                    <button type="button"  class="btn btn-default btn-block">
-                      <img src="flags/nato.png" class="img-responsive" width="100%">
+                    <button id="bNATO" type="button"  class="btn btn-default btn-block">
+                      <img id="iNATO" src="flags/nato.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button"  class="btn btn-default btn-block">
-                      <img src="flags/REDFOR.png" class="img-responsive" width="100%">
+                    <button id="bREDFOR" type="button"  class="btn btn-default btn-block">
+                      <img id="iREDFOR" src="flags/REDFOR.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/BD.png" class="img-responsive" width="100%">
+                    <button id="bBD" type="button" class="btn btn-default btn-block">
+                      <img id="iBD" src="flags/BD.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/COM.png" class="img-responsive" width="100%">
+                    <button id="bCOM" type="button" class="btn btn-default btn-block">
+                      <img id="iCOM" src="flags/COM.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/EU.png" class="img-responsive" width="100%">
+                    <button id="bEU" type="button" class="btn btn-default btn-block">
+                      <img id="iEU" src="flags/EU.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/LJ.png" class="img-responsive" width="100%">
+                    <button id="bLJ" type="button" class="btn btn-default btn-block">
+                      <img id="iLJ" src="flags/LJ.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/NORAD.png" class="img-responsive" width="100%">
+                    <button id="bNORAD" type="button" class="btn btn-default btn-block">
+                      <img id="iNORAD" src="flags/NORAD.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/SCA.png" class="img-responsive" width="100%">
+                    <button id="bSCA" type="button" class="btn btn-default btn-block">
+                      <img id="iSCA" src="flags/SCA.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/BRDNL.png" class="img-responsive" width="100%">
+                    <button id="bBRDNL" type="button" class="btn btn-default btn-block">
+                      <img id="iBRDNL" src="flags/BRDNL.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/NSWP.png" class="img-responsive" width="100%">
+                    <button id="bNSWP" type="button" class="btn btn-default btn-block">
+                      <img id="iNSWP" src="flags/NSWP.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/RD.png" class="img-responsive" width="100%">
+                    <button id="bRD" type="button" class="btn btn-default btn-block">
+                      <img id="iRD" src="flags/RD.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/RKA.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/ANZAC.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/BRD.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/CAN.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/DEN.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/FRA.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/JAP.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/NED.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/NOR.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/ROK.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/SWE.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/UK.png" class="img-responsive" width="100%">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/USA.png" class="img-responsive" width="100%">
+                    <button id="bRKA" type="button" class="btn btn-default btn-block">
+                      <img id="iRKA" src="flags/RKA.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/ISR.png" class="img-responsive" width="100%">
+                    <button id="bANZAC" type="button" class="btn btn-default btn-block">
+                      <img id="iANZAC" src="flags/ANZAC.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bBRD" type="button" class="btn btn-default btn-block">
+                      <img id="iBRD" src="flags/BRD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bCAN" type="button" class="btn btn-default btn-block">
+                      <img id="iCAN" src="flags/CAN.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bDEN" type="button" class="btn btn-default btn-block">
+                      <img id="iDEN" src="flags/DEN.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bFRA" type="button" class="btn btn-default btn-block">
+                      <img id="iFRA" src="flags/FRA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bJAP" type="button" class="btn btn-default btn-block">
+                      <img id="iJAP" src="flags/JAP.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bNED" type="button" class="btn btn-default btn-block">
+                      <img id="iNED" src="flags/NED.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bNOR" type="button" class="btn btn-default btn-block">
+                      <img id="iNOR" src="flags/NOR.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bROK" type="button" class="btn btn-default btn-block">
+                      <img id="iROK" src="flags/ROK.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bSWE" type="button" class="btn btn-default btn-block">
+                      <img id="iSWE" src="flags/SWE.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bUK" type="button" class="btn btn-default btn-block">
+                      <img id="iUK" src="flags/UK.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bUSA" type="button" class="btn btn-default btn-block">
+                      <img id="iUSA" src="flags/USA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button id="bISR" type="button" class="btn btn-default btn-block">
+                      <img id="iISRb" src="flags/ISRb.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
@@ -191,42 +193,42 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/CZS.png" class="img-responsive" width="100%">
+                    <button id="bCZS" type="button" class="btn btn-default btn-block">
+                      <img id="iCZS" src="flags/CZS.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/DDR.png" class="img-responsive" width="100%">
+                    <button id="bDDR" type="button" class="btn btn-default btn-block">
+                      <img id="iDDR" src="flags/DDR.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/DPRK.png" class="img-responsive" width="100%"></button>
+                    <button id="bDPRK" type="button" class="btn btn-default btn-block">
+                      <img id="iDPRK" src="flags/DPRK.png" class="img-responsive" width="100%"></button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/POL.png" class="img-responsive" width="100%">
+                    <button id="bPOL" type="button" class="btn btn-default btn-block">
+                      <img id="iPOL" src="flags/POL.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/PRC.png" class="img-responsive" width="100%">
+                    <button id="bPRC" type="button" class="btn btn-default btn-block">
+                      <img id="iPRC" src="flags/PRC.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/USSR.png" class="img-responsive" width="100%">
+                    <button id="bUSSR" type="button" class="btn btn-default btn-block">
+                      <img id="iUSSR" id="iUSSR" src="flags/USSR.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/FIN.png" class="img-responsive" width="100%">
+                    <button id="bFIN" type="button" class="btn btn-default btn-block">
+                      <img id="iFIN" id="iFIN" src="flags/FINb.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default btn-block">
-                      <img src="flags/YU.png" class="img-responsive" width="100%">
+                    <button id="bYU" type="button" class="btn btn-default btn-block">
+                      <img id="iYU" src="flags/YUb.png" class="img-responsive" width="100%">
                     </button>
                   </div>
                 </div>
@@ -238,49 +240,49 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">Marine
+                    <button id="bMarine" type="button" class="btn btn-default btn-block">Marine
                     </button>
                   </div>
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">Airborne
+                    <button id="bAirborne" type="button" class="btn btn-default btn-block">Airborne
                     </button>
                   </div>
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">Mechanized
+                    <button id="bMechanized"id=""  type="button" class="btn btn-default btn-block">Mechanized
                     </button>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">Armoured
+                    <button id="bArmoured" type="button" class="btn btn-default btn-block">Armoured
                     </button>
                   </div>
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">Motorized
+                    <button id="bMotorized" type="button" class="btn btn-default btn-block">Motorized
                     </button>
                   </div>
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">Support
+                    <button id="bSupport" type="button" class="btn btn-default btn-block">Support
                     </button>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-12">
-                    <button type="button" class="btn btn-default btn-block">General
+                    <button id="bGeneral" type="button" class="btn btn-default btn-block">General
                     </button>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">A
+                    <button id="bA" type="button" class="btn btn-default btn-block">A
                     </button>
                   </div>
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">B
+                    <button id="bB" type="button" class="btn btn-default btn-block">B
                     </button>
                   </div>
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-default btn-block">C
+                    <button id="bC" type="button" class="btn btn-default btn-block">C
                     </button>
                   </div>
                 </div>
@@ -310,61 +312,49 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-2">
-                    <h2>Logistics</h2>
+                    <h4>Logistics</h4>
               </div>
               <div class="col-sm-1">
-                <div style="position: relative; left: 0; top: 0;">
-                  <img src="png/AAM.png" style="position: relative; top: 0; left: 0;"/>
-                  <img src="png/CMD.png" style="position: absolute; top: 0px; left: 0px;"/>
+                <div id="D11" style="position: relative; left: 0; top: 0;">
+                  <img src="png/blank.png" class="img-responsive" style="position: relative; top: 0; left: 0;"/>
+                  <img src="png/blank.png" class="img-responsive" style="position: absolute; top: 0px; left: 0px;"/>
                 </div>
               </div>
               <div class="col-sm-1">
+                <div id="D12" style="position: relative; left: 0; top: 0;">
+                </div>
               </div>
               <div class="col-sm-1">
+                <div id="D13" style="position: relative; left: 0; top: 0;">
+                </div>
               </div>
               <div class="col-sm-1">
+                <div id="D14" style="position: relative; left: 0; top: 0;">
+                </div>
               </div>
               <div class="col-sm-1">
+                <div id="D15" style="position: relative; left: 0; top: 0;">
+                </div>
               </div>
               <div class="col-sm-1">
+                <div id="D16" style="position: relative; left: 0; top: 0;">
+                </div>
               </div>
               <div class="col-sm-1">
-              </div>
+              </div><div id="D17" style="position: relative; left: 0; top: 0;">
+                </div>
               <div class="col-sm-1">
-              </div>
+              </div><div id="D18" style="position: relative; left: 0; top: 0;">
+                </div>
               <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-2">
-                    <h2>Infantry</h2>
-              </div>
-              <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
-              <div class="col-sm-1">
-              </div>
+              </div><div id="D19" style="position: relative; left: 0; top: 0;">
+                </div>
               <div class="col-sm-1">
               </div>
             </div>
             <div class="row">
               <div class="col-sm-2">
-                    <h2>Support</h2>
+                    <h4>Infantry</h4>
               </div>
               <div class="col-sm-1">
               </div>
@@ -389,7 +379,7 @@
             </div>
             <div class="row">
               <div class="col-sm-2">
-                    <h2>Tank</h2>
+                    <h4>Support</h4>
               </div>
               <div class="col-sm-1">
               </div>
@@ -414,7 +404,7 @@
             </div>
             <div class="row">
               <div class="col-sm-2">
-                    <h2>Recon</h2>
+                    <h4>Tank</h4>
               </div>
               <div class="col-sm-1">
               </div>
@@ -439,7 +429,7 @@
             </div>
             <div class="row">
               <div class="col-sm-2">
-                    <h2>Vehicle</h2>
+                    <h4>Recon</h4>
               </div>
               <div class="col-sm-1">
               </div>
@@ -464,7 +454,7 @@
             </div>
             <div class="row">
               <div class="col-sm-2">
-                    <h2>Air</h2>
+                    <h4>Vehicle</h4>
               </div>
               <div class="col-sm-1">
               </div>
@@ -489,7 +479,32 @@
             </div>
             <div class="row">
               <div class="col-sm-2">
-                    <h2>Naval</h2>
+                    <h4>Air</h4>
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+              <div class="col-sm-1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2">
+                    <h4>Naval</h4>
               </div>
               <div class="col-sm-1">
               </div>
@@ -717,7 +732,7 @@
             <p>DEBUG</p>
             <p id="debug">test</p>
               <table id="debugTable" style="width:100%">
-                <tbody>
+                <tbody id="debugBody">
                   <tr>
                     <th>bin</th>
                     <th>parsing</th>

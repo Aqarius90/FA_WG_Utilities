@@ -1596,12 +1596,12 @@ pre code {
 }
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+    width: 800px;
   }
 }
 @media (min-width: 1200px) {
   .container {
-    width: 970px; // was 1170
+    width: 800px;
   }
 }
 .container-fluid {
@@ -3011,7 +3011,7 @@ select[multiple].input-lg {
   margin-bottom: 0;
   font-size: 12px;
   font-weight: normal;
-  line-height: 2.8;
+  line-height: 2.3;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -3026,7 +3026,7 @@ select[multiple].input-lg {
   border: 1px solid transparent;
   border-radius: 4px;
 }
-@media (max-width: 970px) {
+@media (max-width: 992px) {
   .btn {
     line-height: 2.05;
   }
@@ -4037,10 +4037,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: -1px;
 }
 .nav-tabs > li > a {
-  margin-right: 2px;
+  margin-right: 1px;
   line-height: 1.42857143;
   border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
+  border-radius: 2x 2px 0 0;
 }
 .nav-tabs > li > a:hover {
   border-color: #eee #eee #ddd;

@@ -1,11 +1,15 @@
-﻿function  DeckAssembly()
+function  DeckAssembly()
 {
     /*MainDB MainCardDatabase = new MainDB();
     Dictionaries Dicts = new Dictionaries();*/
     this.sSide = "NONE";
+    this.iSide =0;
     this.sNation = "NONE";
+    this.iNation = 0;
     this.sSpec = "NONE";
+    this.iSpec =0;
     this.sEra = "NONE";
+    this.iEra = 0;
     this.i3Cards = 0;
     this.i2Cards = 0;
     this.i1Cards = 0;
@@ -13,6 +17,8 @@
     this.Cards0T = [];
     this.Cards1T = [];
     this.Cards2T = [];
+    this.deckpoints = 0;
+    this.deckpoitstotal = 45;
     /*var List<VehicleCard> LOG = new List<VehicleCard>();
     var List<VehicleCard> INF = new List<VehicleCard>();
     var List<VehicleCard> SUP = new List<VehicleCard>();
@@ -25,93 +31,10 @@
     var Weapon ""Weapon = new Weapon(0, 0, 0, 0, 0, 0, 0, "", 0, "", "", "NONE"); //???*/
 }
 
-var binoutdebug = "NONE";
-
-function debugHeader(){
-  //side
-    var table = document.getElementById("debugTable");
-    var row = table.insertRow(table.rows.length);
-    var binary = row.insertCell(0);
-    var parse = row.insertCell(1);
-    binary.innerHTML = binoutdebug.charAt(0);
-    parse.innerHTML = sSide;
-  //nation
-    row = table.insertRow(table.rows.length);
-    binary = row.insertCell(0);
-    parse = row.insertCell(1);
-    binary.innerHTML = binoutdebug.substr(0,9);
-    parse.innerHTML = sNation;
-  //SPEC
-    row = table.insertRow(table.rows.length);
-    binary = row.insertCell(0);
-    parse = row.insertCell(1);
-    binary.innerHTML = binoutdebug.substr(9,3);
-    parse.innerHTML = sSpec;
-  //era
-    row = table.insertRow(table.rows.length);
-    binary = row.insertCell(0);
-    parse = row.insertCell(1);
-    binary.innerHTML = binoutdebug.substr(12,2);
-    parse.innerHTML = sEra;
-  //2t units
-    row = table.insertRow(table.rows.length);
-    binary = row.insertCell(0);
-    parse = row.insertCell(1);
-    binary.innerHTML = binoutdebug.substr(14,4);
-    parse.innerHTML = "inf-naval:  " + parseInt(binoutdebug.substr(14,4), 2);
-    //1t units
-    row = table.insertRow(table.rows.length);
-    binary = row.insertCell(0);
-    parse = row.insertCell(1);
-    binary.innerHTML = binoutdebug.substr(18,5);1
-    parse.innerHTML = "inf-land, veh-naval:  "+ parseInt(binoutdebug.substr(18,5), 2);
-}
-
-function debugUnitsOut(){
-  for (var i = 0; i < i3Cards; i++) {
-    var table = document.getElementById("debugTable");
-    var row = table.insertRow(table.rows.length);
-    var binary = row.insertCell(0);
-    var parse = row.insertCell(1);
-    binary.innerHTML = MasterDeck.Cards2T[i].Unit.iUnitID;
-    parse.innerHTML = MasterDeck.Cards2T[i].Unit.sNameU;
-    row = table.insertRow(table.rows.length);
-    binary = row.insertCell(0);
-    parse = row.insertCell(1);
-    binary.innerHTML = MasterDeck.Cards2T[i].Transport.iUnitID;
-    parse.innerHTML = MasterDeck.Cards2T[i].Transport.sNameU;
-    row = table.insertRow(table.rows.length);
-    binary = row.insertCell(0);
-    parse = row.insertCell(1);
-    binary.innerHTML = MasterDeck.Cards2T[i].Craft.iUnitID;
-    parse.innerHTML = MasterDeck.Cards2T[i].Craft.sNameU;
-  }
-  for (var i = 0; i < i2Cards; i++) {
-    var table = document.getElementById("debugTable");
-    var row = table.insertRow(table.rows.length);
-    var binary = row.insertCell(0);
-    var parse = row.insertCell(1);
-    binary.innerHTML = MasterDeck.Cards1T[i].Unit.iUnitID;
-    parse.innerHTML = MasterDeck.Cards1T[i].Unit.sNameU;
-    row = table.insertRow(table.rows.length);
-    binary = row.insertCell(0);
-    parse = row.insertCell(1);
-    binary.innerHTML = MasterDeck.Cards1T[i].Transport.iUnitID;
-    parse.innerHTML = MasterDeck.Cards1T[i].Transport.sNameU;
-  }
-  for (var i = 0; i < i1Cards; i++) {
-    var table = document.getElementById("debugTable");
-    var row = table.insertRow(table.rows.length);
-    var binary = row.insertCell(0);
-    var parse = row.insertCell(1);
-    binary.innerHTML = MasterDeck.Cards0T[i].Unit.iUnitID;
-    parse.innerHTML = MasterDeck.Cards0T[i].Unit.sNameU;
-  }
-}
 
 function DeckDisAssembly()
 {
-  var sDeckvar = document.getElementById("sDeckString");
+  var binoutdebug = "NONE";
   decodeDeck(sDeckString.value)
   //main caller for decoding
 }
@@ -125,9 +48,9 @@ function decodeDeck (deckCode)
         Cards1T[i] = "";
         Cards2T[i] = "";
     }*/
-    i3Cards = 0;
-    i2Cards = 0;
-    i1Cards = 0;
+    Deck.i3Cards = 0;
+    Deck.i2Cards = 0;
+    Deck.i1Cards = 0;
     var deckBinary ="";
     if (deckCode.length < 25 ) { return; }
     for (var i = 0; i < deckCode.length; i++) {
@@ -203,81 +126,80 @@ function decodeDeck (deckCode)
 
     if (deckBinary.charAt(0) == '0')
     {
-        sSide = "BLU";
-        iSide = 0;
+        Deck.sSide = "BLU";
+        Deck.iSide = 0;
     }
     else if (deckBinary.charAt(0) == '1')
     {
-        sSide = "RED";
-        iSide = 1;
+        Deck.sSide = "RED";
+        Deck.iSide = 1;
     }
     else
     {
-        sSide = "INVALID";
-        iSide = 2;
+        Deck.sSide = "INVALID";
+        Deck.iSide = 2;
     }
-    sNation = "";
-
+    Deck.sNation = "";
     for (var i = 0; i <= 8; i++)
     {
-        sNation += deckBinary.charAt(i);
+        Deck.sNation += deckBinary.charAt(i);
     }
-    sNation = parseInt(sNation, 2);
-    if (sNation == 10) { sNation = "USA"; } else
-    if (sNation == 26) { sNation = "UK"; } else
-    if (sNation == 42) { sNation = "FRA"; } else
-    if (sNation == 58) { sNation = "BRD"; } else
-    if (sNation == 74) { sNation = "CAN"; } else
-    if (sNation == 90) { sNation = "DEN"; } else
-    if (sNation == 106) { sNation = "SWE"; } else
-    if (sNation == 122) { sNation = "NOR"; } else
-    if (sNation == 138) { sNation = "ANZAC"; } else
-    if (sNation == 154) { sNation = "JAP"; } else
-    if (sNation == 170) { sNation = "ROK"; } else
-    if (sNation == 186) { sNation = "NED"; } else
-    if (sNation == 192) { sNation = "EU"; } else
-    if (sNation == 193) { sNation = "SCA"; } else
-    if (sNation == 194) { sNation = "CW"; } else
-    if (sNation == 195) { sNation = "BD"; } else
-    if (sNation == 198) { sNation = "LJUT"; } else
-    if (sNation == 200) { sNation = "NORAD"; } else
-    if (sNation == 201) { sNation = "BDRNL"; } else
-    if (sNation == 202) { sNation = "NATO"; } else
-    if (sNation == 266) { sNation = "DDR"; } else
-    if (sNation == 282) { sNation = "USSR"; } else
-    if (sNation == 298) { sNation = "POL"; } else
-    if (sNation == 314) { sNation = "CZS"; } else
-    if (sNation == 330) { sNation = "PRC"; } else
-    if (sNation == 346) { sNation = "DPRK"; } else
-    if (sNation == 356) { sNation = "RD"; } else
-    if (sNation == 357) { sNation = "NSWP"; } else
-    if (sNation == 359) { sNation = "SOVKOR"; } else
-    if (sNation == 362) { sNation = "REDFOR"; }
+    Deck.iNation = parseInt(Deck.sNation, 2);
+    if (Deck.iNation == 10)  { Deck.sNation = "USA"; } else
+    if (Deck.iNation == 26)  { Deck.sNation = "UK"; } else
+    if (Deck.iNation == 42)  { Deck.sNation = "FRA"; } else
+    if (Deck.iNation == 58)  { Deck.sNation = "BRD"; } else
+    if (Deck.iNation == 74)  { Deck.sNation = "CAN"; } else
+    if (Deck.iNation == 90)  { Deck.sNation = "DEN"; } else
+    if (Deck.iNation == 106) { Deck.sNation = "SWE"; } else
+    if (Deck.iNation == 122) { Deck.sNation = "NOR"; } else
+    if (Deck.iNation == 138) { Deck.sNation = "ANZAC"; } else
+    if (Deck.iNation == 154) { Deck.sNation = "JAP"; } else
+    if (Deck.iNation == 170) { Deck.sNation = "ROK"; } else
+    if (Deck.iNation == 186) { Deck.sNation = "NED"; } else
+    if (Deck.iNation == 192) { Deck.sNation = "EU"; } else
+    if (Deck.iNation == 193) { Deck.sNation = "SCA"; } else
+    if (Deck.iNation == 194) { Deck.sNation = "CW"; } else
+    if (Deck.iNation == 195) { Deck.sNation = "BD"; } else
+    if (Deck.iNation == 198) { Deck.sNation = "LJUT"; } else
+    if (Deck.iNation == 200) { Deck.sNation = "NORAD"; } else
+    if (Deck.iNation == 201) { Deck.sNation = "BDRNL"; } else
+    if (Deck.iNation == 202) { Deck.sNation = "NATO"; } else
+    if (Deck.iNation == 266) { Deck.sNation = "DDR"; } else
+    if (Deck.iNation == 282) { Deck.sNation = "USSR"; } else
+    if (Deck.iNation == 298) { Deck.sNation = "POL"; } else
+    if (Deck.iNation == 314) { Deck.sNation = "CZS"; } else
+    if (Deck.iNation == 330) { Deck.sNation = "PRC"; } else
+    if (Deck.iNation == 346) { Deck.sNation = "DPRK"; } else
+    if (Deck.iNation == 356) { Deck.sNation = "RD"; } else
+    if (Deck.iNation == 357) { Deck.sNation = "NSWP"; } else
+    if (Deck.iNation == 359) { Deck.sNation = "SOVKOR"; } else
+    if (Deck.iNation == 362) { Deck.sNation = "REDFOR"; }
 
-    sSpec = "";
+    Deck.sSpec = "";
     for (var i = 9; i <= 11; i++)
     {
-        sSpec += deckBinary.charAt(i);
+        Deck.sSpec += deckBinary.charAt(i);
     }
-    sSpec = parseInt(sSpec, 2);
-    if (sSpec == 0) { sSpec = "MOTO"; } else
-    if (sSpec == 1) { sSpec = "ARM"; } else
-    if (sSpec == 2) { sSpec = "SUP"; } else
-    if (sSpec == 3) { sSpec = "MAR"; } else
-    if (sSpec == 4) { sSpec = "MECH"; } else
-    if (sSpec == 5) { sSpec = "AIR"; } else
-    if (sSpec == 6) { sSpec = "NAV"; } else
-    if (sSpec == 7) { sSpec = "GEN"; }
+    Deck.iSpec = parseInt(Deck.sSpec, 2);
+    if (Deck.iSpec == 0) { Deck.sSpec = "MOTO"; } else
+    if (Deck.iSpec == 1) { Deck.sSpec = "ARM"; } else
+    if (Deck.iSpec == 2) { Deck.sSpec = "SUP"; } else
+    if (Deck.iSpec == 3) { Deck.sSpec = "MAR"; } else
+    if (Deck.iSpec == 4) { Deck.sSpec = "MECH"; } else
+    if (Deck.iSpec == 5) { Deck.sSpec = "AIR"; } else
+    if (Deck.iSpec == 6) { Deck.sSpec = "NAV"; } else
+    if (Deck.iSpec == 7) { Deck.sSpec = "GEN"; }
 
-    sEra = "";
+    Deck.sEra = "";
     for (var i = 12; i <= 13; i++)
     {
-        sEra +=  deckBinary.charAt(i);
+        Deck.sEra +=  deckBinary.charAt(i);
     }
-    sEra = parseInt(sEra, 2);
-    if (sEra == 0) { sEra = "C"; } else
-    if (sEra == 1) { sEra = "B"; } else
-    if (sEra == 2) { sEra = "A"; }
+    Deck.iEra = parseInt(Deck.sEra, 2);
+    if (Deck.iEra == 0) { Deck.sEra = "C"; } else
+    if (Deck.iEra == 1) { Deck.sEra = "B"; } else
+    if (Deck.iEra == 2) { Deck.sEra = "A"; }
 
     //Units
     var s3Count = "";
@@ -285,19 +207,19 @@ function decodeDeck (deckCode)
     {
         s3Count += deckBinary.charAt(i);
     }
-    i3Cards = parseInt(s3Count, 2);
+    Deck.i3Cards = parseInt(s3Count, 2);
     var s2Count = "";
     for (var i = 18; i <= 22; i++)
     {
         s2Count += deckBinary.charAt(i);
     }
-    i2Cards = parseInt(s2Count, 2);
+    Deck.i2Cards = parseInt(s2Count, 2);
 
         //DEBUG
     debugHeader();
 
     var iPC = 23; //pos counter
-    for (var i = 0; i < i3Cards; i++) //for each unit
+    for (var i = 0; i < Deck.i3Cards; i++) //for each unit
     {
         var sVet = "", sUnit = "", sIFV = "", sCraft = "";
         for (var j = iPC; j <= (iPC + 2); j++) //find vet
@@ -323,15 +245,15 @@ function decodeDeck (deckCode)
         var iUnit = parseInt(sUnit, 2);
         var iIFV = parseInt(sIFV, 2);
         var iCraft = parseInt(sCraft, 2);
-        var Unit = CardsDB[iUnit][iSide];
-        var Ifv = CardsDB[iIFV][iSide];
-        var Craft = CardsDB[iCraft][iSide];
-        MasterDeck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, Craft);
-        MasterDeck.Cards2T[i].Unit.sUnitData = MasterDeck.Cards2T[i].Unit.sUnitData.substr(0, 17)+ "000000001";//is not regular inf
+        var Unit = CardsDB[iUnit][Deck.iSide];
+        var Ifv = CardsDB[iIFV][Deck.iSide];
+        var Craft = CardsDB[iCraft][Deck.iSide];
+        Deck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, Craft);
+        Deck.Cards2T[i].Unit.sUnitData = Deck.Cards2T[i].Unit.sUnitData.substr(0, 17)+ "000000001";//is not regular inf
         //Cards2T[i] = toGen(Cards2T[i]);   <<TO IMPLEMENT LATER
     }
 
-    for (var i = 0; i < i2Cards; i++)
+    for (var i = 0; i < Deck.i2Cards; i++)
     {
         var sVet = "", sUnit = "", sIFV = "";
         for (var j = iPC; j <= (iPC + 2); j++)
@@ -351,12 +273,12 @@ function decodeDeck (deckCode)
         iPC += 10;
         var iUnit = parseInt(sUnit, 2);
         var iIFV = parseInt(sIFV, 2);
-        var Unit = CardsDB[iUnit][iSide];
-        var Ifv = CardsDB[iIFV][iSide];
-        MasterDeck.Cards1T[i] = new VehicleCard(sVet, Unit, Ifv, 0);
-        if (MasterDeck.Cards1T[i].Unit.sUnitData.charAt(18) == '1')// if not inf
+        var Unit = CardsDB[iUnit][Deck.iSide];
+        var Ifv = CardsDB[iIFV][Deck.iSide];
+        Deck.Cards1T[i] = new VehicleCard(sVet, Unit, Ifv, 0);
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(18) == '1')// if not inf
         {
-              MasterDeck.Cards1T[i].Unit.sUnitData = MasterDeck.Cards1T[i].Unit.sUnitData.substr(0, 17)+ "000000001"; // is naval
+              Deck.Cards1T[i].Unit.sUnitData = Deck.Cards1T[i].Unit.sUnitData.substr(0, 17)+ "000000001"; // is naval
         };
         //Cards1T[i] = toGen(Cards1T[i]); <<TO IMPLEMENT LATER
     }
@@ -378,10 +300,10 @@ function decodeDeck (deckCode)
         iLength = deckBinary.length - iPC;
 
         var iUnit = parseInt(sUnit, 2);
-        var Unit = CardsDB[iUnit][iSide];
-        MasterDeck.Cards0T[i1Cards] = new VehicleCard(sVet, Unit, 0, 0);
+        var Unit = CardsDB[iUnit][Deck.iSide];
+        Deck.Cards0T[Deck.i1Cards] = new VehicleCard(sVet, Unit, 0, 0);
         //Cards0T[i1Cards] = toGen(Cards0T[i1Cards]); <<TO IMPLEMENT LATER
-        i1Cards++;
+        Deck.i1Cards++;
     }
     //cardDisplaySort(Cards0T, Cards1T, Cards2T);
     debugUnitsOut();
