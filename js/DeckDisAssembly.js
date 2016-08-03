@@ -245,7 +245,7 @@ function decodeDeck (deckCode)
         var iUnit = parseInt(sUnit, 2);
         var iIFV = parseInt(sIFV, 2);
         var iCraft = parseInt(sCraft, 2);
-        var Unit = CardsDB[iUnit][Deck.iSide];
+        var Unit = CardsDB[520][0];
         var Ifv = CardsDB[iIFV][Deck.iSide];
         var Craft = CardsDB[iCraft][Deck.iSide];
         Deck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, Craft);

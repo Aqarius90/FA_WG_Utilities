@@ -1,12 +1,15 @@
 //var Dicts = new Dictionaries();
+function init(){
+    
 window.Deck = new DeckAssembly();
 window.CardsDB = new Array(1024);
-window.GUI = new ModelGUI();
 for (var i = 0; i < 1025; i++) {
   CardsDB[i]=Array(2);
 }
 initMainDB();
-var selectedCards = [];
+//window.Page = new ModelGUI();
+window.selectedCards = [];
+}
 
 //GUIDisplay(MasterDeck)
 
@@ -203,15 +206,6 @@ function btDecode()
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
             //displayNato();
         }
-
-        private void displayNato()
-        {
-            double[] flagstr = new double[] { 1, 0.2, 1, 1, 1, 1, 1, 1, 0.2, 0.2, 0.2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1 };
-            showFlags(flagstr);
-            resetEncodeDGVs();
-            lbNation.Content = "No bonus";
-        }
-
         private void btREDFOR_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "RED";
@@ -220,15 +214,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayREDFOR()
-        {
-            double[] flagstr = new double[] { 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 1, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 1, 1, 1, 1, 1, 0.2 };
-            showFlags(flagstr);
-            resetEncodeDGVs();
-            lbNation.Content = "No bonus";
-        }
-
         private void btBD_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -237,16 +222,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayBD()
-        {
-            double[] flagstr = new double[] { 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-            resetEncodeDGVs();
-            lbNation.Content = "+20%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btCOM_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -255,18 +230,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayCOM()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+10%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btEU_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -275,18 +238,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayEU()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+0%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btLJ_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -295,18 +246,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayLJ()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+15%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btDutch_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -315,17 +254,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-        private void displayBDRNL()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR, Dutch
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+10%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btNORAD_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -334,18 +262,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayNORAD()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+0%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btSCA_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -354,18 +270,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displaySCA()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 1, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+15%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btNSWP_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "RED";
@@ -374,18 +278,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayNSWP()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 1, 0.2, 1, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+15%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btRD_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "RED";
@@ -394,17 +286,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayRD()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 1, 0.2, 0.2 };
-            showFlags(flagstr);
-            resetEncodeDGVs();
-            lbNation.Content = "+20%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btRKA_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "RED";
@@ -413,18 +294,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayRKA()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 1, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+0%, +10AP";
-            deckpoitstotal += 10;
-        }
-
         private void btANZAC_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -433,18 +302,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayANZAC()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+30%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btBRD_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -453,18 +310,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayBRD()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+20%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btCAN_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -473,18 +318,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayCAN()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+40%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btDEN_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -493,18 +326,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayDEN()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+40%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btFRA_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -513,18 +334,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayFRA()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+20%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btJAP_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -533,18 +342,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayJAP()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+30%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btNED_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -553,18 +350,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayNED()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+20%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btNOR_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -573,18 +358,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayNOR()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+40%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btROK_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -593,18 +366,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayROK()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+30%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btSWE_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -614,17 +375,6 @@ function btDecode()
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
 
-        private void displaySWE()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+30%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btUK_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "BLU";
@@ -632,17 +382,6 @@ function btDecode()
             MasterDeck.sNation = "UK";
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
-        }
-
-        private void displayUK()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+20%, +15AP";
-            deckpoitstotal += 15;
         }
 
         private void btUSA_Click(object sender, RoutedEventArgs e)
@@ -664,18 +403,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayCZS()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+30%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btDDR_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "RED";
@@ -684,18 +411,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayDDR()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+20%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btDPRK_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "RED";
@@ -704,18 +419,6 @@ function btDecode()
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
-
-        private void displayDPRK()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+40%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btPOL_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "RED";
@@ -723,17 +426,6 @@ function btDecode()
             MasterDeck.sNation = "POL";
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
-        }
-
-        private void displayPOL()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+20%, +15AP";
-            deckpoitstotal += 15;
         }
 
         private void btPRC_Click(object sender, RoutedEventArgs e)
@@ -745,17 +437,6 @@ function btDecode()
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
         }
 
-        private void displayPRC()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+30%, +15AP";
-            deckpoitstotal += 15;
-        }
-
         private void btUSSR_Click(object sender, RoutedEventArgs e)
         {
             MasterDeck.sSide = "RED";
@@ -763,17 +444,6 @@ function btDecode()
             MasterDeck.sNation = "USSR";
             GUIDisplay(MasterDeck);
             txtEncodeDeck.Text = MasterDeck.DeckExport(MasterDeck);
-        }
-
-        private void displayUSSR()
-        {
-            //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
-            double[] flagstr = new double[] { 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1, 0.2 };
-            showFlags(flagstr);
-
-            resetEncodeDGVs();
-            lbNation.Content = "+10%, +15AP";
-            deckpoitstotal += 15;
         }
         #endregion ENCODE SELECT LAND
 */

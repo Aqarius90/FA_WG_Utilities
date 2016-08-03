@@ -89,7 +89,6 @@ function debugUnitsOut(){
 
 function debugClear(){
     var body = document.getElementById("debugBody");
-    console.log(body);
     var blankBody = document.createElement('tbody');
     blankBody.setAttribute("id","debugBody");
     body.parentNode.replaceChild(blankBody, body);
