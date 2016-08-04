@@ -9,7 +9,7 @@ function GUIDisplay() {
   //  updatePointsDisplay(MainMatrix.blank);
     Deck.deckpoints = 0;
     Deck.deckpoitstotal = 45;
-//    resetDisplay();
+    resetDisplay();
     //nation
     switch (Deck.iNation)
     {
@@ -50,47 +50,49 @@ function GUIDisplay() {
     {
         case 0://moto
             var btSpec = document.getElementById("bMotorized");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
             //updatePointsDisplay(MainMatrix.moto);
             //lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
             break;
         case 1://arm
             var btSpec = document.getElementById("bArmoured");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
             //updatePointsDisplay(MainMatrix.armoured);
             //lbSpec.Content = "+4 cards, +2XP, -1 cost: Tank";
             break;
         case 2://sup
             var btSpec = document.getElementById("bSupport");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
         /*  updatePointsDisplay(MainMatrix.support);
             lbSpec.Content = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";*/
             break;
         case 3://mar
             var btSpec = document.getElementById("bMarine");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
         /*  updatePointsDisplay(MainMatrix.marine);
             lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Vehicle";*/
             break;
         case 4://mec
             var btSpec = document.getElementById("bMechanized");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
         /*  updatePointsDisplay(MainMatrix.mech);
             lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";*/
             break;
         case 5://air
             var btSpec = document.getElementById("bAirborne");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
      /*     updatePointsDisplay(MainMatrix.airborne);
             lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";*/
             break;
         case 6://nav
+            var btSpec = document.getElementById("bNaval");
+            btSpec.setAttribute("style","background-color: #0f0");
     //        var btSpec = document.getElementById("bGeneral");
       //      btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
             break;
         case 7://gen
             var btSpec = document.getElementById("bGeneral");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
     /*      updatePointsDisplay(MainMatrix.general);
             lbSpec.Content = "no bonus";*/
             break;
@@ -99,19 +101,19 @@ function GUIDisplay() {
     {
         case 0://C
             var btSpec = document.getElementById("bC");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
          //   lbEra.Content = "+10AP";
            // Deck.deckpoitstotal += 10;
             break;
         case 1://B
             var btSpec = document.getElementById("bB");
-            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
         //    lbEra.Content = "+5AP";
          //   Deck.deckpoitstotal += 5;
             break;
         case 2://A
             var btSpec = document.getElementById("bA");
-          //  btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            btSpec.setAttribute("style","background-color: #0f0");
         //    lbEra.Content = "+0AP";
             break;
     }
@@ -126,7 +128,6 @@ function GUIDisplay() {
     dgDeckVeh.ItemsSource = VEHLIST;
     dgDeckHel.ItemsSource = HELLIST;
     dgDeckAir.ItemsSource = AIRLIST;*/
-    console.log(Deck.Cards2T);
     displayUnits();
     //LBPoints.Content = Deck.deckpoints + "/" + Deck.deckpoitstotal;
 }
@@ -134,7 +135,7 @@ function GUIDisplay() {
 function flagSwap(flagID, imageID) {
     var flag = document.getElementById("i"+flagID);
     var blackflag = document.createElement('img');
-    blackflag.setAttribute("id",flagID);
+    blackflag.setAttribute("id", "i" + flagID);
     blackflag.setAttribute("class","img-responsive");
     blackflag.setAttribute("src","flags/"+imageID+".png");
     flag.parentNode.replaceChild(blackflag, flag);
@@ -177,7 +178,6 @@ function showFlags(x) {
     if(x[32]==1){flagSwap("YU","YU")}else{flagSwap("YU","YUb")}
 }
 function displayUSA() {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR BRDNL ISR FIN YU
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
         // resetEncodeDGVs();
@@ -186,7 +186,7 @@ function displayUSA() {
 }
                         
 function displayUK(){
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     //resetEncodeDGVs();
@@ -196,7 +196,7 @@ function displayUK(){
 
 function displayFRA()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -207,7 +207,7 @@ function displayFRA()
 
 function displayBRD()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -218,7 +218,7 @@ function displayBRD()
 
 function displayCAN()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -229,7 +229,7 @@ function displayCAN()
 
 function displayDEN()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -240,7 +240,7 @@ function displayDEN()
 
 function displaySWE()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -251,7 +251,7 @@ function displaySWE()
 
 function displayNOR()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -262,7 +262,7 @@ function displayNOR()
 
 function displayANZAC()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -273,7 +273,7 @@ function displayANZAC()
 
 function displayJAP()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -284,7 +284,7 @@ function displayJAP()
 
 function displayROK()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -295,7 +295,7 @@ function displayROK()
 
 function displayNED()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -306,7 +306,7 @@ function displayNED()
 
 function displayEU()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -317,7 +317,6 @@ function displayEU()
 
 function displaySCA()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -328,7 +327,6 @@ function displaySCA()
 
 function displayCOM()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -348,7 +346,6 @@ function displayBD()
 
 function displayLJ()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -359,7 +356,6 @@ function displayLJ()
 
 function displayNORAD()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -370,7 +366,6 @@ function displayNORAD()
 
 function displayBDRNL()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR, Dutch
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
 
@@ -381,7 +376,7 @@ function displayBDRNL()
 
 function displayNato()
 {
-    var flagstr = [1,0,1,1, 1,1, 1,1,0,0,0,1,1, 1,1, 1,1, 1,1, 1,1, 1,1,0,0,0,0,0,0,1,0,0,0];
+    var flagstr = [1,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
     //resetEncodeDGVs();
     //lbNation.Content = "No bonus";
@@ -389,7 +384,6 @@ function displayNato()
 
 function displayDDR()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -400,7 +394,6 @@ function displayDDR()
 
 function displayUSSR()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0];
     showFlags(flagstr);
 
@@ -411,7 +404,6 @@ function displayUSSR()
 
 function displayPOL()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -422,7 +414,6 @@ function displayPOL()
 
 function displayCZS()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -433,7 +424,7 @@ function displayCZS()
 
 function displayPRC()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -444,7 +435,7 @@ function displayPRC()
 
 function displayDPRK()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -455,7 +446,7 @@ function displayDPRK()
 
 function displayRD()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0];
     showFlags(flagstr);
     //resetEncodeDGVs();
@@ -465,7 +456,7 @@ function displayRD()
 
 function displayNSWP()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
 
@@ -476,7 +467,7 @@ function displayNSWP()
 
 function displayRKA()
 {
-    //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
+
     var flagstr = [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0];
     showFlags(flagstr);
 
@@ -508,17 +499,25 @@ function displayCard(card, type, pos){
     iData.src = "png/blank.png";
     iData.setAttribute("class", "img-responsive");
     iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-    console.log("D" + type + pos[type]);
     unitDisplay.appendChild(iData);
     
-    card.iArrayIndex =""+ type + pos;
-    /*
-    LOG01.Visibility = System.Windows.Visibility.Visible;
-    laLOG01.Content = Card.Unit.sNameU;
-    laLOG01.Visibility = Visibility.Visible;
-    LOGFL01.Source = bitmap;*/
-    //if (isUnavailable == true) { LOG01ERR.Visibility = System.Windows.Visibility.Visible; }
-    
+    card.iArrayIndex =""+ type + pos;   
+        
+    //unit name
+    var uText = document.createElement("h6");
+    uText.innerHTML = card.Unit.sNameU;
+    document.getElementById("L" + type + pos[type]).appendChild(uText);
+    if(card.Transport != "0"){
+        uText.innerHTML = card.Unit.sNameU + "<br>" + card.Transport.sNameU ;
+        document.getElementById("L" + type + pos[type]).appendChild(uText);
+    }
+    if(card.Craft != "0"){
+        uText.innerHTML = card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU;
+        document.getElementById("L" + type + pos[type]).appendChild(uText);   
+    }
+    //if (isUnavailable == true) { LOG01ERR.Visibility = System.Windows.Visibility.Visible; }    
+    //LOGco02.Content = Card.iCost;
+
     if (card.Unit.sUnitData.charAt(0)== '1') { addDataImage(type, pos[type], "antiair"); }
     if (card.Unit.sUnitData.charAt(1)== '1') { addDataImage(type, pos[type], "AAM"); }
     if (card.Unit.sUnitData.charAt(2)== '1') { addDataImage(type, pos[type], "armour"); }
@@ -538,30 +537,30 @@ function displayCard(card, type, pos){
     if (card.Unit.sUnitData.charAt(14) == '3') { addDataImage(type, pos[type], "rec3"); }
     if (card.Unit.sUnitData.charAt(15) == '1') { addDataImage(type, pos[type], "tube"); }
     if (card.Unit.sUnitData.charAt(16) == '1') { addDataImage(type, pos[type], "rad"); }
-    //LOG02.Visibility = System.Windows.Visibility.Visible;
-    //laLOG02.Content = Card.Unit.sNameU;
-    //laLOG02.Visibility = Visibility.Visible;
-    //LOGFL02.Source = bitmap;
-    //LOGco02.Content = Card.iCost;
-        /*
-        
-        
-                LOG01.Visibility = System.Windows.Visibility.Visible;
-                laLOGc01.Content = Card.Transport.sNameU;
-                laLOGc01.Visibility = Visibility.Visible;
-                LOG02.Visibility = System.Windows.Visibility.Visible;
-                laLOGc02.Content = Card.Transport.sNameU;
-                laLOGc02.Visibility = Visibility.Visible;
-        var uri = new Uri("flags/" + Card.sNation + ".png", UriKind.Relative);
-                break;
-                <div id="D11" style="position: relative; left: 0; top: 0;">
-                  <img src="png/blank.png" class="img-responsive" style="position: relative; top: 0; left: 0;"/>
-                  <img src="png/blank.png" class="img-responsive" style="position: absolute; top: 0px; left: 0px;"/>
-                </div>*/
     
     
+    //vet
+    iData = document.createElement("img");
+    iData.src = "rank/" + card.sVeterancy + ".png";
+    iData.setAttribute("class", "img-thumbnail-mini");
+    iData.setAttribute("style", "position: absolute; bottom: 0; left: 0;");
+    document.getElementById("D" + type + pos[type]).appendChild(iData);  
+    
+    //cost
+    uText = document.createElement("h5");
+    uText.innerHTML = card.iCost;
+    uText.setAttribute("style","position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;");
+    document.getElementById("D" + type + pos[type]).appendChild(uText);
+    
+    //flag
+    iData = document.createElement("img");
+    iData.src = "flags/" + card.sNation + ".png";
+    iData.setAttribute("class", "img-thumbnail");
+    iData.setAttribute("style", "position: absolute; top: 0; left: 0;");
+    document.getElementById("D" + type + pos[type]).appendChild(iData);
     
     
+    //avail
 }
 
 function displayUnits()
@@ -581,9 +580,6 @@ function displayUnits()
         if (Deck.Cards2T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
         if (Deck.Cards2T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         displayCard(Deck.Cards2T[i], type, counter);
-        //showname
-        //showifv
-        //showcraft
         counter[type] +=1;         
     } 
     for (var i = 0; i < Deck.Cards1T.length; i++)
@@ -599,9 +595,6 @@ function displayUnits()
         if (Deck.Cards1T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
         if (Deck.Cards1T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         displayCard(Deck.Cards1T[i], type, counter);
-        //showname
-        //showifv
-        //showcraft
         counter[type] +=1;         
     } 
     for (var i = 0; i < Deck.Cards0T.length; i++)
@@ -617,13 +610,53 @@ function displayUnits()
         if (Deck.Cards0T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
         if (Deck.Cards0T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         displayCard(Deck.Cards0T[i], type, counter);
-        //showname
-        //showifv
-        //showcraft
         counter[type] +=1;         
     } 
 }
 
+
+function resetDisplay()
+{
+//  if (decklist != null)
+//  {
+//      decklist.Clear();
+//  }
+    
+    
+    var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0];
+    showFlags(flagstr);
+    
+    
+    var btSpec = document.getElementById("bMotorized");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bArmoured");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bSupport");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bMarine");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bMechanized");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bAirborne");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bNaval");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bGeneral");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bA");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bB");
+            btSpec.setAttribute("style","background-color: #fff");
+    btSpec = document.getElementById("bC");
+            btSpec.setAttribute("style","background-color: #fff");
+
+    for (var i = 1; i < 10; i++){
+        for (var j = 1; j < 10; j++){
+            document.getElementById("D" + j + i).innerHTML = "";            
+            document.getElementById("L" + j + i).innerHTML = "";
+        }   
+    }        
+}
 
 
 

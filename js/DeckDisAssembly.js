@@ -6,10 +6,10 @@ function  DeckAssembly()
     this.iSide =0;
     this.sNation = "NONE";
     this.iNation = 0;
-    this.sSpec = "NONE";
-    this.iSpec =0;
-    this.sEra = "NONE";
-    this.iEra = 0;
+    this.sSpec = "GEN";
+    this.iSpec = 7;
+    this.sEra = "A";
+    this.iEra = 2;
     this.i3Cards = 0;
     this.i2Cards = 0;
     this.i1Cards = 0;
@@ -263,7 +263,7 @@ function decodeDeck (deckCode)
         var Unit = CardsDB[iUnit][Deck.iSide];
         var Ifv = CardsDB[iIFV][Deck.iSide];
         Deck.Cards1T[i] = new VehicleCard(sVet, Unit, Ifv, 0);
-        if (Deck.Cards1T[i].Unit.sUnitData.charAt(18) != '1')// if not inf
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(7) != '1' )// if not inf
         {
               Deck.Cards1T[i].Unit.sUnitData = Deck.Cards1T[i].Unit.sUnitData.substr(0, 17)+ "000000001"; // is naval
         };
@@ -290,7 +290,6 @@ function decodeDeck (deckCode)
         var Unit = CardsDB[iUnit][Deck.iSide];
         Deck.Cards0T[Deck.i1Cards] = new VehicleCard(sVet, Unit, 0, 0);
         //Cards0T[i1Cards] = toGen(Cards0T[i1Cards]); <<TO IMPLEMENT LATER
-        console.log(Deck.Cards0T[Deck.i1Cards].Unit.sUnitData);
         Deck.i1Cards++;
     }
     //cardDisplaySort(Deck.Cards0T, Deck.Cards1T, Deck.Cards2T);
@@ -399,144 +398,177 @@ function cardDisplaySort(c0T, c1T, c2T)
     }
 }*/
 
-        /*
+        
         //deck decoding
-        public var DeckExport(DeckDisAssembly currentDeck)
-        {
-            List<char> lcDeckChar = new List<char>();
+function DeckExport()
+{
+    
+    var BinaryOut = ""
+    
+    var sUtil = Deck.iNation.toString(2);
+    var pad = "000000000";
+    sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 9
+    BinaryOut += sUtil;
+    
+    sUtil = Deck.iSpec.toString(2);
+    pad = "000";
+    sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 3
+    BinaryOut += sUtil;
+    
+    sUtil = Deck.iEra.toString(2);
+    pad = "00";
+    sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 2
+    BinaryOut += sUtil;
+    
+    sUtil = Deck.i3Cards.toString(2);
+    pad = "0000";
+    sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 4
+    BinaryOut += sUtil;
+    
+    sUtil = Deck.i2Cards.toString(2);
+    pad = "00000";
+    sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 4
+    BinaryOut += sUtil;    
+    
+    for (var i = 0; i < Deck.Cards2T.length; i++)
+    {
+        sUtil = Deck.Cards2T[i].sVeterancy;
+        BinaryOut += sUtil;
+        
+        sUtil = Deck.Cards2T[i].Unit.iUnitID.toString(2);
+        pad = "0000000000";
+        sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
+        BinaryOut += sUtil;
+        
+        sUtil = Deck.Cards2T[i].Transport.iUnitID.toString(2);
+        pad = "0000000000";
+        sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
+        BinaryOut += sUtil;
+        
+        sUtil = Deck.Cards2T[i].Craft.iUnitID.toString(2);
+        pad = "0000000000";
+        sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
+        caUtil = sUtil.ToCharArray();
+        BinaryOut += sUtil;
+    }
+    
+    for (var i = 0; i < Deck.Cards1T.length; i++)
+    {
+        sUtil = Deck.Cards1T[i].sVeterancy;
+        BinaryOut += sUtil;
+        
+        sUtil = Deck.Cards1T[i].Unit.iUnitID.toString(2);
+        pad = "0000000000";
+        sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
+        BinaryOut += sUtil;
+        
+        sUtil = Deck.Cards1T[i].Transport.iUnitID.toString(2);
+        pad = "0000000000";
+        sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
+        BinaryOut += sUtil;
+    }
+    
+    for (var i = 0; i < Deck.Cards0T.length; i++)
+    {
+        sUtil = Deck.Cards0T[i].sVeterancy;
+        BinaryOut += sUtil;
+        
+        sUtil = Deck.Cards0T[i].Unit.iUnitID.toString(2);
+        pad = "0000000000";
+        sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
+        BinaryOut += sUtil;
+    }
+    
+    var charArray = BinaryOut.match(/.{1,6}/g); //REGEX voodo 
+    pad = "000000";
+    charArray[charArray.length-1] = charArray[charArray.length-1] + pad.substring(0, pad.length - charArray[charArray.length-1].length);
+    console.log(charArray);
+    var CharOut = "";
+    var padCounter = 0;
+    for (var i = 0; i < charArray.length; i++)
+    {        
+      if (charArray[i] == "000000") { CharOut +="A" ; } else
+      if (charArray[i] == "000001") { CharOut +="B" ; } else
+      if (charArray[i] == "000010") { CharOut +="C" ; } else
+      if (charArray[i] == "000011") { CharOut +="D" ; } else
+      if (charArray[i] == "000100") { CharOut +="E" ; } else
+      if (charArray[i] == "000101") { CharOut +="F" ; } else
+      if (charArray[i] == "000110") { CharOut +="G" ; } else
+      if (charArray[i] == "000111") { CharOut +="H" ; } else
+      if (charArray[i] == "001000") { CharOut +="I" ; } else
+      if (charArray[i] == "001001") { CharOut +="J" ; } else
+      if (charArray[i] == "001010") { CharOut +="K" ; } else
+      if (charArray[i] == "001011") { CharOut +="L" ; } else
+      if (charArray[i] == "001100") { CharOut +="M" ; } else
+      if (charArray[i] == "001101") { CharOut +="N" ; } else
+      if (charArray[i] == "001110") { CharOut +="O" ; } else
+      if (charArray[i] == "001111") { CharOut +="P" ; } else
+      if (charArray[i] == "010000") { CharOut +="Q" ; } else
+      if (charArray[i] == "010001") { CharOut +="R" ; } else
+      if (charArray[i] == "010010") { CharOut +="S" ; } else
+      if (charArray[i] == "010011") { CharOut +="T" ; } else
+      if (charArray[i] == "010100") { CharOut +="U" ; } else
+      if (charArray[i] == "010101") { CharOut +="V" ; } else
+      if (charArray[i] == "010110") { CharOut +="W" ; } else
+      if (charArray[i] == "010111") { CharOut +="X" ; } else
+      if (charArray[i] == "011000") { CharOut +="Y" ; } else
+      if (charArray[i] == "011001") { CharOut +="Z" ; } else
+      if (charArray[i] == "011010") { CharOut +="a" ; } else
+      if (charArray[i] == "011011") { CharOut +="b" ; } else
+      if (charArray[i] == "011100") { CharOut +="c" ; } else
+      if (charArray[i] == "011101") { CharOut +="d" ; } else
+      if (charArray[i] == "011110") { CharOut +="e" ; } else
+      if (charArray[i] == "011111") { CharOut +="f" ; } else
+      if (charArray[i] == "100000") { CharOut +="g" ; } else
+      if (charArray[i] == "100001") { CharOut +="h" ; } else
+      if (charArray[i] == "100010") { CharOut +="i" ; } else
+      if (charArray[i] == "100011") { CharOut +="j" ; } else
+      if (charArray[i] == "100100") { CharOut +="k" ; } else
+      if (charArray[i] == "100101") { CharOut +="l" ; } else
+      if (charArray[i] == "100110") { CharOut +="m" ; } else
+      if (charArray[i] == "100111") { CharOut +="n" ; } else
+      if (charArray[i] == "101000") { CharOut +="o" ; } else
+      if (charArray[i] == "101001") { CharOut +="p" ; } else
+      if (charArray[i] == "101010") { CharOut +="q" ; } else
+      if (charArray[i] == "101011") { CharOut +="r" ; } else
+      if (charArray[i] == "101100") { CharOut +="s" ; } else
+      if (charArray[i] == "101101") { CharOut +="t" ; } else
+      if (charArray[i] == "101110") { CharOut +="u" ; } else
+      if (charArray[i] == "101111") { CharOut +="v" ; } else
+      if (charArray[i] == "110000") { CharOut +="w" ; } else
+      if (charArray[i] == "110001") { CharOut +="x" ; } else
+      if (charArray[i] == "110010") { CharOut +="y" ; } else
+      if (charArray[i] == "110011") { CharOut +="z" ; } else
+      if (charArray[i] == "110100") { CharOut +="0" ; } else
+      if (charArray[i] == "110101") { CharOut +="1" ; } else
+      if (charArray[i] == "110110") { CharOut +="2" ; } else
+      if (charArray[i] == "110111") { CharOut +="3" ; } else
+      if (charArray[i] == "111000") { CharOut +="4" ; } else
+      if (charArray[i] == "111001") { CharOut +="5" ; } else
+      if (charArray[i] == "111010") { CharOut +="6" ; } else
+      if (charArray[i] == "111011") { CharOut +="7" ; } else
+      if (charArray[i] == "111100") { CharOut +="8" ; } else
+      if (charArray[i] == "111110") { CharOut +="+" ; } else
+      if (charArray[i] == "111101") { CharOut +="9" ; } else
+      if (charArray[i] == "111111") { CharOut +="/" ; }
+    
+        padCounter++;
+        if(padCounter == 3){padCounter = 0;}
+    }
+    
+    if(padCounter == 3){
+        CharOut += "A";
+    }else if(padCounter == 2){
+        CharOut += "A=";
+    }else if(padCounter == 1){
+        CharOut += "A==";
+    }
+    console.log(CharOut);
+    var sDeckString = document.getElementById("sDeckString");
+    sDeckString.innerHTML = CharOut;
+    
+}
 
-            var key = Dicts.NATlook.FirstOrDefault(x => x.Value == currentDeck.sNation).Key;
-            var sUtil = Convert.ToString(key, 2);
-            sUtil = sUtil.PadLeft(9, '0');
-            char[] caUtil= sUtil.ToCharArray();
-            for (var i = 0; i < 9; i++)
-            {
-                lcDeckChar.Add(caUtil[i]);
-            }
-
-            key = Dicts.SPClook.FirstOrDefault(x => x.Value == currentDeck.sSpec).Key;
-            sUtil = Convert.ToString(key, 2);
-            sUtil = sUtil.PadLeft(3, '0');
-            caUtil = sUtil.ToCharArray();
-            for (var i = 0; i < 3; i++)
-            {
-                lcDeckChar.Add(caUtil[i]);
-            }
-
-            key = Dicts.ERAlook.FirstOrDefault(x => x.Value == currentDeck.sEra).Key;
-            sUtil = Convert.ToString(key, 2);
-            sUtil = sUtil.PadLeft(2, '0');
-            caUtil = sUtil.ToCharArray();
-            for (var i = 0; i < 2; i++)
-            {
-                lcDeckChar.Add(caUtil[i]);
-            }
-
-            sUtil = Convert.ToString(currentDeck.i3Cards, 2);
-            sUtil = sUtil.PadLeft(4, '0');
-            caUtil = sUtil.ToCharArray();
-            for (var i = 0; i < 4; i++)
-            {
-                lcDeckChar.Add(caUtil[i]);
-            }
-
-            sUtil = Convert.ToString(currentDeck.i2Cards, 2);
-            sUtil = sUtil.PadLeft(5, '0');
-            caUtil = sUtil.ToCharArray();
-            for (var i = 0; i < 5; i++)
-            {
-                lcDeckChar.Add(caUtil[i]);
-            }
-
-            foreach (VehicleCard CA in currentDeck.Cards2T)
-            {
-                if (CA != "")
-                {
-                    caUtil = CA.sVeterancy.ToCharArray();
-                    for (var i = 0; i < 3; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-
-                    sUtil = Convert.ToString(CA.Unit.iUnitID,2);
-                    sUtil = sUtil.PadLeft(10, '0');
-                    caUtil = sUtil.ToCharArray();
-                    for (var i = 0; i < 10; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-
-                    sUtil = Convert.ToString(CA.Transport.iUnitID, 2);
-                    sUtil = sUtil.PadLeft(10, '0');
-                    caUtil = sUtil.ToCharArray();
-                    for (var i = 0; i < 10; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-
-                    sUtil = Convert.ToString(CA.Craft.iUnitID, 2);
-                    sUtil = sUtil.PadLeft(10, '0');
-                    caUtil = sUtil.ToCharArray();
-                    for (var i = 0; i < 10; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-                }
-            }
-
-            foreach (VehicleCard CA in currentDeck.Cards1T)
-            {
-                if (CA != "")
-                {
-                    caUtil = CA.sVeterancy.ToCharArray();
-                    for (var i = 0; i < 3; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-
-                    sUtil = Convert.ToString(CA.Unit.iUnitID, 2);
-                    sUtil = sUtil.PadLeft(10, '0');
-                    caUtil = sUtil.ToCharArray();
-                    for (var i = 0; i < 10; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-
-                    sUtil = Convert.ToString(CA.Transport.iUnitID, 2);
-                    sUtil = sUtil.PadLeft(10, '0');
-                    caUtil = sUtil.ToCharArray();
-                    for (var i = 0; i < 10; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-                }
-            }
-
-            foreach (VehicleCard CA in currentDeck.Cards0T)
-            {
-                if (CA != "")
-                {
-                    caUtil = CA.sVeterancy.ToCharArray();
-                    for (var i = 0; i < 3; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-
-                    sUtil = Convert.ToString(CA.Unit.iUnitID, 2);
-                    sUtil = sUtil.PadLeft(10, '0');
-                    caUtil = sUtil.ToCharArray();
-                    for (var i = 0; i < 10; i++)
-                    {
-                        lcDeckChar.Add(caUtil[i]);
-                    }
-                }
-            }
-
-            return Dicts.lookupB36(lcDeckChar.ToArray());
-
-
-        }
-		*/
 /*
         public void CardDelete(var ID)
         {
