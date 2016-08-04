@@ -2,197 +2,6 @@ function ModelGUI(){
     this.sDeckvar = $("sDeckString");
     this.bDecode  = $("bDecode");
     this.bClear  = $("bClear");
-    
-    this.bMarine = document.getElementById("bMarine");
-    this.bAirborne = document.getElementById("bAirborne");
-    this.bMechanized = document.getElementById("bMechanized");
-    this.bArmoured = document.getElementById("bArmoured");
-    this.bMotorized = document.getElementById("bMotorized");
-    this.bSupport = document.getElementById("bSupport");
-    this.bGeneral = document.getElementById("bGeneral");
-    this.bA = document.getElementById("bA");
-    this.bB = document.getElementById("bB");
-    this.bC = document.getElementById("bC");
-    
-    this.D11 = document.getElementById("D11")
-    this.D12 = document.getElementById("D12")
-    this.D13 = document.getElementById("D13")
-    this.D14 = document.getElementById("D14")
-    this.D15 = document.getElementById("D15")
-    this.D16 = document.getElementById("D16")
-    this.D17 = document.getElementById("D17")
-    this.D18 = document.getElementById("D18")
-    this.D19 = document.getElementById("D19")
-    
-    this.D21 = document.getElementById("D21")
-    this.D22 = document.getElementById("D22")
-    this.D23 = document.getElementById("D23")
-    this.D24 = document.getElementById("D24")
-    this.D25 = document.getElementById("D25")
-    this.D26 = document.getElementById("D26")
-    this.D27 = document.getElementById("D27")
-    this.D28 = document.getElementById("D28")
-    this.D29 = document.getElementById("D29")
-    
-    this.D31 = document.getElementById("D31")
-    this.D32 = document.getElementById("D32")
-    this.D33 = document.getElementById("D33")
-    this.D34 = document.getElementById("D34")
-    this.D35 = document.getElementById("D35")
-    this.D36 = document.getElementById("D36")
-    this.D37 = document.getElementById("D37")
-    this.D38 = document.getElementById("D38")
-    this.D39 = document.getElementById("D39")
-    
-    this.D41 = document.getElementById("D41")
-    this.D42 = document.getElementById("D42")
-    this.D43 = document.getElementById("D43")
-    this.D44 = document.getElementById("D44")
-    this.D45 = document.getElementById("D45")
-    this.D46 = document.getElementById("D46")
-    this.D47 = document.getElementById("D47")
-    this.D48 = document.getElementById("D48")
-    this.D49 = document.getElementById("D49")
-    
-    this.D51 = document.getElementById("D51")
-    this.D52 = document.getElementById("D52")
-    this.D53 = document.getElementById("D53")
-    this.D54 = document.getElementById("D54")
-    this.D55 = document.getElementById("D55")
-    this.D56 = document.getElementById("D56")
-    this.D57 = document.getElementById("D57")
-    this.D58 = document.getElementById("D58")
-    this.D59 = document.getElementById("D59")
-    
-    this.D61 = document.getElementById("D61")
-    this.D62 = document.getElementById("D62")
-    this.D63 = document.getElementById("D63")
-    this.D64 = document.getElementById("D64")
-    this.D65 = document.getElementById("D65")
-    this.D66 = document.getElementById("D66")
-    this.D67 = document.getElementById("D67")
-    this.D68 = document.getElementById("D68")
-    this.D69 = document.getElementById("D69")
-    
-    this.D71 = document.getElementById("D71")
-    this.D72 = document.getElementById("D72")
-    this.D73 = document.getElementById("D73")
-    this.D74 = document.getElementById("D74")
-    this.D75 = document.getElementById("D75")
-    this.D76 = document.getElementById("D76")
-    this.D77 = document.getElementById("D77")
-    this.D78 = document.getElementById("D78")
-    this.D79 = document.getElementById("D79")
-    
-    this.D81 = document.getElementById("D81")
-    this.D82 = document.getElementById("D82")
-    this.D83 = document.getElementById("D83")
-    this.D84 = document.getElementById("D84")
-    this.D85 = document.getElementById("D85")
-    this.D86 = document.getElementById("D86")
-    this.D87 = document.getElementById("D87")
-    this.D88 = document.getElementById("D88")
-    this.D89 = document.getElementById("D89")
-    
-    this.D91 = document.getElementById("D91")
-    this.D92 = document.getElementById("D92")
-    this.D93 = document.getElementById("D93")
-    this.D94 = document.getElementById("D94")
-    this.D95 = document.getElementById("D95")
-    this.D96 = document.getElementById("D96")
-    this.D97 = document.getElementById("D97")
-    this.D98 = document.getElementById("D98")
-    this.D99 = document.getElementById("D99")
-    
-    this.D11 = document.getElementById("E11")
-    this.D12 = document.getElementById("E12")
-    this.D13 = document.getElementById("E13")
-    this.D14 = document.getElementById("E14")
-    this.D15 = document.getElementById("E15")
-    this.D16 = document.getElementById("E16")
-    this.D17 = document.getElementById("E17")
-    this.D18 = document.getElementById("E18")
-    this.D19 = document.getElementById("E19")
-    
-    this.D21 = document.getElementById("E21")
-    this.D22 = document.getElementById("E22")
-    this.D23 = document.getElementById("E23")
-    this.D24 = document.getElementById("E24")
-    this.D25 = document.getElementById("E25")
-    this.D26 = document.getElementById("E26")
-    this.D27 = document.getElementById("E27")
-    this.D28 = document.getElementById("E28")
-    this.D29 = document.getElementById("E29")
-    
-    this.D31 = document.getElementById("E31")
-    this.D32 = document.getElementById("E32")
-    this.D33 = document.getElementById("E33")
-    this.D34 = document.getElementById("E34")
-    this.D35 = document.getElementById("E35")
-    this.D36 = document.getElementById("E36")
-    this.D37 = document.getElementById("E37")
-    this.D38 = document.getElementById("E38")
-    this.D39 = document.getElementById("E39")
-    
-    this.D41 = document.getElementById("E41")
-    this.D42 = document.getElementById("E42")
-    this.D43 = document.getElementById("E43")
-    this.D44 = document.getElementById("E44")
-    this.D45 = document.getElementById("E45")
-    this.D46 = document.getElementById("E46")
-    this.D47 = document.getElementById("E47")
-    this.D48 = document.getElementById("E48")
-    this.D49 = document.getElementById("E49")
-    
-    this.D51 = document.getElementById("E51")
-    this.D52 = document.getElementById("E52")
-    this.D53 = document.getElementById("E53")
-    this.D54 = document.getElementById("E54")
-    this.D55 = document.getElementById("E55")
-    this.D56 = document.getElementById("E56")
-    this.D57 = document.getElementById("E57")
-    this.D58 = document.getElementById("E58")
-    this.D59 = document.getElementById("E59")
-    
-    this.D61 = document.getElementById("E61")
-    this.D62 = document.getElementById("E62")
-    this.D63 = document.getElementById("E63")
-    this.D64 = document.getElementById("E64")
-    this.D65 = document.getElementById("E65")
-    this.D66 = document.getElementById("E66")
-    this.D67 = document.getElementById("E67")
-    this.D68 = document.getElementById("E68")
-    this.D69 = document.getElementById("E69")
-    
-    this.D71 = document.getElementById("E71")
-    this.D72 = document.getElementById("E72")
-    this.D73 = document.getElementById("E73")
-    this.D74 = document.getElementById("E74")
-    this.D75 = document.getElementById("E75")
-    this.D76 = document.getElementById("E76")
-    this.D77 = document.getElementById("E77")
-    this.D78 = document.getElementById("E78")
-    this.D79 = document.getElementById("E79")
-    
-    this.D81 = document.getElementById("E81")
-    this.D82 = document.getElementById("E82")
-    this.D83 = document.getElementById("E83")
-    this.D84 = document.getElementById("E84")
-    this.D85 = document.getElementById("E85")
-    this.D86 = document.getElementById("E86")
-    this.D87 = document.getElementById("E87")
-    this.D88 = document.getElementById("E88")
-    this.D89 = document.getElementById("E89")
-    
-    this.D91 = document.getElementById("E91")
-    this.D92 = document.getElementById("E92")
-    this.D93 = document.getElementById("E93")
-    this.D94 = document.getElementById("E94")
-    this.D95 = document.getElementById("E95")
-    this.D96 = document.getElementById("E96")
-    this.D97 = document.getElementById("E97")
-    this.D98 = document.getElementById("E98")
-    this.D99 = document.getElementById("E99")
 }
 
 function GUIDisplay() {
@@ -240,63 +49,74 @@ function GUIDisplay() {
     switch (Deck.iSpec)
     {
         case 0://moto
-            btMotorized.BorderBrush = brush;
+            var btSpec = document.getElementById("bMotorized");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
             //updatePointsDisplay(MainMatrix.moto);
             //lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
             break;
         case 1://arm
-            btArmoured.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.armoured);
-            lbSpec.Content = "+4 cards, +2XP, -1 cost: Tank";
+            var btSpec = document.getElementById("bArmoured");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+            //updatePointsDisplay(MainMatrix.armoured);
+            //lbSpec.Content = "+4 cards, +2XP, -1 cost: Tank";
             break;
         case 2://sup
-            btSupport.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.support);
-            lbSpec.Content = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";
+            var btSpec = document.getElementById("bSupport");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+        /*  updatePointsDisplay(MainMatrix.support);
+            lbSpec.Content = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";*/
             break;
         case 3://mar
-            btMarine.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.marine);
-            lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Vehicle";
+            var btSpec = document.getElementById("bMarine");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+        /*  updatePointsDisplay(MainMatrix.marine);
+            lbSpec.Content = "+2 cards, +1XP, -1 cost: Infantry, Vehicle";*/
             break;
         case 4://mec
-            btMechanized.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.mech);
-            lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";
+            var btSpec = document.getElementById("bMechanized");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+        /*  updatePointsDisplay(MainMatrix.mech);
+            lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";*/
             break;
         case 5://air
-            btAirborne.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.airborne);
-            lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";
+            var btSpec = document.getElementById("bAirborne");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+     /*     updatePointsDisplay(MainMatrix.airborne);
+            lbSpec.Content = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";*/
             break;
         case 6://nav
+    //        var btSpec = document.getElementById("bGeneral");
+      //      btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
             break;
         case 7://gen
-            btGeneral.BorderBrush = brush;
-            updatePointsDisplay(MainMatrix.general);
-            lbSpec.Content = "no bonus";
+            var btSpec = document.getElementById("bGeneral");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+    /*      updatePointsDisplay(MainMatrix.general);
+            lbSpec.Content = "no bonus";*/
             break;
     }
-    key = Dicts.ERAlook.FirstOrDefault(x => x.Value == DAmain.sEra).Key;
-    switch (key)
+    switch (Deck.iEra)
     {
         case 0://C
-            btCatC.BorderBrush = brush;
-            lbEra.Content = "+10AP";
-            Deck.deckpoitstotal += 10;
+            var btSpec = document.getElementById("bC");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+         //   lbEra.Content = "+10AP";
+           // Deck.deckpoitstotal += 10;
             break;
         case 1://B
-            btCatB.BorderBrush = brush;
-            lbEra.Content = "+5AP";
-            Deck.deckpoitstotal += 5;
+            var btSpec = document.getElementById("bB");
+            btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+        //    lbEra.Content = "+5AP";
+         //   Deck.deckpoitstotal += 5;
             break;
         case 2://A
-            btCatA.BorderBrush = brush;
-            lbEra.Content = "+0AP";
+            var btSpec = document.getElementById("bA");
+          //  btSpec.setAttribute("class","#btn btn-default btn-block btn-spec");
+        //    lbEra.Content = "+0AP";
             break;
     }
     
-    decklist = MasterDeck.dbDeckList();
+  /*  decklist =Deck.dbDeckList();
     listUnits(decklist);
     dgDeckLog.ItemsSource = LOGLIST;
     dgDeckInf.ItemsSource = INFLIST;
@@ -305,17 +125,10 @@ function GUIDisplay() {
     dgDeckRec.ItemsSource = RECLIST;
     dgDeckVeh.ItemsSource = VEHLIST;
     dgDeckHel.ItemsSource = HELLIST;
-    dgDeckAir.ItemsSource = AIRLIST;
-    displayLogUnits(MasterDeck.LOG);
-    displayInfUnits(MasterDeck.INF);
-    displaySupUnits(MasterDeck.SUP);
-    displayTnkUnits(MasterDeck.TNK);
-    displayRecUnits(MasterDeck.REC);
-    displayVehUnits(MasterDeck.VEH);
-    displayHelUnits(MasterDeck.HEL);
-    displayAirUnits(MasterDeck.AIR);
-    LBPoints.Content = Deck.deckpoints + "/" + Deck.deckpoitstotal;
-    PrintDebug();
+    dgDeckAir.ItemsSource = AIRLIST;*/
+    console.log(Deck.Cards2T);
+    displayUnits();
+    //LBPoints.Content = Deck.deckpoints + "/" + Deck.deckpoitstotal;
 }
 
 function flagSwap(flagID, imageID) {
@@ -371,8 +184,7 @@ function displayUSA() {
         // lbNation.Content = "+10%, +15AP";
         // deckpoitstotal += 15;
 }
-                                  
-                                  
+                        
 function displayUK(){
     //BLU  RED  BD   CW   EU   LJ  NORAD SCA NSWP  RD   RKA ANZAC BRD  CAN  DEN  FRA  JAP  NED  NOR  ROK  SWE  UK   USA  CZS  DDR DPRK  POL  PRC USSR
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
@@ -681,6 +493,136 @@ function displayREDFOR()
     //lbNation.Content = "No bonus";
 }
 
+function addDataImage(x, y, spec){      
+    var iData = document.createElement("img");
+    iData.src = "png/" + spec + ".png";
+    iData.setAttribute("class", "img-responsive");
+    iData.setAttribute("style", "position: absolute; top: 0; left: 0;");
+    document.getElementById("D" + x + y).appendChild(iData);
+}
+
+function displayCard(card, type, pos){
+    
+    var  unitDisplay = document.getElementById("D" + type + pos[type]);        
+    var iData = document.createElement("img");
+    iData.src = "png/blank.png";
+    iData.setAttribute("class", "img-responsive");
+    iData.setAttribute("style", "position: relative; top: 0; left: 0;");
+    console.log("D" + type + pos[type]);
+    unitDisplay.appendChild(iData);
+    
+    card.iArrayIndex =""+ type + pos;
+    /*
+    LOG01.Visibility = System.Windows.Visibility.Visible;
+    laLOG01.Content = Card.Unit.sNameU;
+    laLOG01.Visibility = Visibility.Visible;
+    LOGFL01.Source = bitmap;*/
+    //if (isUnavailable == true) { LOG01ERR.Visibility = System.Windows.Visibility.Visible; }
+    
+    if (card.Unit.sUnitData.charAt(0)== '1') { addDataImage(type, pos[type], "antiair"); }
+    if (card.Unit.sUnitData.charAt(1)== '1') { addDataImage(type, pos[type], "AAM"); }
+    if (card.Unit.sUnitData.charAt(2)== '1') { addDataImage(type, pos[type], "armour"); }
+    if (card.Unit.sUnitData.charAt(3)== '1') { addDataImage(type, pos[type], "atgm"); }
+    if (card.Unit.sUnitData.charAt(4)== '1') { addDataImage(type, pos[type], "carrier"); }
+    if (card.Unit.sUnitData.charAt(5)== '1') { addDataImage(type, pos[type], "CMD"); }
+    if (card.Unit.sUnitData.charAt(6)== '1') { addDataImage(type, pos[type], "helo"); }
+    if (card.Unit.sUnitData.charAt(7)== '1') { addDataImage(type, pos[type], "inf"); }
+    if (card.Unit.sUnitData.charAt(8)== '1') { addDataImage(type, pos[type], "log"); }
+    if (card.Unit.sUnitData.charAt(9)== '1') { addDataImage(type, pos[type], "eng"); }
+    if (card.Unit.sUnitData.charAt(10) == '1') { addDataImage(type, pos[type], "plane"); }
+    if (card.Unit.sUnitData.charAt(11) == '1') { addDataImage(type, pos[type], "rad"); }
+    if (card.Unit.sUnitData.charAt(12) == '1') { addDataImage(type, pos[type], "rocket"); }
+    if (card.Unit.sUnitData.charAt(13) == '1') { addDataImage(type, pos[type], "mtr"); }
+    if (card.Unit.sUnitData.charAt(14) == '1') { addDataImage(type, pos[type], "rec"); }
+    if (card.Unit.sUnitData.charAt(14) == '2') { addDataImage(type, pos[type], "rec2"); }
+    if (card.Unit.sUnitData.charAt(14) == '3') { addDataImage(type, pos[type], "rec3"); }
+    if (card.Unit.sUnitData.charAt(15) == '1') { addDataImage(type, pos[type], "tube"); }
+    if (card.Unit.sUnitData.charAt(16) == '1') { addDataImage(type, pos[type], "rad"); }
+    //LOG02.Visibility = System.Windows.Visibility.Visible;
+    //laLOG02.Content = Card.Unit.sNameU;
+    //laLOG02.Visibility = Visibility.Visible;
+    //LOGFL02.Source = bitmap;
+    //LOGco02.Content = Card.iCost;
+        /*
+        
+        
+                LOG01.Visibility = System.Windows.Visibility.Visible;
+                laLOGc01.Content = Card.Transport.sNameU;
+                laLOGc01.Visibility = Visibility.Visible;
+                LOG02.Visibility = System.Windows.Visibility.Visible;
+                laLOGc02.Content = Card.Transport.sNameU;
+                laLOGc02.Visibility = Visibility.Visible;
+        var uri = new Uri("flags/" + Card.sNation + ".png", UriKind.Relative);
+                break;
+                <div id="D11" style="position: relative; left: 0; top: 0;">
+                  <img src="png/blank.png" class="img-responsive" style="position: relative; top: 0; left: 0;"/>
+                  <img src="png/blank.png" class="img-responsive" style="position: absolute; top: 0px; left: 0px;"/>
+                </div>*/
+    
+    
+    
+    
+}
+
+function displayUnits()
+{
+    var counter = [0,1,1,1,1,1,1,1,1,1];
+    //var isUnavailable = isError(Card);
+    for (var i = 0; i < Deck.Cards2T.length; i++)
+    {
+        var type;
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(17) == '1'){type = 1;}//logi
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(18) == '1'){type = 2;}//inf
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(19) == '1'){type = 3;}//sup
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(20) == '1'){type = 4;}//tnk
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(21) == '1'){type = 5;}//rec
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(22) == '1'){type = 6;}//veh
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(23) == '1'){type = 7;}//hel
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
+        if (Deck.Cards2T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
+        displayCard(Deck.Cards2T[i], type, counter);
+        //showname
+        //showifv
+        //showcraft
+        counter[type] +=1;         
+    } 
+    for (var i = 0; i < Deck.Cards1T.length; i++)
+    {
+        var type;
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(17) == '1'){type = 1;}//logi
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(18) == '1'){type = 2;}//inf
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(19) == '1'){type = 3;}//sup
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(20) == '1'){type = 4;}//tnk
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(21) == '1'){type = 5;}//rec
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(22) == '1'){type = 6;}//veh
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(23) == '1'){type = 7;}//hel
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
+        displayCard(Deck.Cards1T[i], type, counter);
+        //showname
+        //showifv
+        //showcraft
+        counter[type] +=1;         
+    } 
+    for (var i = 0; i < Deck.Cards0T.length; i++)
+    {
+        var type;
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(17) == '1'){type = 1;}//logi
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(18) == '1'){type = 2;}//inf
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(19) == '1'){type = 3;}//sup
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(20) == '1'){type = 4;}//tnk
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(21) == '1'){type = 5;}//rec
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(22) == '1'){type = 6;}//veh
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(23) == '1'){type = 7;}//hel
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
+        if (Deck.Cards0T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
+        displayCard(Deck.Cards0T[i], type, counter);
+        //showname
+        //showifv
+        //showcraft
+        counter[type] +=1;         
+    } 
+}
 
 
 

@@ -19,16 +19,7 @@ function  DeckAssembly()
     this.Cards2T = [];
     this.deckpoints = 0;
     this.deckpoitstotal = 45;
-    /*var List<VehicleCard> LOG = new List<VehicleCard>();
-    var List<VehicleCard> INF = new List<VehicleCard>();
-    var List<VehicleCard> SUP = new List<VehicleCard>();
-    var List<VehicleCard> TNK = new List<VehicleCard>();
-    var List<VehicleCard> REC = new List<VehicleCard>();
-    var List<VehicleCard> VEH = new List<VehicleCard>();
-    var List<VehicleCard> HEL = new List<VehicleCard>();
-    var List<VehicleCard> AIR = new List<VehicleCard>();
-    var List<VehicleCard> NAV = new List<VehicleCard>();
-    var Weapon ""Weapon = new Weapon(0, 0, 0, 0, 0, 0, 0, "", 0, "", "", "NONE"); //???*/
+   // var Weapon = new Weapon(0, 0, 0, 0, 0, 0, 0, "", 0, "", "", "NONE"); //???
 }
 
 
@@ -36,22 +27,18 @@ function DeckDisAssembly()
 {
   var binoutdebug = "NONE";
   decodeDeck(sDeckString.value)
-  //main caller for decoding
 }
-      //on exit, cards 0,1,2T are populated.
-      //  #region deckstring=>deck
+
 function decodeDeck (deckCode)
 {
-    /*for (var i = 0; i < 72; i++)
-    {
-        Cards0T[i] = "";
-        Cards1T[i] = "";
-        Cards2T[i] = "";
-    }*/
+    Deck.Cards0T = [];
+    Deck.Cards1T = [];
+    Deck.Cards2T = [];
     Deck.i3Cards = 0;
     Deck.i2Cards = 0;
     Deck.i1Cards = 0;
     var deckBinary ="";
+    
     if (deckCode.length < 25 ) { return; }
     for (var i = 0; i < deckCode.length; i++) {
       if (deckCode.charAt(i) == "A") { deckBinary += "000000"; } else
@@ -276,7 +263,7 @@ function decodeDeck (deckCode)
         var Unit = CardsDB[iUnit][Deck.iSide];
         var Ifv = CardsDB[iIFV][Deck.iSide];
         Deck.Cards1T[i] = new VehicleCard(sVet, Unit, Ifv, 0);
-        if (Deck.Cards1T[i].Unit.sUnitData.charAt(18) == '1')// if not inf
+        if (Deck.Cards1T[i].Unit.sUnitData.charAt(18) != '1')// if not inf
         {
               Deck.Cards1T[i].Unit.sUnitData = Deck.Cards1T[i].Unit.sUnitData.substr(0, 17)+ "000000001"; // is naval
         };
@@ -303,123 +290,115 @@ function decodeDeck (deckCode)
         var Unit = CardsDB[iUnit][Deck.iSide];
         Deck.Cards0T[Deck.i1Cards] = new VehicleCard(sVet, Unit, 0, 0);
         //Cards0T[i1Cards] = toGen(Cards0T[i1Cards]); <<TO IMPLEMENT LATER
+        console.log(Deck.Cards0T[Deck.i1Cards].Unit.sUnitData);
         Deck.i1Cards++;
     }
-    //cardDisplaySort(Cards0T, Cards1T, Cards2T);
+    //cardDisplaySort(Deck.Cards0T, Deck.Cards1T, Deck.Cards2T);
     debugUnitsOut();
 }
-
 /*
-        private void cardDisplaySort(VehicleCard[] c0T, VehicleCard[] c1T, VehicleCard[] c2T)
+function cardDisplaySort(c0T, c1T, c2T)
+{
+    LOG = [];
+    INF = [];
+    SUP = [];
+    TNK = [];
+    REC = [];
+    VEH = [];
+    HEL = [];
+    AIR = [];
+    NAV = [];
+    
+    for (var i = 0; i < c2T.length; i++)
+    {
+        if (c2T[i].Unit.sUnitData.charAt(25) == '1')
         {
-            LOG.Clear();
-            INF.Clear();
-            SUP.Clear();
-            TNK.Clear();
-            REC.Clear();
-            VEH.Clear();
-            HEL.Clear();
-            AIR.Clear();
-            NAV.Clear();
-            foreach (VehicleCard Card in c2T)
-            {
-                if (Card != "")
-                {
-                    if (Card.Unit.caUnitData[25] == '1')
-                    {
-                        NAV.Add(Card);
-                    }
-                }
-            }
-
-            foreach (VehicleCard Card in c1T)
-            {
-                if (Card != "")
-                {
-
-                    if (Card.Unit.caUnitData[17] == '1')//logi
-                    {
-                        LOG.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[18] == '1') // INF
-                    {
-                        INF.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[19] == '1') // support
-                    {
-                        SUP.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[20] == '1') // tanks
-                    {
-                        TNK.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[21] == '1')
-                    {
-                        REC.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[22] == '1')
-                    {
-                        VEH.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[23] == '1')
-                    {
-                        HEL.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[24] == '1')
-                    {
-                        AIR.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[25] == '1')
-                    {
-                        NAV.Add(Card);
-                    }
-                }
-            }
-            foreach (VehicleCard Card in c0T)
-            {
-                if (Card != "")
-                {
-
-                    if (Card.Unit.caUnitData[17] == '1')//logi
-                    {
-                        LOG.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[18] == '1') // INF
-                    {
-                        INF.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[19] == '1') // support
-                    {
-                        SUP.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[20] == '1') // tanks
-                    {
-                        TNK.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[21] == '1')
-                    {
-                        REC.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[22] == '1')
-                    {
-                        VEH.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[23] == '1')
-                    {
-                        HEL.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[24] == '1')
-                    {
-                        AIR.Add(Card);
-                    }
-                    else if (Card.Unit.caUnitData[25] == '1')
-                    {
-                        NAV.Add(Card);
-                    }
-                }
-            }
+            NAV[NAV.length] = c2T[i];
         }
-          */
+    } //they're all naval.
+
+    for (var i = 0; i < c1T.length; i++)
+    {
+        if (c1T[i].Unit.sUnitData.charAt(17) == '1')//logi
+        {
+            LOG[LOG.length] = c1T[i];
+        }
+        else if (c1T[i].Unit.sUnitData.charAt(18) == '1') // INF
+        {
+            INF[INF.length] = c1T[i];
+        }
+        else if (c1T[i].Unit.sUnitData.charAt(19) == '1') // support
+        {
+            SUP[SUP.length] = c1T[i];
+        }
+        else if (c1T[i].Unit.sUnitData.charAt(20) == '1') // tanks
+        {
+            TNK[TNK.length] = c1T[i];
+        }
+        else if (c1T[i].Unit.sUnitData.charAt(21) == '1')
+        {
+            REC[REC.length] = c1T[i];
+        }
+        else if (c1T[i].Unit.sUnitData.charAt(22) == '1')
+        {
+            VEH[VEH.length] = c1T[i];
+        }
+        else if (c1T[i].Unit.sUnitData.charAt(23) == '1')
+        {
+            HEL[HEL.length] = c1T[i];
+        }
+        else if (c1T[i].Unit.sUnitData.charAt(24) == '1')
+        {
+            AIR[AIR.length] = c1T[i];
+        }
+        else if (c1T[i].Unit.sUnitData.charAt(25) == '1')
+        {
+            NAV[NAV.length] = c1T[i];
+        }
+    }
+    
+
+    for (var i = 0; i < c0T.length; i++)
+    {
+        if (c0T[i].Unit.sUnitData.charAt(17) == '1')//logi
+        {
+            LOG[LOG.length] = c0T[i];
+        }
+        else if (c0T[i].Unit.sUnitData.charAt(18) == '1') // INF
+        {
+            INF[INF.length] = c0T[i];
+        }
+        else if (c0T[i].Unit.sUnitData.charAt(19) == '1') // support
+        {
+            SUP[SUP.length] = c0T[i];
+        }
+        else if (c0T[i].Unit.sUnitData.charAt(20) == '1') // tanks
+        {
+            TNK[TNK.length] = c0T[i];
+        }
+        else if (c0T[i].Unit.sUnitData.charAt(21) == '1')
+        {
+            REC[REC.length] = c0T[i];
+        }
+        else if (c0T[i].Unit.sUnitData.charAt(22) == '1')
+        {
+            VEH[VEH.length] = c0T[i];
+        }
+        else if (c0T[i].Unit.sUnitData.charAt(23) == '1')
+        {
+            HEL[HEL.length] = c0T[i];
+        }
+        else if (c0T[i].Unit.sUnitData.charAt(24) == '1')
+        {
+            AIR[AIR.length] = c0T[i];
+        }
+        else if (c0T[i].Unit.sUnitData.charAt(25) == '1')
+        {
+            NAV[NAV.length] = c0T[i];
+        }
+    }
+}*/
+
         /*
         //deck decoding
         public var DeckExport(DeckDisAssembly currentDeck)
