@@ -490,16 +490,17 @@ function addDataImage(x, y, spec){
     iData.setAttribute("class", "img-responsive");
     iData.setAttribute("style", "position: absolute; top: 0; left: 0;");
     document.getElementById("D" + x + y).appendChild(iData);
+    document.getElementById("D0" + x + y).appendChild(iData);
 }
 
 function displayCard(card, type, pos){
-    
-    var  unitDisplay = document.getElementById("D" + type + pos[type]);        
+          
     var iData = document.createElement("img");
     iData.src = "png/blank.png";
     iData.setAttribute("class", "img-responsive");
     iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-    unitDisplay.appendChild(iData);
+    document.getElementById("D" + type + pos[type]).appendChild(iData);
+    document.getElementById("D0" + type + pos[type]).appendChild(iData);
     
     card.iArrayIndex =""+ type + pos;   
         
@@ -507,13 +508,16 @@ function displayCard(card, type, pos){
     var uText = document.createElement("h6");
     uText.innerHTML = card.Unit.sNameU;
     document.getElementById("L" + type + pos[type]).appendChild(uText);
+    document.getElementById("L0" + type + pos[type]).appendChild(uText);
     if(card.Transport != "0"){
         uText.innerHTML = card.Unit.sNameU + "<br>" + card.Transport.sNameU ;
         document.getElementById("L" + type + pos[type]).appendChild(uText);
+        document.getElementById("L0" + type + pos[type]).appendChild(uText);
     }
     if(card.Craft != "0"){
         uText.innerHTML = card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU;
         document.getElementById("L" + type + pos[type]).appendChild(uText);   
+        document.getElementById("L0" + type + pos[type]).appendChild(uText);   
     }
     //if (isUnavailable == true) { LOG01ERR.Visibility = System.Windows.Visibility.Visible; }    
     //LOGco02.Content = Card.iCost;
@@ -545,12 +549,14 @@ function displayCard(card, type, pos){
     iData.setAttribute("class", "img-thumbnail-mini");
     iData.setAttribute("style", "position: absolute; bottom: 0; left: 0;");
     document.getElementById("D" + type + pos[type]).appendChild(iData);  
+    document.getElementById("D0" + type + pos[type]).appendChild(iData);  
     
     //cost
     uText = document.createElement("h5");
     uText.innerHTML = card.iCost;
     uText.setAttribute("style","position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;");
     document.getElementById("D" + type + pos[type]).appendChild(uText);
+    document.getElementById("D0" + type + pos[type]).appendChild(uText);
     
     //flag
     iData = document.createElement("img");
@@ -558,6 +564,7 @@ function displayCard(card, type, pos){
     iData.setAttribute("class", "img-thumbnail");
     iData.setAttribute("style", "position: absolute; top: 0; left: 0;");
     document.getElementById("D" + type + pos[type]).appendChild(iData);
+    document.getElementById("D0" + type + pos[type]).appendChild(uText);
     
     
     //avail
@@ -653,7 +660,9 @@ function resetDisplay()
     for (var i = 1; i < 10; i++){
         for (var j = 1; j < 10; j++){
             document.getElementById("D" + j + i).innerHTML = "";            
-            document.getElementById("L" + j + i).innerHTML = "";
+            document.getElementById("L" + j + i).innerHTML = "";  
+            document.getElementById("D0" + j + i).innerHTML = "";      
+            document.getElementById("L0" + j + i).innerHTML = "";
         }   
     }        
 }

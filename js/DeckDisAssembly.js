@@ -448,7 +448,6 @@ function DeckExport()
         sUtil = Deck.Cards2T[i].Craft.iUnitID.toString(2);
         pad = "0000000000";
         sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
-        caUtil = sUtil.ToCharArray();
         BinaryOut += sUtil;
     }
     
@@ -563,10 +562,10 @@ function DeckExport()
     }else if(padCounter == 1){
         CharOut += "A==";
     }
-    console.log(CharOut);
     var sDeckString = document.getElementById("sDeckString");
-    sDeckString.innerHTML = CharOut;
-    
+    console.log(sDeckString.value);
+    console.log(CharOut);
+    sDeckString.value = CharOut;    
 }
 
 /*
