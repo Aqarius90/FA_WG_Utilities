@@ -1,7 +1,5 @@
 function  DeckAssembly()
 {
-    /*MainDB MainCardDatabase = new MainDB();
-    Dictionaries Dicts = new Dictionaries();*/
     this.sSide = "NONE";
     this.iSide =0;
     this.sNation = "NONE";
@@ -38,8 +36,7 @@ function decodeDeck (deckCode)
     Deck.i2Cards = 0;
     Deck.i1Cards = 0;
     var deckBinary ="";
-    
-    if (deckCode.length < 25 ) { return; }
+    if (deckCode.length < 4 ) { return; }
     for (var i = 0; i < deckCode.length; i++) {
       if (deckCode.charAt(i) == "A") { deckBinary += "000000"; } else
       if (deckCode.charAt(i) == "B") { deckBinary += "000001"; } else
@@ -237,7 +234,7 @@ function decodeDeck (deckCode)
         var Craft = CardsDB[iCraft][Deck.iSide];
         Deck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, Craft);
         Deck.Cards2T[i].Unit.sUnitData = Deck.Cards2T[i].Unit.sUnitData.substr(0, 17)+ "000000001";//is not regular inf
-        //Cards2T[i] = toGen(Cards2T[i]);   <<TO IMPLEMENT LATER
+        Deck.Cards2T[i] = toGen(Deck.Cards2T[i]);
     }
 
     for (var i = 0; i < Deck.i2Cards; i++)
@@ -267,7 +264,7 @@ function decodeDeck (deckCode)
         {
               Deck.Cards1T[i].Unit.sUnitData = Deck.Cards1T[i].Unit.sUnitData.substr(0, 17)+ "000000001"; // is naval
         };
-        //Cards1T[i] = toGen(Cards1T[i]); <<TO IMPLEMENT LATER
+        Deck.Cards1T[i] = toGen(Deck.Cards1T[i]);
     }
 
     var iLength = deckBinary.length - iPC;
@@ -289,114 +286,12 @@ function decodeDeck (deckCode)
         var iUnit = parseInt(sUnit, 2);
         var Unit = CardsDB[iUnit][Deck.iSide];
         Deck.Cards0T[Deck.i1Cards] = new VehicleCard(sVet, Unit, 0, 0);
-        //Cards0T[i1Cards] = toGen(Cards0T[i1Cards]); <<TO IMPLEMENT LATER
+        Deck.Cards0T[Deck.i1Cards] = toGen(Deck.Cards0T[Deck.i1Cards]);
         Deck.i1Cards++;
     }
     //cardDisplaySort(Deck.Cards0T, Deck.Cards1T, Deck.Cards2T);
     debugUnitsOut();
 }
-/*
-function cardDisplaySort(c0T, c1T, c2T)
-{
-    LOG = [];
-    INF = [];
-    SUP = [];
-    TNK = [];
-    REC = [];
-    VEH = [];
-    HEL = [];
-    AIR = [];
-    NAV = [];
-    
-    for (var i = 0; i < c2T.length; i++)
-    {
-        if (c2T[i].Unit.sUnitData.charAt(25) == '1')
-        {
-            NAV[NAV.length] = c2T[i];
-        }
-    } //they're all naval.
-
-    for (var i = 0; i < c1T.length; i++)
-    {
-        if (c1T[i].Unit.sUnitData.charAt(17) == '1')//logi
-        {
-            LOG[LOG.length] = c1T[i];
-        }
-        else if (c1T[i].Unit.sUnitData.charAt(18) == '1') // INF
-        {
-            INF[INF.length] = c1T[i];
-        }
-        else if (c1T[i].Unit.sUnitData.charAt(19) == '1') // support
-        {
-            SUP[SUP.length] = c1T[i];
-        }
-        else if (c1T[i].Unit.sUnitData.charAt(20) == '1') // tanks
-        {
-            TNK[TNK.length] = c1T[i];
-        }
-        else if (c1T[i].Unit.sUnitData.charAt(21) == '1')
-        {
-            REC[REC.length] = c1T[i];
-        }
-        else if (c1T[i].Unit.sUnitData.charAt(22) == '1')
-        {
-            VEH[VEH.length] = c1T[i];
-        }
-        else if (c1T[i].Unit.sUnitData.charAt(23) == '1')
-        {
-            HEL[HEL.length] = c1T[i];
-        }
-        else if (c1T[i].Unit.sUnitData.charAt(24) == '1')
-        {
-            AIR[AIR.length] = c1T[i];
-        }
-        else if (c1T[i].Unit.sUnitData.charAt(25) == '1')
-        {
-            NAV[NAV.length] = c1T[i];
-        }
-    }
-    
-
-    for (var i = 0; i < c0T.length; i++)
-    {
-        if (c0T[i].Unit.sUnitData.charAt(17) == '1')//logi
-        {
-            LOG[LOG.length] = c0T[i];
-        }
-        else if (c0T[i].Unit.sUnitData.charAt(18) == '1') // INF
-        {
-            INF[INF.length] = c0T[i];
-        }
-        else if (c0T[i].Unit.sUnitData.charAt(19) == '1') // support
-        {
-            SUP[SUP.length] = c0T[i];
-        }
-        else if (c0T[i].Unit.sUnitData.charAt(20) == '1') // tanks
-        {
-            TNK[TNK.length] = c0T[i];
-        }
-        else if (c0T[i].Unit.sUnitData.charAt(21) == '1')
-        {
-            REC[REC.length] = c0T[i];
-        }
-        else if (c0T[i].Unit.sUnitData.charAt(22) == '1')
-        {
-            VEH[VEH.length] = c0T[i];
-        }
-        else if (c0T[i].Unit.sUnitData.charAt(23) == '1')
-        {
-            HEL[HEL.length] = c0T[i];
-        }
-        else if (c0T[i].Unit.sUnitData.charAt(24) == '1')
-        {
-            AIR[AIR.length] = c0T[i];
-        }
-        else if (c0T[i].Unit.sUnitData.charAt(25) == '1')
-        {
-            NAV[NAV.length] = c0T[i];
-        }
-    }
-}*/
 
         
         //deck decoding
@@ -432,6 +327,9 @@ function DeckExport()
     
     for (var i = 0; i < Deck.Cards2T.length; i++)
     {
+        //var newcard = toSpec(Deck.Cards2T[i]);
+       // sUtil = newcard.sVeterancy;
+        
         sUtil = Deck.Cards2T[i].sVeterancy;
         BinaryOut += sUtil;
         
@@ -453,9 +351,10 @@ function DeckExport()
     
     for (var i = 0; i < Deck.Cards1T.length; i++)
     {
+        //var newcard = toSpec(Deck.Cards1T[i]);
+        //sUtil = newcard.sVeterancy1
         sUtil = Deck.Cards1T[i].sVeterancy;
         BinaryOut += sUtil;
-        
         sUtil = Deck.Cards1T[i].Unit.iUnitID.toString(2);
         pad = "0000000000";
         sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
@@ -469,6 +368,8 @@ function DeckExport()
     
     for (var i = 0; i < Deck.Cards0T.length; i++)
     {
+        //var newcard = toSpec(Deck.Cards0T[i]);
+        //sUtil = newcard.sVeterancy;
         sUtil = Deck.Cards0T[i].sVeterancy;
         BinaryOut += sUtil;
         
@@ -481,7 +382,6 @@ function DeckExport()
     var charArray = BinaryOut.match(/.{1,6}/g); //REGEX voodo 
     pad = "000000";
     charArray[charArray.length-1] = charArray[charArray.length-1] + pad.substring(0, pad.length - charArray[charArray.length-1].length);
-    console.log(charArray);
     var CharOut = "";
     var padCounter = 0;
     for (var i = 0; i < charArray.length; i++)
@@ -563,8 +463,6 @@ function DeckExport()
         CharOut += "A==";
     }
     var sDeckString = document.getElementById("sDeckString");
-    console.log(sDeckString.value);
-    console.log(CharOut);
     sDeckString.value = CharOut;    
 }
 

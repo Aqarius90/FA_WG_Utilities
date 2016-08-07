@@ -30,6 +30,7 @@ function Datacard(ID, DATA, AVAIL, SPEC, YEAR, COST, CARDS, PROTO, NATION, NAME)
 function VehicleCard(VET, UNIT, TRANSPORT, CRAFT){
     this.sVeterancy = VET; // expected binary
     this.iVet = parseInt(VET,2);
+    this.iVet0 = this.iVet; //normalized
     this.sNation = UNIT.sNation; //trusting the database here
     if(TRANSPORT == 0){ this.iYear = UNIT.iYear;} else {this.iYear = UNIT.iYear < TRANSPORT.iYear ? UNIT.iYear : TRANSPORT.iYear;} //landing craft are not limiting here IIRC
     this.sSpec = "1111111";
@@ -2875,7 +2876,8 @@ function Mobilize()
      Traits(CardsDB[ 736][0],  10, 40, 5,  900,   0,  0, 0, 1,  165, [ 0, 0, 0, 0]);// "BRD", "F-4F KWS");
      Traits(CardsDB[ 737][0],  10, 20, 4,  900,   0,  0, 0, 1,  180, [ 0, 0, 0, 0]);// "USA", "F-4J Phantom II");
      Traits(CardsDB[ 738][0],  10, 30, 3,  900,   0,  0, 0, 1,  165, [ 0, 0, 0, 0]);// "USA", "F-4S Phantom II");
-     Traits(CardsDB[ 739][0],  10, 40, 4,  900,   0,  0, 0, 1,  165, [ 0, 0, 0, 0]);// "USA", "F-4G WILD WEASEL");     Traits(CardsDB[ 740][0],  10,  0, 3,  750,   0,  0, 0, 1,   60, [ 0, 0, 0, 0]);// "ROK", "F-5A");
+     Traits(CardsDB[ 739][0],  10, 40, 4,  900,   0,  0, 0, 1,  165, [ 0, 0, 0, 0]);// "USA", "F-4G WILD WEASEL");
+     Traits(CardsDB[ 740][0],  10,  0, 3,  750,   0,  0, 0, 1,   60, [ 0, 0, 0, 0]);// "ROK", "F-5A");
      Traits(CardsDB[ 741][0],  10,  0, 3,  750,   0,  0, 0, 1,   75, [ 0, 0, 0, 0]);// "JAP", "F-86F KYOKKO");
      Traits(CardsDB[ 742][0],  10,  0, 3,  750,   0,  0, 0, 1,   75, [ 0, 0, 0, 0]);// "ROK", "F-86F SABRE");
      Traits(CardsDB[ 743][0],  10, 30, 4, 1000,   0,  0, 0, 1,  150, [ 0, 0, 0, 0]);// "ANZAC", "F/A-18A Hornet");
@@ -4185,7 +4187,8 @@ function Mobilize()
      Traits(CardsDB[1022][1],   0,  0, 0,    0,   0,  0, 0, 0,    0, [ 0, 0, 0, 0]);
      Traits(CardsDB[1023][1],   0,  0, 0,    0,   0,  0, 0, 0,    0, [ 0, 0, 0, 0]);
  }
-function Weaponize()
+
+function Weaponize()
 {
   									// ID,  hp,  size,  optics,  speed,  rspeed,  aspeed,  training,  stealth,  auton,  AV, name)
   CardsDB[   0][0].W1 = Arm(  0,   0); CardsDB[   0][0].W2 = Arm(  0,   0); CardsDB[   0][0].W3 = Arm(  0,   0);
@@ -6239,101 +6242,105 @@ function Mobilize()
   CardsDB[1023][1].W1 = Arm(  0,   0); CardsDB[1023][1].W2 = Arm(  0,   0); CardsDB[1023][1].W3 = Arm(  0,   0);
 }
 
+function matrix(){    
+    this.general = [
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,3,3,"X","X","X","X"],
+        [1,2,3,4,5,"X","X","X","X"],
+        [0,0,0,0,0,  0,  0,  0,  0]
+    ];
+    this.support = [
+        [1,1,1,1,2,  1,  1,  1,  1],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,1,1,1,2,  1,  1,  1,  1],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,3,3,"X","X","X","X"],
+        [1,2,3,4,5,"X","X","X","X"],
+        [0,0,0,0,0,  0,  0,  0,  0]
+    ];
+    this.moto = [
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,1,1,1,2,  1,  1,"X","X"],
+        [1,2,2,2,3,"X","X","X","X"], 
+        [1,2,2,2,3,"X","X","X","X"], 
+        [1,1,1,1,2,  1,  1,"X","X"],
+        [1,1,1,1,2,  1,  1,"X","X"],
+        [1,2,2,3,3,"X","X","X","X"],
+        [1,2,3,4,5,"X","X","X","X"],
+        [0,0,0,0,0,  0,  0,  0,  0]
+    ];
+
+    this.armoured = [
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,1,1,1,2,  1,  1,  1,  1],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,3,3,"X","X","X","X"],
+        [1,2,3,4,5,"X","X","X","X"],
+        [0,0,0,0,0,  0,  0,  0,  0]
+    ];
+    
+    this.mech = [
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,1,1,1,2,  1,  1,  1,  1],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,1,1,1,2,  1,  1,  1,  1],
+        [1,2,2,3,3,"X","X","X","X"],
+        [1,2,3,4,5,"X","X","X","X"],
+        [0,0,0,0,0,  0,  0,  0,  0]
+    ];
+    
+    this.airborne = [
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,1,1,1,2,  1,  1,  1,  1],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,1,1,2,2,  1,  1,  1,  1],
+        [1,1,2,3,4,  1,  1,  1,  1],
+        [0,0,0,0,0,  0,  0,  0,  0]
+    ];
+    
+    this.marine = [
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,1,1,1,2,  1,  1,"X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,2,3,"X","X","X","X"],
+        [1,2,2,3,3,"X","X","X","X"],
+        [1,1,2,3,4,  1,  1,"X","X"],
+        [0,0,0,0,0,  0,  0,  0,  0]
+    ];
+    
+    this.naval = [
+        ["X","X","X","X","X","X","X","X","X"],
+        ["X","X","X","X","X","X","X","X","X"],
+        ["X","X","X","X","X","X","X","X","X"],
+        ["X","X","X","X","X","X","X","X","X"],
+        ["X","X","X","X","X","X","X","X","X"],
+        ["X","X","X","X","X","X","X","X","X"],
+        ["X","X","X","X","X","X","X","X","X"],
+        ["X","X","X","X","X","X","X","X","X"],
+        [0,0,0,0,0,  0,  0,  0,  0]
+    ];
+}
 
 /*         public Datacard dbQuery(int x, int iSide)
          {
              return CardsDB[x,iSide];
-         }*/
-
-         /*public List<VehicleCard> dbDeckList(string sSide, string sNation, string sSpec, string sEra)
-         {
-             List<VehicleCard> output = new List<VehicleCard>();
-             if(sNation == "ANZAC" || sNation == "BRD" || sNation == "CAN" || sNation == "DEN" || sNation == "FRA" || sNation == "JAP" || sNation == "NED" || sNation == "NOR" || sNation == "ROK" || sNation == "SWE" || sNation == "UK" || sNation == "USA" || sNation == "CZS" || sNation == "DDR" || sNation == "DPRK" || sNation == "POL" || sNation == "PRC" || sNation == "USSR")
-             {
-                output = UnitLookup(sSide, sNation, sSpec, sEra, output);
-             }
-             else if (sNation == "CZS" || sNation == "DDR" || sNation == "DPRK" || sNation == "POL" || sNation == "PRC" || sNation == "USSR")
-             {
-                 output = UnitLookup(sSide, sNation, sSpec, sEra, output);
-             }
-             else if (sNation == "NATO")
-             {
-                 output = UnitLookup(sSide, "ANZAC", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "BRD", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "CAN", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "DEN", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "FRA", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "JAP", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "NED", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "NOR", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "ROK", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "SWE", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "UK", sSpec, sEra, output, 1);
-                 output = UnitLookup(sSide, "USA", sSpec, sEra, output, 1);
-             }
-             else if (sNation == "REDFOR")
-             {
-                 output = UnitLookup(sSide, "CZS", sSpec, sEra, output,1);
-                 output = UnitLookup(sSide, "DDR", sSpec, sEra, output,1);
-                 output = UnitLookup(sSide, "DPRK", sSpec, sEra, output,1);
-                 output = UnitLookup(sSide, "POL", sSpec, sEra, output,1);
-                 output = UnitLookup(sSide, "PRC", sSpec, sEra, output,1);
-                 output = UnitLookup(sSide, "USSR", sSpec, sEra, output,1);
-             }
-             else if (sNation == "BD")
-             {
-                 output = UnitLookup(sSide, "ROK", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "JAP", sSpec, sEra, output);
-             }
-             else if (sNation == "CW")
-             {
-                 output = UnitLookup(sSide, "ANZAC", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "CAN", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "UK", sSpec, sEra, output);
-             }
-             else if (sNation == "EU")
-             {
-                 output = UnitLookup(sSide, "BRD", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "FRA", sSpec, sEra, output);
-             }
-             else if (sNation == "LJUT")
-             {
-                 output = UnitLookup(sSide, "BRD", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "DEN", sSpec, sEra, output);
-             }
-             else if (sNation == "BDRNL")
-             {
-                 output = UnitLookup(sSide, "BRD", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "NED", sSpec, sEra, output);
-             }
-             else if (sNation == "NORAD")
-             {
-                 output = UnitLookup(sSide, "CAN", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "USA", sSpec, sEra, output);
-             }
-             else if (sNation == "SCA")
-             {
-                 output = UnitLookup(sSide, "DEN", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "NOR", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "SWE", sSpec, sEra, output);
-             }
-             else if (sNation == "NSWP")
-             {
-                 output = UnitLookup(sSide, "CZS", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "DDR", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "POL", sSpec, sEra, output);
-             }
-             else if (sNation == "RD")
-             {
-                 output = UnitLookup(sSide, "DPRK", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "PRC", sSpec, sEra, output);
-             }
-             else if (sNation == "SOVKOR")
-             {
-                 output = UnitLookup(sSide, "DPRK", sSpec, sEra, output);
-                 output = UnitLookup(sSide, "USSR", sSpec, sEra, output);
-             }
-             return output;
          }*/
 
          /*private List<VehicleCard> UnitLookup(string sSide, string sNation, string sSpec, string sEra, List<VehicleCard> output, int genDeck = 0)
