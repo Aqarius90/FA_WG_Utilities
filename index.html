@@ -1,0 +1,2330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FA WRD tools</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/WeaponData.js"></script>
+    <script src="js/Display.js"></script>
+    <script src="js/Database.js"></script>
+    <script src="js/debugFunctions.js"></script>
+    <script src="js/DeckDisAssembly.js"></script>
+    <script src="js/Main.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <div class="container">
+        <h1>FA WRD TOOLS</h1>
+    </div>
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-sm-10">
+              <input id="sDeckString" type="text" class="form-control">
+            </div>
+            <div class="col-sm-1">
+              <button id="bDecode" type="button" class="btn btn-default btn-block btn-top-line" onclick="btDecode()">DECODE</button>
+            </div>
+            <div class="col-sm-1">
+              <button id="bClear" type="button" class="btn btn-default btn-block btn-top-line" onclick="btClear()">CLEAR</button>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button id="bNATO" type="button"  class="btn btn-default btn-block" onclick="btNATO_Click()">
+                      <img id="iNATO" src="flags/nato.png" class="img-responsive" width="100%" >
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bREDFOR" type="button"  class="btn btn-default btn-block" onclick="btREDFOR_Click()">
+                      <img id="iREDFOR" src="flags/REDFOR.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bBD" type="button" class="btn btn-default btn-block" onclick="btBD_Click()">
+                      <img id="iBD" src="flags/BD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bCOM" type="button" class="btn btn-default btn-block" onclick="btCOM_Click()">
+                      <img id="iCOM" src="flags/COM.png" class="img-responsive" width="100%" >
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bEU" type="button" class="btn btn-default btn-block" onclick="btEU_Click()">
+                      <img id="iEU" src="flags/EU.png" class="img-responsive" width="100%" >
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bLJ" type="button" class="btn btn-default btn-block" onclick="btLJ_Click()">
+                      <img id="iLJ" src="flags/LJ.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bNORAD" type="button" class="btn btn-default btn-block"  onclick="btNORAD_Click()">
+                      <img id="iNORAD" src="flags/NORAD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bSCA" type="button" class="btn btn-default btn-block" onclick="btSCA_Click()">
+                      <img id="iSCA" src="flags/SCA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bBRDNL" type="button" class="btn btn-default btn-block" onclick="btBRDNL_Click()">
+                      <img id="iBRDNL" src="flags/BRDNL.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bNSWP" type="button" class="btn btn-default btn-block" onclick="btNSWP_Click()">
+                      <img id="iNSWP" src="flags/NSWP.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bRD" type="button" class="btn btn-default btn-block" onclick="btRD_Click()">
+                      <img id="iRD" src="flags/RD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bRKA" type="button" class="btn btn-default btn-block" onclick="btRKA_Click()">
+                      <img id="iRKA" src="flags/RKA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button id="bANZAC" type="button" class="btn btn-default btn-block" onclick="btANZAC_Click()">
+                      <img id="iANZAC" src="flags/ANZAC.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bBRD" type="button" class="btn btn-default btn-block" onclick="btBRD_Click()">
+                      <img id="iBRD" src="flags/BRD.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bCAN" type="button" class="btn btn-default btn-block" onclick="btCAN_Click()">
+                      <img id="iCAN" src="flags/CAN.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bDEN" type="button" class="btn btn-default btn-block" onclick="btDEN_Click()">
+                      <img id="iDEN" src="flags/DEN.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bFRA" type="button" class="btn btn-default btn-block" onclick="btFRA_Click()">
+                      <img id="iFRA" src="flags/FRA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bJAP" type="button" class="btn btn-default btn-block" onclick="btJAP_Click()">
+                      <img id="iJAP" src="flags/JAP.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bNED" type="button" class="btn btn-default btn-block" onclick="btNED_Click()">
+                      <img id="iNED" src="flags/NED.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bNOR" type="button" class="btn btn-default btn-block" onclick="btNOR_Click()">
+                      <img id="iNOR" src="flags/NOR.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bROK" type="button" class="btn btn-default btn-block" onclick="btROK_Click()">
+                      <img id="iROK" src="flags/ROK.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bSWE" type="button" class="btn btn-default btn-block" onclick="btSWE_Click()">
+                      <img id="iSWE" src="flags/SWE.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bUK" type="button" class="btn btn-default btn-block" onclick="btUK_Click()">
+                      <img id="iUK" src="flags/UK.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bUSA" type="button" class="btn btn-default btn-block" onclick="btUSA_Click()">
+                      <img id="iUSA" src="flags/USA.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-1">
+                    <button id="bCZS" type="button" class="btn btn-default btn-block" onclick="btCZS_Click()">
+                      <img id="iCZS" src="flags/CZS.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bDDR" type="button" class="btn btn-default btn-block" onclick="btDDR_Click()">
+                      <img id="iDDR" src="flags/DDR.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bDPRK" type="button" class="btn btn-default btn-block" onclick="btDPRK_Click()">
+                      <img id="iDPRK" src="flags/DPRK.png" class="img-responsive" width="100%">
+                      </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bPOL" type="button" class="btn btn-default btn-block" onclick="btPOL_Click()">
+                      <img id="iPOL" src="flags/POL.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bPRC" type="button" class="btn btn-default btn-block" onclick="btPRC_Click()">
+                      <img id="iPRC" src="flags/PRC.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bUSSR" type="button" class="btn btn-default btn-block" onclick="btUSSR_Click()">
+                      <img id="iUSSR" src="flags/USSR.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bFIN" type="button" class="btn btn-default btn-block">
+                      <img id="iFIN" src="flags/FINb.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bYU" type="button" class="btn btn-default btn-block">
+                      <img id="iYU" src="flags/YUb.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                    <button id="bISR" type="button" class="btn btn-default btn-block">
+                      <img id="iISR" src="flags/ISRb.png" class="img-responsive" width="100%">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <button id="bMarine" type="button" class="btn btn-default btn-block" onclick="btMarine()">MAR
+                    </button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button id="bAirborne" type="button" class="btn btn-default btn-block" onclick="btAirborne()">AIR
+                    </button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button id="bMechanized"  type="button" class="btn btn-default btn-block" onclick="btMechanized()">MECH
+                    </button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button id="bArmoured" type="button" class="btn btn-default btn-block" onclick="btArmoured()">ARM
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <button id="bMotorized" type="button" class="btn btn-default btn-block" onclick="btMotorized()">MOTO
+                    </button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button id="bSupport" type="button" class="btn btn-default btn-block" onclick="btSupport()">SUP
+                    </button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button id="bNaval" type="button" class="btn btn-default btn-block" onclick="btNaval()">NAV
+                    </button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button id="bGeneral" type="button" class="btn btn-default btn-block" onclick="btGeneral()">GEN
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <button id="bA" type="button" class="btn btn-default btn-block" onclick="btA()">A
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button id="bB" type="button" class="btn btn-default btn-block" onclick="btB()">B
+                    </button>
+                  </div>
+                  <div class="col-sm-4">
+                    <button id="bC" type="button" class="btn btn-default btn-block" onclick="btC()">C
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="col-sm-2">
+            <p id="tnation"></p>
+        </div>
+        <div class="col-sm-6">
+            <p id="tspec"></p>
+        </div>
+        <div class="col-sm-2">
+            <p id="tera"></p>
+        </div>
+        <div class="col-sm-2">
+            <p id="pointstally"></p>
+        </div>
+    </div>
+    <div>
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
+        <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>
+        <li><a href="#Infantry" data-toggle="tab">Infantry</a></li>
+        <li><a href="#Support" data-toggle="tab">Support</a></li>
+        <li><a href="#Tank" data-toggle="tab">Tank</a></li>
+        <li><a href="#Recon" data-toggle="tab">Recon</a></li>
+        <li><a href="#Vehicle" data-toggle="tab">Vehicle</a></li>
+        <li><a href="#Helo" data-toggle="tab">Helo</a></li>
+        <li><a href="#Air" data-toggle="tab">Air</a></li>
+        <li><a href="#Naval" data-toggle="tab">Naval</a></li>
+        <li><a href="#DEBUG" data-toggle="tab">DEBUG</a></li>
+    </ul>
+        </div>
+    <div id="my-tab-content" class="tab-content panel">
+            <div class="tab-pane active" id="Deck">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010"  style="display:inline-block; vertical-align:middle">
+                        <h4>Logistics</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D11" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D12" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D13" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D14" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D15" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D16" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D17" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D18" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D19" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L11" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L12" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L13" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L14" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L15" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L16" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L17" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L18" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L19" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Infantry</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D21" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D22" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D23" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D24" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D25" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D26" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D27" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D28" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D29" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L21" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L22" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L23" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L24" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L25" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L26" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L27" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L28" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L29" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Support</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D31" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D32" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D33" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D34" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D35" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D36" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D37" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D38" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D39" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L31" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L32" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L33" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L34" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L35" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L36" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L37" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L38" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L39" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Tank</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D41" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D42" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D43" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D44" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D45" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D46" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D47" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D48" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D49" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L41" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L42" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L43" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L44" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L45" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L46" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L47" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L48" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L49" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Recon</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D51" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D52" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D53" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D54" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D55" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D56" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D57" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D58" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D59" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L51" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L52" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L53" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L54" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L55" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L56" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L57" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L58" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L59" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Vehicle</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D61" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D62" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D63" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D64" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D65" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D66" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D67" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D68" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D69" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L61" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L62" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L63" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L64" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L65" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L66" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L67" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L68" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L69" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Helicopter</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D71" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D72" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D73" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D74" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D75" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D76" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D77" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D78" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D79" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L71" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L72" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L73" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L74" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L75" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L76" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L77" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L78" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L79" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Plane</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D81" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D82" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D83" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D84" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D85" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D86" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D87" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D88" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D89" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L81" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L82" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L83" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L84" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L85" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L86" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L87" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L88" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L89" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Naval</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D91" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D92" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D93" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D94" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D95" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D96" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D97" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D98" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D99" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L91" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L92" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L93" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L94" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L95" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L96" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L97" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L98" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L99" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Logistics">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Logistics</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D011" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D012" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D013" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D014" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D015" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D016" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D017" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D018" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D019" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L011" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L012" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L013" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L014" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L015" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L016" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L017" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L018" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L019" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="logTable" style="width:100%">
+                    <tbody id="logBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add00" type="button" class="btn btn-default btn-block" onclick="add(0,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add01" type="button" class="btn btn-default btn-block" onclick="add(0, 1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add02" type="button" class="btn btn-default btn-block" onclick="add(0, 2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add03" type="button" class="btn btn-default btn-block" onclick="add(0, 3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add04" type="button" class="btn btn-default btn-block" onclick="add(0, 4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Infantry">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Infantry</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D021" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D022" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D023" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D024" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D025" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D026" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D027" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D028" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D029" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>                  
+                <div class="row">
+                  <div class="col-sm-010">
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L021" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L022" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L023" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L024" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L025" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L026" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L027" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L028" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L029" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="infTable" style="width:100%">
+                    <tbody id="infBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add10" type="button" class="btn btn-default btn-block" onclick="add(1,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add11" type="button" class="btn btn-default btn-block" onclick="add(1,1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add12" type="button" class="btn btn-default btn-block" onclick="add(1,2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add13" type="button" class="btn btn-default btn-block" onclick="add(1,3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add14" type="button" class="btn btn-default btn-block" onclick="add(1,4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Support">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Infantry</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D031" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D032" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D033" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D034" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D035" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D036" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D037" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D038" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D039" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>                  
+                <div class="row">
+                  <div class="col-sm-010">
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L031" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L032" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L033" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L034" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L035" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L036" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L037" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L038" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L039" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="supTable" style="width:100%">
+                    <tbody id="supBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add20" type="button" class="btn btn-default btn-block" onclick="add(2,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add21" type="button" class="btn btn-default btn-block" onclick="add(2,1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add22" type="button" class="btn btn-default btn-block" onclick="add(2,2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add23" type="button" class="btn btn-default btn-block" onclick="add(2,3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add24" type="button" class="btn btn-default btn-block" onclick="add(2,4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Tank">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Tank</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D041" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D042" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D043" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D044" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D045" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D046" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D047" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D048" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D049" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L041" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L042" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L043" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L044" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L045" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L046" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L047" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L048" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L049" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="tnkTable" style="width:100%">
+                    <tbody id="tnkBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add30" type="button" class="btn btn-default btn-block" onclick="add(3,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add31" type="button" class="btn btn-default btn-block" onclick="add(3,1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add32" type="button" class="btn btn-default btn-block" onclick="add(3,2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add33" type="button" class="btn btn-default btn-block" onclick="add(3,3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add34" type="button" class="btn btn-default btn-block" onclick="add(3,4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Recon">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Recon</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D051" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D052" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D053" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D054" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D055" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D056" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D057" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D058" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D059" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L051" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L052" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L053" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L054" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L055" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L056" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L057" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L058" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L059" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="recTable" style="width:100%">
+                    <tbody id="recBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add40" type="button" class="btn btn-default btn-block" onclick="add(4,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add41" type="button" class="btn btn-default btn-block" onclick="add(4,1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add42" type="button" class="btn btn-default btn-block" onclick="add(4,2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add43" type="button" class="btn btn-default btn-block" onclick="add(4,3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add44" type="button" class="btn btn-default btn-block" onclick="add(4,4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Vehicle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Vehicle</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D061" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D062" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D063" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D064" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D065" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D066" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D067" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D068" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D069" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L061" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L062" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L063" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L064" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L065" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L066" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L067" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L068" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L069" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="vehTable" style="width:100%">
+                    <tbody id="vehBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add50" type="button" class="btn btn-default btn-block" onclick="add(5,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add51" type="button" class="btn btn-default btn-block" onclick="add(5,1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add52" type="button" class="btn btn-default btn-block" onclick="add(5,2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add53" type="button" class="btn btn-default btn-block" onclick="add(5,3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add54" type="button" class="btn btn-default btn-block" onclick="add(5,4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="Helo">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Helicopter</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D071" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D072" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D073" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D074" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D075" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D076" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D077" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D078" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D079" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L071" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L072" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L073" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L074" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L075" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L076" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L077" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L078" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L079" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="helTable" style="width:100%">
+                    <tbody id="helBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add60" type="button" class="btn btn-default btn-block" onclick="add(6,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add61" type="button" class="btn btn-default btn-block" onclick="add(6,1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add62" type="button" class="btn btn-default btn-block" onclick="add(6,2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add63" type="button" class="btn btn-default btn-block" onclick="add(6,3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add64" type="button" class="btn btn-default btn-block" onclick="add(6,4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Air">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Plane</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D081" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D082" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D083" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D084" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D085" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D086" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D087" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D088" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D089" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L081" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L082" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L083" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L084" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L085" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L086" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L087" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L088" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L089" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="airTable" style="width:100%">
+                    <tbody id="airBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add70" type="button" class="btn btn-default btn-block" onclick="add(7,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add71" type="button" class="btn btn-default btn-block" onclick="add(7,1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add72" type="button" class="btn btn-default btn-block" onclick="add(7,2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add73" type="button" class="btn btn-default btn-block" onclick="add(7,3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add74" type="button" class="btn btn-default btn-block" onclick="add(7,4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="Naval">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-010">
+                        <h4>Naval</h4>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D091" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D092" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D093" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D094" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D095" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D096" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D097" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D098" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="D099" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-010">                    
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L091" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L092" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L093" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L094" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L095" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L096" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L097" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L098" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                  <div class="col-sm-010">
+                    <div id="L099" style="position: relative; left: 0; top: 0;">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                  <table id="navTable" style="width:100%">
+                    <tbody id="navBody">
+                      <tr>
+                        <th>Nation</th>
+                        <th>Unit</th>
+                        <th>Cards</th>
+                        <th>Transport</th>
+                        <th>Cards</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="row">
+                        <div class="col-sm-1">                          
+                            <img src="rank/000.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add80" type="button" class="btn btn-default btn-block" onclick="add(8,0)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/001.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add81" type="button" class="btn btn-default btn-block" onclick="add(8,1)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/010.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add82" type="button" class="btn btn-default btn-block" onclick="add(8,2)">0
+                            </button>
+                          </div>
+                        <div class="col-sm-1">                          
+                            <img src="rank/011.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add83" type="button" class="btn btn-default btn-block" onclick="add(8,3)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1">                          
+                            <img src="rank/100.png" class="img-responsive" width="100%">
+                          </div>
+                        <div class="col-sm-1">
+                            <button id="add84" type="button" class="btn btn-default btn-block" onclick="add(8,4)">0
+                            </button>
+                          </div>                      
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="DEBUG">
+              <div class="container">
+                <p>DEBUG</p>
+                <p id="debug">test</p>
+                  <table id="debugTable" style="width:100%">
+                    <tbody id="debugBody">
+                      <tr>
+                        <th>bin</th>
+                        <th>parsing</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+  </div>
+
+    <script>init();</script>
+
+</body>
+</html>
