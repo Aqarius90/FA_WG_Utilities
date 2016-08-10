@@ -383,7 +383,7 @@ function DeckExport()
     pad = "000000";
     charArray[charArray.length-1] = charArray[charArray.length-1] + pad.substring(0, pad.length - charArray[charArray.length-1].length);
     var CharOut = "";
-    var padCounter = 0;
+    var padCounter = 4;
     for (var i = 0; i < charArray.length; i++)
     {        
       if (charArray[i] == "000000") { CharOut +="A" ; } else
@@ -451,46 +451,54 @@ function DeckExport()
       if (charArray[i] == "111101") { CharOut +="9" ; } else
       if (charArray[i] == "111111") { CharOut +="/" ; }
     
-        padCounter++;
-        if(padCounter == 3){padCounter = 0;}
+        padCounter--;
+        if(padCounter == 0){padCounter = 4;}
     }
     
-    if(padCounter == 3){
-        CharOut += "A";
+    if(padCounter == 1){
+        CharOut += "=";
     }else if(padCounter == 2){
         CharOut += "A=";
-    }else if(padCounter == 1){
+    }else if(padCounter == 3){
         CharOut += "A==";
     }
     var sDeckString = document.getElementById("sDeckString");
     sDeckString.value = CharOut;    
 }
 
-/*
-        public void CardDelete(var ID)
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
+function CardDelete(ID)
+{
+    console.log(ID);
+    for (var j = 0; j< Deck.Cards2T.length; j++) {
+        if (Deck.Cards2T[j].iArrayIndex == ID)
         {
-            for (var j = 0; j < 71; j++)
-            {
-                if (Cards0T[j] != "" && Cards0T[j].iArrayIndex == ID)
-                {
-                    for (var i = j; i < 71; i++)
-                    {
-                        Cards0T[i] = Cards0T[i + 1];
-                    }
-                    i1Cards--;
-                }
-                else if (Cards1T[j] != "" && Cards1T[j].iArrayIndex == ID)
-                {
-                    for (var i = j; i < 71; i++)
-                    {
-                        Cards1T[i] = Cards1T[i + 1];
-                    }
-                    i2Cards--;
-                }
-            }
-            cardDisplaySort(Cards0T, Cards1T, Cards2T);
+            Deck.Cards2T.remove(j);
+            Deck.i3Cards--;
         }
-		*/
+    }
+    for (var j = 0; j< Deck.Cards1T.length; j++) {
+        if (Deck.Cards1T[j].iArrayIndex == ID)
+        {
+            Deck.Cards1T.remove(j);
+            Deck.i2Cards--;
+        }
+    }
+    for (var j = 0; j< Deck.Cards0T.length; j++) {
+        if (Deck.Cards0T[j].iArrayIndex == ID)
+        {
+            Deck.Cards0T.remove(j);
+            Deck.i1Cards--;
+        }
+    }
+    GUIDisplay();
+    DeckExport();
+}
 /*
         public void AddCard(var Vet, var UID, var TID = 0, var CID = 0)
         {
