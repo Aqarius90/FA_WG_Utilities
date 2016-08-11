@@ -197,9 +197,9 @@ function toList(card){
     
     let elem = document.createElement('input');
     elem.type = 'button';
-    elem.value = 'button';
-    elem.onclick = function(){ShowData(card);}; //closure escape via math. FML
-    btn.innerHTML = "<input type=\"button\" value=\"SELECT\" onclick=\"" + ShowCard(card) + "\"/>";
+    elem.value = '>';
+    elem.onclick = function(){ShowCard(card);}; //closure escape via math. FML
+    btn.appendChild(elem); 
 }
 
 function btNATO_Click() {
@@ -556,182 +556,184 @@ function isError(Card) {
     return isUnavailable;
 }
 
-function ShowCard(card)
+function ShowCard(Card)
 {
-    var type;
-    if (card.Unit.sUnitData.charAt(17) == '1'){ type = "logTable";}//logi
-    else if (card.Unit.sUnitData.charAt(18) == '1'){type = "infTable";}//inf
-    else if (card.Unit.sUnitData.charAt(19) == '1'){type = "supTable";}//sup
-    else if (card.Unit.sUnitData.charAt(20) == '1'){type = "tnkTable";}//tnk
-    else if (card.Unit.sUnitData.charAt(21) == '1'){type = "recTable";}//rec
-    else if (card.Unit.sUnitData.charAt(22) == '1'){type = "vehTable";}//veh
-    else if (card.Unit.sUnitData.charAt(23) == '1'){type = "helTable";}//hel
-    else if (card.Unit.sUnitData.charAt(24) == '1'){type = "airTable";}//air
+    var type, btn;
+    if (Card.Unit.sUnitData.charAt(17) == '1'){ type = "log"; btn = 0;}//logi
+    else if (Card.Unit.sUnitData.charAt(18) == '1'){type = "inf"; btn = 1;}//inf
+    else if (Card.Unit.sUnitData.charAt(19) == '1'){type = "sup"; btn = 2;}//sup
+    else if (Card.Unit.sUnitData.charAt(20) == '1'){type = "tnk"; btn = 3;}//tnk
+    else if (Card.Unit.sUnitData.charAt(21) == '1'){type = "rec"; btn = 4;}//rec
+    else if (Card.Unit.sUnitData.charAt(22) == '1'){type = "veh"; btn = 5;}//veh
+    else if (Card.Unit.sUnitData.charAt(23) == '1'){type = "hel"; btn = 6;}//hel
+    else if (Card.Unit.sUnitData.charAt(24) == '1'){type = "air"; btn = 7;}//air
     else {type = "navTable";}//nav
+    
+    document.getElementById("add"+btn+"0").innerHTML = Card.iaAvailability[0];
+    document.getElementById("add"+btn+"1").innerHTML = Card.iaAvailability[1];
+    document.getElementById("add"+btn+"2").innerHTML = Card.iaAvailability[2];
+    document.getElementById("add"+btn+"3").innerHTML = Card.iaAvailability[3];
+    document.getElementById("add"+btn+"4").innerHTML = Card.iaAvailability[4];
+    
+    document.getElementById("D" + type).innerHTML = "";       
+    var uText = document.createElement("p");
+    uText.innerHTML = Card.Unit.sNameU;
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = "HP:" + Card.Unit.iHP;
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = InterpretSize(Card.Unit);
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = InterpretOptics(Card.Unit);
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = InterpretStealth(Card.Unit);
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = InterpretTraining(Card);
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = "Autonomy" + Card.Unit.iAutonomy;
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = Card.Unit.iYear;
+    document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
+    document.getElementById("D" + type).appendChild(uText); 
+    
+    showWeapon(Card.Unit.W1, type, 1);
+    showWeapon(Card.Unit.W2, type, 2);
+    showWeapon(Card.Unit.W3, type, 3);
 }
-   /* switch (Type)
-    {
-        case 0://LOG
-            lLOGunit.Content = Card.Unit.sNameU;
-            lLOGunitHP.Content = "HP:" + Card.Unit.iHP;
-            lLOGunitSize.Content = InterpretSize(Card.Unit);
-            lLOGunitOptics.Content = InterpretOptics(Card.Unit);
-            lLOGunitStealth.Content = InterpretStealth(Card.Unit);
-            lLOGunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-            lLOGunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-            lLOGunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-            lLOGunitTraining.Content = InterpretTraining(Card);
-            lLOGunitAutonomy.Content = Card.Unit.iAutonomy;
+/*
             //lLOGunitProto.Content = Card.Unit.iIsProto;
             //lLOGunitDeck.Content = Card.Unit.
-            lLOGunitYear.Content = Card.Unit.iYear;
             lLOGunitFAV.Content = Card.Unit.iaArmor[0];
             lLOGunitBAV.Content = Card.Unit.iaArmor[1];
             lLOGunitSAV.Content = Card.Unit.iaArmor[2];
             lLOGunitTAV.Content = Card.Unit.iaArmor[3];
-            ShowWeapon(Card.Unit.W1, lLLB1);
-            ShowWeapon(Card.Unit.W2, lLLB2);
-            ShowWeapon(Card.Unit.W3, lLLB3);
+    }*/
 
-            if (Card.Transport != null)
-            {
-                TlLOGunit.Content = Card.Transport.sNameU;
-                TlLOGunitHP.Content = "HP:" + Card.Transport.iHP;
-                TlLOGunitSize.Content = InterpretSize(Card.Transport);
-                TlLOGunitOptics.Content = InterpretOptics(Card.Transport);
-                TlLOGunitStealth.Content = InterpretStealth(Card.Transport);
-                TlLOGunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                TlLOGunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                TlLOGunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                TlLOGunitTraining.Content = InterpretTraining(Card);
-                TlLOGunitAutonomy.Content = Card.Transport.iAutonomy;
-                //lLOGunitProto.Content = Card.Unit.iIsProto;
-                //lLOGunitDeck.Content = Card.Unit.
-                TlLOGunitYear.Content = Card.Transport.iYear;
-                TlLOGunitFAV.Content = Card.Transport.iaArmor[0];
-                TlLOGunitBAV.Content = Card.Transport.iaArmor[1];
-                TlLOGunitSAV.Content = Card.Transport.iaArmor[2];
-                TlLOGunitTAV.Content = Card.Transport.iaArmor[3];
-                ShowWeapon(Card.Transport.W1, TlLLB1);
-                ShowWeapon(Card.Transport.W2, TlLLB2);
-                ShowWeapon(Card.Transport.W3, TlLLB3);
-            }
-            else
-            {
-                TlLOGunit.Content = "";
-                TlLOGunitHP.Content = "";
-                TlLOGunitSize.Content = "";
-                TlLOGunitOptics.Content = "";
-                TlLOGunitStealth.Content = "";
-                TlLOGunitSpeed.Content = "";
-                TlLOGunitRSPeed.Content = "";
-                TlLOGunitASPeed.Content = "";
-                TlLOGunitTraining.Content = "";
-                TlLOGunitAutonomy.Content = "";
-                //lLOGunitProto.Content = Card.Unit.iIsProto;
-                //lLOGunitDeck.Content = Card.Unit.
-                TlLOGunitYear.Content = "";
-                TlLOGunitFAV.Content = "";
-                TlLOGunitBAV.Content = "";
-                TlLOGunitSAV.Content = "";
-                TlLOGunitTAV.Content = "";
-                ShowWeapon(Deck.nullWeapon, TlLLB1);
-                ShowWeapon(Deck.nullWeapon, TlLLB2);
-                ShowWeapon(Deck.nullWeapon, TlLLB3);
+ function InterpretTraining(Card)
+ {
+     switch (Card.Unit.iTraining)
+     {
+         case 1:
+             return "Training: Militia";
+         case 2:
+             return "Training: Line";
+         case 3:
+             return "Training: Shock";
+         case 4:
+             return "Training: Elite";
+         default:
+             return "";
+     }
+ }
 
-            }
-            break;
+ function InterpretStealth( Card)
+ {
+     switch (Card.iStealth)
+     {
+         case 1: return "Stealth: Poor";
+         case 2: return "Stealth: Medium";
+         case 3: return "Stealth: Good";
+         case 4: return "Stealth: Very good";
+         case 5: return "Stealth: Exceptional";
+         default: return "Stealth: none";
+     }
+ }
+
+ function InterpretOptics( Card)
+ {
+     var optika;
+     if (Card.sUnitData.charAt(24) == '1') { optika = "Air Detection"; } else { optika = "Optics"; }
+     switch (Card.iOptics)
+     {
+         case 1:
+             return optika + ": Poor";
+         case 2:
+             return optika + ": Medium";
+         case 3:
+             return optika + ": Good";
+         case 4:
+             return optika + ": Very good";
+         case 5:
+             return optika + ": Exceptional";
+     }
+     return "Steevie Wonder";
+ }
+
+ function InterpretSize(Card)
+ {
+     switch (Card.iSize)
+     {
+         case 1: return "Size: Very small";
+         case 2: return  "Size: Small";
+         case 3: return  "Size: Medium";
+         case 4: return  "Size: Big";
+         case 5: return "Size: Very big";
+         default: return "ECM:" + Card.iSize + "%";
+     }
+ }
+
+function showWeapon( wep, type, place)
+{
+    document.getElementById("W" + type + place).innerHTML = "";       
+    if (wep != 0)
+    {
+        var uText = document.createElement("p");
+        uText.innerHTML = wep.sName;
+        document.getElementById("W" + type + place).appendChild(uText);
+        uText = document.createElement("p");
+        uText.innerHTML = wep.iAmmo + wep.sRoundType;
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = wep.sTags;
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Ground " + wep.rGround + "m";
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Helo " + wep.rHelo + "m";
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Plane " + wep.rAir + "m";
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "ACC " + wep.iAccuracy + "%";
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "STAB " + wep.iStab + "%";
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "AP "+wep.AP;
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "HE "+wep.HE;
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "ROF" + wep.ROF;
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Supp. "+wep.iSuppression;
+        document.getElementById("W" + type + place).appendChild(uText); 
+        uText = document.createElement("p");
     }
-}/*
+}
 
-        function ShowWeapon(Weapon wep, ListBox Box)
-        {
-            if (wep != null)
-            {
-                List<string> lista = new List<string>();
-                lista.Add("" + wep.sName);
-                if (wep.sName != "NONE")
-                {
-                    lista.Add(wep.sRoundType + "x" + wep.iAmmo);
-                    lista.Add(wep.sTags);
-                    if (wep.rGround != 0) { lista.Add("Ground:" + wep.rGround.ToString() + "m"); } else { lista.Add(""); }
-                    if (wep.rHelo != 0) { lista.Add("Low air:" + wep.rHelo.ToString() + "m"); } else { lista.Add(""); }
-                    if (wep.rAir != 0) { lista.Add("High air:" + wep.rAir.ToString() + "m"); } else { lista.Add(""); }
-                    if (wep.iAccuracy >= 100 || wep.iAccuracy == 0) { lista.Add("Dispersion:" + wep.iAccuracy.ToString() + "m"); } else { lista.Add("Accuracy:" + wep.iAccuracy.ToString() + "%"); }
-                    if (wep.iStab != 0) { lista.Add("Stabilizer:" + wep.iStab.ToString() + "m"); } else { lista.Add(""); }
-                    lista.Add("AP:" + wep.AP.ToString());
-                    lista.Add("HE:" + wep.HE.ToString());
-                    lista.Add("Suppression:" + wep.iSuppression.ToString());
-                    lista.Add("ROF:" + wep.ROF.ToString());
-                }
-                Box.ItemsSource = lista;
-            }
-        }
-
-        private string InterpretTraining(VehicleCard Card)
-        {
-            switch (Card.Unit.iTraining)
-            {
-                case 1:
-                    return "Training: Militia";
-                case 2:
-                    return "Training: Line";
-                case 3:
-                    return "Training: Shock";
-                case 4:
-                    return "Training: Elite";
-                default:
-                    return "";
-            }
-        }
-
-        private string InterpretStealth(Datacard Card)
-        {
-            switch (Card.iStealth)
-            {
-                case 1: return "Stealth: Poor";
-                case 2: return "Stealth: Medium";
-                case 3: return "Stealth: Good";
-                case 4: return "Stealth: Very good";
-                case 5: return "Stealth: Exceptional";
-                default: return "Stealth: none";
-            }
-        }
-
-        private string InterpretOptics(Datacard Card)
-        {
-            string optika;
-            if (Card.caUnitData[24] == 1) { optika = "Air Detection"; } else { optika = "Optics"; }
-            switch (Card.iOptics)
-            {
-                case 1:
-                    return optika + ": Poor";
-                case 2:
-                    return optika + ": Medium";
-                case 3:
-                    return optika + ": Good";
-                case 4:
-                    return optika + ": Very good";
-                case 5:
-                    return optika + ": Exceptional";
-            }
-            return "Steevie Wonder";
-        }
-
-        private string InterpretSize(Datacard Card)
-        {
-            switch (Card.iSize)
-            {
-                case 1: return "Size: Very small";
-                case 2: return  "Size: Small";
-                case 3: return  "Size: Medium";
-                case 4: return  "Size: Big";
-                case 5: return "Size: Very big";
-                default: return "ECM:" + Card.iSize + "%";
-            }
-        }
-        #endregion cardshow
-*/
 /*
         function DisplayAvailability(VehicleCard Card)
         {
