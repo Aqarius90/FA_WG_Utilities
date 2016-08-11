@@ -396,12 +396,14 @@ function displayCard(card, prefix,type, pos){
     document.getElementById("D" + prefix + type + pos[type]).appendChild(iData); 
     card.iArrayIndex =""+ type + pos[type];   
     
-    let temp = pos[type];
-    let elem = document.createElement('input');
-    elem.type = 'button';
-    elem.value = 'button';
-    elem.onclick = function(){CardDelete(type*10+ temp);}; //closure escape via math. FML
-    document.getElementById("L0" + type + pos[type]).appendChild(elem); 
+    if (prefix == '0'){
+        let temp = pos[type];
+        let elem = document.createElement('input');
+        elem.type = 'button';
+        elem.value = 'DELETE';
+        elem.onclick = function(){CardDelete(type*10+ temp);}; //closure escape via math. FML
+        document.getElementById("L0" + type + pos[type]).appendChild(elem); 
+    }
     
     //unit name
     var uText = document.createElement("h6");
