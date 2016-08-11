@@ -1,4 +1,4 @@
-function Datacard(ID, DATA, AVAIL, SPEC, YEAR, COST, CARDS, PROTO, NATION, NAME){
+function Datacard(ID, DATA, AVAIL, SPEC, YEAR, COST, CARDS, PROTO, NATION, NAME) {
   //set on construct
   this.iUnitID = ID;
   this.sNameU = NAME;
@@ -45,7 +45,7 @@ function VehicleCard(VET, UNIT, TRANSPORT, CRAFT){
     {this.iCost = UNIT.iCost + TRANSPORT.iCost + CRAFT.iCost;} //<<need to actually add the landing craft data
     if (UNIT.iIsProto == 1 || (TRANSPORT == 0 || TRANSPORT.iIsProto == 1)) { this.iIsProto = 1; }
     this.iArrayIndex = ""; //for deck pos tracking
-    this.iDeckIndex = ""; //same
+    this.iDeckIndex = ""; //same. <<potentially useless.
     this.iaAvailability = [];
     if (TRANSPORT == 0) {this.iaAvailability = UNIT.iaAvailability;} else {
       for (var i = 0; i < 5; i++){
@@ -6337,138 +6337,3 @@ function matrix(){
         [0,0,0,0,0,  0,  0,  0,  0]
     ];
 }
-
-/*         public Datacard dbQuery(int x, int iSide)
-         {
-             return CardsDB[x,iSide];
-         }*/
-
-         /*private List<VehicleCard> UnitLookup(string sSide, string sNation, string sSpec, string sEra, List<VehicleCard> output, int genDeck = 0)
-         {
-             int iside = 2;
-             if (sSide == "BLU")
-             {
-                 iside = 0;
-             }
-             else
-             {
-                 iside = 1;
-             }
-
-             foreach (Datacard DC in CardsDB)
-             {
-                 int Year = 0;
-                 if (sEra == "A")
-                 {
-                     Year = 3000;
-                 }
-                 else if (sEra == "B")
-                 {
-                     Year = 1985;
-                 }
-                 else
-                 {
-                     Year = 1980;
-                 }
-
-                 bool specials = false;
-                 if (sSpec == "MAR")
-                 {
-                     if (DC.caSpecDeck[0] == '1') {specials = true; }
-                 }
-                 else if (sSpec == "AIR")
-                 {
-                     if (DC.caSpecDeck[1] == '1') { specials = true; }
-                 }
-                 else if (sSpec == "MECH")
-                 {
-                     if (DC.caSpecDeck[2] == '1') { specials = true; }
-                 }
-                 else if (sSpec == "ARM")
-                 {
-                     if (DC.caSpecDeck[3] == '1') { specials = true; }
-                 }
-                 else if (sSpec == "MOTO")
-                 {
-                     if (DC.caSpecDeck[4] == '1') { specials = true; }
-                 }
-                 else if (sSpec == "SUP")
-                 {
-                     if (DC.caSpecDeck[5] == '1') { specials = true; }
-                 }
-                 else if (sSpec == "GEN")
-                 {
-                     specials = true;
-                 }
-                 if  (genDeck == 1 && DC.iIsProto == 1)
-                 {
-                     specials = false;
-                 }
-                 if (specials == true)
-                 {
-                     if (Year > DC.iYear)
-                     {
-                         bool inf = false;
-                         if (DC.sNation == sNation)
-                         {
-                             foreach (TransportPair pair in Tlinks.TransportPairs)
-                             {
-                                 if (pair.Linker[0] == iside && pair.Linker[1] == DC.iUnitID)
-                                 {
-                                     Datacard infUnit = dbQuery(pair.Linker[1], iside);
-                                     Datacard vehUnit = dbQuery(pair.Linker[2], iside);
-
-                                     specials = false;
-                                     if (sSpec == "MAR")
-                                     {
-                                         if (DC.caSpecDeck[0] == '1') { specials = true; }
-                                     }
-                                     else if (sSpec == "AIR")
-                                     {
-                                         if (DC.caSpecDeck[1] == '1') { specials = true; }
-                                     }
-                                     else if (sSpec == "MECH")
-                                     {
-                                         if (DC.caSpecDeck[2] == '1') { specials = true; }
-                                     }
-                                     else if (sSpec == "ARM")
-                                     {
-                                         if (DC.caSpecDeck[3] == '1') { specials = true; }
-                                     }
-                                     else if (sSpec == "MOTO")
-                                     {
-                                         if (DC.caSpecDeck[4] == '1') { specials = true; }
-                                     }
-                                     else if (sSpec == "SUP")
-                                     {
-                                         if (DC.caSpecDeck[5] == '1') { specials = true; }
-                                     }
-                                     else if (sSpec == "GEN")
-                                     {
-                                         specials = true;
-                                     }
-
-                                     if (specials)
-                                     {
-                                         if (Year > vehUnit.iYear)
-                                         {
-                                             VehicleCard newcard = new VehicleCard(infUnit, vehUnit);
-                                             output.Add(newcard);
-                                             inf = true;
-                                         }
-                                     }
-                                 }
-                             }
-                             if (!inf)
-                             {
-                                 VehicleCard newcard1 = new VehicleCard(DC);
-                                 output.Add(newcard1);
-                             }
-                         }
-                     }
-                 }
-             }
-             return output;
-         }
-    }
-}*/

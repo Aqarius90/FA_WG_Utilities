@@ -497,7 +497,6 @@ function displayUnits()
             DA = Matrix.general;
             break;
     }
-    console.log(DA);
         
         
     for (var i = 0; i < Deck.Cards2T.length; i++)
@@ -612,6 +611,7 @@ function updatePointsDisplay(DA)
                 var uText = document.createElement("h3");
                 uText.setAttribute("class","text-center");
                 uText.setAttribute("line-height","50%"); 
+                uText.innerHTML = DA[i-1][j-1];
                 document.getElementById("D" + i + j).appendChild(uText);
         }   
     }

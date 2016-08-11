@@ -125,7 +125,7 @@ function listUnits() //get units for display
 function UnitLookup(nation){
     var card;
     var year = 0;
-    if(Deck.sEra == "B"){ year = 1986;}//I think FOBs are "year 0"
+    if(Deck.sEra == "B"){ year = 1986;}//I think FOBs are "year 0". Should be "-7500"
     if(Deck.sEra == "C"){ year = 1981;}
     var spec = -1;
     if(Deck.sSpec == "MAR"){spec=0;}
@@ -136,37 +136,70 @@ function UnitLookup(nation){
     else if (Deck.sSpec == "SUP"){spec=5;}
     
     for (var i=0; i<1024;i++){
-        
-        card = CardsDB[i][Deck.iSide]; 
-        if (card.sNation == nation && card.iYear >= year)
-        {   
-            if (card.sSpecDeck.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
-                if (card.sUnitData.charAt(17) == '1'){toList("logTable", card);}//logi
-                if (card.sUnitData.charAt(18) == '1'){toList("infTable", card);}//inf
-                if (card.sUnitData.charAt(19) == '1'){toList("supTable", card);}//sup
-                if (card.sUnitData.charAt(20) == '1'){toList("tnkTable", card);}//tnk
-                if (card.sUnitData.charAt(21) == '1'){toList("recTable", card);}//rec
-                if (card.sUnitData.charAt(22) == '1'){toList("vehTable", card);}//veh
-                if (card.sUnitData.charAt(23) == '1'){toList("helTable", card);}//hel
-                if (card.sUnitData.charAt(24) == '1'){toList("airTable", card);}//air
-                if (card.sUnitData.charAt(25) == '1'){toList("navTable", card);}//nav
+        card = CardsDB[i][Deck.iSide];
+        if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
+            if (card.sNation == nation && card.iYear >= year){
+                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){
+                    if (card.sSpecDeck.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
+                        var transport = 0;
+                        if (card.sUnitData.charAt(7) == '1'){
+                            for (var j=0; j<TransportLinker.length; j++){
+                                if (card.iUnitID == TransportLinker[j].uID){
+                                    var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
+                                    if (pair.iYear >= year) {
+                                        if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || pair.iIsProto == '0'){
+                                            if (pair.sSpec.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
+                                                toList(pair);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            var single = new VehicleCard("000", card, 0, 0);
+                            toList(single);                        
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-function toList(table, card){ 
+function toList(card){ 
+    var type;
+    if (card.Unit.sUnitData.charAt(17) == '1'){ type = "logTable";}//logi
+    else if (card.Unit.sUnitData.charAt(18) == '1'){type = "infTable";}//inf
+    else if (card.Unit.sUnitData.charAt(19) == '1'){type = "supTable";}//sup
+    else if (card.Unit.sUnitData.charAt(20) == '1'){type = "tnkTable";}//tnk
+    else if (card.Unit.sUnitData.charAt(21) == '1'){type = "recTable";}//rec
+    else if (card.Unit.sUnitData.charAt(22) == '1'){type = "vehTable";}//veh
+    else if (card.Unit.sUnitData.charAt(23) == '1'){type = "helTable";}//hel
+    else if (card.Unit.sUnitData.charAt(24) == '1'){type = "airTable";}//air
+    else {type = "navTable";}//nav
     
-    var table = document.getElementById(table);
+    var table = document.getElementById(type);
     var row = table.insertRow(table.rows.length);
     var nation = row.insertCell(0);
     var unit = row.insertCell(1);
     var cardsU = row.insertCell(2);
     var trans = row.insertCell(3);
     var cardsT = row.insertCell(4);
+    var btn = row.insertCell(5);
     nation.innerHTML = card.sNation;
-    unit.innerHTML = card.sNameU;
-    cardsU.innerHTML = card.iCards;    
+    unit.innerHTML = card.Unit.sNameU;
+    cardsU.innerHTML = card.Unit.iCards;    
+    if(card.Transport !=0){
+        trans.innerHTML = card.Transport.sNameU;
+        cardsT.innerHTML = card.Transport.iCards;    
+    }
+    
+    let elem = document.createElement('input');
+    elem.type = 'button';
+    elem.value = 'button';
+    elem.onclick = function(){ShowData(card);}; //closure escape via math. FML
+    btn.innerHTML = "<input type=\"button\" value=\"SELECT\" onclick=\"" + ShowCard(card) + "\"/>";
 }
             
             
