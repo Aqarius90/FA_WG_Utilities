@@ -28,7 +28,6 @@ function btClear()
 
 function listUnits() //get units for display
 {
-    console.log("enter listUnits");
     var tables = ["log", "inf", "sup", "tnk", "rec", "veh", "hel", "air", "nav"]
     for(var i=0; i<9; i++){        
         var body = document.getElementById(tables[i] + "Body");
@@ -126,7 +125,7 @@ function listUnits() //get units for display
 function UnitLookup(nation){
     var card;
     var year = 0;
-    if(Deck.sEra == "B"){ year = 1986;}//I think FOBs are "year 0"
+    if(Deck.sEra == "B"){ year = 1986;}//I think FOBs are "year 0". Should be "-7500"
     if(Deck.sEra == "C"){ year = 1981;}
     var spec = -1;
     if(Deck.sSpec == "MAR"){spec=0;}
@@ -137,177 +136,72 @@ function UnitLookup(nation){
     else if (Deck.sSpec == "SUP"){spec=5;}
     
     for (var i=0; i<1024;i++){
-        
-        card = CardsDB[i][Deck.iSide]; 
-        if (card.sNation == nation && card.iYear >= year)
-        {   
-            if (card.sSpecDeck.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
-                if (card.sUnitData.charAt(17) == '1'){toList("logTable", card);}//logi
-                if (card.sUnitData.charAt(18) == '1'){toList("infTable", card);}//inf
-                if (card.sUnitData.charAt(19) == '1'){toList("supTable", card);}//sup
-                if (card.sUnitData.charAt(20) == '1'){toList("tnkTable", card);}//tnk
-                if (card.sUnitData.charAt(21) == '1'){toList("recTable", card);}//rec
-                if (card.sUnitData.charAt(22) == '1'){toList("vehTable", card);}//veh
-                if (card.sUnitData.charAt(23) == '1'){toList("helTable", card);}//hel
-                if (card.sUnitData.charAt(24) == '1'){toList("airTable", card);}//air
-                if (card.sUnitData.charAt(25) == '1'){toList("navTable", card);}//nav
+        card = CardsDB[i][Deck.iSide];
+        if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
+            if (card.sNation == nation && card.iYear >= year){
+                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){
+                    if (card.sSpecDeck.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
+                        var transport = 0;
+                        if (card.sUnitData.charAt(7) == '1'){
+                            for (var j=0; j<TransportLinker.length; j++){
+                                if (card.iUnitID == TransportLinker[j].uID){
+                                    var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
+                                    if (pair.iYear >= year) {
+                                        if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || pair.iIsProto == '0'){
+                                            if (pair.sSpec.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
+                                                toList(pair);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            var single = new VehicleCard("000", card, 0, 0);
+                            toList(single);                        
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-function toList(table, card){ 
+function toList(card){ 
+    var type;
+    if (card.Unit.sUnitData.charAt(17) == '1'){ type = "logTable";}//logi
+    else if (card.Unit.sUnitData.charAt(18) == '1'){type = "infTable";}//inf
+    else if (card.Unit.sUnitData.charAt(19) == '1'){type = "supTable";}//sup
+    else if (card.Unit.sUnitData.charAt(20) == '1'){type = "tnkTable";}//tnk
+    else if (card.Unit.sUnitData.charAt(21) == '1'){type = "recTable";}//rec
+    else if (card.Unit.sUnitData.charAt(22) == '1'){type = "vehTable";}//veh
+    else if (card.Unit.sUnitData.charAt(23) == '1'){type = "helTable";}//hel
+    else if (card.Unit.sUnitData.charAt(24) == '1'){type = "airTable";}//air
+    else {type = "navTable";}//nav
     
-    var table = document.getElementById(table);
+    var table = document.getElementById(type);
     var row = table.insertRow(table.rows.length);
     var nation = row.insertCell(0);
     var unit = row.insertCell(1);
     var cardsU = row.insertCell(2);
     var trans = row.insertCell(3);
     var cardsT = row.insertCell(4);
+    var btn = row.insertCell(5);
     nation.innerHTML = card.sNation;
-    unit.innerHTML = card.sNameU;
-    cardsU.innerHTML = card.iCards;    
-}
-            
-            
-   /* foreach (VehicleCard x in dcUnits)
-    {
-        if (x != null)
-        {
-            var DeckRow = new deckRow();
-            DeckRow.UID = x.Unit.iUnitID.ToString();
-            DeckRow.Name = x.Unit.sNameU;
-            DeckRow.Nation = x.sNation;
-            DeckRow.vet0 = x.iaAvailability[0];
-            DeckRow.vet1 = x.iaAvailability[1];
-            DeckRow.vet2 = x.iaAvailability[2];
-            DeckRow.vet3 = x.iaAvailability[3];
-            DeckRow.vet4 = x.iaAvailability[4];
-            DeckRow.Cost = x.iCost;
-            DeckRow.iCards = Deck.Cards0T.Count(element => (element != null && element.Unit.iUnitID == x.Unit.iUnitID));//
-            DeckRow.iCards += Deck.Cards1T.Count(element => (element != null && element.Unit.iUnitID == x.Unit.iUnitID));//one is 0
-            DeckRow.Cards = (x.Unit.iCards - DeckRow.iCards) + "/" + x.Unit.iCards;
-            DeckRow.iCards -= x.Unit.iCards;
-            if (x.Transport != null)
-            {
-                DeckRow.iTCards = Deck.Cards1T.Count(element => (element != null && element.Transport.iUnitID == x.Transport.iUnitID));
-                DeckRow.Transport = x.Transport.sNameU;
-                DeckRow.TID = x.Transport.iUnitID.ToString();
-                DeckRow.TCards = (x.Transport.iCards - DeckRow.iTCards) + "/" + x.Transport.iCards;
-                DeckRow.iTCards -= x.Transport.iCards;
-            }
-            else
-            {
-                DeckRow.TID = "0";
-            }
-
-            char[] sData = x.Unit.caUnitData;
-            if (sData[4] == '0')
-            {
-                if (sData[17] == '1')//logi
-                {
-                    if (Deck.sSpec == "SUP")
-                    {
-                        DeckRow.vet4 = DeckRow.vet3;
-                        DeckRow.vet3 = DeckRow.vet2;
-                        DeckRow.vet2 = DeckRow.vet1;
-                        DeckRow.vet1 = DeckRow.vet0;
-                        DeckRow.vet0 = 0;
-                    }
-                    LOGLIST.Add(DeckRow);
-                }
-                else if (sData[18] == '1') // INF
-                {
-                    if (Deck.sSpec == "MOTO" || Deck.sSpec == "MECH" || Deck.sSpec == "MAR" || Deck.sSpec == "AIR")
-                    {
-                        DeckRow.vet4 = DeckRow.vet3;
-                        DeckRow.vet3 = DeckRow.vet2;
-                        DeckRow.vet2 = DeckRow.vet1;
-                        DeckRow.vet1 = DeckRow.vet0;
-                        DeckRow.vet0 = 0;
-                    }
-                    INFLIST.Add(DeckRow);
-                }
-                else if (sData[19] == '1') // support
-                {
-                    if (Deck.sSpec == "SUP")
-                    {
-                        DeckRow.vet4 = DeckRow.vet3;
-                        DeckRow.vet3 = DeckRow.vet2;
-                        DeckRow.vet2 = DeckRow.vet1;
-                        DeckRow.vet1 = DeckRow.vet0;
-                        DeckRow.vet0 = 0;
-                    }
-                    SUPLIST.Add(DeckRow);
-                }
-                else if (sData[20] == '1') // tanks
-                {
-                    if (Deck.sSpec == "ARM")
-                    {
-                        DeckRow.vet4 = DeckRow.vet2;
-                        DeckRow.vet3 = DeckRow.vet1;
-                        DeckRow.vet2 = DeckRow.vet0;
-                        DeckRow.vet1 = 0;
-                        DeckRow.vet0 = 0;
-                    }
-                    TNKLIST.Add(DeckRow);
-                }
-                else if (sData[21] == '1')
-                {
-                    if (Deck.sSpec == "REC")
-                    {
-                        DeckRow.vet4 = DeckRow.vet3;
-                        DeckRow.vet3 = DeckRow.vet2;
-                        DeckRow.vet2 = DeckRow.vet1;
-                        DeckRow.vet1 = DeckRow.vet0;
-                        DeckRow.vet0 = 0;
-                    }
-                    RECLIST.Add(DeckRow);
-                }
-                else if (sData[22] == '1')
-                {
-                    if (Deck.sSpec == "MECH" || Deck.sSpec == "MOTO")
-                    {
-                        DeckRow.vet4 = DeckRow.vet3;
-                        DeckRow.vet3 = DeckRow.vet2;
-                        DeckRow.vet2 = DeckRow.vet1;
-                        DeckRow.vet1 = DeckRow.vet0;
-                        DeckRow.vet0 = 0;
-                    }
-                    VEHLIST.Add(DeckRow);
-                }
-                else if (sData[23] == '1')
-                {
-                    if (Deck.sSpec == "AIR")
-                    {
-                        DeckRow.vet4 = DeckRow.vet3;
-                        DeckRow.vet3 = DeckRow.vet2;
-                        DeckRow.vet2 = DeckRow.vet1;
-                        DeckRow.vet1 = DeckRow.vet0;
-                        DeckRow.vet0 = 0;
-                    }
-                    HELLIST.Add(DeckRow);
-                }
-                else if (sData[24] == '1')
-                {
-                    if (Deck.sSpec == "MAR" || Deck.sSpec == "AIR")
-                    {
-                        DeckRow.vet4 = DeckRow.vet3;
-                        DeckRow.vet3 = DeckRow.vet2;
-                        DeckRow.vet2 = DeckRow.vet1;
-                        DeckRow.vet1 = DeckRow.vet0;
-                        DeckRow.vet0 = 0;
-                    }
-                    AIRLIST.Add(DeckRow);
-                }
-            }
-        }
+    unit.innerHTML = card.Unit.sNameU;
+    cardsU.innerHTML = card.Unit.iCards;    
+    if(card.Transport !=0){
+        trans.innerHTML = card.Transport.sNameU;
+        cardsT.innerHTML = card.Transport.iCards;    
     }
+    
+    let elem = document.createElement('input');
+    elem.type = 'button';
+    elem.value = 'button';
+    elem.onclick = function(){ShowData(card);}; //closure escape via math. FML
+    btn.innerHTML = "<input type=\"button\" value=\"SELECT\" onclick=\"" + ShowCard(card) + "\"/>";
 }
 
-#endregion encode flag displays, list units per nation
-*/
 function btNATO_Click() {
     Deck.sSide = "BLU";
     Deck.iSide = 0;
@@ -662,573 +556,93 @@ function isError(Card) {
     return isUnavailable;
 }
 
-/*
-        function ShowData(VehicleCard Card, int Type)
-        {
-            switch (Type)
+function ShowCard(card)
+{
+    var type;
+    if (card.Unit.sUnitData.charAt(17) == '1'){ type = "logTable";}//logi
+    else if (card.Unit.sUnitData.charAt(18) == '1'){type = "infTable";}//inf
+    else if (card.Unit.sUnitData.charAt(19) == '1'){type = "supTable";}//sup
+    else if (card.Unit.sUnitData.charAt(20) == '1'){type = "tnkTable";}//tnk
+    else if (card.Unit.sUnitData.charAt(21) == '1'){type = "recTable";}//rec
+    else if (card.Unit.sUnitData.charAt(22) == '1'){type = "vehTable";}//veh
+    else if (card.Unit.sUnitData.charAt(23) == '1'){type = "helTable";}//hel
+    else if (card.Unit.sUnitData.charAt(24) == '1'){type = "airTable";}//air
+    else {type = "navTable";}//nav
+}
+   /* switch (Type)
+    {
+        case 0://LOG
+            lLOGunit.Content = Card.Unit.sNameU;
+            lLOGunitHP.Content = "HP:" + Card.Unit.iHP;
+            lLOGunitSize.Content = InterpretSize(Card.Unit);
+            lLOGunitOptics.Content = InterpretOptics(Card.Unit);
+            lLOGunitStealth.Content = InterpretStealth(Card.Unit);
+            lLOGunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
+            lLOGunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
+            lLOGunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
+            lLOGunitTraining.Content = InterpretTraining(Card);
+            lLOGunitAutonomy.Content = Card.Unit.iAutonomy;
+            //lLOGunitProto.Content = Card.Unit.iIsProto;
+            //lLOGunitDeck.Content = Card.Unit.
+            lLOGunitYear.Content = Card.Unit.iYear;
+            lLOGunitFAV.Content = Card.Unit.iaArmor[0];
+            lLOGunitBAV.Content = Card.Unit.iaArmor[1];
+            lLOGunitSAV.Content = Card.Unit.iaArmor[2];
+            lLOGunitTAV.Content = Card.Unit.iaArmor[3];
+            ShowWeapon(Card.Unit.W1, lLLB1);
+            ShowWeapon(Card.Unit.W2, lLLB2);
+            ShowWeapon(Card.Unit.W3, lLLB3);
+
+            if (Card.Transport != null)
             {
-                case 0://LOG
-                    lLOGunit.Content = Card.Unit.sNameU;
-                    lLOGunitHP.Content = "HP:" + Card.Unit.iHP;
-                    lLOGunitSize.Content = InterpretSize(Card.Unit);
-                    lLOGunitOptics.Content = InterpretOptics(Card.Unit);
-                    lLOGunitStealth.Content = InterpretStealth(Card.Unit);
-                    lLOGunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-                    lLOGunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-                    lLOGunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-                    lLOGunitTraining.Content = InterpretTraining(Card);
-                    lLOGunitAutonomy.Content = Card.Unit.iAutonomy;
-                    //lLOGunitProto.Content = Card.Unit.iIsProto;
-                    //lLOGunitDeck.Content = Card.Unit.
-                    lLOGunitYear.Content = Card.Unit.iYear;
-                    lLOGunitFAV.Content = Card.Unit.iaArmor[0];
-                    lLOGunitBAV.Content = Card.Unit.iaArmor[1];
-                    lLOGunitSAV.Content = Card.Unit.iaArmor[2];
-                    lLOGunitTAV.Content = Card.Unit.iaArmor[3];
-                    ShowWeapon(Card.Unit.W1, lLLB1);
-                    ShowWeapon(Card.Unit.W2, lLLB2);
-                    ShowWeapon(Card.Unit.W3, lLLB3);
-
-                    if (Card.Transport != null)
-                    {
-                        TlLOGunit.Content = Card.Transport.sNameU;
-                        TlLOGunitHP.Content = "HP:" + Card.Transport.iHP;
-                        TlLOGunitSize.Content = InterpretSize(Card.Transport);
-                        TlLOGunitOptics.Content = InterpretOptics(Card.Transport);
-                        TlLOGunitStealth.Content = InterpretStealth(Card.Transport);
-                        TlLOGunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                        TlLOGunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                        TlLOGunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                        TlLOGunitTraining.Content = InterpretTraining(Card);
-                        TlLOGunitAutonomy.Content = Card.Transport.iAutonomy;
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlLOGunitYear.Content = Card.Transport.iYear;
-                        TlLOGunitFAV.Content = Card.Transport.iaArmor[0];
-                        TlLOGunitBAV.Content = Card.Transport.iaArmor[1];
-                        TlLOGunitSAV.Content = Card.Transport.iaArmor[2];
-                        TlLOGunitTAV.Content = Card.Transport.iaArmor[3];
-                        ShowWeapon(Card.Transport.W1, TlLLB1);
-                        ShowWeapon(Card.Transport.W2, TlLLB2);
-                        ShowWeapon(Card.Transport.W3, TlLLB3);
-                    }
-                    else
-                    {
-                        TlLOGunit.Content = "";
-                        TlLOGunitHP.Content = "";
-                        TlLOGunitSize.Content = "";
-                        TlLOGunitOptics.Content = "";
-                        TlLOGunitStealth.Content = "";
-                        TlLOGunitSpeed.Content = "";
-                        TlLOGunitRSPeed.Content = "";
-                        TlLOGunitASPeed.Content = "";
-                        TlLOGunitTraining.Content = "";
-                        TlLOGunitAutonomy.Content = "";
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlLOGunitYear.Content = "";
-                        TlLOGunitFAV.Content = "";
-                        TlLOGunitBAV.Content = "";
-                        TlLOGunitSAV.Content = "";
-                        TlLOGunitTAV.Content = "";
-                        ShowWeapon(Deck.nullWeapon, TlLLB1);
-                        ShowWeapon(Deck.nullWeapon, TlLLB2);
-                        ShowWeapon(Deck.nullWeapon, TlLLB3);
-
-                    }
-                    break;
-                case 1://INF
-                    lINFunit.Content = Card.Unit.sNameU;
-                    lINFunitHP.Content = "HP:" + Card.Unit.iHP;
-                    lINFunitSize.Content = InterpretSize(Card.Unit);
-                    lINFunitOptics.Content = InterpretOptics(Card.Unit);
-                    lINFunitStealth.Content = InterpretStealth(Card.Unit);
-                    lINFunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-                    lINFunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-                    lINFunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-                    lINFunitTraining.Content = InterpretTraining(Card);
-                    lINFunitAutonomy.Content = Card.Unit.iAutonomy;
-                    //lLOGunitProto.Content = Card.Unit.iIsProto;
-                    //lLOGunitDeck.Content = Card.Unit.
-                    lINFunitYear.Content = Card.Unit.iYear;
-                    lINFunitFAV.Content = Card.Unit.iaArmor[0];
-                    lINFunitBAV.Content = Card.Unit.iaArmor[1];
-                    lINFunitSAV.Content = Card.Unit.iaArmor[2];
-                    lINFunitTAV.Content = Card.Unit.iaArmor[3];
-                    ShowWeapon(Card.Unit.W1, lILB1);
-                    ShowWeapon(Card.Unit.W2, lILB2);
-                    ShowWeapon(Card.Unit.W3, lILB3);
-
-                    if (Card.Transport != null)
-                    {
-                        TlINFunit.Content = Card.Transport.sNameU;
-                        TlINFunitHP.Content = "HP:" + Card.Transport.iHP;
-                        TlINFunitSize.Content = InterpretSize(Card.Transport);
-                        TlINFunitOptics.Content = InterpretOptics(Card.Transport);
-                        TlINFunitStealth.Content = InterpretStealth(Card.Transport);
-                        TlINFunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                        TlINFunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                        TlINFunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                        TlINFunitTraining.Content = InterpretTraining(Card);
-                        TlINFunitAutonomy.Content = Card.Transport.iAutonomy;
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlINFunitYear.Content = Card.Transport.iYear;
-                        TlINFunitFAV.Content = Card.Transport.iaArmor[0];
-                        TlINFunitBAV.Content = Card.Transport.iaArmor[1];
-                        TlINFunitSAV.Content = Card.Transport.iaArmor[2];
-                        TlINFunitTAV.Content = Card.Transport.iaArmor[3];
-                        ShowWeapon(Card.Transport.W1, TlILB1);
-                        ShowWeapon(Card.Transport.W2, TlILB2);
-                        ShowWeapon(Card.Transport.W3, TlILB3);
-                    }
-                    else
-                    {
-                        TlINFunit.Content = "";
-                        TlINFunitHP.Content = "";
-                        TlINFunitSize.Content = "";
-                        TlINFunitOptics.Content = "";
-                        TlINFunitStealth.Content = "";
-                        TlINFunitSpeed.Content = "";
-                        TlINFunitRSPeed.Content = "";
-                        TlINFunitASPeed.Content = "";
-                        TlINFunitTraining.Content = "";
-                        TlINFunitAutonomy.Content = "";
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlINFunitYear.Content = "";
-                        TlINFunitFAV.Content = "";
-                        TlINFunitBAV.Content = "";
-                        TlINFunitSAV.Content = "";
-                        TlINFunitTAV.Content = "";
-                        ShowWeapon(Deck.nullWeapon, TlILB1);
-                        ShowWeapon(Deck.nullWeapon, TlILB2);
-                        ShowWeapon(Deck.nullWeapon, TlILB3);
-
-                    }
-                    break;
-                case 2://SUP
-                    lSUPunit.Content = Card.Unit.sNameU;
-                    lSUPunitHP.Content = "HP:" + Card.Unit.iHP;
-                    lSUPunitSize.Content = InterpretSize(Card.Unit);
-                    lSUPunitOptics.Content = InterpretOptics(Card.Unit);
-                    lSUPunitStealth.Content = InterpretStealth(Card.Unit);
-                    lSUPunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-                    lSUPunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-                    lSUPunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-                    lSUPunitTraining.Content = InterpretTraining(Card);
-                    lSUPunitAutonomy.Content = Card.Unit.iAutonomy;
-                    lSUPunitYear.Content = Card.Unit.iYear;
-                    lSUPunitFAV.Content = Card.Unit.iaArmor[0];
-                    lSUPunitBAV.Content = Card.Unit.iaArmor[1];
-                    lSUPunitSAV.Content = Card.Unit.iaArmor[2];
-                    lSUPunitTAV.Content = Card.Unit.iaArmor[3];
-                    //lLOGunitProto.Content = Card.Unit.iIsProto;
-                    //lLOGunitDeck.Content = Card.Unit.
-                    ShowWeapon(Card.Unit.W1, lSLB1);
-                    ShowWeapon(Card.Unit.W2, lSLB2);
-                    ShowWeapon(Card.Unit.W3, lSLB3);
-
-                    if (Card.Transport != null)
-                    {
-                        TlSUPunit.Content = Card.Transport.sNameU;
-                        TlSUPunitHP.Content = "HP:" + Card.Transport.iHP;
-                        TlSUPunitSize.Content = InterpretSize(Card.Transport);
-                        TlSUPunitOptics.Content = InterpretOptics(Card.Transport);
-                        TlSUPunitStealth.Content = InterpretStealth(Card.Transport);
-                        TlSUPunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                        TlSUPunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                        TlSUPunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                        TlSUPunitTraining.Content = InterpretTraining(Card);
-                        TlSUPunitAutonomy.Content = Card.Transport.iAutonomy;
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlSUPunitYear.Content = Card.Transport.iYear;
-                        TlSUPunitFAV.Content = Card.Transport.iaArmor[0];
-                        TlSUPunitBAV.Content = Card.Transport.iaArmor[1];
-                        TlSUPunitSAV.Content = Card.Transport.iaArmor[2];
-                        TlSUPunitTAV.Content = Card.Transport.iaArmor[3];
-                        ShowWeapon(Card.Transport.W1, TlSLB1);
-                        ShowWeapon(Card.Transport.W2, TlSLB2);
-                        ShowWeapon(Card.Transport.W3, TlSLB3);
-                    }
-                    else
-                    {
-                        TlSUPunit.Content = "";
-                        TlSUPunitHP.Content = "";
-                        TlSUPunitSize.Content = "";
-                        TlSUPunitOptics.Content = "";
-                        TlSUPunitStealth.Content = "";
-                        TlSUPunitSpeed.Content = "";
-                        TlSUPunitRSPeed.Content = "";
-                        TlSUPunitASPeed.Content = "";
-                        TlSUPunitTraining.Content = "";
-                        TlSUPunitAutonomy.Content = "";
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlSUPunitYear.Content = "";
-                        TlSUPunitFAV.Content = "";
-                        TlSUPunitBAV.Content = "";
-                        TlSUPunitSAV.Content = "";
-                        TlSUPunitTAV.Content = "";
-                        ShowWeapon(Deck.nullWeapon, TlSLB1);
-                        ShowWeapon(Deck.nullWeapon, TlSLB2);
-                        ShowWeapon(Deck.nullWeapon, TlSLB3);
-
-                    }
-                    break;
-                case 3://TNK
-                    lTNKunit.Content = Card.Unit.sNameU;
-                    lTNKunitHP.Content = "HP:" + Card.Unit.iHP;
-                    lTNKunitSize.Content = InterpretSize(Card.Unit);
-                    lTNKunitOptics.Content = InterpretOptics(Card.Unit);
-                    lTNKunitStealth.Content = InterpretStealth(Card.Unit);
-                    lTNKunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-                    lTNKunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-                    lTNKunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-                    lTNKunitTraining.Content = InterpretTraining(Card);
-                    lTNKunitAutonomy.Content = Card.Unit.iAutonomy;
-                    lTNKunitYear.Content = Card.Unit.iYear;
-                    lTNKunitFAV.Content = Card.Unit.iaArmor[0];
-                    lTNKunitBAV.Content = Card.Unit.iaArmor[1];
-                    lTNKunitSAV.Content = Card.Unit.iaArmor[2];
-                    lTNKunitTAV.Content = Card.Unit.iaArmor[3];
-                    //lLOGunitProto.Content = Card.Unit.iIsProto;
-                    //lLOGunitDeck.Content = Card.Unit.
-                    ShowWeapon(Card.Unit.W1, lTLB1);
-                    ShowWeapon(Card.Unit.W2, lTLB2);
-                    ShowWeapon(Card.Unit.W3, lTLB3);
-
-                    if (Card.Transport != null)
-                    {
-                        TlTNKunit.Content = Card.Transport.sNameU;
-                        TlTNKunitHP.Content = "HP:" + Card.Transport.iHP;
-                        TlTNKunitSize.Content = InterpretSize(Card.Transport);
-                        TlTNKunitOptics.Content = InterpretOptics(Card.Transport);
-                        TlTNKunitStealth.Content = InterpretStealth(Card.Transport);
-                        TlTNKunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                        TlTNKunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                        TlTNKunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                        TlTNKunitTraining.Content = InterpretTraining(Card);
-                        TlTNKunitAutonomy.Content = Card.Transport.iAutonomy;
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlTNKunitYear.Content = Card.Transport.iYear;
-                        TlTNKunitFAV.Content = Card.Transport.iaArmor[0];
-                        TlTNKunitBAV.Content = Card.Transport.iaArmor[1];
-                        TlTNKunitSAV.Content = Card.Transport.iaArmor[2];
-                        TlTNKunitTAV.Content = Card.Transport.iaArmor[3];
-                        ShowWeapon(Card.Transport.W1, TlTLB1);
-                        ShowWeapon(Card.Transport.W2, TlTLB2);
-                        ShowWeapon(Card.Transport.W3, TlTLB3);
-                    }
-                    else
-                    {
-                        TlTNKunit.Content = "";
-                        TlTNKunitHP.Content = "";
-                        TlTNKunitSize.Content = "";
-                        TlTNKunitOptics.Content = "";
-                        TlTNKunitStealth.Content = "";
-                        TlTNKunitSpeed.Content = "";
-                        TlTNKunitRSPeed.Content = "";
-                        TlTNKunitASPeed.Content = "";
-                        TlTNKunitTraining.Content = "";
-                        TlTNKunitAutonomy.Content = "";
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlTNKunitYear.Content = "";
-                        TlTNKunitFAV.Content = "";
-                        TlTNKunitBAV.Content = "";
-                        TlTNKunitSAV.Content = "";
-                        TlTNKunitTAV.Content = "";
-                        ShowWeapon(Deck.nullWeapon, TlTLB1);
-                        ShowWeapon(Deck.nullWeapon, TlTLB2);
-                        ShowWeapon(Deck.nullWeapon, TlTLB3);
-
-                    }
-                    break;
-                case 4://REC
-                    lRECunit.Content = Card.Unit.sNameU;
-                    lRECunitHP.Content = "HP:" + Card.Unit.iHP;
-                    lRECunitSize.Content = InterpretSize(Card.Unit);
-                    lRECunitOptics.Content = InterpretOptics(Card.Unit);
-                    lRECunitStealth.Content = InterpretStealth(Card.Unit);
-                    lRECunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-                    lRECunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-                    lRECunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-                    lRECunitTraining.Content = InterpretTraining(Card);
-                    lRECunitAutonomy.Content = Card.Unit.iAutonomy;
-                    lRECunitYear.Content = Card.Unit.iYear;
-                    lRECunitFAV.Content = Card.Unit.iaArmor[0];
-                    lRECunitBAV.Content = Card.Unit.iaArmor[1];
-                    lRECunitSAV.Content = Card.Unit.iaArmor[2];
-                    lRECunitTAV.Content = Card.Unit.iaArmor[3];
-                    //lLOGunitProto.Content = Card.Unit.iIsProto;
-                    //lLOGunitDeck.Content = Card.Unit.
-                    ShowWeapon(Card.Unit.W1, lRLB1);
-                    ShowWeapon(Card.Unit.W2, lRLB2);
-                    ShowWeapon(Card.Unit.W3, lRLB3);
-
-                    if (Card.Transport != null)
-                    {
-                        TlRECunit.Content = Card.Transport.sNameU;
-                        TlRECunitHP.Content = "HP:" + Card.Transport.iHP;
-                        TlRECunitSize.Content = InterpretSize(Card.Transport);
-                        TlRECunitOptics.Content = InterpretOptics(Card.Transport);
-                        TlRECunitStealth.Content = InterpretStealth(Card.Transport);
-                        TlRECunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                        TlRECunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                        TlRECunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                        TlRECunitTraining.Content = InterpretTraining(Card);
-                        TlRECunitAutonomy.Content = Card.Transport.iAutonomy;
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlRECunitYear.Content = Card.Transport.iYear;
-                        TlRECunitFAV.Content = Card.Transport.iaArmor[0];
-                        TlRECunitBAV.Content = Card.Transport.iaArmor[1];
-                        TlRECunitSAV.Content = Card.Transport.iaArmor[2];
-                        TlRECunitTAV.Content = Card.Transport.iaArmor[3];
-                        ShowWeapon(Card.Transport.W1, TlRLB1);
-                        ShowWeapon(Card.Transport.W2, TlRLB2);
-                        ShowWeapon(Card.Transport.W3, TlRLB3);
-                    }
-                    else
-                    {
-                        TlRECunit.Content = "";
-                        TlRECunitHP.Content = "";
-                        TlRECunitSize.Content = "";
-                        TlRECunitOptics.Content = "";
-                        TlRECunitStealth.Content = "";
-                        TlRECunitSpeed.Content = "";
-                        TlRECunitRSPeed.Content = "";
-                        TlRECunitASPeed.Content = "";
-                        TlRECunitTraining.Content = "";
-                        TlRECunitAutonomy.Content = "";
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlRECunitYear.Content = "";
-                        TlRECunitFAV.Content = "";
-                        TlRECunitBAV.Content = "";
-                        TlRECunitSAV.Content = "";
-                        TlRECunitTAV.Content = "";
-                        ShowWeapon(Deck.nullWeapon, TlRLB1);
-                        ShowWeapon(Deck.nullWeapon, TlRLB2);
-                        ShowWeapon(Deck.nullWeapon, TlRLB3);
-
-                    }
-                    break;
-                case 5://VEH
-                    lVEHunit.Content = Card.Unit.sNameU;
-                    lVEHunitHP.Content = "HP:" + Card.Unit.iHP;
-                    lVEHunitSize.Content = InterpretSize(Card.Unit);
-                    lVEHunitOptics.Content = InterpretOptics(Card.Unit);
-                    lVEHunitStealth.Content = InterpretStealth(Card.Unit);
-                    lVEHunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-                    lVEHunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-                    lVEHunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-                    lVEHunitTraining.Content = InterpretTraining(Card);
-                    lVEHunitAutonomy.Content = Card.Unit.iAutonomy;
-                    lVEHunitYear.Content = Card.Unit.iYear;
-                    lVEHunitFAV.Content = Card.Unit.iaArmor[0];
-                    lVEHunitBAV.Content = Card.Unit.iaArmor[1];
-                    lVEHunitSAV.Content = Card.Unit.iaArmor[2];
-                    lVEHunitTAV.Content = Card.Unit.iaArmor[3];
-                    //lLOGunitProto.Content = Card.Unit.iIsProto;
-                    //lLOGunitDeck.Content = Card.Unit.
-                    ShowWeapon(Card.Unit.W1, lVLB1);
-                    ShowWeapon(Card.Unit.W2, lVLB2);
-                    ShowWeapon(Card.Unit.W3, lVLB3);
-
-                    if (Card.Transport != null)
-                    {
-                        TlVEHunit.Content = Card.Transport.sNameU;
-                        TlVEHunitHP.Content = "HP:" + Card.Transport.iHP;
-                        TlVEHunitSize.Content = InterpretSize(Card.Transport);
-                        TlVEHunitOptics.Content = InterpretOptics(Card.Transport);
-                        TlVEHunitStealth.Content = InterpretStealth(Card.Transport);
-                        TlVEHunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                        TlVEHunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                        TlVEHunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                        TlVEHunitTraining.Content = InterpretTraining(Card);
-                        TlVEHunitAutonomy.Content = Card.Transport.iAutonomy;
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlVEHunitYear.Content = Card.Transport.iYear;
-                        TlVEHunitFAV.Content = Card.Transport.iaArmor[0];
-                        TlVEHunitBAV.Content = Card.Transport.iaArmor[1];
-                        TlVEHunitSAV.Content = Card.Transport.iaArmor[2];
-                        TlVEHunitTAV.Content = Card.Transport.iaArmor[3];
-                        ShowWeapon(Card.Transport.W1, TlVLB1);
-                        ShowWeapon(Card.Transport.W2, TlVLB2);
-                        ShowWeapon(Card.Transport.W3, TlVLB3);
-                    }
-                    else
-                    {
-                        TlVEHunit.Content = "";
-                        TlVEHunitHP.Content = "";
-                        TlVEHunitSize.Content = "";
-                        TlVEHunitOptics.Content = "";
-                        TlVEHunitStealth.Content = "";
-                        TlVEHunitSpeed.Content = "";
-                        TlVEHunitRSPeed.Content = "";
-                        TlVEHunitASPeed.Content = "";
-                        TlVEHunitTraining.Content = "";
-                        TlVEHunitAutonomy.Content = "";
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlVEHunitYear.Content = "";
-                        TlVEHunitFAV.Content = "";
-                        TlVEHunitBAV.Content = "";
-                        TlVEHunitSAV.Content = "";
-                        TlVEHunitTAV.Content = "";
-                        ShowWeapon(Deck.nullWeapon, TlVLB1);
-                        ShowWeapon(Deck.nullWeapon, TlVLB2);
-                        ShowWeapon(Deck.nullWeapon, TlVLB3);
-
-                    }
-                    break;
-                case 6://HEL
-                    lHELunit.Content = Card.Unit.sNameU;
-                    lHELunitHP.Content = "HP:" + Card.Unit.iHP;
-                    lHELunitSize.Content = InterpretSize(Card.Unit);
-                    lHELunitOptics.Content = InterpretOptics(Card.Unit);
-                    lHELunitStealth.Content = InterpretStealth(Card.Unit);
-                    lHELunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-                    lHELunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-                    lHELunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-                    lHELunitTraining.Content = InterpretTraining(Card);
-                    lHELunitAutonomy.Content = Card.Unit.iAutonomy;
-                    lHELunitYear.Content = Card.Unit.iYear;
-                    lHELunitFAV.Content = Card.Unit.iaArmor[0];
-                    lHELunitBAV.Content = Card.Unit.iaArmor[1];
-                    lHELunitSAV.Content = Card.Unit.iaArmor[2];
-                    lHELunitTAV.Content = Card.Unit.iaArmor[3];
-                    //lLOGunitProto.Content = Card.Unit.iIsProto;
-                    //lLOGunitDeck.Content = Card.Unit.
-                    ShowWeapon(Card.Unit.W1, lHLB1);
-                    ShowWeapon(Card.Unit.W2, lHLB2);
-                    ShowWeapon(Card.Unit.W3, lHLB3);
-
-                    if (Card.Transport != null)
-                    {
-                        TlHELunit.Content = Card.Transport.sNameU;
-                        TlHELunitHP.Content = "HP:" + Card.Transport.iHP;
-                        TlHELunitSize.Content = InterpretSize(Card.Transport);
-                        TlHELunitOptics.Content = InterpretOptics(Card.Transport);
-                        TlHELunitStealth.Content = InterpretStealth(Card.Transport);
-                        TlHELunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                        TlHELunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                        TlHELunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                        TlHELunitTraining.Content = InterpretTraining(Card);
-                        TlHELunitAutonomy.Content = Card.Transport.iAutonomy;
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlHELunitYear.Content = Card.Transport.iYear;
-                        TlHELunitFAV.Content = Card.Transport.iaArmor[0];
-                        TlHELunitBAV.Content = Card.Transport.iaArmor[1];
-                        TlHELunitSAV.Content = Card.Transport.iaArmor[2];
-                        TlHELunitTAV.Content = Card.Transport.iaArmor[3];
-                        ShowWeapon(Card.Transport.W1, TlHLB1);
-                        ShowWeapon(Card.Transport.W2, TlHLB2);
-                        ShowWeapon(Card.Transport.W3, TlHLB3);
-                    }
-                    else
-                    {
-                        TlHELunit.Content = "";
-                        TlHELunitHP.Content = "";
-                        TlHELunitSize.Content = "";
-                        TlHELunitOptics.Content = "";
-                        TlHELunitStealth.Content = "";
-                        TlHELunitSpeed.Content = "";
-                        TlHELunitRSPeed.Content = "";
-                        TlHELunitASPeed.Content = "";
-                        TlHELunitTraining.Content = "";
-                        TlHELunitAutonomy.Content = "";
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlHELunitYear.Content = "";
-                        TlHELunitFAV.Content = "";
-                        TlHELunitBAV.Content = "";
-                        TlHELunitSAV.Content = "";
-                        TlHELunitTAV.Content = "";
-                        ShowWeapon(Deck.nullWeapon, TlHLB1);
-                        ShowWeapon(Deck.nullWeapon, TlHLB2);
-                        ShowWeapon(Deck.nullWeapon, TlHLB3);
-
-                    }
-                    break;
-                case 7://AIR
-                    lAIRunit.Content = Card.Unit.sNameU;
-                    lAIRunitHP.Content = "HP:" + Card.Unit.iHP;
-                    lAIRunitSize.Content = InterpretSize(Card.Unit);
-                    lAIRunitOptics.Content = InterpretOptics(Card.Unit);
-                    lAIRunitStealth.Content = InterpretStealth(Card.Unit);
-                    lAIRunitSpeed.Content = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-                    lAIRunitRSPeed.Content = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-                    lAIRunitASPeed.Content = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-                    lAIRunitTraining.Content = InterpretTraining(Card);
-                    lAIRunitAutonomy.Content = Card.Unit.iAutonomy;
-                    lAIRunitYear.Content = Card.Unit.iYear;
-                    lAIRunitFAV.Content = Card.Unit.iaArmor[0];
-                    lAIRunitBAV.Content = Card.Unit.iaArmor[1];
-                    lAIRunitSAV.Content = Card.Unit.iaArmor[2];
-                    lAIRunitTAV.Content = Card.Unit.iaArmor[3];
-                    //lLOGunitProto.Content = Card.Unit.iIsProto;
-                    //lLOGunitDeck.Content = Card.Unit.
-                    ShowWeapon(Card.Unit.W1, lALB1);
-                    ShowWeapon(Card.Unit.W2, lALB2);
-                    ShowWeapon(Card.Unit.W3, lALB3);
-
-                    if (Card.Transport != null)
-                    {
-                        TlAIRunit.Content = Card.Transport.sNameU;
-                        TlAIRunitHP.Content = "HP:" + Card.Transport.iHP;
-                        TlAIRunitSize.Content = InterpretSize(Card.Transport);
-                        TlAIRunitOptics.Content = InterpretOptics(Card.Transport);
-                        TlAIRunitStealth.Content = InterpretStealth(Card.Transport);
-                        TlAIRunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-                        TlAIRunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-                        TlAIRunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-                        TlAIRunitTraining.Content = InterpretTraining(Card);
-                        TlAIRunitAutonomy.Content = Card.Transport.iAutonomy;
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlAIRunitYear.Content = Card.Transport.iYear;
-                        TlAIRunitFAV.Content = Card.Transport.iaArmor[0];
-                        TlAIRunitBAV.Content = Card.Transport.iaArmor[1];
-                        TlAIRunitSAV.Content = Card.Transport.iaArmor[2];
-                        TlAIRunitTAV.Content = Card.Transport.iaArmor[3];
-                        ShowWeapon(Card.Transport.W1, TlALB1);
-                        ShowWeapon(Card.Transport.W2, TlALB2);
-                        ShowWeapon(Card.Transport.W3, TlALB3);
-                    }
-                    else
-                    {
-                        TlAIRunit.Content = "";
-                        TlAIRunitHP.Content = "";
-                        TlAIRunitSize.Content = "";
-                        TlAIRunitOptics.Content = "";
-                        TlAIRunitStealth.Content = "";
-                        TlAIRunitSpeed.Content = "";
-                        TlAIRunitRSPeed.Content = "";
-                        TlAIRunitASPeed.Content = "";
-                        TlAIRunitTraining.Content = "";
-                        TlAIRunitAutonomy.Content = "";
-                        //lLOGunitProto.Content = Card.Unit.iIsProto;
-                        //lLOGunitDeck.Content = Card.Unit.
-                        TlAIRunitYear.Content = "";
-                        TlAIRunitFAV.Content = "";
-                        TlAIRunitBAV.Content = "";
-                        TlAIRunitSAV.Content = "";
-                        TlAIRunitTAV.Content = "";
-                        ShowWeapon(Deck.nullWeapon, TlALB1);
-                        ShowWeapon(Deck.nullWeapon, TlALB2);
-                        ShowWeapon(Deck.nullWeapon, TlALB3);
-
-                    }
-                    break;
+                TlLOGunit.Content = Card.Transport.sNameU;
+                TlLOGunitHP.Content = "HP:" + Card.Transport.iHP;
+                TlLOGunitSize.Content = InterpretSize(Card.Transport);
+                TlLOGunitOptics.Content = InterpretOptics(Card.Transport);
+                TlLOGunitStealth.Content = InterpretStealth(Card.Transport);
+                TlLOGunitSpeed.Content = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
+                TlLOGunitRSPeed.Content = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
+                TlLOGunitASPeed.Content = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
+                TlLOGunitTraining.Content = InterpretTraining(Card);
+                TlLOGunitAutonomy.Content = Card.Transport.iAutonomy;
+                //lLOGunitProto.Content = Card.Unit.iIsProto;
+                //lLOGunitDeck.Content = Card.Unit.
+                TlLOGunitYear.Content = Card.Transport.iYear;
+                TlLOGunitFAV.Content = Card.Transport.iaArmor[0];
+                TlLOGunitBAV.Content = Card.Transport.iaArmor[1];
+                TlLOGunitSAV.Content = Card.Transport.iaArmor[2];
+                TlLOGunitTAV.Content = Card.Transport.iaArmor[3];
+                ShowWeapon(Card.Transport.W1, TlLLB1);
+                ShowWeapon(Card.Transport.W2, TlLLB2);
+                ShowWeapon(Card.Transport.W3, TlLLB3);
             }
-        }
+            else
+            {
+                TlLOGunit.Content = "";
+                TlLOGunitHP.Content = "";
+                TlLOGunitSize.Content = "";
+                TlLOGunitOptics.Content = "";
+                TlLOGunitStealth.Content = "";
+                TlLOGunitSpeed.Content = "";
+                TlLOGunitRSPeed.Content = "";
+                TlLOGunitASPeed.Content = "";
+                TlLOGunitTraining.Content = "";
+                TlLOGunitAutonomy.Content = "";
+                //lLOGunitProto.Content = Card.Unit.iIsProto;
+                //lLOGunitDeck.Content = Card.Unit.
+                TlLOGunitYear.Content = "";
+                TlLOGunitFAV.Content = "";
+                TlLOGunitBAV.Content = "";
+                TlLOGunitSAV.Content = "";
+                TlLOGunitTAV.Content = "";
+                ShowWeapon(Deck.nullWeapon, TlLLB1);
+                ShowWeapon(Deck.nullWeapon, TlLLB2);
+                ShowWeapon(Deck.nullWeapon, TlLLB3);
+
+            }
+            break;
+    }
+}/*
 
         function ShowWeapon(Weapon wep, ListBox Box)
         {
@@ -1430,447 +844,6 @@ function isError(Card) {
 
 
 /*
-        #region Delete buttons
-        function btLOG0_Click()
-        {
-            Deck.CardDelete(00);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-            GUIDisplay(MasterDeck);
-        }
-        function btLOG1_Click()
-        {
-                Deck.CardDelete(01);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btLOG2_Click()
-        {
-                Deck.CardDelete(02);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btLOG3_Click()
-        {
-                Deck.CardDelete(03);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btLOG4_Click()
-        {
-                Deck.CardDelete(04);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btLOG5_Click()
-        {
-                Deck.CardDelete(05);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btLOG6_Click()
-        {
-                Deck.CardDelete(06);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btLOG7_Click()
-        {
-                Deck.CardDelete(07);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btLOG8_Click()
-        {
-                Deck.CardDelete(08);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-
-        function btINF0_Click()
-        {
-                Deck.CardDelete(10);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btINF1_Click()
-        {
-                Deck.CardDelete(11);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btINF2_Click()
-        {
-                Deck.CardDelete(12);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btINF3_Click()
-        {
-                Deck.CardDelete(13);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btINF4_Click()
-        {
-                Deck.CardDelete(14);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btINF5_Click()
-        {
-                Deck.CardDelete(15);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btINF6_Click()
-        {
-                Deck.CardDelete(16);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btINF7_Click()
-        {
-                Deck.CardDelete(17);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btINF8_Click()
-        {
-                Deck.CardDelete(18);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-
-        function btSUP0_Click()
-        {
-                Deck.CardDelete(20);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btSUP1_Click()
-        {
-                Deck.CardDelete(21);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btSUP2_Click()
-        {
-                Deck.CardDelete(22);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btSUP3_Click()
-        {
-                Deck.CardDelete(23);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btSUP4_Click()
-        {
-                Deck.CardDelete(24);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btSUP5_Click()
-        {
-                Deck.CardDelete(25);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btSUP6_Click()
-        {
-                Deck.CardDelete(26);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btSUP7_Click()
-        {
-                Deck.CardDelete(27);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btSUP8_Click()
-        {
-                Deck.CardDelete(28);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-
-        function btTNK0_Click()
-        {
-            Deck.CardDelete(30);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-            GUIDisplay(MasterDeck);
-        }
-        function btTNK1_Click()
-        {
-                Deck.CardDelete(31);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btTNK2_Click()
-        {
-                Deck.CardDelete(32);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btTNK3_Click()
-        {
-                Deck.CardDelete(33);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btTNK4_Click()
-        {
-                Deck.CardDelete(34);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btTNK5_Click()
-        {
-                Deck.CardDelete(35);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btTNK6_Click()
-        {
-                Deck.CardDelete(36);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btTNK7_Click()
-        {
-                Deck.CardDelete(37);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btTNK8_Click()
-        {
-                Deck.CardDelete(38);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-
-        function btREC0_Click()
-        {
-                Deck.CardDelete(40);
-                GUIDisplay(MasterDeck);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-        }
-        function btREC1_Click()
-        {
-                Deck.CardDelete(41);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btREC2_Click()
-        {
-                Deck.CardDelete(42);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btREC3_Click()
-        {
-                Deck.CardDelete(43);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btREC4_Click()
-        {
-                Deck.CardDelete(44);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btREC5_Click()
-        {
-                Deck.CardDelete(45);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btREC6_Click()
-        {
-                Deck.CardDelete(46);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btREC7_Click()
-        {
-                Deck.CardDelete(47);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btREC8_Click()
-        {
-                Deck.CardDelete(48);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-
-        function btVEH0_Click()
-        {
-                Deck.CardDelete(50);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btVEH1_Click()
-        {
-                Deck.CardDelete(51);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btVEH2_Click()
-        {
-                Deck.CardDelete(52);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btVEH3_Click()
-        {
-                Deck.CardDelete(53);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btVEH4_Click()
-        {
-                Deck.CardDelete(54);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btVEH5_Click()
-        {
-                Deck.CardDelete(55);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btVEH6_Click()
-        {
-                Deck.CardDelete(56);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btVEH7_Click()
-        {
-                Deck.CardDelete(57);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btVEH8_Click()
-        {
-                Deck.CardDelete(58);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-
-        function btHEL0_Click()
-        {
-                Deck.CardDelete(60);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btHEL1_Click()
-        {
-                Deck.CardDelete(61);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btHEL2_Click()
-        {
-                Deck.CardDelete(62);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btHEL3_Click()
-        {
-                Deck.CardDelete(63);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btHEL4_Click()
-        {
-                Deck.CardDelete(64);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btHEL5_Click()
-        {
-                Deck.CardDelete(65);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btHEL6_Click()
-        {
-                Deck.CardDelete(66);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btHEL7_Click()
-        {
-                Deck.CardDelete(67);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btHEL8_Click()
-        {
-                Deck.CardDelete(68);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-
-        function btAIR0_Click()
-        {
-                Deck.CardDelete(70);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btAIR1_Click()
-        {
-                Deck.CardDelete(71);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btAIR2_Click()
-        {
-                Deck.CardDelete(72);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btAIR3_Click()
-        {
-                Deck.CardDelete(73);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btAIR4_Click()
-        {
-                Deck.CardDelete(74);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btAIR5_Click()
-        {
-                Deck.CardDelete(75);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btAIR6_Click()
-        {
-                Deck.CardDelete(76);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btAIR7_Click()
-        {
-                Deck.CardDelete(77);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        function btAIR8_Click()
-        {
-                Deck.CardDelete(78);
-                txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-                GUIDisplay(MasterDeck);
-        }
-        #endregion delete buttons
 
         #region Unit add buttons, stats display
         #region LOG

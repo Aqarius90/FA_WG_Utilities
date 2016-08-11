@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/TransportLinker.js"></script>
     <script src="js/WeaponData.js"></script>
     <script src="js/Display.js"></script>
     <script src="js/Database.js"></script>
@@ -18,7 +19,7 @@
 <body>
   <div class="container">
 
-    <div class="container">
+    <div class="panel">
         <h1>FA WRD TOOLS</h1>
     </div>
     <div class="panel panel-body">
@@ -306,7 +307,7 @@
         </div>
     <div id="my-tab-content" class="tab-content panel">
             <div class="tab-pane active" id="Deck">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010"  style="display:inline-block; vertical-align:middle">
                         <h4>Logistics</h4>
@@ -1039,7 +1040,7 @@
               </div>
             </div>
             <div class="tab-pane" id="Logistics">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Logistics</h4>
@@ -1123,17 +1124,17 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="logTable" style="width:100%">
-                    <tbody id="logBody">
-                      <tr>
-                        <th>Nation</th>
-                        <th>Unit</th>
-                        <th>Cards</th>
-                        <th>Transport</th>
-                        <th>Cards</th>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <table id="logTable" style="width:100%">
+                      <tbody id="logBody">
+                        <tr>
+                          <th>Nation</th>
+                          <th>Unit</th>
+                          <th>Cards</th>
+                          <th>Transport</th>
+                          <th>Cards</th>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                   <div class="col-sm-4">
                       <div class="row">
@@ -1175,12 +1176,23 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
+                      <div class="row">
+                          <div class="col-sm-4"></div>
+                          <div class="col-sm-4"></div>                          
+                          <div class="col-sm-4"></div>
+                      </div>
+                      <div class="row">
+                        <table id="logUnit" style="width:100%">
+                          <tbody id="logUBody">
+                          </tbody>
+                        </table>
+                      </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Infantry">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Infantry</h4>
@@ -1321,7 +1333,7 @@
               </div>
             </div>
             <div class="tab-pane" id="Support">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Infantry</h4>
@@ -1462,7 +1474,7 @@
               </div>
             </div>
             <div class="tab-pane" id="Tank">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Tank</h4>
@@ -1603,7 +1615,7 @@
               </div>
             </div>
             <div class="tab-pane" id="Recon">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Recon</h4>
@@ -1744,7 +1756,7 @@
               </div>
             </div>
             <div class="tab-pane" id="Vehicle">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Vehicle</h4>
@@ -1826,9 +1838,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
                 <div class="row">
-                  <div class="col-sm-8">
+                  <div class="col-sm-6">
                   <table id="vehTable" style="width:100%">
                     <tbody id="vehBody">
                       <tr>
@@ -1841,7 +1852,7 @@
                     </tbody>
                   </table>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-6">
                       <div class="row">
                         <div class="col-sm-1">                          
                             <img src="rank/000.png" class="img-responsive" width="100%">
@@ -1883,9 +1894,10 @@
                       </div>
                   </div>
                 </div>
+              </div>
             </div>
             <div class="tab-pane" id="Helo">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Helicopter</h4>
@@ -2026,7 +2038,7 @@
               </div>
             </div>
             <div class="tab-pane" id="Air">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Plane</h4>
@@ -2167,7 +2179,7 @@
               </div>
             </div>
             <div class="tab-pane" id="Naval">
-              <div class="container">
+              <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Naval</h4>
