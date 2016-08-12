@@ -293,7 +293,7 @@ function Create()
     CardsDB[ 207][0] = new Datacard( 207, "00100000000000000000100000", [24, 18,  0,  0,  0], "0011110", 1966,  25, 2, 0, "BRD", "Kpz M48A2G");
     CardsDB[ 208][0] = new Datacard( 208, "00100000000000000000100000", [ 0, 20, 16,  0,  0], "0011110", 1979,  25, 2, 0, "BRD", "Kpz M48A2G2");
     CardsDB[ 209][0] = new Datacard( 209, "00100000000000000000001000", [ 0, 20, 16,  0,  0], "0011010", 1965,  20, 2, 0, "BRD", "Kanonenjagdpanzer");
-    CardsDB[ 210][0] = new Datacard( 210, "00000001000000000100000000", [ 0,  0,  0,  8,  6], "1100100", 1975,  35, 2, 0, "SWE", "Kustjägare");
+    CardsDB[ 210][0] = new Datacard( 210, "00000001000000000010000000", [ 0,  0,  0,  8,  6], "1100100", 1975,  35, 2, 0, "SWE", "Kustjägare");
     CardsDB[ 211][0] = new Datacard( 211, "00000000000000000000001000", [ 0, 20, 16,  0,  0], "1110110", 1955,  10, 2, 0, "JAP", "Mitsubishi 106MM");
     CardsDB[ 212][0] = new Datacard( 212, "00010000000000000000001000", [ 0, 12,  8,  0,  0], "1110100", 1989,  20, 2, 0, "JAP", "Mitsubishi Chu-MAT");
     CardsDB[ 213][0] = new Datacard( 213, "00000100000000000100000000", [ 0,  6,  0,  0,  0], "1111110", 1954, 100, 1, 0, "JAP", "Mitsubishi CV");
@@ -519,7 +519,7 @@ function Create()
     CardsDB[ 433][0] = new Datacard( 433, "00000001000000000010000000", [ 0,  0, 14, 10,  0], "1000000", 1975,  30, 3, 0, "FRA", "RIMa");
     CardsDB[ 434][0] = new Datacard( 434, "00000001000000000010000000", [ 0,  0,  0,  8,  6], "1000000", 1975,  30, 3, 0, "UK", "Royal Marines");
     CardsDB[ 435][0] = new Datacard( 435, "00000001000000200000010000", [ 0,  0,  0,  4,  3], "0110000", 1975,  30, 2, 0, "ROK", "Teukjeonsa");
-    CardsDB[ 436][0] = new Datacard( 436, "00000101000000000100000000", [ 0,  3,  0,  0,  0], "1110110", 1975, 100, 1, 0, "JAP", "Bonbu"); //본부, Command
+    CardsDB[ 436][0] = new Datacard( 436, "00000101000000000100000000", [ 0,  3,  0,  0,  0], "1110110", 1975, 100, 1, 0, "ROK", "Bonbu"); //본부, Command
     CardsDB[ 437][0] = new Datacard( 437, "00000001000000000010000000", [32, 24,  0,  0,  0], "0010110", 1975,  10, 5, 1, "ROK", "Yebigun");//향토예비군, ROK Homeland Reserve Forces
     CardsDB[ 438][0] = new Datacard( 438, "00101000000000000000001000", [30, 30, 30, 30, 30], "0011000", 1984,  15, 3, 0, "ROK", "KAFV 25");
     CardsDB[ 439][0] = new Datacard( 439, "00101000000000000000001000", [30, 30, 30, 30, 30], "0011000", 1994,  15, 2, 1, "ROK", "KAFV 40/50");
@@ -4627,7 +4627,7 @@ function Weaponize()
   CardsDB[ 433][0].W1 = Arm(219,   0); CardsDB[ 433][0].W2 = Arm(513,   0); CardsDB[ 433][0].W3 = Arm(962,   0);// "FRA", "RIMa");
   CardsDB[ 434][0].W1 = Arm(218,   0); CardsDB[ 434][0].W2 = Arm(489,   0); CardsDB[ 434][0].W3 = Arm(719,   0);// "UK", "Royal Marines");
   CardsDB[ 435][0].W1 = Arm(218,   0); CardsDB[ 435][0].W2 = Arm(527,   0); CardsDB[ 435][0].W3 = Arm(800,   0);// "ROK", "Teukjeonsa");
-  CardsDB[ 436][0].W1 = Arm(  0, 800); CardsDB[ 436][0].W2 = Arm(453, 800); CardsDB[ 436][0].W3 = Arm(760,   0);// "JAP", "Bonbu"); //본부
+  CardsDB[ 436][0].W1 = Arm(  0, 800); CardsDB[ 436][0].W2 = Arm(453, 800); CardsDB[ 436][0].W3 = Arm(760,   0);// "ROK", "Bonbu"); //본부
   CardsDB[ 437][0].W1 = Arm(  0,   0); CardsDB[ 437][0].W2 = Arm(402,   0); CardsDB[ 437][0].W3 = Arm(743,   0);// "ROK", "Yebigun"); //향토예비군, ROK Homeland Reserve Forces
   CardsDB[ 438][0].W1 = Arm(  0,   0); CardsDB[ 438][0].W2 = Arm(  0,   0); CardsDB[ 438][0].W3 = Arm(563,   0);// "ROK", "KAFV 25");
   CardsDB[ 439][0].W1 = Arm(  0,   0); CardsDB[ 439][0].W2 = Arm(420,   0); CardsDB[ 439][0].W3 = Arm(582,   0);// "ROK", "KAFV 40/50");

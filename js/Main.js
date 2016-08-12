@@ -7,7 +7,7 @@ function init() {
     CardsDB[i]=Array(2);
     }
     initMainDB();
-    window.selectedCards = [];
+    window.selectedCards = [0,0,0,0,0,0,0,0,0];
     GUIDisplay();
 }
 
@@ -34,10 +34,27 @@ function listUnits() //get units for display
         var blankBody = document.createElement('tbody');
         blankBody.setAttribute("id",tables[i] + "Body");
         body.parentNode.replaceChild(blankBody, body);
+                
+        var table = document.getElementById(tables[i] + "Body");
+        var row = table.insertRow(table.rows.length);
+        var nation = row.insertCell(0);
+        var unit = row.insertCell(1);
+        var costU = row.insertCell(2);
+        var cardsU = row.insertCell(3);
+        var trans = row.insertCell(4);
+        var costT = row.insertCell(5);
+        var cardsT = row.insertCell(6);
+        var btn = row.insertCell(7);
+        nation.innerHTML = "Nation";
+        unit.innerHTML = "Unit";
+        cardsU.innerHTML = "Cards";
+        costU.innerHTML = "Cost";
+        trans.innerHTML = "Vehicle";
+        cardsT.innerHTML = "Cards";
+        costT.innerHTML = "Cost";
     }
     
-    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA" || Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.Nation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU")
-    {
+    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA" || Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.Nation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU") {
        UnitLookup(Deck.sNation);
     }
     else if (Deck.sNation == "NATO")
@@ -144,7 +161,7 @@ function UnitLookup(nation){
                         var transport = 0;
                         if (card.sUnitData.charAt(7) == '1'){
                             for (var j=0; j<TransportLinker.length; j++){
-                                if (card.iUnitID == TransportLinker[j].uID){
+                                if (card.iUnitID == TransportLinker[j].uID && TransportLinker[j].iSide == Deck.iSide){
                                     var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
                                     if (pair.iYear >= year) {
                                         if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || pair.iIsProto == '0'){
@@ -183,16 +200,20 @@ function toList(card){
     var row = table.insertRow(table.rows.length);
     var nation = row.insertCell(0);
     var unit = row.insertCell(1);
-    var cardsU = row.insertCell(2);
-    var trans = row.insertCell(3);
-    var cardsT = row.insertCell(4);
-    var btn = row.insertCell(5);
+    var costU = row.insertCell(2);
+    var cardsU = row.insertCell(3);
+    var trans = row.insertCell(4);
+    var costT = row.insertCell(5);
+    var cardsT = row.insertCell(6);
+    var btn = row.insertCell(7);
     nation.innerHTML = card.sNation;
     unit.innerHTML = card.Unit.sNameU;
-    cardsU.innerHTML = card.Unit.iCards;    
+    cardsU.innerHTML = card.Unit.iCards;   
+    costU.innerHTML = card.Unit.iCost;
     if(card.Transport !=0){
         trans.innerHTML = card.Transport.sNameU;
         cardsT.innerHTML = card.Transport.iCards;    
+        costT.innerHTML = card.Transport.iCost;
     }
     
     let elem = document.createElement('input');
@@ -569,6 +590,8 @@ function ShowCard(Card)
     else if (Card.Unit.sUnitData.charAt(24) == '1'){type = "air"; btn = 7;}//air
     else {type = "navTable";}//nav
     
+    selectedCards[btn] = Card;
+    
     document.getElementById("add"+btn+"0").innerHTML = Card.iaAvailability[0];
     document.getElementById("add"+btn+"1").innerHTML = Card.iaAvailability[1];
     document.getElementById("add"+btn+"2").innerHTML = Card.iaAvailability[2];
@@ -612,18 +635,66 @@ function ShowCard(Card)
     uText = document.createElement("p");
     uText.innerHTML = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
     document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = "Armor: F-"+ Card.Unit.iaArmor[0] + ", B-" + Card.Unit.iaArmor[1] + ", S-" + Card.Unit.iaArmor[2] + ", T-" + Card.Unit.iaArmor[3];
+    document.getElementById("D" + type).appendChild(uText); 
     
     showWeapon(Card.Unit.W1, type, 1);
     showWeapon(Card.Unit.W2, type, 2);
     showWeapon(Card.Unit.W3, type, 3);
+    
+    if(Card.Transport != 0){
+        type += "V";
+        
+        document.getElementById("D" + type).innerHTML = "";       
+        uText = document.createElement("p");
+        uText.innerHTML = Card.Transport.sNameU;
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "HP:" + Card.Transport.iHP;
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = InterpretSize(Card.Transport);
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = InterpretOptics(Card.Transport);
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = InterpretStealth(Card.Transport);
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = InterpretTraining(Card);
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Autonomy" + Card.Transport.iAutonomy;
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = Card.Unit.iYear;
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Armor: F-"+ Card.Transport.iaArmor[0] + ", B-" + Card.Transport.iaArmor[1] + ", S-" + Card.Transport.iaArmor[2] + ", T-" + Card.Transport.iaArmor[3];
+        document.getElementById("D" + type).appendChild(uText); 
+        
+        showWeapon(Card.Transport.W1, type, 1);
+        showWeapon(Card.Transport.W2, type, 2);
+        showWeapon(Card.Transport.W3, type, 3);
+    }
 }
 /*
             //lLOGunitProto.Content = Card.Unit.iIsProto;
             //lLOGunitDeck.Content = Card.Unit.
-            lLOGunitFAV.Content = Card.Unit.iaArmor[0];
-            lLOGunitBAV.Content = Card.Unit.iaArmor[1];
-            lLOGunitSAV.Content = Card.Unit.iaArmor[2];
-            lLOGunitTAV.Content = Card.Unit.iaArmor[3];
     }*/
 
  function InterpretTraining(Card)
@@ -692,16 +763,16 @@ function ShowCard(Card)
 function showWeapon( wep, type, place)
 {
     document.getElementById("W" + type + place).innerHTML = "";       
-    if (wep != 0)
+    if (wep.sName != "NONE")
     {
         var uText = document.createElement("p");
         uText.innerHTML = wep.sName;
         document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
-        uText.innerHTML = wep.iAmmo + wep.sRoundType;
+        uText.innerHTML = wep.iAmmo + "x " + wep.sRoundType;
         document.getElementById("W" + type + place).appendChild(uText); 
         uText = document.createElement("p");
-        uText.innerHTML = wep.sTags;
+        uText.innerHTML = " "+wep.sTags;
         document.getElementById("W" + type + place).appendChild(uText); 
         uText = document.createElement("p");
         uText.innerHTML = "Ground " + wep.rGround + "m";
@@ -734,206 +805,9 @@ function showWeapon( wep, type, place)
     }
 }
 
-/*
-        function DisplayAvailability(VehicleCard Card)
-        {
-            double temp = 0;
-            try
-            {
-                temp = (Card.iaAvailability[Card.iVet] * MainMatrix.getCoeff(Deck.sNation));
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Availability error: debug 0x0000");
-                //throw;
-            }
-            temp = Math.Round(temp / 100);
-            int iAv = (int)temp;
-
-            switch (Card.iArrayIndex)
-            {
-            }
-        }
-        */
-/*
-        function TallyPoints(VehicleCard Card)
-        {
-            try
-            {
-
-                switch (Card.iArrayIndex)
-                {
-                    case 0: { P200.Visibility = Visibility.Hidden; P100.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P200.Content.ToString()); break; }
-                    case 1: { P201.Visibility = Visibility.Hidden; P101.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P201.Content.ToString()); break; }
-                    case 2: { P202.Visibility = Visibility.Hidden; P102.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P202.Content.ToString()); break; }
-                    case 3: { P203.Visibility = Visibility.Hidden; P103.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P203.Content.ToString()); break; }
-                    case 4: { P204.Visibility = Visibility.Hidden; P104.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P204.Content.ToString()); break; }
-                    case 5: { P205.Visibility = Visibility.Hidden; P105.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P205.Content.ToString()); break; }
-                    case 6: { P206.Visibility = Visibility.Hidden; P106.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P206.Content.ToString()); break; }
-                    case 7: { P207.Visibility = Visibility.Hidden; P107.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P207.Content.ToString()); break; }
-                    case 8: { P208.Visibility = Visibility.Hidden; P108.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P208.Content.ToString()); break; }
-                    case 10: { P210.Visibility = Visibility.Hidden; P110.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P210.Content.ToString()); break; }
-                    case 11: { P211.Visibility = Visibility.Hidden; P111.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P211.Content.ToString()); break; }
-                    case 12: { P212.Visibility = Visibility.Hidden; P112.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P212.Content.ToString()); break; }
-                    case 13: { P213.Visibility = Visibility.Hidden; P113.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P213.Content.ToString()); break; }
-                    case 14: { P214.Visibility = Visibility.Hidden; P114.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P214.Content.ToString()); break; }
-                    case 15: { P215.Visibility = Visibility.Hidden; P115.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P215.Content.ToString()); break; }
-                    case 16: { P216.Visibility = Visibility.Hidden; P116.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P216.Content.ToString()); break; }
-                    case 17: { P217.Visibility = Visibility.Hidden; P117.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P217.Content.ToString()); break; }
-                    case 18: { P218.Visibility = Visibility.Hidden; P118.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P218.Content.ToString()); break; }
-                    case 20: { P220.Visibility = Visibility.Hidden; P120.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P220.Content.ToString()); break; }
-                    case 21: { P221.Visibility = Visibility.Hidden; P121.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P221.Content.ToString()); break; }
-                    case 22: { P222.Visibility = Visibility.Hidden; P122.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P222.Content.ToString()); break; }
-                    case 23: { P223.Visibility = Visibility.Hidden; P123.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P223.Content.ToString()); break; }
-                    case 24: { P224.Visibility = Visibility.Hidden; P124.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P224.Content.ToString()); break; }
-                    case 25: { P225.Visibility = Visibility.Hidden; P125.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P225.Content.ToString()); break; }
-                    case 26: { P226.Visibility = Visibility.Hidden; P126.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P226.Content.ToString()); break; }
-                    case 27: { P227.Visibility = Visibility.Hidden; P127.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P227.Content.ToString()); break; }
-                    case 28: { P228.Visibility = Visibility.Hidden; P128.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P228.Content.ToString()); break; }
-                    case 30: { P230.Visibility = Visibility.Hidden; P130.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P230.Content.ToString()); break; }
-                    case 31: { P231.Visibility = Visibility.Hidden; P131.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P231.Content.ToString()); break; }
-                    case 32: { P232.Visibility = Visibility.Hidden; P132.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P232.Content.ToString()); break; }
-                    case 33: { P233.Visibility = Visibility.Hidden; P133.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P233.Content.ToString()); break; }
-                    case 34: { P234.Visibility = Visibility.Hidden; P134.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P234.Content.ToString()); break; }
-                    case 35: { P235.Visibility = Visibility.Hidden; P135.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P235.Content.ToString()); break; }
-                    case 36: { P236.Visibility = Visibility.Hidden; P136.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P236.Content.ToString()); break; }
-                    case 37: { P237.Visibility = Visibility.Hidden; P137.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P237.Content.ToString()); break; }
-                    case 38: { P238.Visibility = Visibility.Hidden; P138.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P238.Content.ToString()); break; }
-                    case 40: { P240.Visibility = Visibility.Hidden; P140.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P240.Content.ToString()); break; }
-                    case 41: { P241.Visibility = Visibility.Hidden; P141.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P241.Content.ToString()); break; }
-                    case 42: { P242.Visibility = Visibility.Hidden; P142.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P242.Content.ToString()); break; }
-                    case 43: { P243.Visibility = Visibility.Hidden; P143.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P243.Content.ToString()); break; }
-                    case 44: { P244.Visibility = Visibility.Hidden; P144.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P244.Content.ToString()); break; }
-                    case 45: { P245.Visibility = Visibility.Hidden; P145.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P245.Content.ToString()); break; }
-                    case 46: { P246.Visibility = Visibility.Hidden; P146.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P246.Content.ToString()); break; }
-                    case 47: { P247.Visibility = Visibility.Hidden; P147.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P247.Content.ToString()); break; }
-                    case 48: { P248.Visibility = Visibility.Hidden; P148.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P248.Content.ToString()); break; }
-                    case 50: { P250.Visibility = Visibility.Hidden; P150.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P250.Content.ToString()); break; }
-                    case 51: { P251.Visibility = Visibility.Hidden; P151.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P251.Content.ToString()); break; }
-                    case 52: { P252.Visibility = Visibility.Hidden; P152.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P252.Content.ToString()); break; }
-                    case 53: { P253.Visibility = Visibility.Hidden; P153.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P253.Content.ToString()); break; }
-                    case 54: { P254.Visibility = Visibility.Hidden; P154.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P254.Content.ToString()); break; }
-                    case 55: { P255.Visibility = Visibility.Hidden; P155.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P255.Content.ToString()); break; }
-                    case 56: { P256.Visibility = Visibility.Hidden; P156.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P256.Content.ToString()); break; }
-                    case 57: { P257.Visibility = Visibility.Hidden; P157.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P257.Content.ToString()); break; }
-                    case 58: { P258.Visibility = Visibility.Hidden; P158.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P258.Content.ToString()); break; }
-                    case 60: { P260.Visibility = Visibility.Hidden; P160.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P260.Content.ToString()); break; }
-                    case 61: { P261.Visibility = Visibility.Hidden; P161.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P261.Content.ToString()); break; }
-                    case 62: { P262.Visibility = Visibility.Hidden; P162.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P262.Content.ToString()); break; }
-                    case 63: { P263.Visibility = Visibility.Hidden; P163.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P263.Content.ToString()); break; }
-                    case 64: { P264.Visibility = Visibility.Hidden; P164.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P264.Content.ToString()); break; }
-                    case 65: { P265.Visibility = Visibility.Hidden; P165.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P265.Content.ToString()); break; }
-                    case 66: { P266.Visibility = Visibility.Hidden; P166.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P266.Content.ToString()); break; }
-                    case 67: { P267.Visibility = Visibility.Hidden; P167.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P267.Content.ToString()); break; }
-                    case 68: { P268.Visibility = Visibility.Hidden; P168.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P268.Content.ToString()); break; }
-                    case 70: { P270.Visibility = Visibility.Hidden; P170.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P270.Content.ToString()); break; }
-                    case 71: { P271.Visibility = Visibility.Hidden; P171.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P271.Content.ToString()); break; }
-                    case 72: { P272.Visibility = Visibility.Hidden; P172.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P272.Content.ToString()); break; }
-                    case 73: { P273.Visibility = Visibility.Hidden; P173.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P273.Content.ToString()); break; }
-                    case 74: { P274.Visibility = Visibility.Hidden; P174.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P274.Content.ToString()); break; }
-                    case 75: { P275.Visibility = Visibility.Hidden; P175.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P275.Content.ToString()); break; }
-                    case 76: { P276.Visibility = Visibility.Hidden; P176.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P276.Content.ToString()); break; }
-                    case 77: { P277.Visibility = Visibility.Hidden; P177.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P277.Content.ToString()); break; }
-                    case 78: { P278.Visibility = Visibility.Hidden; P178.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P278.Content.ToString()); break; }
-                }
-            }
-            catch
-            {
-
-            }
-        }
-*/
-
-
-/*
-
-        #region Unit add buttons, stats display
-        #region LOG
-        function dgDeckLog_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckLog.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckLog.SelectedCells[0].Item;
-                VehicleCard selCard;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 0);
-
-                    btLOGRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[0] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[0] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btLOGRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGRookieAdd.IsEnabled = false;
-                    }
-                    btLOGTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btLOGTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGTrainedAdd.IsEnabled = false;
-                    }
-                    btLOGHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btLOGHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGHardenedAdd.IsEnabled = false;
-                    }
-                    btLOGVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btLOGVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGVeteranAdd.IsEnabled = false;
-                    }
-                    btLOGEliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btLOGEliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGEliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btLOGRookieAdd.IsEnabled = false;
-                    btLOGTrainedAdd.IsEnabled = false;
-                    btLOGHardenedAdd.IsEnabled = false;
-                    btLOGVeteranAdd.IsEnabled = false;
-                    btLOGEliteAdd.IsEnabled = false;
-                }
-            }
-        }
+function add(type, veterancy){
+    selectedCards[type].iVet0;
+}/*
 
         function btLOGRookieAdd_Click()
         {
