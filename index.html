@@ -290,7 +290,6 @@
             <p id="pointstally"></p>
         </div>
     </div>
-    <div>
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
         <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>
@@ -304,7 +303,6 @@
         <li><a href="#Naval" data-toggle="tab">Naval</a></li>
         <li><a href="#DEBUG" data-toggle="tab">DEBUG</a></li>
     </ul>
-        </div>
     <div id="my-tab-content" class="tab-content panel">
             <div class="tab-pane active" id="Deck">
               <div class="panel panel-body">
@@ -1176,12 +1174,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Wlog1"></div>
-                          <div class="col-sm-4" id="Wlog2"></div>                          
-                          <div class="col-sm-4" id="Wlog3"></div>
-                      </div>
-                      <div class="row" id="Dlog">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitL" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehL" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitL">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Wlog1"></div>
+                                <div class="col-sm-4 panel" id="Wlog2"></div>                          
+                                <div class="col-sm-4 panel" id="Wlog3"></div>
+                            </div>
+                            <div class="row panel" id="Dlog">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehL">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WlogV1"></div>
+                                <div class="col-sm-4 panel" id="WlogV2"></div>                          
+                                <div class="col-sm-4 panel" id="WlogV3"></div>
+                            </div>
+                            <div class="row panel" id="DlogV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -1324,12 +1339,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Winf1"></div>
-                          <div class="col-sm-4" id="Winf2"></div>                          
-                          <div class="col-sm-4" id="Winf3"></div>
-                      </div>
-                      <div class="row" id="Dinf">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitI" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehI" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitI">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Winf1"></div>
+                                <div class="col-sm-4 panel" id="Winf2"></div>                          
+                                <div class="col-sm-4 panel" id="Winf3"></div>
+                            </div>
+                            <div class="row panel" id="Dinf">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehI">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WinfV1"></div>
+                                <div class="col-sm-4 panel" id="WinfV2"></div>                          
+                                <div class="col-sm-4 panel" id="WinfV3"></div>
+                            </div>
+                            <div class="row panel" id="DinfV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -1472,12 +1504,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Wsup1"></div>
-                          <div class="col-sm-4" id="Wsup2"></div>                          
-                          <div class="col-sm-4" id="Wsup3"></div>
-                      </div>
-                      <div class="row" id="Dsup">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitS" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehS" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitS">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Wsup1"></div>
+                                <div class="col-sm-4 panel" id="Wsup2"></div>                          
+                                <div class="col-sm-4 panel" id="Wsup3"></div>
+                            </div>
+                            <div class="row panel" id="Dsup">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehS">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WsupV1"></div>
+                                <div class="col-sm-4 panel" id="WsupV2"></div>                          
+                                <div class="col-sm-4 panel" id="WsupV3"></div>
+                            </div>
+                            <div class="row panel" id="DsupV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -1620,12 +1669,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Wtnk1"></div>
-                          <div class="col-sm-4" id="Wtnk2"></div>                          
-                          <div class="col-sm-4" id="Wtnk3"></div>
-                      </div>
-                      <div class="row" id="Dtnk">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitT" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehT" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitT">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Wtnk1"></div>
+                                <div class="col-sm-4 panel" id="Wtnk2"></div>                          
+                                <div class="col-sm-4 panel" id="Wtnk3"></div>
+                            </div>
+                            <div class="row panel" id="Dtnk">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehT">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WtnkV1"></div>
+                                <div class="col-sm-4 panel" id="WtnkV2"></div>                          
+                                <div class="col-sm-4 panel" id="WtnkV3"></div>
+                            </div>
+                            <div class="row panel" id="DtnkV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -1768,12 +1834,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Wrec1"></div>
-                          <div class="col-sm-4" id="Wrec2"></div>                          
-                          <div class="col-sm-4" id="Wrec3"></div>
-                      </div>
-                      <div class="row" id="Drec">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitR" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehR" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitR">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Wrec1"></div>
+                                <div class="col-sm-4 panel" id="Wrec2"></div>                          
+                                <div class="col-sm-4 panel" id="Wrec3"></div>
+                            </div>
+                            <div class="row panel" id="Drec">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehR">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WrecV1"></div>
+                                <div class="col-sm-4 panel" id="WrecV2"></div>                          
+                                <div class="col-sm-4 panel" id="WrecV3"></div>
+                            </div>
+                            <div class="row panel" id="DrecV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -1916,12 +1999,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Wveh1"></div>
-                          <div class="col-sm-4" id="Wveh2"></div>                          
-                          <div class="col-sm-4" id="Wveh3"></div>
-                      </div>
-                      <div class="row" id="Dveh">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitV" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehV" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitV">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Wveh1"></div>
+                                <div class="col-sm-4 panel" id="Wveh2"></div>                          
+                                <div class="col-sm-4 panel" id="Wveh3"></div>
+                            </div>
+                            <div class="row panel" id="Dveh">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehV">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WvehV1"></div>
+                                <div class="col-sm-4 panel" id="WvehV2"></div>                          
+                                <div class="col-sm-4 panel" id="WvehV3"></div>
+                            </div>
+                            <div class="row panel" id="DvehV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -2064,12 +2164,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Whel1"></div>
-                          <div class="col-sm-4" id="Whel2"></div>                          
-                          <div class="col-sm-4" id="Whel3"></div>
-                      </div>
-                      <div class="row" id="Dhel">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitH" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehH" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitH">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Whel1"></div>
+                                <div class="col-sm-4 panel" id="Whel2"></div>                          
+                                <div class="col-sm-4 panel" id="Whel3"></div>
+                            </div>
+                            <div class="row panel" id="Dhel">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehH">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WhelV1"></div>
+                                <div class="col-sm-4 panel" id="WhelV2"></div>                          
+                                <div class="col-sm-4 panel" id="WhelV3"></div>
+                            </div>
+                            <div class="row panel" id="DhelV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -2212,12 +2329,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Wair1"></div>
-                          <div class="col-sm-4" id="Wair2"></div>                          
-                          <div class="col-sm-4" id="Wair3"></div>
-                      </div>
-                      <div class="row" id="Dair">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitA" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehA" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitA">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Wair1"></div>
+                                <div class="col-sm-4 panel" id="Wair2"></div>                          
+                                <div class="col-sm-4 panel" id="Wair3"></div>
+                            </div>
+                            <div class="row panel" id="Dair">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehA">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WairV1"></div>
+                                <div class="col-sm-4 panel" id="WairV2"></div>                          
+                                <div class="col-sm-4 panel" id="WairV3"></div>
+                            </div>
+                            <div class="row panel" id="DairV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -2360,12 +2494,29 @@
                         <div class="col-sm-1"></div>
                         <div class="col-sm-1"></div>
                       </div>
-                      <div class="row">
-                          <div class="col-sm-4" id="Wnav1"></div>
-                          <div class="col-sm-4" id="Wnav2"></div>                          
-                          <div class="col-sm-4" id="Wnav3"></div>
-                      </div>
-                      <div class="row" id="Dnav">
+                      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                          <li class="active"><a href="#UnitN" data-toggle="tab">Unit</a></li>
+                          <li><a href="#VehN" data-toggle="tab">Transport</a></li>
+                      </ul>
+                      <div class="tab-content panel">
+                          <div class="tab-pane active" id="UnitN">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="Wnav1"></div>
+                                <div class="col-sm-4 panel" id="Wnav2"></div>                          
+                                <div class="col-sm-4 panel" id="Wnav3"></div>
+                            </div>
+                            <div class="row panel" id="Dnav">
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="VehN">
+                            <div class="row">
+                                <div class="col-sm-4 panel" id="WnavV1"></div>
+                                <div class="col-sm-4 panel" id="WnavV2"></div>                          
+                                <div class="col-sm-4 panel" id="WnavV3"></div>
+                            </div>
+                            <div class="row panel" id="DnavV">
+                            </div>
+                          </div>
                       </div>
                   </div>
                 </div>

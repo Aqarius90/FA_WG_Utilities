@@ -7,7 +7,7 @@ function init() {
     CardsDB[i]=Array(2);
     }
     initMainDB();
-    window.selectedCards = [];
+    window.selectedCards = [0,0,0,0,0,0,0,0,0];
     GUIDisplay();
 }
 
@@ -34,10 +34,27 @@ function listUnits() //get units for display
         var blankBody = document.createElement('tbody');
         blankBody.setAttribute("id",tables[i] + "Body");
         body.parentNode.replaceChild(blankBody, body);
+                
+        var table = document.getElementById(tables[i] + "Body");
+        var row = table.insertRow(table.rows.length);
+        var nation = row.insertCell(0);
+        var unit = row.insertCell(1);
+        var costU = row.insertCell(2);
+        var cardsU = row.insertCell(3);
+        var trans = row.insertCell(4);
+        var costT = row.insertCell(5);
+        var cardsT = row.insertCell(6);
+        var btn = row.insertCell(7);
+        nation.innerHTML = "Nation";
+        unit.innerHTML = "Unit";
+        cardsU.innerHTML = "Cards";
+        costU.innerHTML = "Cost";
+        trans.innerHTML = "Vehicle";
+        cardsT.innerHTML = "Cards";
+        costT.innerHTML = "Cost";
     }
     
-    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA" || Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.Nation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU")
-    {
+    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA" || Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.Nation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU") {
        UnitLookup(Deck.sNation);
     }
     else if (Deck.sNation == "NATO")
@@ -125,7 +142,7 @@ function listUnits() //get units for display
 function UnitLookup(nation){
     var card;
     var year = 0;
-    if(Deck.sEra == "B"){ year = 1986;}//I think FOBs are "year 0". Should be "-7500"
+    if(Deck.sEra == "B"){ year = 1986;}//I think FOBs are "year 0". Should be "-7500" really
     if(Deck.sEra == "C"){ year = 1981;}
     var spec = -1;
     if(Deck.sSpec == "MAR"){spec=0;}
@@ -144,7 +161,7 @@ function UnitLookup(nation){
                         var transport = 0;
                         if (card.sUnitData.charAt(7) == '1'){
                             for (var j=0; j<TransportLinker.length; j++){
-                                if (card.iUnitID == TransportLinker[j].uID){
+                                if (card.iUnitID == TransportLinker[j].uID && TransportLinker[j].iSide == Deck.iSide){
                                     var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
                                     if (pair.iYear >= year) {
                                         if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || pair.iIsProto == '0'){
@@ -183,16 +200,20 @@ function toList(card){
     var row = table.insertRow(table.rows.length);
     var nation = row.insertCell(0);
     var unit = row.insertCell(1);
-    var cardsU = row.insertCell(2);
-    var trans = row.insertCell(3);
-    var cardsT = row.insertCell(4);
-    var btn = row.insertCell(5);
+    var costU = row.insertCell(2);
+    var cardsU = row.insertCell(3);
+    var trans = row.insertCell(4);
+    var costT = row.insertCell(5);
+    var cardsT = row.insertCell(6);
+    var btn = row.insertCell(7);
     nation.innerHTML = card.sNation;
     unit.innerHTML = card.Unit.sNameU;
-    cardsU.innerHTML = card.Unit.iCards;    
+    cardsU.innerHTML = card.Unit.iCards;   
+    costU.innerHTML = card.Unit.iCost;
     if(card.Transport !=0){
         trans.innerHTML = card.Transport.sNameU;
         cardsT.innerHTML = card.Transport.iCards;    
+        costT.innerHTML = card.Transport.iCost;
     }
     
     let elem = document.createElement('input');
@@ -569,6 +590,8 @@ function ShowCard(Card)
     else if (Card.Unit.sUnitData.charAt(24) == '1'){type = "air"; btn = 7;}//air
     else {type = "navTable";}//nav
     
+    selectedCards[btn] = Card;
+    
     document.getElementById("add"+btn+"0").innerHTML = Card.iaAvailability[0];
     document.getElementById("add"+btn+"1").innerHTML = Card.iaAvailability[1];
     document.getElementById("add"+btn+"2").innerHTML = Card.iaAvailability[2];
@@ -612,18 +635,66 @@ function ShowCard(Card)
     uText = document.createElement("p");
     uText.innerHTML = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
     document.getElementById("D" + type).appendChild(uText); 
+    uText = document.createElement("p");
+    uText.innerHTML = "Armor: F-"+ Card.Unit.iaArmor[0] + ", B-" + Card.Unit.iaArmor[1] + ", S-" + Card.Unit.iaArmor[2] + ", T-" + Card.Unit.iaArmor[3];
+    document.getElementById("D" + type).appendChild(uText); 
     
     showWeapon(Card.Unit.W1, type, 1);
     showWeapon(Card.Unit.W2, type, 2);
     showWeapon(Card.Unit.W3, type, 3);
+    
+    if(Card.Transport != 0){
+        type += "V";
+        
+        document.getElementById("D" + type).innerHTML = "";       
+        uText = document.createElement("p");
+        uText.innerHTML = Card.Transport.sNameU;
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "HP:" + Card.Transport.iHP;
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = InterpretSize(Card.Transport);
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = InterpretOptics(Card.Transport);
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = InterpretStealth(Card.Transport);
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = InterpretTraining(Card);
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Autonomy" + Card.Transport.iAutonomy;
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = Card.Unit.iYear;
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
+        document.getElementById("D" + type).appendChild(uText); 
+        uText = document.createElement("p");
+        uText.innerHTML = "Armor: F-"+ Card.Transport.iaArmor[0] + ", B-" + Card.Transport.iaArmor[1] + ", S-" + Card.Transport.iaArmor[2] + ", T-" + Card.Transport.iaArmor[3];
+        document.getElementById("D" + type).appendChild(uText); 
+        
+        showWeapon(Card.Transport.W1, type, 1);
+        showWeapon(Card.Transport.W2, type, 2);
+        showWeapon(Card.Transport.W3, type, 3);
+    }
 }
 /*
             //lLOGunitProto.Content = Card.Unit.iIsProto;
             //lLOGunitDeck.Content = Card.Unit.
-            lLOGunitFAV.Content = Card.Unit.iaArmor[0];
-            lLOGunitBAV.Content = Card.Unit.iaArmor[1];
-            lLOGunitSAV.Content = Card.Unit.iaArmor[2];
-            lLOGunitTAV.Content = Card.Unit.iaArmor[3];
     }*/
 
  function InterpretTraining(Card)
@@ -692,16 +763,16 @@ function ShowCard(Card)
 function showWeapon( wep, type, place)
 {
     document.getElementById("W" + type + place).innerHTML = "";       
-    if (wep != 0)
+    if (wep.sName != "NONE")
     {
         var uText = document.createElement("p");
         uText.innerHTML = wep.sName;
         document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
-        uText.innerHTML = wep.iAmmo + wep.sRoundType;
+        uText.innerHTML = wep.iAmmo + "x " + wep.sRoundType;
         document.getElementById("W" + type + place).appendChild(uText); 
         uText = document.createElement("p");
-        uText.innerHTML = wep.sTags;
+        uText.innerHTML = " "+wep.sTags;
         document.getElementById("W" + type + place).appendChild(uText); 
         uText = document.createElement("p");
         uText.innerHTML = "Ground " + wep.rGround + "m";
@@ -734,1135 +805,22 @@ function showWeapon( wep, type, place)
     }
 }
 
-/*
-        function DisplayAvailability(VehicleCard Card)
-        {
-            double temp = 0;
-            try
-            {
-                temp = (Card.iaAvailability[Card.iVet] * MainMatrix.getCoeff(Deck.sNation));
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Availability error: debug 0x0000");
-                //throw;
-            }
-            temp = Math.Round(temp / 100);
-            int iAv = (int)temp;
+function add(type, veterancy){
+    selectedCards[type].iVet0 = veterancy;
+    if (selectedCards[type].Craft != 0){
+        Deck.Cards2T[Deck.i3Cards] = selectedCards[type];
+        Deck.i3Cards++;
+    } else if (selectedCards[type].Transport != 0){
+        Deck.Cards1T[Deck.i2Cards] = selectedCards[type];
+        Deck.i2Cards++;
+    } else if (selectedCards[type].Unit != 0){
+        Deck.Cards0T[Deck.i1Cards] = selectedCards[type];
+        Deck.i1Cards++;
+    }
+    GUIDisplay();
+    DeckExport();
+}
 
-            switch (Card.iArrayIndex)
-            {
-            }
-        }
-        */
-/*
-        function TallyPoints(VehicleCard Card)
-        {
-            try
-            {
-
-                switch (Card.iArrayIndex)
-                {
-                    case 0: { P200.Visibility = Visibility.Hidden; P100.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P200.Content.ToString()); break; }
-                    case 1: { P201.Visibility = Visibility.Hidden; P101.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P201.Content.ToString()); break; }
-                    case 2: { P202.Visibility = Visibility.Hidden; P102.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P202.Content.ToString()); break; }
-                    case 3: { P203.Visibility = Visibility.Hidden; P103.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P203.Content.ToString()); break; }
-                    case 4: { P204.Visibility = Visibility.Hidden; P104.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P204.Content.ToString()); break; }
-                    case 5: { P205.Visibility = Visibility.Hidden; P105.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P205.Content.ToString()); break; }
-                    case 6: { P206.Visibility = Visibility.Hidden; P106.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P206.Content.ToString()); break; }
-                    case 7: { P207.Visibility = Visibility.Hidden; P107.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P207.Content.ToString()); break; }
-                    case 8: { P208.Visibility = Visibility.Hidden; P108.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P208.Content.ToString()); break; }
-                    case 10: { P210.Visibility = Visibility.Hidden; P110.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P210.Content.ToString()); break; }
-                    case 11: { P211.Visibility = Visibility.Hidden; P111.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P211.Content.ToString()); break; }
-                    case 12: { P212.Visibility = Visibility.Hidden; P112.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P212.Content.ToString()); break; }
-                    case 13: { P213.Visibility = Visibility.Hidden; P113.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P213.Content.ToString()); break; }
-                    case 14: { P214.Visibility = Visibility.Hidden; P114.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P214.Content.ToString()); break; }
-                    case 15: { P215.Visibility = Visibility.Hidden; P115.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P215.Content.ToString()); break; }
-                    case 16: { P216.Visibility = Visibility.Hidden; P116.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P216.Content.ToString()); break; }
-                    case 17: { P217.Visibility = Visibility.Hidden; P117.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P217.Content.ToString()); break; }
-                    case 18: { P218.Visibility = Visibility.Hidden; P118.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P218.Content.ToString()); break; }
-                    case 20: { P220.Visibility = Visibility.Hidden; P120.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P220.Content.ToString()); break; }
-                    case 21: { P221.Visibility = Visibility.Hidden; P121.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P221.Content.ToString()); break; }
-                    case 22: { P222.Visibility = Visibility.Hidden; P122.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P222.Content.ToString()); break; }
-                    case 23: { P223.Visibility = Visibility.Hidden; P123.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P223.Content.ToString()); break; }
-                    case 24: { P224.Visibility = Visibility.Hidden; P124.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P224.Content.ToString()); break; }
-                    case 25: { P225.Visibility = Visibility.Hidden; P125.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P225.Content.ToString()); break; }
-                    case 26: { P226.Visibility = Visibility.Hidden; P126.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P226.Content.ToString()); break; }
-                    case 27: { P227.Visibility = Visibility.Hidden; P127.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P227.Content.ToString()); break; }
-                    case 28: { P228.Visibility = Visibility.Hidden; P128.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P228.Content.ToString()); break; }
-                    case 30: { P230.Visibility = Visibility.Hidden; P130.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P230.Content.ToString()); break; }
-                    case 31: { P231.Visibility = Visibility.Hidden; P131.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P231.Content.ToString()); break; }
-                    case 32: { P232.Visibility = Visibility.Hidden; P132.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P232.Content.ToString()); break; }
-                    case 33: { P233.Visibility = Visibility.Hidden; P133.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P233.Content.ToString()); break; }
-                    case 34: { P234.Visibility = Visibility.Hidden; P134.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P234.Content.ToString()); break; }
-                    case 35: { P235.Visibility = Visibility.Hidden; P135.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P235.Content.ToString()); break; }
-                    case 36: { P236.Visibility = Visibility.Hidden; P136.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P236.Content.ToString()); break; }
-                    case 37: { P237.Visibility = Visibility.Hidden; P137.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P237.Content.ToString()); break; }
-                    case 38: { P238.Visibility = Visibility.Hidden; P138.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P238.Content.ToString()); break; }
-                    case 40: { P240.Visibility = Visibility.Hidden; P140.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P240.Content.ToString()); break; }
-                    case 41: { P241.Visibility = Visibility.Hidden; P141.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P241.Content.ToString()); break; }
-                    case 42: { P242.Visibility = Visibility.Hidden; P142.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P242.Content.ToString()); break; }
-                    case 43: { P243.Visibility = Visibility.Hidden; P143.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P243.Content.ToString()); break; }
-                    case 44: { P244.Visibility = Visibility.Hidden; P144.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P244.Content.ToString()); break; }
-                    case 45: { P245.Visibility = Visibility.Hidden; P145.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P245.Content.ToString()); break; }
-                    case 46: { P246.Visibility = Visibility.Hidden; P146.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P246.Content.ToString()); break; }
-                    case 47: { P247.Visibility = Visibility.Hidden; P147.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P247.Content.ToString()); break; }
-                    case 48: { P248.Visibility = Visibility.Hidden; P148.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P248.Content.ToString()); break; }
-                    case 50: { P250.Visibility = Visibility.Hidden; P150.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P250.Content.ToString()); break; }
-                    case 51: { P251.Visibility = Visibility.Hidden; P151.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P251.Content.ToString()); break; }
-                    case 52: { P252.Visibility = Visibility.Hidden; P152.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P252.Content.ToString()); break; }
-                    case 53: { P253.Visibility = Visibility.Hidden; P153.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P253.Content.ToString()); break; }
-                    case 54: { P254.Visibility = Visibility.Hidden; P154.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P254.Content.ToString()); break; }
-                    case 55: { P255.Visibility = Visibility.Hidden; P155.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P255.Content.ToString()); break; }
-                    case 56: { P256.Visibility = Visibility.Hidden; P156.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P256.Content.ToString()); break; }
-                    case 57: { P257.Visibility = Visibility.Hidden; P157.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P257.Content.ToString()); break; }
-                    case 58: { P258.Visibility = Visibility.Hidden; P158.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P258.Content.ToString()); break; }
-                    case 60: { P260.Visibility = Visibility.Hidden; P160.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P260.Content.ToString()); break; }
-                    case 61: { P261.Visibility = Visibility.Hidden; P161.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P261.Content.ToString()); break; }
-                    case 62: { P262.Visibility = Visibility.Hidden; P162.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P262.Content.ToString()); break; }
-                    case 63: { P263.Visibility = Visibility.Hidden; P163.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P263.Content.ToString()); break; }
-                    case 64: { P264.Visibility = Visibility.Hidden; P164.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P264.Content.ToString()); break; }
-                    case 65: { P265.Visibility = Visibility.Hidden; P165.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P265.Content.ToString()); break; }
-                    case 66: { P266.Visibility = Visibility.Hidden; P166.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P266.Content.ToString()); break; }
-                    case 67: { P267.Visibility = Visibility.Hidden; P167.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P267.Content.ToString()); break; }
-                    case 68: { P268.Visibility = Visibility.Hidden; P168.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P268.Content.ToString()); break; }
-                    case 70: { P270.Visibility = Visibility.Hidden; P170.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P270.Content.ToString()); break; }
-                    case 71: { P271.Visibility = Visibility.Hidden; P171.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P271.Content.ToString()); break; }
-                    case 72: { P272.Visibility = Visibility.Hidden; P172.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P272.Content.ToString()); break; }
-                    case 73: { P273.Visibility = Visibility.Hidden; P173.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P273.Content.ToString()); break; }
-                    case 74: { P274.Visibility = Visibility.Hidden; P174.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P274.Content.ToString()); break; }
-                    case 75: { P275.Visibility = Visibility.Hidden; P175.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P275.Content.ToString()); break; }
-                    case 76: { P276.Visibility = Visibility.Hidden; P176.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P276.Content.ToString()); break; }
-                    case 77: { P277.Visibility = Visibility.Hidden; P177.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P277.Content.ToString()); break; }
-                    case 78: { P278.Visibility = Visibility.Hidden; P178.Visibility = Visibility.Hidden; deckpoints += Convert.ToInt32(P278.Content.ToString()); break; }
-                }
-            }
-            catch
-            {
-
-            }
-        }
-*/
-
-
-/*
-
-        #region Unit add buttons, stats display
-        #region LOG
-        function dgDeckLog_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckLog.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckLog.SelectedCells[0].Item;
-                VehicleCard selCard;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 0);
-
-                    btLOGRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[0] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[0] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btLOGRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGRookieAdd.IsEnabled = false;
-                    }
-                    btLOGTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btLOGTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGTrainedAdd.IsEnabled = false;
-                    }
-                    btLOGHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btLOGHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGHardenedAdd.IsEnabled = false;
-                    }
-                    btLOGVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btLOGVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGVeteranAdd.IsEnabled = false;
-                    }
-                    btLOGEliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btLOGEliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btLOGEliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btLOGRookieAdd.IsEnabled = false;
-                    btLOGTrainedAdd.IsEnabled = false;
-                    btLOGHardenedAdd.IsEnabled = false;
-                    btLOGVeteranAdd.IsEnabled = false;
-                    btLOGEliteAdd.IsEnabled = false;
-                }
-            }
-        }
-
-        function btLOGRookieAdd_Click()
-        {
-            Deck.AddCard("000", selectedCards[0].Unit.iUnitID, selectedCards[0].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btLOGTrainedAdd_Click()
-        {
-            Deck.AddCard("001", selectedCards[0].Unit.iUnitID, selectedCards[0].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btLOGHardenedAdd_Click()
-        {
-            Deck.AddCard("010", selectedCards[0].Unit.iUnitID, selectedCards[0].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btLOGVeteranAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[0].Unit.iUnitID, selectedCards[0].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btLOGEliteAdd_Click()
-        {
-            Deck.AddCard("100", selectedCards[0].Unit.iUnitID, selectedCards[0].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-        #endregion LOG
-        #region INF
-        function dgDeckInf_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckInf.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckInf.SelectedCells[0].Item;
-                VehicleCard selCard;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 1);
-
-                    btINFRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[1] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[1] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btINFRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btINFRookieAdd.IsEnabled = false;
-                    }
-                    btINFTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btINFTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btINFTrainedAdd.IsEnabled = false;
-                    }
-                    btINFHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btINFHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btINFHardenedAdd.IsEnabled = false;
-                    }
-                    btINFVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btINFVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btINFVeteranAdd.IsEnabled = false;
-                    }
-                    btINFEliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btINFEliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btINFEliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btINFRookieAdd.IsEnabled = false;
-                    btINFTrainedAdd.IsEnabled = false;
-                    btINFHardenedAdd.IsEnabled = false;
-                    btINFVeteranAdd.IsEnabled = false;
-                    btINFEliteAdd.IsEnabled = false;
-                }
-            }
-        }
-
-        function btINFRookieAdd_Click()
-        {
-            Deck.AddCard("000", selectedCards[1].Unit.iUnitID, selectedCards[1].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btINFTrainedAdd_Click()
-        {
-            Deck.AddCard("001", selectedCards[1].Unit.iUnitID, selectedCards[1].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btINFHardenedAdd_Click()
-        {
-            Deck.AddCard("010", selectedCards[1].Unit.iUnitID, selectedCards[1].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btINFVeteranAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[1].Unit.iUnitID, selectedCards[1].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btINFEliteAdd_Click()
-        {
-            Deck.AddCard("100", selectedCards[1].Unit.iUnitID, selectedCards[1].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-        #endregion INF
-        #region SUP
-        function dgDeckSup_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckSup.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckSup.SelectedCells[0].Item;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-                    VehicleCard selCard;
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 2);
-
-                    btSUPRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[2] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[2] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btSUPRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btSUPRookieAdd.IsEnabled = false;
-                    }
-                    btSUPTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btSUPTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btSUPTrainedAdd.IsEnabled = false;
-                    }
-                    btSUPHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btSUPHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btSUPHardenedAdd.IsEnabled = false;
-                    }
-                    btSUPVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btSUPVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btSUPVeteranAdd.IsEnabled = false;
-                    }
-                    btSUPEliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btSUPEliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btSUPEliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btSUPRookieAdd.IsEnabled = false;
-                    btSUPTrainedAdd.IsEnabled = false;
-                    btSUPHardenedAdd.IsEnabled = false;
-                    btSUPVeteranAdd.IsEnabled = false;
-                    btSUPEliteAdd.IsEnabled = false;
-                }
-            }
-        }
-
-        function btSUPRookieAdd_Click()
-        {
-            Deck.AddCard("000", selectedCards[2].Unit.iUnitID, selectedCards[2].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btSUPTrainedAdd_Click()
-        {
-            Deck.AddCard("001", selectedCards[2].Unit.iUnitID, selectedCards[2].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btSUPHardenedAdd_Click()
-        {
-            Deck.AddCard("010", selectedCards[2].Unit.iUnitID, selectedCards[2].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btSUPVeteranAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[2].Unit.iUnitID, selectedCards[2].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btSUPEliteAdd_Click()
-        {
-            Deck.AddCard("100", selectedCards[2].Unit.iUnitID, selectedCards[2].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-        #endregion SUP
-        #region TNK
-        function dgDeckTnk_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckTnk.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckTnk.SelectedCells[0].Item;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-                    VehicleCard selCard;
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 3);
-
-                    btTNKRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[3] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[3] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btTNKRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btTNKRookieAdd.IsEnabled = false;
-                    }
-                    btTNKTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btTNKTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btTNKTrainedAdd.IsEnabled = false;
-                    }
-                    btTNKHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btTNKHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btTNKHardenedAdd.IsEnabled = false;
-                    }
-                    btTNKVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btTNKVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btTNKVeteranAdd.IsEnabled = false;
-                    }
-                    btTNKEliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btTNKEliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btTNKEliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btTNKRookieAdd.IsEnabled = false;
-                    btTNKTrainedAdd.IsEnabled = false;
-                    btTNKHardenedAdd.IsEnabled = false;
-                    btTNKVeteranAdd.IsEnabled = false;
-                    btTNKEliteAdd.IsEnabled = false;
-                }
-            }
-        }
-
-        function btTNKRookieAdd_Click()
-        {
-            Deck.AddCard("000", selectedCards[3].Unit.iUnitID, selectedCards[3].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btTNKTrainedAdd_Click()
-        {
-            Deck.AddCard("001", selectedCards[3].Unit.iUnitID, selectedCards[3].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btTNKHardenedAdd_Click()
-        {
-            Deck.AddCard("010", selectedCards[3].Unit.iUnitID, selectedCards[3].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btTNKVeteranAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[3].Unit.iUnitID, selectedCards[3].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btTNKEliteAdd_Click()
-        {
-            Deck.AddCard("100", selectedCards[3].Unit.iUnitID, selectedCards[3].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-        #endregion TNK
-        #region REC
-        function dgDeckRec_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckRec.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckRec.SelectedCells[0].Item;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-                    VehicleCard selCard;
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 4);
-
-                    btRECRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[4] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[4] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btRECRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btRECRookieAdd.IsEnabled = false;
-                    }
-                    btRECTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btRECTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btRECTrainedAdd.IsEnabled = false;
-                    }
-                    btRECHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btRECHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btRECHardenedAdd.IsEnabled = false;
-                    }
-                    btRECVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btRECVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btRECVeteranAdd.IsEnabled = false;
-                    }
-                    btRECEliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btRECEliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btRECEliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btRECRookieAdd.IsEnabled = false;
-                    btRECTrainedAdd.IsEnabled = false;
-                    btRECHardenedAdd.IsEnabled = false;
-                    btRECVeteranAdd.IsEnabled = false;
-                    btRECEliteAdd.IsEnabled = false;
-                }
-            }
-        }
-
-        function btRECRookieAdd_Click()
-        {
-            Deck.AddCard("000", selectedCards[4].Unit.iUnitID, selectedCards[4].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btRECTrainedAdd_Click()
-        {
-            Deck.AddCard("001", selectedCards[4].Unit.iUnitID, selectedCards[4].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btRECHardenedAdd_Click()
-        {
-            Deck.AddCard("010", selectedCards[4].Unit.iUnitID, selectedCards[4].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btRECVeteranAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[4].Unit.iUnitID, selectedCards[4].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btRECEliteAdd_Click()
-        {
-            Deck.AddCard("100", selectedCards[4].Unit.iUnitID, selectedCards[4].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-        #endregion REC
-        #region VEH
-        function dgDeckVeh_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckVeh.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckVeh.SelectedCells[0].Item;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-                    VehicleCard selCard;
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 5);
-
-                    btVEHRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[5] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[5] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btVEHRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btVEHRookieAdd.IsEnabled = false;
-                    }
-                    btVEHTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btVEHTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btVEHTrainedAdd.IsEnabled = false;
-                    }
-                    btVEHHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btVEHHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btVEHHardenedAdd.IsEnabled = false;
-                    }
-                    btVEHVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btVEHVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btVEHVeteranAdd.IsEnabled = false;
-                    }
-                    btVEHEliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btVEHEliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btVEHEliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btVEHRookieAdd.IsEnabled = false;
-                    btVEHTrainedAdd.IsEnabled = false;
-                    btVEHHardenedAdd.IsEnabled = false;
-                    btVEHVeteranAdd.IsEnabled = false;
-                    btVEHEliteAdd.IsEnabled = false;
-                }
-            }
-        }
-
-        function btVEHRookieAdd_Click()
-        {
-            Deck.AddCard("000", selectedCards[5].Unit.iUnitID, selectedCards[5].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btVEHTrainedAdd_Click()
-        {
-            Deck.AddCard("001", selectedCards[5].Unit.iUnitID, selectedCards[5].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btVEHHardenedAdd_Click()
-        {
-            Deck.AddCard("010", selectedCards[5].Unit.iUnitID, selectedCards[5].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btVEHVeteranAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[5].Unit.iUnitID, selectedCards[5].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btVEHEliteAdd_Click()
-        {
-            Deck.AddCard("100", selectedCards[5].Unit.iUnitID, selectedCards[5].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-        #endregion VEH
-        #region HEL
-        function dgDeckHel_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckHel.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckHel.SelectedCells[0].Item;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-
-                    VehicleCard selCard;
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 6);
-
-                    btHELRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[6] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[6] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btHELRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btHELRookieAdd.IsEnabled = false;
-                    }
-                    btHELTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btHELTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btHELTrainedAdd.IsEnabled = false;
-                    }
-                    btHELHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btHELHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btHELHardenedAdd.IsEnabled = false;
-                    }
-                    btHELVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btHELVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btHELVeteranAdd.IsEnabled = false;
-                    }
-                    btHELEliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btHELEliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btHELEliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btHELRookieAdd.IsEnabled = false;
-                    btHELTrainedAdd.IsEnabled = false;
-                    btHELHardenedAdd.IsEnabled = false;
-                    btHELVeteranAdd.IsEnabled = false;
-                    btHELEliteAdd.IsEnabled = false;
-                }
-            }
-        }
-
-        function btHELRookieAdd_Click()
-        {
-            Deck.AddCard("000", selectedCards[6].Unit.iUnitID, selectedCards[6].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btHELTrainedAdd_Click()
-        {
-            Deck.AddCard("001", selectedCards[6].Unit.iUnitID, selectedCards[6].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btHELHardenedAdd_Click()
-        {
-            Deck.AddCard("010", selectedCards[6].Unit.iUnitID, selectedCards[6].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btHELVeteranAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[6].Unit.iUnitID, selectedCards[6].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-
-        function btHELEliteAdd_Click()
-        {
-            Deck.AddCard("100", selectedCards[6].Unit.iUnitID, selectedCards[6].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-
-        }
-        #endregion HEL
-        #region AIR
-        function dgDeckAir_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgDeckAir.CurrentItem != null)
-            {
-                deckRow row = (deckRow)dgDeckAir.SelectedCells[0].Item;
-                if (row.iCards!=0  && (row.iCards==null || row.iCards != 0))
-                {
-
-                    VehicleCard selCard;
-                    Datacard dcUnit = Deck.dbLookup(row.UID);
-                    if (row.TID == "0")
-                    {
-                        selCard = new VehicleCard(dcUnit);
-                    }
-                    else
-                    {
-                        Datacard dcTransport = Deck.dbLookup(row.TID);
-                        selCard = new VehicleCard(dcUnit, dcTransport);
-                    }
-                    ShowData(selCard, 7);
-
-                    btAIRRookieAdd.Content = row.vet0.ToString();
-                    if (row.TID != null)
-                    {
-                        Datacard dcVeh = Deck.dbLookup(row.TID);
-                        selectedCards[7] = new VehicleCard(dcUnit, dcVeh);
-                    }
-                    else
-                    {
-                        selectedCards[7] = new VehicleCard(dcUnit);
-                    }
-                    if (row.vet0 != 0)
-                    {
-                        btAIRRookieAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btAIRRookieAdd.IsEnabled = false;
-                    }
-                    btAIRTrainedAdd.Content = row.vet1.ToString();
-                    if (row.vet1 != 0)
-                    {
-                        btAIRTrainedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btAIRTrainedAdd.IsEnabled = false;
-                    }
-                    btAIRHardenedAdd.Content = row.vet2.ToString();
-                    if (row.vet2 != 0)
-                    {
-                        btAIRHardenedAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btAIRHardenedAdd.IsEnabled = false;
-                    }
-                    btAIRVeteranAdd.Content = row.vet3.ToString();
-                    if (row.vet3 != 0)
-                    {
-                        btAIRVeteranAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btAIRVeteranAdd.IsEnabled = false;
-                    }
-                    btAIREliteAdd.Content = row.vet4.ToString();
-                    if (row.vet4 != 0)
-                    {
-                        btAIREliteAdd.IsEnabled = true;
-                    }
-                    else
-                    {
-                        btAIREliteAdd.IsEnabled = false;
-                    }
-                }
-                else
-                {
-                    btAIRRookieAdd.IsEnabled = false;
-                    btAIRTrainedAdd.IsEnabled = false;
-                    btAIRHardenedAdd.IsEnabled = false;
-                    btAIRVeteranAdd.IsEnabled = false;
-                    btAIREliteAdd.IsEnabled = false;
-                }
-            }
-        }
-
-        function btAIRRookieAdd_Click()
-        {
-            Deck.AddCard("000", selectedCards[7].Unit.iUnitID, selectedCards[7].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-        }
-
-        function btAIRTrainedAdd_Click()
-        {
-            Deck.AddCard("001", selectedCards[7].Unit.iUnitID, selectedCards[7].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-        }
-
-        function btAIRHardenedAdd_Click()
-        {
-            Deck.AddCard("010", selectedCards[7].Unit.iUnitID, selectedCards[7].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-        }
-
-        function btAIRVeteranAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[7].Unit.iUnitID, selectedCards[7].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-        }
-
-        function btAIREliteAdd_Click()
-        {
-            Deck.AddCard("011", selectedCards[7].Unit.iUnitID, selectedCards[7].Transport.iUnitID);
-            GUIDisplay(MasterDeck);
-            txtEncodeDeck.Text = Deck.DeckExport(MasterDeck);
-        }
-        #endregion AIR
-        #endregion Unit add buttons
-*/
 function btA()
 {
     Deck.sEra = "A";
@@ -2020,6 +978,6 @@ function toSpec(Card)
     if (Card.iVet == 2) { Card.sVeterancy = "010"; } else
     if (Card.iVet == 1) { Card.sVeterancy = "001"; } else
     if (Card.iVet == 0) { Card.sVeterancy = "000"; }
-    //note: iVet<0 or >5 is error, and honestly *should* break. iVet=5 is possible, for superheavies. Edge case, and coded around
+    //note: iVet<0 or >5 is error, and honestly *should* break. iVet=5 is possible, for superheavies and jets. Edge case, and coded around
     return Card;
 }
