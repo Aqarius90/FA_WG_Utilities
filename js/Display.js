@@ -45,18 +45,47 @@ function GUIDisplay() {
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.moto);
             document.getElementById("tspec").innerHTML = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
+            document.getElementById("v10").src = "rank/001.png";
+            document.getElementById("v11").src = "rank/010.png";
+            document.getElementById("v12").src = "rank/011.png";
+            document.getElementById("v13").src = "rank/100.png";
+            document.getElementById("v14").src = "rank/100.png";
+            
+            document.getElementById("v40").src = "rank/001.png";
+            document.getElementById("v41").src = "rank/010.png";
+            document.getElementById("v42").src = "rank/011.png";
+            document.getElementById("v43").src = "rank/100.png";
+            document.getElementById("v44").src = "rank/100.png";
+            
+            document.getElementById("v50").src = "rank/001.png";
+            document.getElementById("v51").src = "rank/010.png";
+            document.getElementById("v52").src = "rank/011.png";
+            document.getElementById("v53").src = "rank/100.png";
+            document.getElementById("v54").src = "rank/100.png";
             break;
         case 1://arm
             var btSpec = document.getElementById("bArmoured");
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.armoured);
             document.getElementById("tspec").innerHTML = "+4 cards, +2XP, -1 cost: Tank";
+            
+            document.getElementById("v40").src = "rank/010.png";
+            document.getElementById("v41").src = "rank/011.png";
+            document.getElementById("v42").src = "rank/100.png";
+            document.getElementById("v43").src = "rank/100.png";
+            document.getElementById("v44").src = "rank/100.png";
             break;
         case 2://sup
             var btSpec = document.getElementById("bSupport");
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.support);
             document.getElementById("tspec").innerHTML = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";
+            
+            document.getElementById("v20").src = "rank/010.png";
+            document.getElementById("v21").src = "rank/011.png";
+            document.getElementById("v22").src = "rank/100.png";
+            document.getElementById("v23").src = "rank/100.png";
+            document.getElementById("v24").src = "rank/100.png";
             break;
         case 3://mar
             var btSpec = document.getElementById("bMarine");
@@ -69,12 +98,41 @@ function GUIDisplay() {
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.mech);
             document.getElementById("tspec").innerHTML = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";
+            
+            document.getElementById("v10").src = "rank/001.png";
+            document.getElementById("v11").src = "rank/010.png";
+            document.getElementById("v12").src = "rank/011.png";
+            document.getElementById("v13").src = "rank/100.png";
+            document.getElementById("v14").src = "rank/100.png";
+            
+            document.getElementById("v50").src = "rank/001.png";
+            document.getElementById("v51").src = "rank/010.png";
+            document.getElementById("v52").src = "rank/011.png";
+            document.getElementById("v53").src = "rank/100.png";
+            document.getElementById("v54").src = "rank/100.png";
             break;
         case 5://air
             var btSpec = document.getElementById("bAirborne");
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.airborne);
             document.getElementById("tspec").innerHTML = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";
+            document.getElementById("v10").src = "rank/001.png";
+            document.getElementById("v11").src = "rank/010.png";
+            document.getElementById("v12").src = "rank/011.png";
+            document.getElementById("v13").src = "rank/100.png";
+            document.getElementById("v14").src = "rank/100.png";
+            
+            document.getElementById("v60").src = "rank/001.png";
+            document.getElementById("v61").src = "rank/010.png";
+            document.getElementById("v62").src = "rank/011.png";
+            document.getElementById("v63").src = "rank/100.png";
+            document.getElementById("v64").src = "rank/100.png";
+            
+            document.getElementById("v70").src = "rank/001.png";
+            document.getElementById("v71").src = "rank/010.png";
+            document.getElementById("v72").src = "rank/011.png";
+            document.getElementById("v73").src = "rank/100.png";
+            document.getElementById("v74").src = "rank/100.png";
             break;
         case 6://nav
             var btSpec = document.getElementById("bNaval");
@@ -87,6 +145,60 @@ function GUIDisplay() {
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.general);
             document.getElementById("tspec").innerHTML =  "no bonus";
+            document.getElementById("v00").src = "rank/000.png";
+            document.getElementById("v01").src = "rank/001.png";
+            document.getElementById("v02").src = "rank/010.png";
+            document.getElementById("v03").src = "rank/011.png";
+            document.getElementById("v04").src = "rank/100.png";
+            
+            document.getElementById("v10").src = "rank/000.png";
+            document.getElementById("v11").src = "rank/001.png";
+            document.getElementById("v12").src = "rank/010.png";
+            document.getElementById("v13").src = "rank/011.png";
+            document.getElementById("v14").src = "rank/100.png";
+            
+            document.getElementById("v20").src = "rank/000.png";
+            document.getElementById("v21").src = "rank/001.png";
+            document.getElementById("v22").src = "rank/010.png";
+            document.getElementById("v23").src = "rank/011.png";
+            document.getElementById("v24").src = "rank/100.png";
+            
+            document.getElementById("v30").src = "rank/000.png";
+            document.getElementById("v31").src = "rank/001.png";
+            document.getElementById("v32").src = "rank/010.png";
+            document.getElementById("v33").src = "rank/011.png";
+            document.getElementById("v34").src = "rank/100.png";
+            
+            document.getElementById("v40").src = "rank/000.png";
+            document.getElementById("v41").src = "rank/001.png";
+            document.getElementById("v42").src = "rank/010.png";
+            document.getElementById("v43").src = "rank/011.png";
+            document.getElementById("v44").src = "rank/100.png";
+            
+            document.getElementById("v50").src = "rank/000.png";
+            document.getElementById("v51").src = "rank/001.png";
+            document.getElementById("v52").src = "rank/010.png";
+            document.getElementById("v53").src = "rank/011.png";
+            document.getElementById("v54").src = "rank/100.png";
+            
+            document.getElementById("v60").src = "rank/000.png";
+            document.getElementById("v61").src = "rank/001.png";
+            document.getElementById("v62").src = "rank/010.png";
+            document.getElementById("v63").src = "rank/011.png";
+            document.getElementById("v64").src = "rank/100.png";
+            
+            document.getElementById("v70").src = "rank/000.png";
+            document.getElementById("v71").src = "rank/001.png";
+            document.getElementById("v72").src = "rank/010.png";
+            document.getElementById("v73").src = "rank/011.png";
+            document.getElementById("v74").src = "rank/100.png";
+            
+            document.getElementById("v80").src = "rank/000.png";
+            document.getElementById("v81").src = "rank/001.png";
+            document.getElementById("v82").src = "rank/010.png";
+            document.getElementById("v83").src = "rank/011.png";
+            document.getElementById("v84").src = "rank/100.png";
+            
             break;
     }
     switch (Deck.iEra)
@@ -109,15 +221,6 @@ function GUIDisplay() {
             document.getElementById("tera").innerHTML = "+0AP";
             break;
     }
-    
-    /*dgDeckLog.ItemsSource = LOGLIST;
-    dgDeckInf.ItemsSource = INFLIST;
-    dgDeckSup.ItemsSource = SUPLIST;
-    dgDeckTnk.ItemsSource = TNKLIST;
-    dgDeckRec.ItemsSource = RECLIST;
-    dgDeckVeh.ItemsSource = VEHLIST;
-    dgDeckHel.ItemsSource = HELLIST;
-    dgDeckAir.ItemsSource = AIRLIST;*/
     displayUnits();
     listUnits();
     document.getElementById("pointstally").innerHTML =  Deck.deckpoints + "/" + Deck.deckpoitstotal;
@@ -499,7 +602,6 @@ function displayUnits()
             DA = Matrix.general;
             break;
     }
-        
         
     for (var i = 0; i < Deck.Cards2T.length; i++)
     {

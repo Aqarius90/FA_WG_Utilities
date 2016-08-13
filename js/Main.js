@@ -54,7 +54,7 @@ function listUnits() //get units for display
         costT.innerHTML = "Cost";
     }
     
-    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA" || Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.Nation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU") {
+    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA" || Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.sNation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU") {
        UnitLookup(Deck.sNation);
     }
     else if (Deck.sNation == "NATO")
@@ -219,7 +219,7 @@ function toList(card){
     let elem = document.createElement('input');
     elem.type = 'button';
     elem.value = '>';
-    elem.onclick = function(){ShowCard(card);}; //closure escape via math. FML
+    elem.onclick = function(){ShowCard(card);};
     btn.appendChild(elem); 
 }
 
@@ -577,6 +577,14 @@ function isError(Card) {
     return isUnavailable;
 }
 
+function ShowData(type, spec) {
+    var iData = document.createElement("img");
+    iData.src = "png/" + spec + ".png";
+    iData.setAttribute("class", "img-responsive");
+    iData.setAttribute("style", "position: absolute; top: 0; left: 0;");
+    document.getElementById(type + "UD").appendChild(iData);
+}
+
 function ShowCard(Card)
 {
     var type, btn;
@@ -589,6 +597,41 @@ function ShowCard(Card)
     else if (Card.Unit.sUnitData.charAt(23) == '1'){type = "hel"; btn = 6;}//hel
     else if (Card.Unit.sUnitData.charAt(24) == '1'){type = "air"; btn = 7;}//air
     else {type = "navTable";}//nav
+    
+    
+    document.getElementById(type + "UD").innerHTML = "";  
+    var iData = document.createElement("img");
+    iData.src = "png/blank.png";
+    iData.setAttribute("class", "img-responsive");
+    iData.setAttribute("style", "position: relative; top: 0; left: 0;");
+    document.getElementById(type + "UD").appendChild(iData); 
+    
+    if (Card.Unit.sUnitData.charAt(0)== '1') { ShowData(type, "antiair"); }
+    if (Card.Unit.sUnitData.charAt(1)== '1') { ShowData(type, "AAM"); }
+    if (Card.Unit.sUnitData.charAt(2)== '1') { ShowData(type, "armour"); }
+    if (Card.Unit.sUnitData.charAt(3)== '1') { ShowData(type, "atgm"); }
+    if (Card.Unit.sUnitData.charAt(4)== '1') { ShowData(type, "carrier"); }
+    if (Card.Unit.sUnitData.charAt(5)== '1') { ShowData(type, "CMD"); }
+    if (Card.Unit.sUnitData.charAt(6)== '1') { ShowData(type, "helo"); }
+    if (Card.Unit.sUnitData.charAt(7)== '1') { ShowData(type, "inf"); }
+    if (Card.Unit.sUnitData.charAt(8)== '1') { ShowData(type, "log"); }
+    if (Card.Unit.sUnitData.charAt(9)== '1') { ShowData(type, "eng"); }
+    if (Card.Unit.sUnitData.charAt(10) == '1') { ShowData(type, "plane"); }
+    if (Card.Unit.sUnitData.charAt(11) == '1') { ShowData(type, "rad"); }
+    if (Card.Unit.sUnitData.charAt(12) == '1') { ShowData(type, "rocket"); }
+    if (Card.Unit.sUnitData.charAt(13) == '1') { ShowData(type, "mtr"); }
+    if (Card.Unit.sUnitData.charAt(14) == '1') { ShowData(type, "rec"); }
+    if (Card.Unit.sUnitData.charAt(14) == '2') { ShowData(type, "rec2"); }
+    if (Card.Unit.sUnitData.charAt(14) == '3') { ShowData(type, "rec3"); }
+    if (Card.Unit.sUnitData.charAt(15) == '1') { ShowData(type, "tube"); }
+    if (Card.Unit.sUnitData.charAt(16) == '1') { ShowData(type, "rad"); }
+    
+    iData = document.createElement("img");
+    iData.src = "pics/" + Deck.iSide + Card.Unit.iUnitID + ".png";
+    iData.setAttribute("class", "img-responsive");
+    iData.setAttribute("style", "position: relative; top: 0; left: 0;");
+    document.getElementById(type + "UP").innerHTML = "";  
+    document.getElementById(type + "UP").appendChild(iData); 
     
     selectedCards[btn] = Card;
     
