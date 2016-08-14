@@ -45,18 +45,47 @@ function GUIDisplay() {
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.moto);
             document.getElementById("tspec").innerHTML = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
+            document.getElementById("v10").src = "rank/001.png";
+            document.getElementById("v11").src = "rank/010.png";
+            document.getElementById("v12").src = "rank/011.png";
+            document.getElementById("v13").src = "rank/100.png";
+            document.getElementById("v14").src = "rank/100.png";
+            
+            document.getElementById("v40").src = "rank/001.png";
+            document.getElementById("v41").src = "rank/010.png";
+            document.getElementById("v42").src = "rank/011.png";
+            document.getElementById("v43").src = "rank/100.png";
+            document.getElementById("v44").src = "rank/100.png";
+            
+            document.getElementById("v50").src = "rank/001.png";
+            document.getElementById("v51").src = "rank/010.png";
+            document.getElementById("v52").src = "rank/011.png";
+            document.getElementById("v53").src = "rank/100.png";
+            document.getElementById("v54").src = "rank/100.png";
             break;
         case 1://arm
             var btSpec = document.getElementById("bArmoured");
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.armoured);
             document.getElementById("tspec").innerHTML = "+4 cards, +2XP, -1 cost: Tank";
+            
+            document.getElementById("v40").src = "rank/010.png";
+            document.getElementById("v41").src = "rank/011.png";
+            document.getElementById("v42").src = "rank/100.png";
+            document.getElementById("v43").src = "rank/100.png";
+            document.getElementById("v44").src = "rank/100.png";
             break;
         case 2://sup
             var btSpec = document.getElementById("bSupport");
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.support);
             document.getElementById("tspec").innerHTML = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";
+            
+            document.getElementById("v20").src = "rank/010.png";
+            document.getElementById("v21").src = "rank/011.png";
+            document.getElementById("v22").src = "rank/100.png";
+            document.getElementById("v23").src = "rank/100.png";
+            document.getElementById("v24").src = "rank/100.png";
             break;
         case 3://mar
             var btSpec = document.getElementById("bMarine");
@@ -69,12 +98,41 @@ function GUIDisplay() {
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.mech);
             document.getElementById("tspec").innerHTML = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";
+            
+            document.getElementById("v10").src = "rank/001.png";
+            document.getElementById("v11").src = "rank/010.png";
+            document.getElementById("v12").src = "rank/011.png";
+            document.getElementById("v13").src = "rank/100.png";
+            document.getElementById("v14").src = "rank/100.png";
+            
+            document.getElementById("v50").src = "rank/001.png";
+            document.getElementById("v51").src = "rank/010.png";
+            document.getElementById("v52").src = "rank/011.png";
+            document.getElementById("v53").src = "rank/100.png";
+            document.getElementById("v54").src = "rank/100.png";
             break;
         case 5://air
             var btSpec = document.getElementById("bAirborne");
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.airborne);
             document.getElementById("tspec").innerHTML = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";
+            document.getElementById("v10").src = "rank/001.png";
+            document.getElementById("v11").src = "rank/010.png";
+            document.getElementById("v12").src = "rank/011.png";
+            document.getElementById("v13").src = "rank/100.png";
+            document.getElementById("v14").src = "rank/100.png";
+            
+            document.getElementById("v60").src = "rank/001.png";
+            document.getElementById("v61").src = "rank/010.png";
+            document.getElementById("v62").src = "rank/011.png";
+            document.getElementById("v63").src = "rank/100.png";
+            document.getElementById("v64").src = "rank/100.png";
+            
+            document.getElementById("v70").src = "rank/001.png";
+            document.getElementById("v71").src = "rank/010.png";
+            document.getElementById("v72").src = "rank/011.png";
+            document.getElementById("v73").src = "rank/100.png";
+            document.getElementById("v74").src = "rank/100.png";
             break;
         case 6://nav
             var btSpec = document.getElementById("bNaval");
@@ -87,6 +145,60 @@ function GUIDisplay() {
             btSpec.setAttribute("style","background-color: #0f0");
             updatePointsDisplay(Matrix.general);
             document.getElementById("tspec").innerHTML =  "no bonus";
+            document.getElementById("v00").src = "rank/000.png";
+            document.getElementById("v01").src = "rank/001.png";
+            document.getElementById("v02").src = "rank/010.png";
+            document.getElementById("v03").src = "rank/011.png";
+            document.getElementById("v04").src = "rank/100.png";
+            
+            document.getElementById("v10").src = "rank/000.png";
+            document.getElementById("v11").src = "rank/001.png";
+            document.getElementById("v12").src = "rank/010.png";
+            document.getElementById("v13").src = "rank/011.png";
+            document.getElementById("v14").src = "rank/100.png";
+            
+            document.getElementById("v20").src = "rank/000.png";
+            document.getElementById("v21").src = "rank/001.png";
+            document.getElementById("v22").src = "rank/010.png";
+            document.getElementById("v23").src = "rank/011.png";
+            document.getElementById("v24").src = "rank/100.png";
+            
+            document.getElementById("v30").src = "rank/000.png";
+            document.getElementById("v31").src = "rank/001.png";
+            document.getElementById("v32").src = "rank/010.png";
+            document.getElementById("v33").src = "rank/011.png";
+            document.getElementById("v34").src = "rank/100.png";
+            
+            document.getElementById("v40").src = "rank/000.png";
+            document.getElementById("v41").src = "rank/001.png";
+            document.getElementById("v42").src = "rank/010.png";
+            document.getElementById("v43").src = "rank/011.png";
+            document.getElementById("v44").src = "rank/100.png";
+            
+            document.getElementById("v50").src = "rank/000.png";
+            document.getElementById("v51").src = "rank/001.png";
+            document.getElementById("v52").src = "rank/010.png";
+            document.getElementById("v53").src = "rank/011.png";
+            document.getElementById("v54").src = "rank/100.png";
+            
+            document.getElementById("v60").src = "rank/000.png";
+            document.getElementById("v61").src = "rank/001.png";
+            document.getElementById("v62").src = "rank/010.png";
+            document.getElementById("v63").src = "rank/011.png";
+            document.getElementById("v64").src = "rank/100.png";
+            
+            document.getElementById("v70").src = "rank/000.png";
+            document.getElementById("v71").src = "rank/001.png";
+            document.getElementById("v72").src = "rank/010.png";
+            document.getElementById("v73").src = "rank/011.png";
+            document.getElementById("v74").src = "rank/100.png";
+            
+            document.getElementById("v80").src = "rank/000.png";
+            document.getElementById("v81").src = "rank/001.png";
+            document.getElementById("v82").src = "rank/010.png";
+            document.getElementById("v83").src = "rank/011.png";
+            document.getElementById("v84").src = "rank/100.png";
+            
             break;
     }
     switch (Deck.iEra)
@@ -109,15 +221,6 @@ function GUIDisplay() {
             document.getElementById("tera").innerHTML = "+0AP";
             break;
     }
-    
-    /*dgDeckLog.ItemsSource = LOGLIST;
-    dgDeckInf.ItemsSource = INFLIST;
-    dgDeckSup.ItemsSource = SUPLIST;
-    dgDeckTnk.ItemsSource = TNKLIST;
-    dgDeckRec.ItemsSource = RECLIST;
-    dgDeckVeh.ItemsSource = VEHLIST;
-    dgDeckHel.ItemsSource = HELLIST;
-    dgDeckAir.ItemsSource = AIRLIST;*/
     displayUnits();
     listUnits();
     document.getElementById("pointstally").innerHTML =  Deck.deckpoints + "/" + Deck.deckpoitstotal;
@@ -172,6 +275,7 @@ function displayUSA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+10%, +15AP";
+    Deck.availQ = 10;
     Deck.deckpoitstotal += 15;
 }
                         
@@ -179,6 +283,7 @@ function displayUK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML =  "+20%, +15AP";
+    Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
 
@@ -186,6 +291,7 @@ function displayFRA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML =  "+20%, +15AP";
+    Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
 
@@ -193,6 +299,7 @@ function displayBRD() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML =  "+20%, +15AP";
+    Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }   
 
@@ -200,6 +307,7 @@ function displayCAN() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML =  "+40%, +15AP";
+    Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
 
@@ -207,6 +315,7 @@ function displayDEN(){
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML =  "+40%, +15AP";
+    Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
 
@@ -214,6 +323,7 @@ function displaySWE() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML =  "+30%, +15AP";
+    Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
 
@@ -221,6 +331,7 @@ function displayNOR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML =  "+40%, +15AP";
+    Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
 
@@ -228,6 +339,7 @@ function displayANZAC() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML =  "+30%, +15AP";
+    Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
 
@@ -235,6 +347,7 @@ function displayJAP() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+30%, +15AP";
+    Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
 
@@ -242,6 +355,7 @@ function displayROK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+30%, +15AP";
+    Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
 
@@ -249,6 +363,7 @@ function displayNED() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+20%, +15AP";
+    Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
 
@@ -256,6 +371,7 @@ function displayEU() {
     var flagstr = [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+0%, +10AP";
+    Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
 
@@ -263,6 +379,7 @@ function displaySCA() {
     var flagstr = [0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+15%, +10AP";
+    Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
 
@@ -270,6 +387,7 @@ function displayCOM() {
     var flagstr = [0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+10%, +10AP";
+    Deck.availQ = 10;
     Deck.deckpoitstotal += 10;
 }
 
@@ -277,6 +395,7 @@ function displayBD() {
     var flagstr = [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+20%, +10AP";
+    Deck.availQ = 20;
     Deck.deckpoitstotal += 10;
 }
 
@@ -284,6 +403,7 @@ function displayLJ() {
     var flagstr = [0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+15%, +10AP";
+    Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
 
@@ -291,6 +411,7 @@ function displayNORAD() {
     var flagstr = [0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+0%, +10AP";
+    Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
 
@@ -298,6 +419,7 @@ function displayBDRNL() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+10%, +10AP";
+    Deck.availQ = 10;
     Deck.deckpoitstotal += 10;
 }
 
@@ -305,12 +427,14 @@ function displayNato() {
     var flagstr = [1,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "No bonus";
+    Deck.availQ = 0;
 }
 
 function displayDDR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+20%, +15AP";
+    Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
 
@@ -318,6 +442,7 @@ function displayUSSR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+10%, +15AP";
+    Deck.availQ = 10;
     Deck.deckpoitstotal += 15;
 }
 
@@ -325,6 +450,7 @@ function displayPOL() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+20%, +15AP";
+    Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
 
@@ -332,6 +458,7 @@ function displayCZS() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+30%, +15AP";
+    Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
 
@@ -339,6 +466,7 @@ function displayPRC() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+30%, +15AP";
+    Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
 
@@ -346,6 +474,7 @@ function displayDPRK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+40%, +15AP";
+    Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
 
@@ -353,6 +482,7 @@ function displayRD() {
     var flagstr = [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+20%, +10AP";
+    Deck.availQ = 20;
     Deck.deckpoitstotal += 10;
 }
 
@@ -360,6 +490,7 @@ function displayNSWP() {
     var flagstr = [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+15%, +10AP";
+    Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
 
@@ -367,6 +498,7 @@ function displayRKA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "+0%, +10AP";
+    Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
 
@@ -374,6 +506,7 @@ function displayREDFOR() {
     var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0];
     showFlags(flagstr);
     document.getElementById("tnation").innerHTML = "No bonus";
+    Deck.availQ = 0;
 }
 
 function addDataImage(x, prefix, y, spec){      
@@ -448,7 +581,7 @@ function displayCard(card, prefix,type, pos){
             
     //avail
     var aText = document.createElement("h5");
-    aText.innerHTML = card.iaAvailability[card.iVet0];
+    aText.innerHTML = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
     aText.setAttribute("style","position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;");
     document.getElementById("D" + prefix + type + pos[type]).appendChild(aText);
     
@@ -499,7 +632,6 @@ function displayUnits()
             DA = Matrix.general;
             break;
     }
-        
         
     for (var i = 0; i < Deck.Cards2T.length; i++)
     {
