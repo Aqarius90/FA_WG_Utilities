@@ -635,11 +635,11 @@ function ShowCard(Card)
     
     selectedCards[btn] = Card;
     
-    document.getElementById("add"+btn+"0").innerHTML = Card.iaAvailability[0];
-    document.getElementById("add"+btn+"1").innerHTML = Card.iaAvailability[1];
-    document.getElementById("add"+btn+"2").innerHTML = Card.iaAvailability[2];
-    document.getElementById("add"+btn+"3").innerHTML = Card.iaAvailability[3];
-    document.getElementById("add"+btn+"4").innerHTML = Card.iaAvailability[4];
+    document.getElementById("add"+btn+"0").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[0])/100);
+    document.getElementById("add"+btn+"1").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[1])/100);
+    document.getElementById("add"+btn+"2").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[2])/100);
+    document.getElementById("add"+btn+"3").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[3])/100);
+    document.getElementById("add"+btn+"4").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[4])/100);
     
     document.getElementById("D" + type).innerHTML = "";       
     var uText = document.createElement("p");

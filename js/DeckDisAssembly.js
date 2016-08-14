@@ -17,6 +17,7 @@ function  DeckAssembly()
     this.Cards2T = [];
     this.deckpoints = 0;
     this.deckpoitstotal = 45;
+    this.availQ = 0;
    // var Weapon = new Weapon(0, 0, 0, 0, 0, 0, 0, "", 0, "", "", "NONE"); //???
 }
 
