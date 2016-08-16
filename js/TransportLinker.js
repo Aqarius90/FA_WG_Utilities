@@ -345,7 +345,6 @@ window.TransportLinker = [
         new TransportPair(0,   02,   45),  //CANADIAN RIFLES	GRIZZLY
         new TransportPair(0,   02,   55),  //	Bison
         new TransportPair(0,   02,  546),  //	M113A1
-        new TransportPair(0,   02,   69),  //	TH-495
         new TransportPair(0,   60,   45),  //ERYX	GRIZZLY
         new TransportPair(0,   60,   55),  //	Bison
         new TransportPair(0,   60,  546),  //	M113A1
@@ -584,16 +583,16 @@ window.TransportLinker = [
         new TransportPair(0,   26,  280),  //	M113A1 30/50
         new TransportPair(0,   26,  675),  //	UH-1H HUEY
         new TransportPair(0,   26,  655),  //	S-70
-        new TransportPair(0,   31,   48),  //NORFORCE	STOLLY
+        new TransportPair(0,   31,  522),  //NORFORCE	unimog     
+        new TransportPair(0,   31,   48),  //NORFORCE	STOLLY 
         new TransportPair(0,   31,  279),  //	M113A1 30/30
         new TransportPair(0,   31,  280),  //	M113A1 30/50
-        new TransportPair(0,   31,   37),  //	ASLAV-PC
-        new TransportPair(0,   31,  675),  //	UH-1H HUEY
-        new TransportPair(0,   31,  655),  //	S-70
+        new TransportPair(0,   31,   37),  //	ASLAV-PC    
+        new TransportPair(0,   31,  616),  //	chinook
         new TransportPair(0,   27,  522),  //NZSAS	UNIMOG
         new TransportPair(0,   27,   48),  //	STOLLY
         new TransportPair(0,   27,   37),  //	ASLAV-PC
-        new TransportPair(0,   27,  614),  //	CH-47C Chinook
+        new TransportPair(0,   27,  616),  //	CH-47C Chinook
         new TransportPair(0,   29,   48),  //RBS 70	STOLLY
         new TransportPair(0,   29,  279),  //	M113A1 30/30
         new TransportPair(0,   29,  280),  //	M113A1 30/50
@@ -606,7 +605,7 @@ window.TransportLinker = [
         new TransportPair(0,   30,  655),  //	S-70
         new TransportPair(0,  807,   48),  //SASR	STOLLY
         new TransportPair(0,  807,   37),  //	ASLAV-PC
-        new TransportPair(0,  807,  614),  //	CH-47C Chinook
+        new TransportPair(0,  807,  616),  //	CH-47C Chinook
         new TransportPair(0,  164,  501),  //Honbu-Han	Chugata
         new TransportPair(0,  164,  163),  //	HMV
         new TransportPair(0,  164,  626),  //	UH-1H
