@@ -11,21 +11,6 @@ function init() {
     GUIDisplay();
 }
 
-function btDecode()
-{
-    debugClear();
-    DeckDisAssembly();
-    GUIDisplay();
-    DeckExport();
-}
-
-function btClear()
-{
-    Deck = new DeckAssembly();
-    GUIDisplay();
-    DeckExport();
-}
-
 function listUnits() //get units for display
 {
     var tables = ["log", "inf", "sup", "tnk", "rec", "veh", "hel", "air", "nav"]
@@ -38,13 +23,15 @@ function listUnits() //get units for display
         var table = document.getElementById(tables[i] + "Body");
         var row = table.insertRow(table.rows.length);
         var nation = row.insertCell(0);
-        var unit = row.insertCell(1);
-        var costU = row.insertCell(2);
-        var cardsU = row.insertCell(3);
-        var trans = row.insertCell(4);
-        var costT = row.insertCell(5);
-        var cardsT = row.insertCell(6);
-        var btn = row.insertCell(7);
+        var picU = row.insertCell(1);
+        var unit = row.insertCell(2);
+        var costU = row.insertCell(3);
+        var cardsU = row.insertCell(4);
+        var picT = row.insertCell(5);
+        var trans = row.insertCell(6);
+        var costT = row.insertCell(7);
+        var cardsT = row.insertCell(8);
+        var btn = row.insertCell(9);
         nation.innerHTML = "Nation";
         unit.innerHTML = "Unit";
         cardsU.innerHTML = "Cards";
@@ -141,9 +128,9 @@ function listUnits() //get units for display
 
 function UnitLookup(nation){
     var card;
-    var year = 0;
-    if(Deck.sEra == "B"){ year = 1986;}//I think FOBs are "year 0". Should be "-7500" really
-    if(Deck.sEra == "C"){ year = 1981;}
+    var year = 3000;
+    if(Deck.sEra == "B"){ year = 1985;}//I think FOBs are "year 0". Should be "-7500" really
+    if(Deck.sEra == "C"){ year = 1980;}
     var spec = -1;
     if(Deck.sSpec == "MAR"){spec=0;}
     else if (Deck.sSpec == "AIR"){spec=0;}
@@ -155,15 +142,16 @@ function UnitLookup(nation){
     for (var i=0; i<1024;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
-            if (card.sNation == nation && card.iYear >= year){
-                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){
+            if (card.sNation == nation && card.iYear <= year){
+                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){                    
                     if (card.sSpecDeck.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
                         var transport = 0;
                         if (card.sUnitData.charAt(7) == '1'){
+                            if(card.iUnitID == 406) {console.log(card.sNameU);}
                             for (var j=0; j<TransportLinker.length; j++){
                                 if (card.iUnitID == TransportLinker[j].uID && TransportLinker[j].iSide == Deck.iSide){
                                     var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
-                                    if (pair.iYear >= year) {
+                                    if (pair.iYear <= year) {
                                         if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || pair.iIsProto == '0'){
                                             if (pair.sSpec.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
                                                 toList(pair);
@@ -174,7 +162,9 @@ function UnitLookup(nation){
                             }
                         }
                         else{
+                            if(card.iUnitID == 406) {console.log(card.sNameU);}
                             var single = new VehicleCard("000", card, 0, 0);
+                            if(card.iUnitID == 406) {console.log(single);}
                             toList(single);                        
                         }
                     }
@@ -199,271 +189,43 @@ function toList(card){
     var table = document.getElementById(type);
     var row = table.insertRow(table.rows.length);
     var nation = row.insertCell(0);
-    var unit = row.insertCell(1);
-    var costU = row.insertCell(2);
-    var cardsU = row.insertCell(3);
-    var trans = row.insertCell(4);
-    var costT = row.insertCell(5);
-    var cardsT = row.insertCell(6);
-    var btn = row.insertCell(7);
+    var picU = row.insertCell(1);
+    var unit = row.insertCell(2);
+    var costU = row.insertCell(3);
+    var cardsU = row.insertCell(4);
+    var picT = row.insertCell(5);
+    var trans = row.insertCell(6);
+    var costT = row.insertCell(7);
+    var cardsT = row.insertCell(8);
+    var btn = row.insertCell(9);
     nation.innerHTML = card.sNation;
     unit.innerHTML = card.Unit.sNameU;
     cardsU.innerHTML = card.Unit.iCards;   
     costU.innerHTML = card.Unit.iCost;
+    
+    var iData = document.createElement("img");
+    iData.src = "pics/" + Deck.iSide + card.Unit.iUnitID + ".png";
+    iData.setAttribute("class", "img-responsive");
+    iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
+    picU.appendChild(iData); 
+    
     if(card.Transport !=0){
+        var iData = document.createElement("img");
+        iData.src = "pics/" + Deck.iSide + card.Transport.iUnitID + ".png";
+        iData.setAttribute("class", "img-responsive");
+        iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
+        picT.appendChild(iData);
         trans.innerHTML = card.Transport.sNameU;
         cardsT.innerHTML = card.Transport.iCards;    
         costT.innerHTML = card.Transport.iCost;
-    }
+    }    
+    
     
     let elem = document.createElement('input');
     elem.type = 'button';
     elem.value = '>';
     elem.onclick = function(){ShowCard(card);};
     btn.appendChild(elem); 
-}
-
-function btNATO_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "NATO";
-    Deck.iNation = 202;
-    GUIDisplay();
-    DeckExport();
-}        
-
-function btREDFOR_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "REDFOR";
-    Deck.iNation = 362;
-    GUIDisplay();
-    DeckExport();
-}
-function btBD_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "BD";
-    Deck.iNation = 195;
-    GUIDisplay();
-    DeckExport();
-}
-function btCOM_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "CW";
-    Deck.iNation = 194;
-    GUIDisplay();
-    DeckExport();
-}
-function btEU_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "EU";
-    Deck.iNation = 192;
-    GUIDisplay();
-    DeckExport();
-}
-function btLJ_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "LJUT";
-    Deck.iNation = 198;
-    GUIDisplay();
-    DeckExport();
-}
-function btBRDNL_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "BDRNL";
-    Deck.iNation = 201;
-    GUIDisplay();
-    DeckExport();
-}
-function btNORAD_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "NORAD";
-    Deck.iNation = 200;
-    GUIDisplay();
-    DeckExport();
-}
-function btSCA_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "SCA";
-    Deck.iNation = 193;
-    GUIDisplay();
-    DeckExport();
-}
-function btNSWP_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "NSWP";
-    Deck.iNation = 357;
-    GUIDisplay();
-    DeckExport();
-}
-function btRD_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "RD";
-    Deck.iNation = 356;
-    GUIDisplay();
-    DeckExport();
-}
-function btRKA_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "SOVKOR";
-    Deck.iNation = 359;
-    GUIDisplay();
-    DeckExport();
-}
-function btANZAC_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "ANZAC";
-    Deck.iNation = 138;
-    GUIDisplay();
-    DeckExport();
-}
-function btBRD_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "BRD";
-    Deck.iNation = 58;
-    GUIDisplay();
-    DeckExport();
-}
-function btCAN_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "CAN";
-    Deck.iNation = 74;
-    GUIDisplay();
-    DeckExport();
-}
-function btDEN_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "DEN";
-    Deck.iNation = 90;
-    GUIDisplay();
-    DeckExport();
-}
-function btFRA_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "FRA";
-    Deck.iNation = 42;
-    GUIDisplay();
-    DeckExport();
-}
-function btJAP_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "JAP";
-    Deck.iNation = 154;
-    GUIDisplay();
-    DeckExport();
-}
-function btNED_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "NED";
-    Deck.iNation = 186;
-    GUIDisplay();
-    DeckExport();
-}
-function btNOR_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "NOR";
-    Deck.iNation = 122;
-    GUIDisplay();
-    DeckExport();
-}
-function btROK_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "ROK";
-    Deck.iNation = 170;
-    GUIDisplay();
-    DeckExport();
-}
-function btSWE_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "SWE";
-    Deck.iNation = 106;
-    GUIDisplay();
-    DeckExport();
-}
-function btUK_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "UK";
-    Deck.iNation = 26;
-    GUIDisplay();
-    DeckExport();
-}
-function btUSA_Click() {
-    Deck.sSide = "BLU";
-    Deck.iSide = 0;
-    Deck.sNation = "USA";
-    Deck.iNation = 10;
-    GUIDisplay();
-    DeckExport();
-}
-function btCZS_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "CZS";
-    Deck.iNation = 314;
-    GUIDisplay();
-    DeckExport();
-}
-function btDDR_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "DDR";
-    Deck.iNation = 266;
-    GUIDisplay();
-    DeckExport();
-}
-function btDPRK_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "DPRK";
-    Deck.iNation = 346;
-    GUIDisplay();
-    DeckExport();
-}
-function btPOL_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "POL";
-    Deck.iNation = 298;
-    GUIDisplay();
-    DeckExport();
-}
-function btPRC_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "PRC";
-    Deck.iNation = 330;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btUSSR_Click() {
-    Deck.sSide = "RED";
-    Deck.iSide = 1;
-    Deck.sNation = "USSR";
-    Deck.iNation = 282;
-    GUIDisplay();
-    DeckExport();
 }
 
 function isError(Card) {
@@ -860,86 +622,6 @@ function add(type, veterancy){
         Deck.Cards0T[Deck.i1Cards] = selectedCards[type];
         Deck.i1Cards++;
     }
-    GUIDisplay();
-    DeckExport();
-}
-
-function btA()
-{
-    Deck.sEra = "A";
-    Deck.iEra = 2;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btB()
-{
-    Deck.sEra = "B";
-    Deck.iEra = 1;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btC()
-{
-    Deck.sEra = "C";
-    Deck.iEra = 0;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btMarine() {
-    Deck.sSpec = "MAR";
-    Deck.iSpec = 3;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btAirborne() {
-    Deck.sSpec = "AIR";
-    Deck.iSpec = 5;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btMechanized() {
-    Deck.sSpec = "MECH";
-    Deck.iSpec = 4;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btArmoured() {
-    Deck.sSpec = "ARM";
-    Deck.iSpec = 1;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btMotorized() {
-    Deck.sSpec = "MOTO";
-    Deck.iSpec = 0;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btSupport() {
-    Deck.sSpec = "SUP";
-    Deck.iSpec = 2;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btGeneral() {
-    Deck.sSpec = "GEN";
-    Deck.iSpec = 7;
-    GUIDisplay();
-    DeckExport();
-}
-
-function btNaval() {
-    Deck.sSpec = "NAV";
-    Deck.iSpec = 6;
     GUIDisplay();
     DeckExport();
 }
