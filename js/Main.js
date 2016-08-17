@@ -142,12 +142,11 @@ function UnitLookup(nation){
     for (var i=0; i<1024;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
-            if (card.sNation == nation && card.iYear <= year){
+            if ((card.sNation == nation || card.sNation == "RED" || card.sNation == "NATO") && card.iYear <= year){
                 if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){                    
                     if (card.sSpecDeck.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
                         var transport = 0;
                         if (card.sUnitData.charAt(7) == '1'){
-                            if(card.iUnitID == 406) {console.log(card.sNameU);}
                             for (var j=0; j<TransportLinker.length; j++){
                                 if (card.iUnitID == TransportLinker[j].uID && TransportLinker[j].iSide == Deck.iSide){
                                     var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
@@ -162,9 +161,7 @@ function UnitLookup(nation){
                             }
                         }
                         else{
-                            if(card.iUnitID == 406) {console.log(card.sNameU);}
                             var single = new VehicleCard("000", card, 0, 0);
-                            if(card.iUnitID == 406) {console.log(single);}
                             toList(single);                        
                         }
                     }

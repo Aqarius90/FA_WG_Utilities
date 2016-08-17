@@ -66,13 +66,13 @@ function WeaponDataLoad()
     MainArmory[ 40] = new Weapon(  2100,    0,     0,   35,  0,  20,  0.00, "20s",  150, "[HEAT][GUID]", "MCLOS misile", "ENTAC");
     MainArmory[ 41] = new Weapon( 33950,    0,     0, 3640,  0,   0,  7.00, "6",  357, "[AOE][CORR][STAT][SMK]", "155MM", "155mm/52");
     MainArmory[ 42] = new Weapon(     0, 2450,  3850,   40,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "3M9");
-    MainArmory[ 43] = new Weapon(     0, 2450,  3850,   40,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23A HAWK");
-    MainArmory[ 44] = new Weapon(     0, 2625,  4200,   50,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-HAWK");
+    MainArmory[ 43] = new Weapon(     0, 2450,  3850,   40,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23A Hawk");
+    MainArmory[ 44] = new Weapon(     0, 2625,  4200,   50,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-Hawk");
     MainArmory[ 45] = new Weapon(     0, 2625,  4200,   50,  0,   0,  9.00, "6S",  360, "[AOE][GUID]", "SACLOS missile", "EOTS I-Hawk");
-    MainArmory[ 46] = new Weapon(     0, 3325,  4200,   55,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-HAWK PIP III");
+    MainArmory[ 46] = new Weapon(     0, 3325,  4200,   55,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-Hawk PIP III");
     MainArmory[ 47] = new Weapon(     0, 2800,  4550,   65, 65,   0,  9.00, "10S",  360, "[AOE][GUID][RAD]", "Radar missiles", "3M9M3");
-    MainArmory[ 48] = new Weapon(     0, 2800,  4550,   60,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-HAWK");
-    MainArmory[ 49] = new Weapon(     0, 3500,  4550,   60,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-HAWK PIP III");
+    MainArmory[ 48] = new Weapon(     0, 2800,  4550,   60,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-Hawk");
+    MainArmory[ 49] = new Weapon(     0, 3500,  4550,   60,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-Hawk PIP III");
     MainArmory[ 50] = new Weapon(  1050,    0,     0,   20,  5,   4,  1.00, "6",   69, "[HEAT]", "60mm HEAT", "HB 60");
     MainArmory[ 51] = new Weapon(  1925,    0,     0,   30,  0,  11,  3.00, "6S",  115, "[KE][STAT][AOE]", "100MM", "D-10T");
     MainArmory[ 52] = new Weapon(  1925,    0,     0,   40, 10,  11,  3.00, "6",  133, "[KE][AOE]", "115mm", "2A20");
@@ -632,7 +632,7 @@ function WeaponDataLoad()
     MainArmory[606] = new Weapon(   875,  525,     0,   20,  5,   0,  0.50, "1035",   55, "", "7.62MM", "Twin M1919");
     MainArmory[607] = new Weapon(   875,  525,     0,   10,  5,   0,  0.50, "1034",   55, "", "7.62MM", "Twin Ksp m/36");
     MainArmory[608] = new Weapon(   875,  525,     0,   20,  5,   0,  0.50, "1034",   55, "", "7.62MM", "M240");
-    MainArmory[609] = new Weapon(   455,    0,     0,   60,  0,   0,  1.00, "72",   90, "[AOE][STAT]", "40MM FRAG", "HAWK MM1");
+    MainArmory[609] = new Weapon(   455,    0,     0,   60,  0,   0,  1.00, "72",   90, "[AOE][STAT]", "40MM FRAG", "Hawk MM1");
     MainArmory[610] = new Weapon(  1050, 1050,     0,   20, 10,   0,  1.00, "1052",   36, "[AOE]", "7.62MM", "GSHG-7.62");
     MainArmory[611] = new Weapon(  1050, 1050,     0,   20, 10,   0,  1.00, "1052",   36, "", "7.62MM", "M134 MINIGUN");
     MainArmory[612] = new Weapon(  2100, 1575,  1400,   20, 20,   0,  1.00, "1178",   36, "", "7.62MM", "Machine gun 7.62");
@@ -658,7 +658,7 @@ function WeaponDataLoad()
     MainArmory[632] = new Weapon(  1050, 1050,     0,   20, 10,   0,  1.00, "2758",   36, "", "7.62MM", "TWIN M134 MINIGUN");
     MainArmory[633] = new Weapon(  2100, 1575,  2450,   30, 30,   0,  1.00, "4028",   92, "[AOE]", "20MM", "M61A1 Vulcan");
     MainArmory[634] = new Weapon(  4200,    0,     0, 2275,  0,   0,  2.00, "22",  138, "[AOE][CORR][STAT][SMK]", "60mm", "HB 60 LP");
-    MainArmory[635] = new Weapon(     0, 2625,  4200,   50,  0,   0,  9.00, "25S",  360, "[AOE][GUID]", "Radar missiles", "HEOS I-HAWK");
+    MainArmory[635] = new Weapon(     0, 2625,  4200,   50,  0,   0,  9.00, "25S",  360, "[AOE][GUID]", "Radar missiles", "HEOS I-Hawk");
     MainArmory[636] = new Weapon(  1575,    0,     0,   25,  5,   6,  2.00, "13",   87, "[KE][AOE]", "75MM", "SA.50");
     MainArmory[637] = new Weapon(  2450,    0,     0,   45,  0,  16,  0.00, "20S",  150, "[HEAT][GUID]", "MCLOS misile", "HJ-73B");
     MainArmory[638] = new Weapon(   595,  595,     0,   40, 10,   0,  1.00, "120",   55, "", "7.62MM", "Howa 64  Shiki");

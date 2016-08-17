@@ -9,19 +9,19 @@ window.TransportLinker = [
         new TransportPair(0,  519,  332),  //TACOM	M35
         new TransportPair(0,  519,  384),  //	M998  HUMVEE
         new TransportPair(0,  519,  674),  //	UH-1H HUEY
-        new TransportPair(0,  519,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  519,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  519,  678),  //	UH-1N TWIN HUEY
         new TransportPair(0,   50,  288),  //Assault Engineers	M113A1
         new TransportPair(0,   50,  289),  //	M113A3
         new TransportPair(0,   50,  674),  //	UH-1H HUEY
-        new TransportPair(0,   50,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,   50,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,   50,  678),  //	UH-1N TWIN HUEY
         new TransportPair(0,   42,  332),  //CAVALRY SCOUTS	M35
         new TransportPair(0,   42,  384),  //	M998  HUMVEE
         new TransportPair(0,   42,  282),  //	M113A1 DRAGON
         new TransportPair(0,   42,  290),  //	M113A1 SUPER DRAGON
         new TransportPair(0,   42,  674),  //	UH-1H HUEY
-        new TransportPair(0,   42,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,   42,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  106,  384),  //Delta Force	M998  HUMVEE
         new TransportPair(0,  106,  527),  //	V-150
         new TransportPair(0,  106,  613),  //	CH-46 PHROG
@@ -30,27 +30,27 @@ window.TransportLinker = [
         new TransportPair(0,  218,  288),  //	M113A1
         new TransportPair(0,  218,  289),  //	M113A3
         new TransportPair(0,  218,  674),  //	UH-1H HUEY
-        new TransportPair(0,  218,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  218,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  218,  678),  //	UH-1N TWIN HUEY
         new TransportPair(0,  219,  384),  //LAAD STINGER A	M998  HUMVEE
         new TransportPair(0,  219,  288),  //	M113A1
         new TransportPair(0,  219,  289),  //	M113A3
         new TransportPair(0,  219,  674),  //	UH-1H HUEY
-        new TransportPair(0,  219,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  219,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  219,  678),  //	UH-1N TWIN HUEY
         new TransportPair(0,  832,  384),  //LAAD STINGER C	M998  HUMVEE
         new TransportPair(0,  832,  288),  //	M113A1
         new TransportPair(0,  832,  289),  //	M113A3
         new TransportPair(0,  832,  674),  //	UH-1H HUEY
-        new TransportPair(0,  832,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  832,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  832,  678),  //	UH-1N TWIN HUEY
         new TransportPair(0,  472,  384),  //LIGHT RIFLEMEN	M998  HUMVEE
         new TransportPair(0,  472,  674),  //	UH-1H HUEY
-        new TransportPair(0,  472,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  472,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  472,  678),  //	UH-1N TWIN HUEY
         new TransportPair(0,  806,  384),  //LIGHT RIFLEMEN 90	M998  HUMVEE
         new TransportPair(0,  806,  674),  //	UH-1H HUEY
-        new TransportPair(0,  806,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  806,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  806,  678),  //	UH-1N TWIN HUEY
         new TransportPair(0,  521,  332),  //Navy seals	M35
         new TransportPair(0,  521,  384),  //	M998  HUMVEE
@@ -61,7 +61,7 @@ window.TransportLinker = [
         new TransportPair(0,  452,  384),  //	M998  HUMVEE
         new TransportPair(0,  452,  527),  //	V-150
         new TransportPair(0,  452,  674),  //	UH-1H HUEY
-        new TransportPair(0,  452,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  452,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  452,  615),  //	CH-47C Chinook
         new TransportPair(0,  455,  384),  //RIFLEMEN	M998  HUMVEE
         new TransportPair(0,  455,  288),  //	M113A1
@@ -70,7 +70,7 @@ window.TransportLinker = [
         new TransportPair(0,  455,  328),  //	M2A1 BRADLEY IFV
         new TransportPair(0,  455,  329),  //	M2A2 BRADLEY IFV
         new TransportPair(0,  455,  674),  //	UH-1H HUEY
-        new TransportPair(0,  455,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  455,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  805,  384),  //RIFLEMEN 90	M998  HUMVEE
         new TransportPair(0,  805,  288),  //	M113A1
         new TransportPair(0,  805,  289),  //	M113A3
@@ -78,7 +78,7 @@ window.TransportLinker = [
         new TransportPair(0,  805,  328),  //	M2A1 BRADLEY IFV
         new TransportPair(0,  805,  329),  //	M2A2 BRADLEY IFV
         new TransportPair(0,  805,  674),  //	UH-1H HUEY
-        new TransportPair(0,  805,  679),  //	UH-60A BLACKHAWK
+        new TransportPair(0,  805,  679),  //	UH-60A BLACKHawk
         new TransportPair(0,  833,  384),  //SMAW	M998  HUMVEE
         new TransportPair(0,  833,  229),  //	LVTP-7
         new TransportPair(0,  833,  230),  //	LVTP-7A1
