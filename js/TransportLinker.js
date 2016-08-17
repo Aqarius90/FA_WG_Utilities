@@ -437,6 +437,7 @@ window.TransportLinker = [
         new TransportPair(0,  831,  494),  //Lvgrp RBS 90	TGB m/42
         new TransportPair(0,  831,  872),  //	AMFIBIEBIL
         new TransportPair(0,  831,  882),  //	PATGB XA-180
+        new TransportPair(0,  831,  408),  //	PBV 302A
         new TransportPair(0,  831,  483),  //	STRF 9040
         new TransportPair(0,  831,  627),  //	HKP 3C
         new TransportPair(0,  878,  494),  //NORRLANDSJAEGARE	TGB m/42
