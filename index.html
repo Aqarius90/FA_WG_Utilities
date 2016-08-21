@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/buttons.js"></script>
     <script src="js/TransportLinker.js"></script>
     <script src="js/WeaponData.js"></script>
     <script src="js/Display.js"></script>
@@ -1294,9 +1295,12 @@
                     <tbody id="infBody">
                       <tr>
                         <th>Nation</th>
+                        <th></th>
                         <th>Unit</th>
+                        <th>Cost</th>
                         <th>Cards</th>
                         <th>Transport</th>
+                        <th>Cost</th>
                         <th>Cards</th>
                       </tr>
                     </tbody>
@@ -2297,7 +2301,7 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="airTable" style="width:100%">
+                  <table id="airTable" class="sortable" style="width:100%">
                     <tbody id="airBody">
                       <tr>
                         <th>Nation</th>
@@ -2384,7 +2388,8 @@
               <div class="panel panel-body">
                 <div class="row">
                   <div class="col-sm-010">
-                        <h4>Naval</h4>
+                        <h4>NOT IMPLEMENTED</h4>
+                        <h6>(not properly, anyway)</h6>
                   </div>
                   <div class="col-sm-010">
                     <div id="D091" style="position: relative; left: 0; top: 0;">
@@ -2465,16 +2470,15 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="navTable" style="width:100%">
-                    <tbody id="navBody">
-                      <tr>
+                  <table id="navTable" class="sortable" style="width:100%">
+                      
+                      <tbody id="navBody">
                         <th>Nation</th>
                         <th>Unit</th>
                         <th>Cards</th>
                         <th>Transport</th>
-                        <th>Cards</th>
-                      </tr>
-                    </tbody>
+                        <th>Cards</th>   
+                      </tbody>
                   </table>
                   </div>
                   <div class="col-sm-4">
@@ -2551,7 +2555,7 @@
             <div class="tab-pane" id="DEBUG">
               <div class="container">
                 <p>DEBUG</p>
-                <p id="debug">test</p>
+                <p id="debug" style="word-wrap: break-word;">test</p>
                   <table id="debugTable" style="width:100%">
                     <tbody id="debugBody">
                       <tr>

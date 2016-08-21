@@ -230,7 +230,7 @@ function decodeDeck (deckCode)
         var iUnit = parseInt(sUnit, 2);
         var iIFV = parseInt(sIFV, 2);
         var iCraft = parseInt(sCraft, 2);
-        var Unit = CardsDB[520][0];
+        var Unit = CardsDB[iUnit][Deck.iSide];
         var Ifv = CardsDB[iIFV][Deck.iSide];
         var Craft = CardsDB[iCraft][Deck.iSide];
         Deck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, Craft);
@@ -475,7 +475,6 @@ Array.prototype.remove = function(from, to) {
 
 function CardDelete(ID)
 {
-    console.log(ID);
     for (var j = 0; j< Deck.Cards2T.length; j++) {
         if (Deck.Cards2T[j].iArrayIndex == ID)
         {
