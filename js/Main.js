@@ -32,7 +32,7 @@ function listUnits() //get units for display
         var costT = row.insertCell(7);
         var cardsT = row.insertCell(8);
         var btn = row.insertCell(9);
-        nation.innerHTML = "Nation";
+       nation.innerHTML = "Nation";
         unit.innerHTML = "Unit";
         cardsU.innerHTML = "Cards";
         costU.innerHTML = "Cost";
@@ -124,6 +124,8 @@ function listUnits() //get units for display
         UnitLookup("DPRK");
         UnitLookup("USSR");
     }
+   // var newTableObject = document.getElementById(navTable);
+   // sorttable.makeSortable(newTableObject);
 }
 
 function UnitLookup(nation){
@@ -195,10 +197,10 @@ function toList(card){
     var costT = row.insertCell(7);
     var cardsT = row.insertCell(8);
     var btn = row.insertCell(9);
-    nation.innerHTML = card.sNation;
+    nation.innerHTML = card.Unit.sNation;
     unit.innerHTML = card.Unit.sNameU;
     cardsU.innerHTML = card.Unit.iCards;   
-    costU.innerHTML = card.Unit.iCost;
+    costU.innerHTML = card.Unit.iCost; 
     
     var iData = document.createElement("img");
     iData.src = "pics/" + Deck.iSide + card.Unit.iUnitID + ".png";
