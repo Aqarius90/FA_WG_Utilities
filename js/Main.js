@@ -9,6 +9,20 @@ function init() {
     initMainDB();
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
     GUIDisplay();
+    
+    $(document).ready(function() 
+    { 
+        $("#logTable").tablesorter(); 
+        $("#infTable").tablesorter(); 
+        $("#supTable").tablesorter(); 
+        $("#tnkTable").tablesorter(); 
+        $("#recTable").tablesorter(); 
+        $("#vehTable").tablesorter(); 
+        $("#helTable").tablesorter(); 
+        $("#airTable").tablesorter(); 
+        $("#navTable").tablesorter(); 
+    } 
+); 
 }
 
 function listUnits() //get units for display
@@ -20,7 +34,7 @@ function listUnits() //get units for display
         blankBody.setAttribute("id",tables[i] + "Body");
         body.parentNode.replaceChild(blankBody, body);
                 
-        var table = document.getElementById(tables[i] + "Body");
+        var table = document.getElementById(tables[i] + "Body"); //table sorter breaks without this part.
         var row = table.insertRow(table.rows.length);
         var nation = row.insertCell(0);
         var picU = row.insertCell(1);
@@ -32,13 +46,13 @@ function listUnits() //get units for display
         var costT = row.insertCell(7);
         var cardsT = row.insertCell(8);
         var btn = row.insertCell(9);
-       nation.innerHTML = "Nation";
+       /*nation.innerHTML = "Nation";
         unit.innerHTML = "Unit";
         cardsU.innerHTML = "Cards";
         costU.innerHTML = "Cost";
         trans.innerHTML = "Vehicle";
         cardsT.innerHTML = "Cards";
-        costT.innerHTML = "Cost";
+        costT.innerHTML = "Cost";*/
     }
     
     if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA" || Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.sNation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU") {
@@ -123,9 +137,22 @@ function listUnits() //get units for display
     {
         UnitLookup("DPRK");
         UnitLookup("USSR");
-    }
-   // var newTableObject = document.getElementById(navTable);
-   // sorttable.makeSortable(newTableObject);
+    }    
+    
+    $(document).ready(
+        function() 
+        { 
+        $("#logTable").trigger("update"); 
+        $("#infTable").trigger("update"); 
+        $("#supTable").trigger("update"); 
+        $("#tnkTable").trigger("update"); 
+        $("#recTable").trigger("update"); 
+        $("#vehTable").trigger("update"); 
+        $("#helTable").trigger("update"); 
+        $("#airTable").trigger("update"); 
+        $("#navTable").trigger("update"); 
+        } 
+    ); 
 }
 
 function UnitLookup(nation){
@@ -135,8 +162,8 @@ function UnitLookup(nation){
     if(Deck.sEra == "C"){ year = 1980;}
     var spec = -1;
     if(Deck.sSpec == "MAR"){spec=0;}
-    else if (Deck.sSpec == "AIR"){spec=0;}
-    else if (Deck.sSpec == "MECH"){spec=1;}
+    else if (Deck.sSpec == "AIR"){spec=1;}
+    else if (Deck.sSpec == "MECH"){spec=2;}
     else if (Deck.sSpec == "ARM"){spec=3;}
     else if (Deck.sSpec == "MOTO"){spec=4;}
     else if (Deck.sSpec == "SUP"){spec=5;}
@@ -146,7 +173,7 @@ function UnitLookup(nation){
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
             if ((card.sNation == nation || card.sNation == "RED" || card.sNation == "NATO") && card.iYear <= year){
                 if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){                    
-                    if (card.sSpecDeck.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
+                    if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){  
                         var transport = 0;
                         if (card.sUnitData.charAt(7) == '1'){
                             for (var j=0; j<TransportLinker.length; j++){
@@ -404,7 +431,7 @@ function ShowCard(Card)
     
     document.getElementById("D" + type).innerHTML = "";       
     var uText = document.createElement("p");
-    uText.innerHTML = Card.Unit.sNameU;
+    uText.innerHTML = Card.Unit.sNameU + "   (" + Card.Unit.iUnitID + ")";
     document.getElementById("D" + type).appendChild(uText); 
     uText = document.createElement("p");
     uText.innerHTML = "HP:" + Card.Unit.iHP;
@@ -452,7 +479,7 @@ function ShowCard(Card)
         
         document.getElementById("D" + type).innerHTML = "";       
         uText = document.createElement("p");
-        uText.innerHTML = Card.Transport.sNameU;
+        uText.innerHTML = Card.Transport.sNameU  + "   (" + Card.Transport.iUnitID + ")";
         document.getElementById("D" + type).appendChild(uText); 
         uText = document.createElement("p");
         uText.innerHTML = "HP:" + Card.Transport.iHP;
@@ -588,7 +615,11 @@ function showWeapon( wep, type, place)
         uText.innerHTML = "Plane " + wep.rAir + "m";
         document.getElementById("W" + type + place).appendChild(uText); 
         uText = document.createElement("p");
-        uText.innerHTML = "ACC " + wep.iAccuracy + "%";
+        if (wep.iAccuracy > 100){
+            uText.innerHTML = "ACC " + wep.iAccuracy + "m";    
+        } else {
+            uText.innerHTML = "ACC " + wep.iAccuracy + "%";        
+        }
         document.getElementById("W" + type + place).appendChild(uText); 
         uText = document.createElement("p");
         uText.innerHTML = "STAB " + wep.iStab + "%";
@@ -610,16 +641,21 @@ function showWeapon( wep, type, place)
 }
 
 function add(type, veterancy){
-    selectedCards[type].iVet0 = veterancy;
-    if (selectedCards[type].Craft != 0){
-        Deck.Cards2T[Deck.i3Cards] = selectedCards[type];
-        Deck.i3Cards++;
-    } else if (selectedCards[type].Transport != 0){
-        Deck.Cards1T[Deck.i2Cards] = selectedCards[type];
-        Deck.i2Cards++;
-    } else if (selectedCards[type].Unit != 0){
-        Deck.Cards0T[Deck.i1Cards] = selectedCards[type];
-        Deck.i1Cards++;
+    if (selectedCards[type].iaAvailability[veterancy] != 0){
+        veterancy = veterancy.toString(2);
+        if (selectedCards[type].Craft != 0){
+            var newcard = new VehicleCard(veterancy, selectedCards[type].Unit, selectedCards[type].Transport, selectedCards[type].Craft)
+            Deck.Cards2T[Deck.i3Cards] = newcard;
+            Deck.i3Cards++;
+        } else if (selectedCards[type].Transport != 0){
+            var newcard = new VehicleCard(veterancy, selectedCards[type].Unit, selectedCards[type].Transport, 0)
+            Deck.Cards1T[Deck.i2Cards] = newcard;
+            Deck.i2Cards++;
+        } else if (selectedCards[type].Unit != 0){
+            var newcard = new VehicleCard(veterancy, selectedCards[type].Unit, 0,0)
+            Deck.Cards0T[Deck.i1Cards] = newcard;
+            Deck.i1Cards++;
+        }
     }
     GUIDisplay();
     DeckExport();
