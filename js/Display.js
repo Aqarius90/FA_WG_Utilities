@@ -519,7 +519,6 @@ function addDataImage(x, prefix, y, spec){
 
 function displayCard(card, prefix,type, pos){
     var isUnavailable = isError(card);
-    
     document.getElementById("D" + prefix + type + pos[type]).innerHTML = "";      
           
     var iData = document.createElement("img");
@@ -694,17 +693,10 @@ function displayUnits()
 
 
 function resetDisplay()
-{
-//  if (decklist != null)
-//  {
-//      decklist.Clear();
-//  }
-    
-    
+{    
     var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0]; //"0,0,0" = ISR, FIN, YU
     showFlags(flagstr);
-    
-    
+ 
     var btSpec = document.getElementById("bMotorized");
             btSpec.setAttribute("style","background-color: #fff");
     btSpec = document.getElementById("bArmoured");

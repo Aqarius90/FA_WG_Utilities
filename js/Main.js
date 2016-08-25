@@ -270,13 +270,15 @@ function isError(Card) {
         Card.sNation != "ROK" &&
         Card.sNation != "SWE" &&
         Card.sNation != "UK" &&
-        Card.sNation != "USA")
-        { isUnavailable = true; }
+        Card.sNation != "USA" &&
+        Card.sNation != "NATO")
+        { isUnavailable = true;}
         if (Card.iIsProto == 1) { isUnavailable = true; }
     }
     else if (Deck.sNation == "REDFOR")
     {
         if (
+        Card.sNation != "RED" &&
         Card.sNation != "CZS" &&
         Card.sNation != "DDR" &&
         Card.sNation != "DPRK" &&
@@ -289,12 +291,14 @@ function isError(Card) {
     else if (Deck.sNation == "BD")
     {
         if (
+        Card.sNation != "NATO" &&
         Card.sNation != "JAP" &&
         Card.sNation != "ROK") { isUnavailable = true; }
     }
     else if (Deck.sNation == "CW")
     {
         if (
+        Card.sNation != "NATO" &&
         Card.sNation != "ANZAC" &&
         Card.sNation != "CAN" &&
         Card.sNation != "UK") { isUnavailable = true; }
@@ -302,24 +306,28 @@ function isError(Card) {
     else if (Deck.sNation == "EU")
     {
         if (
+        Card.sNation != "NATO" &&
         Card.sNation != "BRD" &&
         Card.sNation != "FRA") { isUnavailable = true; }
     }
     else if (Deck.sNation == "LJUT")
     {
         if (
+        Card.sNation != "NATO" &&
         Card.sNation != "BRD" &&
         Card.sNation != "DEN") { isUnavailable = true; }
     }
     else if (Deck.sNation == "NORAD")
     {
         if (
-        Card.sNation != "CAN" ||
+        Card.sNation != "NATO" &&
+        Card.sNation != "CAN" &&
         Card.sNation != "USA") { isUnavailable = true; }
     }
     else if (Deck.sNation == "SCA")
     {
         if (
+        Card.sNation != "NATO" &&
         Card.sNation != "DEN" &&
         Card.sNation != "NOR" &&
         Card.sNation != "SWE") { isUnavailable = true; }
@@ -327,6 +335,7 @@ function isError(Card) {
     else if (Deck.sNation == "NSWP")
     {
         if (
+        Card.sNation != "RED" &&
         Card.sNation != "CZS" &&
         Card.sNation != "DDR" &&
         Card.sNation != "POL") { isUnavailable = true; }
@@ -334,18 +343,21 @@ function isError(Card) {
     else if (Deck.sNation == "RD")
     {
         if (
+        Card.sNation != "RED" &&
         Card.sNation != "DPRK" &&
         Card.sNation != "PRC") { isUnavailable = true; }
     }
     else if (Deck.sNation == "SOVKOR")
     {
         if (
+        Card.sNation != "RED" &&
         Card.sNation != "DPRK" &&
         Card.sNation != "USSR") { isUnavailable = true; }
     }
     else if (Deck.sNation == "BDRNL")
     {
         if (
+        Card.sNation != "NATO" &&
         Card.sNation != "BRD" &&
         Card.sNation != "NED") { isUnavailable = true; }
     }
