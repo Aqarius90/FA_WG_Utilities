@@ -137,9 +137,6 @@ function listUnits() //get units for display
     {
         UnitLookup("DPRK");
         UnitLookup("USSR");
-<<<<<<< HEAD
-    }
-=======
     }    
     
     $(document).ready(
@@ -156,7 +153,6 @@ function listUnits() //get units for display
         $("#navTable").trigger("update"); 
         } 
     ); 
->>>>>>> origin/test
 }
 
 function UnitLookup(nation){
@@ -176,15 +172,8 @@ function UnitLookup(nation){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
             if ((card.sNation == nation || card.sNation == "RED" || card.sNation == "NATO") && card.iYear <= year){
-<<<<<<< HEAD
-                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){ 
-        //if(card.iUnitID == 585) {console.log(card.sSpecDeck);}                   
-                    if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){  
-        if(card.iUnitID == 585) {console.log(card.sSpecDeck);}                   
-=======
                 if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){                    
                     if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){  
->>>>>>> origin/test
                         var transport = 0;
                         if (card.sUnitData.charAt(7) == '1'){
                             for (var j=0; j<TransportLinker.length; j++){
