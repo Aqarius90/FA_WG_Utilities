@@ -124,8 +124,6 @@ function listUnits() //get units for display
         UnitLookup("DPRK");
         UnitLookup("USSR");
     }
-   // var newTableObject = document.getElementById(navTable);
-   // sorttable.makeSortable(newTableObject);
 }
 
 function UnitLookup(nation){
@@ -135,8 +133,8 @@ function UnitLookup(nation){
     if(Deck.sEra == "C"){ year = 1980;}
     var spec = -1;
     if(Deck.sSpec == "MAR"){spec=0;}
-    else if (Deck.sSpec == "AIR"){spec=0;}
-    else if (Deck.sSpec == "MECH"){spec=1;}
+    else if (Deck.sSpec == "AIR"){spec=1;}
+    else if (Deck.sSpec == "MECH"){spec=2;}
     else if (Deck.sSpec == "ARM"){spec=3;}
     else if (Deck.sSpec == "MOTO"){spec=4;}
     else if (Deck.sSpec == "SUP"){spec=5;}
@@ -145,8 +143,10 @@ function UnitLookup(nation){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
             if ((card.sNation == nation || card.sNation == "RED" || card.sNation == "NATO") && card.iYear <= year){
-                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){                    
-                    if (card.sSpecDeck.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
+                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){ 
+        //if(card.iUnitID == 585) {console.log(card.sSpecDeck);}                   
+                    if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){  
+        if(card.iUnitID == 585) {console.log(card.sSpecDeck);}                   
                         var transport = 0;
                         if (card.sUnitData.charAt(7) == '1'){
                             for (var j=0; j<TransportLinker.length; j++){
