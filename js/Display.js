@@ -519,7 +519,6 @@ function addDataImage(x, prefix, y, spec){
 
 function displayCard(card, prefix,type, pos){
     var isUnavailable = isError(card);
-    
     document.getElementById("D" + prefix + type + pos[type]).innerHTML = "";      
           
     var iData = document.createElement("img");
@@ -649,7 +648,7 @@ function displayUnits()
         type =9; //2 transports = naval inf.
         displayCard(Deck.Cards2T[i], "", type, counter);
         displayCard(Deck.Cards2T[i], "0", type, counter);  
-        Deck.deckpoints += DA[type-1][counter[type]-1];
+        Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;         
     } 
     for (var i = 0; i < Deck.Cards1T.length; i++)
@@ -668,7 +667,7 @@ function displayUnits()
         else{type = 9;} //me=idiot, forgot to input naval
         displayCard(Deck.Cards1T[i], "", type, counter);
         displayCard(Deck.Cards1T[i], "0", type, counter);  
-        Deck.deckpoints += DA[type-1][counter[type]-1];
+        Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;         
     } 
     for (var i = 0; i < Deck.Cards0T.length; i++)
@@ -687,27 +686,17 @@ function displayUnits()
         else{type = 9;} //me=idiot, forgot to input naval
         displayCard(Deck.Cards0T[i], "", type, counter);
         displayCard(Deck.Cards0T[i], "0", type, counter); 
-        Deck.deckpoints += DA[type-1][counter[type]];
-        console.log(DA[type-1][counter[type]]);
-        console.log(counter[type]);
-        counter[type] +=1;         
-        console.log(counter[type]);
+        Deck.deckpoints += DA[type][counter[type]];
+        counter[type] +=1;
     } 
 }
 
 
 function resetDisplay()
-{
-//  if (decklist != null)
-//  {
-//      decklist.Clear();
-//  }
-    
-    
+{    
     var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0]; //"0,0,0" = ISR, FIN, YU
     showFlags(flagstr);
-    
-    
+ 
     var btSpec = document.getElementById("bMotorized");
             btSpec.setAttribute("style","background-color: #fff");
     btSpec = document.getElementById("bArmoured");
@@ -748,7 +737,7 @@ function updatePointsDisplay(DA)
                 var uText = document.createElement("h3");
                 uText.setAttribute("class","text-center");
                 uText.setAttribute("line-height","50%"); 
-                uText.innerHTML = DA[i-1][j];
+                uText.innerHTML = DA[i][j];
                 document.getElementById("D" + i + j).appendChild(uText);
         }   
     }
@@ -756,7 +745,7 @@ function updatePointsDisplay(DA)
         for (var j = 1; j < 10; j++){       
                 var uText = document.createElement("h2");
                 uText.setAttribute("class","text-center");   
-                uText.innerHTML = DA[i-1][j];
+                uText.innerHTML = DA[i][j];
                 document.getElementById("D0" + i + j).appendChild(uText);
         }   
     }
