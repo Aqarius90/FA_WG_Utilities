@@ -55,8 +55,12 @@ function listUnits() //get units for display
         costT.innerHTML = "Cost";*/
     }
     
-    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA" || Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.sNation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU") {
+    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA") {
        UnitLookup(Deck.sNation);
+        UnitLookup("NATO");
+    }else if(Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.sNation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU"){
+        UnitLookup(Deck.sNation);
+        UnitLookup("RED");
     }
     else if (Deck.sNation == "NATO")
     {
@@ -73,6 +77,7 @@ function listUnits() //get units for display
         UnitLookup("UK");
         UnitLookup("USA");
         UnitLookup("ISR");
+        UnitLookup("NATO");
     }
     else if (Deck.sNation == "REDFOR")
     {
@@ -84,59 +89,70 @@ function listUnits() //get units for display
         UnitLookup("USSR");
         UnitLookup("FIN");
         UnitLookup("YU");
+        UnitLookup("RED");
     }
     else if (Deck.sNation == "BD")
     {
         UnitLookup("ROK");
         UnitLookup("JAP");
+        UnitLookup("NATO");
     }
     else if (Deck.sNation == "CW")
     {
         UnitLookup("ANZAC");
         UnitLookup("CAN");
         UnitLookup("UK");
+        UnitLookup("NATO");
     }
     else if (Deck.sNation == "EU")
     {
         UnitLookup("BRD");
         UnitLookup("FRA");
+        UnitLookup("NATO");
     }
     else if (Deck.sNation == "LJUT")
     {
         UnitLookup("BRD");
-        UnitLookup("FRA");
+        UnitLookup("DEN");
+        UnitLookup("NATO");
     }
     else if (Deck.sNation == "BDRNL")
     {
         UnitLookup("BRD");
         UnitLookup("NED");
+        UnitLookup("NATO");
     }
     else if (Deck.sNation == "NORAD")
     {
         UnitLookup("CAN");
         UnitLookup("USA");
+        UnitLookup("NATO");
     }
     else if (Deck.sNation == "SCA")
     {
         UnitLookup("DEN");
         UnitLookup("NOR");
         UnitLookup("SWE");
+        UnitLookup("NATO");
     }
     else if (Deck.sNation == "NSWP")
     {
         UnitLookup("CZS");
         UnitLookup("DDR");
         UnitLookup("POL");
+        UnitLookup("RED");
     }
     else if (Deck.sNation == "RD")
     {
         UnitLookup("DPRK");
         UnitLookup("PRC");
+        UnitLookup("RED");
     }
     else if (Deck.sNation == "SOVKOR")
     {
         UnitLookup("DPRK");
         UnitLookup("USSR");
+        UnitLookup("RED");
     }    
     
     $(document).ready(
@@ -171,7 +187,7 @@ function UnitLookup(nation){
     for (var i=0; i<1024;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
-            if ((card.sNation == nation || card.sNation == "RED" || card.sNation == "NATO") && card.iYear <= year){
+            if ((card.sNation == nation || card.sNation == "NATO") && card.iYear <= year){
                 if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){                    
                     if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){  
                         var transport = 0;
