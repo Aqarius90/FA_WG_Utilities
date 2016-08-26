@@ -34,7 +34,7 @@ function listUnits() //get units for display
         blankBody.setAttribute("id",tables[i] + "Body");
         body.parentNode.replaceChild(blankBody, body);
                 
-        var table = document.getElementById(tables[i] + "Body"); //table sorter breaks without this part.
+        var table = document.getElementById(tables[i] + "Body"); //table sorter breaks with empty table
         var row = table.insertRow(table.rows.length);
         var nation = row.insertCell(0);
         var picU = row.insertCell(1);
@@ -46,13 +46,6 @@ function listUnits() //get units for display
         var costT = row.insertCell(7);
         var cardsT = row.insertCell(8);
         var btn = row.insertCell(9);
-       /*nation.innerHTML = "Nation";
-        unit.innerHTML = "Unit";
-        cardsU.innerHTML = "Cards";
-        costU.innerHTML = "Cost";
-        trans.innerHTML = "Vehicle";
-        cardsT.innerHTML = "Cards";
-        costT.innerHTML = "Cost";*/
     }
     
     if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA") {
@@ -451,11 +444,11 @@ function ShowCard(Card)
     
     selectedCards[btn] = Card;
     
-    document.getElementById("add"+btn+"0").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[0])/100);
-    document.getElementById("add"+btn+"1").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[1])/100);
-    document.getElementById("add"+btn+"2").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[2])/100);
-    document.getElementById("add"+btn+"3").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[3])/100);
-    document.getElementById("add"+btn+"4").innerHTML =  Math.round(((100 + Deck.availQ) * Card.iaAvailability[4])/100);
+    document.getElementById("add"+btn+"0").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[0])/100);
+    document.getElementById("add"+btn+"1").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[1])/100);
+    document.getElementById("add"+btn+"2").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[2])/100);
+    document.getElementById("add"+btn+"3").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[3])/100);
+    document.getElementById("add"+btn+"4").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[4])/100);
     
     document.getElementById("D" + type).innerHTML = "";       
     var uText = document.createElement("p");

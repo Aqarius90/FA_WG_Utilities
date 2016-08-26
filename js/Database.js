@@ -48,7 +48,6 @@ function VehicleCard(VET, UNIT, TRANSPORT, CRAFT) {
     {this.iCost = UNIT.iCost + TRANSPORT.iCost + CRAFT.iCost;} //<<need to actually add the landing craft data
     if (UNIT.iIsProto === 1 || TRANSPORT.iIsProto === 1) { this.iIsProto = 1; } else { this.iIsProto = 0}
     this.iArrayIndex = ""; //for deck pos tracking
-    this.iDeckIndex = ""; //same. <<potentially useless.
     this.iaAvailability = [];
     if (TRANSPORT === 0) {this.iaAvailability = UNIT.iaAvailability;} else {
       for (var i = 0; i < 5; i++){
@@ -6247,7 +6246,7 @@ function Weaponize()
 
 function matrix(){    
     this.general = [
-        ["X","X","X","X","X","X","X","X","X","X",],
+        [0],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,2,2,2,3,"X","X","X","X"],
@@ -6259,7 +6258,7 @@ function matrix(){
         ["X",0,0,0,0,0,  0,  0,  0,  0]
     ];
     this.support = [
-        ["X","X","X","X","X","X","X","X","X","X",],
+        [0],
         ["X",1,1,1,1,2,  1,  1,  1,  1],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,1,1,1,2,  1,  1,  1,  1],
@@ -6271,7 +6270,7 @@ function matrix(){
         ["X",0,0,0,0,0,  0,  0,  0,  0]
     ];
     this.moto = [
-        ["X","X","X","X","X","X","X","X","X","X",],
+        [0],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,1,1,1,2,  1,  1,"X","X"],
         ["X",1,2,2,2,3,"X","X","X","X"], 
@@ -6284,7 +6283,7 @@ function matrix(){
     ];
 
     this.armoured = [
-        ["X","X","X","X","X","X","X","X","X","X",],
+        [0],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,2,2,2,3,"X","X","X","X"],
@@ -6297,7 +6296,7 @@ function matrix(){
     ];
     
     this.mech = [
-        ["X","X","X","X","X","X","X","X","X","X",],
+        [0],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,1,1,1,2,  1,  1,  1,  1],
         ["X",1,2,2,2,3,"X","X","X","X"],
@@ -6310,7 +6309,7 @@ function matrix(){
     ];
     
     this.airborne = [
-        ["X","X","X","X","X","X","X","X","X","X",],
+        [0],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,1,1,1,2,  1,  1,  1,  1],
         ["X",1,2,2,2,3,"X","X","X","X"],
@@ -6323,7 +6322,7 @@ function matrix(){
     ];
     
     this.marine = [
-        ["X","X","X","X","X","X","X","X","X","X",],
+        [0],
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,1,1,1,2,  1,  1,"X","X"],
         ["X",1,2,2,2,3,"X","X","X","X"],
@@ -6336,7 +6335,7 @@ function matrix(){
     ];
     
     this.naval = [
-        ["X","X","X","X","X","X","X","X","X","X",],
+        [0],
         ["X","X","X","X","X","X","X","X","X","X"],
         ["X","X","X","X","X","X","X","X","X","X"],
         ["X","X","X","X","X","X","X","X","X","X"],
