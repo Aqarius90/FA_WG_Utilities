@@ -436,7 +436,7 @@ function ShowCard(Card)
     if (Card.Unit.sUnitData.charAt(16) == '1') { ShowData(type, "rad"); }
     
     iData = document.createElement("img");
-    iData.src = "pics/" + Deck.iSide + Card.Unit.iUnitID + ".png";
+    iData.src = "picsb/" + Deck.iSide + Card.Unit.iUnitID + ".png";
     iData.setAttribute("class", "img-responsive");
     iData.setAttribute("style", "position: relative; top: 0; left: 0;");
     document.getElementById(type + "UP").innerHTML = "";  
