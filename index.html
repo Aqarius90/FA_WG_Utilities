@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.min.js"></script>
     <script src="js/Display.js"></script>
     <script src="js/Database.js"></script>
-    <script src='https://cdn.ractivejs.org/latest/ractive.min.js'></script>
     <script src="js/Main.js"></script>
     <script src="js/buttons.js"></script>
     <script src="js/TransportLinker.js"></script>
@@ -290,21 +290,21 @@
             </div>
           </div>
         </div>
-      </script>
-    <div class="panel panel-body">
-        <div class="col-sm-2">
-            <p id="tnation"></p>
-        </div>
-        <div class="col-sm-6">
-            <p id="tspec"></p>
-        </div>
-        <div class="col-sm-2">
-            <p id="tera"></p>
-        </div>
-        <div class="col-sm-2">
-            <p id="pointstally"></p>
-        </div>
-    </div>
+        <div class="panel panel-body">
+          <div class="col-sm-2">
+              <p>{{lab.tnation}}</p>
+          </div>
+          <div class="col-sm-6">
+              <p>{{lab.tspec}}</p>
+          </div>
+          <div class="col-sm-2">
+              <p>{{lab.tera}}</p>
+          </div>
+          <div class="col-sm-2">
+              <p>{{lab.pointstally}}</p>
+          </div>
+      </div>
+  </script>
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
         <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>

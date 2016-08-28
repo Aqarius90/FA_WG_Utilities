@@ -51,6 +51,12 @@
             bA: '#fff',
             bB: '#fff',
             bC: '#fff'
+          },
+          lab:{
+            tnation : '',
+            tspec: '',
+            tera: '',
+            pointstally:''
           }
 
        }

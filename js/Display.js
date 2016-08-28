@@ -43,7 +43,7 @@ function GUIDisplay() {
         case 0://moto
             ractive.set("Buttons.bMotorized", "#0f0");
             updatePointsDisplay(Matrix.moto);
-            document.getElementById("tspec").innerHTML = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
+            ractive.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
             document.getElementById("v10").src = "rank/001.png";
             document.getElementById("v11").src = "rank/010.png";
             document.getElementById("v12").src = "rank/011.png";
@@ -65,8 +65,7 @@ function GUIDisplay() {
         case 1://arm
             ractive.set("Buttons.bArmoured", "#0f0");
             updatePointsDisplay(Matrix.armoured);
-            document.getElementById("tspec").innerHTML = "+4 cards, +2XP, -1 cost: Tank";
-
+            ractive.set("lab.tspec", "+4 cards, +2XP, -1 cost: Tank");
             document.getElementById("v40").src = "rank/010.png";
             document.getElementById("v41").src = "rank/011.png";
             document.getElementById("v42").src = "rank/100.png";
@@ -76,7 +75,7 @@ function GUIDisplay() {
         case 2://sup
             ractive.set("Buttons.bSupport", "#0f0");
             updatePointsDisplay(Matrix.support);
-            document.getElementById("tspec").innerHTML = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";
+            ractive.set("lab.tspec", "+4 cards,-1 cost: Logistics, Support;  +1XP: Support");
 
             document.getElementById("v20").src = "rank/010.png";
             document.getElementById("v21").src = "rank/011.png";
@@ -87,12 +86,24 @@ function GUIDisplay() {
         case 3://mar
             ractive.set("Buttons.bMarine", "#0f0");
             updatePointsDisplay(Matrix.marine);
-            document.getElementById("tspec").innerHTML = "+2 cards, +1XP, -1 cost: Infantry, Vehicle";
+            ractive.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");
+
+            document.getElementById("v10").src = "rank/001.png";
+            document.getElementById("v11").src = "rank/010.png";
+            document.getElementById("v12").src = "rank/011.png";
+            document.getElementById("v13").src = "rank/100.png";
+            document.getElementById("v14").src = "rank/100.png";
+
+            document.getElementById("v70").src = "rank/001.png";
+            document.getElementById("v71").src = "rank/010.png";
+            document.getElementById("v72").src = "rank/011.png";
+            document.getElementById("v73").src = "rank/100.png";
+            document.getElementById("v74").src = "rank/100.png";
             break;
         case 4://mec
             ractive.set("Buttons.bMechanized", "#0f0");
             updatePointsDisplay(Matrix.mech);
-            document.getElementById("tspec").innerHTML = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";
+            ractive.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Vehicle");
 
             document.getElementById("v10").src = "rank/001.png";
             document.getElementById("v11").src = "rank/010.png";
@@ -109,7 +120,7 @@ function GUIDisplay() {
         case 5://air
             ractive.set("Buttons.bAirborne", "#0f0");
             updatePointsDisplay(Matrix.airborne);
-            document.getElementById("tspec").innerHTML = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";
+            ractive.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane");
             document.getElementById("v10").src = "rank/001.png";
             document.getElementById("v11").src = "rank/010.png";
             document.getElementById("v12").src = "rank/011.png";
@@ -131,12 +142,12 @@ function GUIDisplay() {
         case 6://nav
             ractive.set("Buttons.bNaval", "#0f0");
             updatePointsDisplay(Matrix.naval);
-            document.getElementById("tspec").innerHTML =  "ಠ_ಠ";
+            ractive.set("lab.tspec", "ಠ_ಠ");
             break;
         case 7://gen
             ractive.set("Buttons.bGeneral", "#0f0");
             updatePointsDisplay(Matrix.general);
-            document.getElementById("tspec").innerHTML =  "no bonus";
+            ractive.set("lab.tspec", "no bonus");
             document.getElementById("v00").src = "rank/000.png";
             document.getElementById("v01").src = "rank/001.png";
             document.getElementById("v02").src = "rank/010.png";
@@ -197,22 +208,22 @@ function GUIDisplay() {
     {
         case 0://C
             ractive.set("Buttons.bC", "#0f0");
-            document.getElementById("tera").innerHTML =  "+10AP";
+            ractive.set("lab.tera", "+10AP");
             Deck.deckpoitstotal += 10;
             break;
         case 1://B
             ractive.set("Buttons.bB", "#0f0");
-            document.getElementById("tera").innerHTML = "+5AP";
+            ractive.set("lab.tera", "+5AP");
             Deck.deckpoitstotal += 5;
             break;
         case 2://A
             ractive.set("Buttons.bA", "#0f0");
-            document.getElementById("tera").innerHTML = "+0AP";
+            ractive.set("lab.tera", "+0AP");
             break;
     }
     displayUnits();
     listUnits();
-    document.getElementById("pointstally").innerHTML =  Deck.deckpoints + "/" + Deck.deckpoitstotal;
+    ractive.set("lab.pointstally", Deck.deckpoints + "/" + Deck.deckpoitstotal);
 }
 
 function showFlags(x) {
@@ -253,7 +264,7 @@ function showFlags(x) {
 function displayUSA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+10%, +15AP";
+    ractive.set("lab.tnation", "+10%, +15AP");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 15;
 }
@@ -261,7 +272,7 @@ function displayUSA() {
 function displayUK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML =  "+20%, +15AP";
+    ractive.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -269,7 +280,7 @@ function displayUK() {
 function displayFRA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML =  "+20%, +15AP";
+    ractive.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -277,7 +288,7 @@ function displayFRA() {
 function displayBRD() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML =  "+20%, +15AP";
+    ractive.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -285,7 +296,7 @@ function displayBRD() {
 function displayCAN() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML =  "+40%, +15AP";
+    ractive.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
@@ -293,7 +304,7 @@ function displayCAN() {
 function displayDEN(){
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML =  "+40%, +15AP";
+    ractive.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
@@ -301,7 +312,7 @@ function displayDEN(){
 function displaySWE() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML =  "+30%, +15AP";
+    ractive.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -309,7 +320,7 @@ function displaySWE() {
 function displayNOR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML =  "+40%, +15AP";
+    ractive.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
@@ -317,7 +328,7 @@ function displayNOR() {
 function displayANZAC() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML =  "+30%, +15AP";
+    ractive.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -325,7 +336,7 @@ function displayANZAC() {
 function displayJAP() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+30%, +15AP";
+    ractive.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -333,7 +344,7 @@ function displayJAP() {
 function displayROK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+30%, +15AP";
+    ractive.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -341,7 +352,7 @@ function displayROK() {
 function displayNED() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+20%, +15AP";
+    ractive.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -349,7 +360,7 @@ function displayNED() {
 function displayEU() {
     var flagstr = [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+0%, +10AP";
+    ractive.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
@@ -357,7 +368,7 @@ function displayEU() {
 function displaySCA() {
     var flagstr = [0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+15%, +10AP";
+    ractive.set("lab.tnation", "+15%, +10AP");
     Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
@@ -365,7 +376,7 @@ function displaySCA() {
 function displayCOM() {
     var flagstr = [0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+10%, +10AP";
+    ractive.set("lab.tnation", "+10%, +10AP");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 10;
 }
@@ -373,7 +384,7 @@ function displayCOM() {
 function displayBD() {
     var flagstr = [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+20%, +10AP";
+    ractive.set("lab.tnation", "+20%, +10AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 10;
 }
@@ -381,7 +392,7 @@ function displayBD() {
 function displayLJ() {
     var flagstr = [0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+15%, +10AP";
+    ractive.set("lab.tnation", "+15%, +10AP");
     Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
@@ -389,7 +400,7 @@ function displayLJ() {
 function displayNORAD() {
     var flagstr = [0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+0%, +10AP";
+    ractive.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
@@ -397,7 +408,7 @@ function displayNORAD() {
 function displayBDRNL() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+10%, +10AP";
+    ractive.set("lab.tnation", "+10%, +10AP");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 10;
 }
@@ -405,14 +416,14 @@ function displayBDRNL() {
 function displayNato() {
     var flagstr = [1,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "No bonus";
+    ractive.set("lab.tnation", "No bonus");
     Deck.availQ = 0;
 }
 
 function displayDDR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+20%, +15AP";
+    ractive.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -420,7 +431,7 @@ function displayDDR() {
 function displayUSSR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+10%, +15AP";
+    ractive.set("lab.tnation", "+10%, +15AP");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 15;
 }
@@ -428,7 +439,7 @@ function displayUSSR() {
 function displayPOL() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+20%, +15AP";
+    ractive.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -436,7 +447,7 @@ function displayPOL() {
 function displayCZS() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+30%, +15AP";
+    ractive.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -444,7 +455,7 @@ function displayCZS() {
 function displayPRC() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+30%, +15AP";
+    ractive.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -452,7 +463,7 @@ function displayPRC() {
 function displayDPRK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+40%, +15AP";
+    ractive.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
@@ -460,7 +471,7 @@ function displayDPRK() {
 function displayRD() {
     var flagstr = [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+20%, +10AP";
+    ractive.set("lab.tnation", "+20%, +10AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 10;
 }
@@ -468,7 +479,7 @@ function displayRD() {
 function displayNSWP() {
     var flagstr = [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+15%, +10AP";
+    ractive.set("lab.tnation", "+15%, +10AP");
     Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
@@ -476,7 +487,7 @@ function displayNSWP() {
 function displayRKA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "+0%, +10AP";
+    ractive.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
@@ -484,7 +495,7 @@ function displayRKA() {
 function displayREDFOR() {
     var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0];
     showFlags(flagstr);
-    document.getElementById("tnation").innerHTML = "No bonus";
+    ractive.set("lab.tnation", "No bonus");
     Deck.availQ = 0;
 }
 
