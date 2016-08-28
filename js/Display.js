@@ -36,13 +36,12 @@ function GUIDisplay() {
         case 359:{displayRKA(); break;}
         case 362:{displayREDFOR(); break;}
     }
-    
+
     //spec
     switch (Deck.iSpec)
     {
         case 0://moto
-            var btSpec = document.getElementById("bMotorized");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bMotorized", "#0f0");
             updatePointsDisplay(Matrix.moto);
             document.getElementById("tspec").innerHTML = "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle";
             document.getElementById("v10").src = "rank/001.png";
@@ -50,13 +49,13 @@ function GUIDisplay() {
             document.getElementById("v12").src = "rank/011.png";
             document.getElementById("v13").src = "rank/100.png";
             document.getElementById("v14").src = "rank/100.png";
-            
+
             document.getElementById("v40").src = "rank/001.png";
             document.getElementById("v41").src = "rank/010.png";
             document.getElementById("v42").src = "rank/011.png";
             document.getElementById("v43").src = "rank/100.png";
             document.getElementById("v44").src = "rank/100.png";
-            
+
             document.getElementById("v50").src = "rank/001.png";
             document.getElementById("v51").src = "rank/010.png";
             document.getElementById("v52").src = "rank/011.png";
@@ -64,11 +63,10 @@ function GUIDisplay() {
             document.getElementById("v54").src = "rank/100.png";
             break;
         case 1://arm
-            var btSpec = document.getElementById("bArmoured");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bArmoured", "#0f0");
             updatePointsDisplay(Matrix.armoured);
             document.getElementById("tspec").innerHTML = "+4 cards, +2XP, -1 cost: Tank";
-            
+
             document.getElementById("v40").src = "rank/010.png";
             document.getElementById("v41").src = "rank/011.png";
             document.getElementById("v42").src = "rank/100.png";
@@ -76,11 +74,10 @@ function GUIDisplay() {
             document.getElementById("v44").src = "rank/100.png";
             break;
         case 2://sup
-            var btSpec = document.getElementById("bSupport");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bSupport", "#0f0");
             updatePointsDisplay(Matrix.support);
             document.getElementById("tspec").innerHTML = "+4 cards,-1 cost: Logistics, Support;  +1XP: Support";
-            
+
             document.getElementById("v20").src = "rank/010.png";
             document.getElementById("v21").src = "rank/011.png";
             document.getElementById("v22").src = "rank/100.png";
@@ -88,23 +85,21 @@ function GUIDisplay() {
             document.getElementById("v24").src = "rank/100.png";
             break;
         case 3://mar
-            var btSpec = document.getElementById("bMarine");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bMarine", "#0f0");
             updatePointsDisplay(Matrix.marine);
             document.getElementById("tspec").innerHTML = "+2 cards, +1XP, -1 cost: Infantry, Vehicle";
             break;
         case 4://mec
-            var btSpec = document.getElementById("bMechanized");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bMechanized", "#0f0");
             updatePointsDisplay(Matrix.mech);
             document.getElementById("tspec").innerHTML = "+4 cards, +1XP, -1 cost: Infantry, Vehicle";
-            
+
             document.getElementById("v10").src = "rank/001.png";
             document.getElementById("v11").src = "rank/010.png";
             document.getElementById("v12").src = "rank/011.png";
             document.getElementById("v13").src = "rank/100.png";
             document.getElementById("v14").src = "rank/100.png";
-            
+
             document.getElementById("v50").src = "rank/001.png";
             document.getElementById("v51").src = "rank/010.png";
             document.getElementById("v52").src = "rank/011.png";
@@ -112,8 +107,7 @@ function GUIDisplay() {
             document.getElementById("v54").src = "rank/100.png";
             break;
         case 5://air
-            var btSpec = document.getElementById("bAirborne");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bAirborne", "#0f0");
             updatePointsDisplay(Matrix.airborne);
             document.getElementById("tspec").innerHTML = "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane";
             document.getElementById("v10").src = "rank/001.png";
@@ -121,13 +115,13 @@ function GUIDisplay() {
             document.getElementById("v12").src = "rank/011.png";
             document.getElementById("v13").src = "rank/100.png";
             document.getElementById("v14").src = "rank/100.png";
-            
+
             document.getElementById("v60").src = "rank/001.png";
             document.getElementById("v61").src = "rank/010.png";
             document.getElementById("v62").src = "rank/011.png";
             document.getElementById("v63").src = "rank/100.png";
             document.getElementById("v64").src = "rank/100.png";
-            
+
             document.getElementById("v70").src = "rank/001.png";
             document.getElementById("v71").src = "rank/010.png";
             document.getElementById("v72").src = "rank/011.png";
@@ -135,14 +129,12 @@ function GUIDisplay() {
             document.getElementById("v74").src = "rank/100.png";
             break;
         case 6://nav
-            var btSpec = document.getElementById("bNaval");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bNaval", "#0f0");
             updatePointsDisplay(Matrix.naval);
             document.getElementById("tspec").innerHTML =  "ಠ_ಠ";
             break;
         case 7://gen
-            var btSpec = document.getElementById("bGeneral");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bGeneral", "#0f0");
             updatePointsDisplay(Matrix.general);
             document.getElementById("tspec").innerHTML =  "no bonus";
             document.getElementById("v00").src = "rank/000.png";
@@ -150,74 +142,71 @@ function GUIDisplay() {
             document.getElementById("v02").src = "rank/010.png";
             document.getElementById("v03").src = "rank/011.png";
             document.getElementById("v04").src = "rank/100.png";
-            
+
             document.getElementById("v10").src = "rank/000.png";
             document.getElementById("v11").src = "rank/001.png";
             document.getElementById("v12").src = "rank/010.png";
             document.getElementById("v13").src = "rank/011.png";
             document.getElementById("v14").src = "rank/100.png";
-            
+
             document.getElementById("v20").src = "rank/000.png";
             document.getElementById("v21").src = "rank/001.png";
             document.getElementById("v22").src = "rank/010.png";
             document.getElementById("v23").src = "rank/011.png";
             document.getElementById("v24").src = "rank/100.png";
-            
+
             document.getElementById("v30").src = "rank/000.png";
             document.getElementById("v31").src = "rank/001.png";
             document.getElementById("v32").src = "rank/010.png";
             document.getElementById("v33").src = "rank/011.png";
             document.getElementById("v34").src = "rank/100.png";
-            
+
             document.getElementById("v40").src = "rank/000.png";
             document.getElementById("v41").src = "rank/001.png";
             document.getElementById("v42").src = "rank/010.png";
             document.getElementById("v43").src = "rank/011.png";
             document.getElementById("v44").src = "rank/100.png";
-            
+
             document.getElementById("v50").src = "rank/000.png";
             document.getElementById("v51").src = "rank/001.png";
             document.getElementById("v52").src = "rank/010.png";
             document.getElementById("v53").src = "rank/011.png";
             document.getElementById("v54").src = "rank/100.png";
-            
+
             document.getElementById("v60").src = "rank/000.png";
             document.getElementById("v61").src = "rank/001.png";
             document.getElementById("v62").src = "rank/010.png";
             document.getElementById("v63").src = "rank/011.png";
             document.getElementById("v64").src = "rank/100.png";
-            
+
             document.getElementById("v70").src = "rank/000.png";
             document.getElementById("v71").src = "rank/001.png";
             document.getElementById("v72").src = "rank/010.png";
             document.getElementById("v73").src = "rank/011.png";
             document.getElementById("v74").src = "rank/100.png";
-            
+
             document.getElementById("v80").src = "rank/000.png";
             document.getElementById("v81").src = "rank/001.png";
             document.getElementById("v82").src = "rank/010.png";
             document.getElementById("v83").src = "rank/011.png";
             document.getElementById("v84").src = "rank/100.png";
-            
+
             break;
     }
     switch (Deck.iEra)
     {
         case 0://C
-            var btSpec = document.getElementById("bC");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bC", "#0f0");
             document.getElementById("tera").innerHTML =  "+10AP";
             Deck.deckpoitstotal += 10;
             break;
         case 1://B
-            var btSpec = document.getElementById("bB");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bB", "#0f0");
             document.getElementById("tera").innerHTML = "+5AP";
             Deck.deckpoitstotal += 5;
             break;
         case 2://A
-            var btSpec = document.getElementById("bA");
-            btSpec.setAttribute("style","background-color: #0f0");
+            ractive.set("Buttons.bA", "#0f0");
             document.getElementById("tera").innerHTML = "+0AP";
             break;
     }
@@ -226,50 +215,40 @@ function GUIDisplay() {
     document.getElementById("pointstally").innerHTML =  Deck.deckpoints + "/" + Deck.deckpoitstotal;
 }
 
-function flagSwap(flagID, imageID) {
-    var flag = document.getElementById("i"+flagID);
-    var blackflag = document.createElement('img');
-    blackflag.setAttribute("id", "i" + flagID);
-    blackflag.setAttribute("class","img-responsive");
-    blackflag.setAttribute("src","flags/"+imageID+".png");
-    flag.parentNode.replaceChild(blackflag, flag);
-}
-
 function showFlags(x) {
-     
-    if(x[0]==1){flagSwap("NATO", "nato")}else{flagSwap("NATO", "natob")}        
-    if(x[1]==1){flagSwap("REDFOR","REDFOR")}else{flagSwap("REDFOR","REDFORb")}
-    if(x[2]==1){flagSwap("BD","BD")}else{flagSwap("BD","BDb")}     
-    if(x[3]==1){flagSwap("COM","COM")}else{flagSwap("COM","COMb")}
-    if(x[4]==1){flagSwap("EU","EU")}else{flagSwap("EU","EUb")}
-    if(x[5]==1){flagSwap("LJ","LJ")}else{flagSwap("LJ","LJb")}
-    if(x[6]==1){flagSwap("NORAD","NORAD")}else{flagSwap("NORAD","NORADb")}
-    if(x[7]==1){flagSwap("SCA","SCA")}else{flagSwap("SCA","SCAb")}
-    if(x[8]==1){flagSwap("NSWP","NSWP")}else{flagSwap("NSWP","NSWPb")}
-    if(x[9]==1){flagSwap("RD","RD")}else{flagSwap("RD","RDb")}
-    if(x[10]==1){flagSwap("RKA","RKA")}else{flagSwap("RKA","RKAb")}
-    if(x[11]==1){flagSwap("ANZAC","ANZAC")}else{flagSwap("ANZAC","ANZACb")}
-    if(x[12]==1){flagSwap("BRD","BRD")}else{flagSwap("BRD","BRDb")}
-    if(x[13]==1){flagSwap("CAN","CAN")}else{flagSwap("CAN","CANb")}
-    if(x[14]==1){flagSwap("DEN","DEN")}else{flagSwap("DEN","DENb")}
-    if(x[15]==1){flagSwap("FRA","FRA")}else{flagSwap("FRA","FRAb")}
-    if(x[16]==1){flagSwap("JAP","JAP")}else{flagSwap("JAP","JAPb")}
-    if(x[17]==1){flagSwap("NED","NED")}else{flagSwap("NED","NEDb")}
-    if(x[18]==1){flagSwap("NOR","NOR")}else{flagSwap("NOR","NORb")}
-    if(x[19]==1){flagSwap("ROK","ROK")}else{flagSwap("ROK","ROKb")}
-    if(x[20]==1){flagSwap("SWE","SWE")}else{flagSwap("SWE","SWEb")}
-    if(x[21]==1){flagSwap("UK","UK")}else{flagSwap("UK","UKb")}
-    if(x[22]==1){flagSwap("USA","USA")}else{flagSwap("USA","USAb")}
-    if(x[23]==1){flagSwap("CZS","CZS")}else{flagSwap("CZS","CZSb")}
-    if(x[24]==1){flagSwap("DDR","DDR")}else{flagSwap("DDR","DDRb")}
-    if(x[25]==1){flagSwap("DPRK","DPRK")}else{flagSwap("DPRK","DPRKb")}
-    if(x[26]==1){flagSwap("POL","POL")}else{flagSwap("POL","POLb")}
-    if(x[27]==1){flagSwap("PRC","PRC")}else{flagSwap("PRC","PRCb")}
-    if(x[28]==1){flagSwap("USSR","USSR")}else{flagSwap("USSR","USSRb")}
-    if(x[29]==1){flagSwap("BRDNL","BRDNL")}else{flagSwap("BRDNL","BRDNLb")}
-    if(x[30]==1){flagSwap("ISR","ISR")}else{flagSwap("ISR","ISRb")}
-    if(x[31]==1){flagSwap("FIN","FIN")}else{flagSwap("FIN","FINb")}
-    if(x[32]==1){flagSwap("YU","YU")}else{flagSwap("YU","YUb")}
+    if(x[0]==1) {ractive.set("flags.nato", "flags/nato.png")}else{ractive.set("flags.nato", "flags/natob.png")};
+    if(x[1]==1) {ractive.set("flags.redfor", "flags/REDFOR.png")}else{ractive.set("flags.redfor", "flags/REDFORb.png")};
+    if(x[2]==1) {ractive.set("flags.BD", 'flags/BD.png')}else{ractive.set("flags.BD", "flags/BDb.png")};
+    if(x[3]==1) {ractive.set("flags.COM", 'flags/COM.png' )}else{ractive.set("flags.COM", "flags/COMb.png")};
+    if(x[4]==1) {ractive.set("flags.EU", 'flags/EU.png')}else{ractive.set("flags.EU", "flags/EUb.png")};
+    if(x[5]==1) {ractive.set("flags.LJ", 'flags/LJ.png')}else{ractive.set("flags.LJ", "flags/LJb.png")};
+    if(x[6]==1) {ractive.set("flags.NORAD", "flags/NORAD.png")}else{ractive.set("flags.NORAD", "flags/NORADb.png")};
+    if(x[7]==1) {ractive.set("flags.SCA", 'flags/SCA.png' )}else{ractive.set("flags.SCA", "flags/SCAb.png")};
+    if(x[8]==1) {ractive.set("flags.NSWP", 'flags/NSWP.png')}else{ractive.set("flags.NSWP", "flags/NSWPb.png")};
+    if(x[9]==1) {ractive.set("flags.RD", 'flags/RD.png'   )}else{ractive.set("flags.RD", "flags/RDb.png")};
+    if(x[10]==1){ractive.set("flags.RKA", 'flags/RKA.png' )}else{ractive.set("flags.RKA", "flags/RKAb.png")};
+    if(x[11]==1){ractive.set("flags.ANZAC", 'flags/ANZAC.png')}else{ractive.set("flags.ANZAC", "flags/ANZACb.png")};
+    if(x[12]==1){ractive.set("flags.BRD", 'flags/BRD.png' )}else{ractive.set("flags.BRD", "flags/BRDb.png")};
+    if(x[13]==1){ractive.set("flags.CAN", 'flags/CAN.png' )}else{ractive.set("flags.CAN", "flags/CANb.png")};
+    if(x[14]==1){ractive.set("flags.DEN", 'flags/DEN.png' )}else{ractive.set("flags.DEN", "flags/DENb.png")};
+    if(x[15]==1){ractive.set("flags.FRA", 'flags/FRA.png' )}else{ractive.set("flags.FRA", "flags/FRAb.png")};
+    if(x[16]==1){ractive.set("flags.JAP", 'flags/JAP.png' )}else{ractive.set("flags.JAP", "flags/JAPb.png")};
+    if(x[17]==1){ractive.set("flags.NED", 'flags/NED.png' )}else{ractive.set("flags.NED", "flags/NEDb.png")};
+    if(x[18]==1){ractive.set("flags.NOR", 'flags/NOR.png' )}else{ractive.set("flags.NOR", "flags/NORb.png")};
+    if(x[19]==1){ractive.set("flags.ROK", 'flags/ROK.png' )}else{ractive.set("flags.ROK", "flags/ROKb.png")};
+    if(x[20]==1){ractive.set("flags.SWE", 'flags/SWE.png' )}else{ractive.set("flags.SWE", "flags/SWEb.png")};
+    if(x[21]==1){ractive.set("flags.UK" , 'flags/UK.png'  )}else{ractive.set("flags.UK", "flags/UKb.png")};
+    if(x[22]==1){ractive.set("flags.USA", 'flags/USA.png' )}else{ractive.set("flags.USA", "flags/USAb.png")};
+    if(x[23]==1){ractive.set("flags.CZS", 'flags/CZS.png' )}else{ractive.set("flags.CZS", "flags/CZSb.png")};
+    if(x[24]==1){ractive.set("flags.DDR", 'flags/DDR.png' )}else{ractive.set("flags.DDR", "flags/DDRb.png")};
+    if(x[25]==1){ractive.set("flags.DPRK", 'flags/DPRK.png')}else{ractive.set("flags.DPRK", "flags/DPRKb.png")};
+    if(x[26]==1){ractive.set("flags.POL", 'flags/POL.png' )}else{ractive.set("flags.POL", "flags/POLb.png")};
+    if(x[27]==1){ractive.set("flags.PRC", 'flags/PRC.png' )}else{ractive.set("flags.PRC", "flags/PRCb.png")};
+    if(x[28]==1){ractive.set("flags.USSR", 'flags/USSR.png')}else{ractive.set("flags.USSR", "flags/USSRb.png")};
+    if(x[29]==1){ractive.set("flags.BRDNL", 'flags/BRDNL.png')}else{ractive.set("flags.BRDNL", "flags/BRDNLb.png")};
+    if(x[30]==1){ractive.set("flags.FIN", 'flags/FINb.png')}else{ractive.set("flags.FIN", "flags/FINb.png")};
+    if(x[31]==1){ractive.set("flags.YU", 'flags/YUb.png'  )}else{ractive.set("flags.YU", "flags/YUb.png")};
+    if(x[32]==1){ractive.set("flags.ISR", 'flags/ISRb.png')}else{ractive.set("flags.ISR", "flags/ISRb.png")};
 }
 function displayUSA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
@@ -278,7 +257,7 @@ function displayUSA() {
     Deck.availQ = 10;
     Deck.deckpoitstotal += 15;
 }
-                        
+
 function displayUK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
@@ -301,7 +280,7 @@ function displayBRD() {
     document.getElementById("tnation").innerHTML =  "+20%, +15AP";
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
-}   
+}
 
 function displayCAN() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -509,7 +488,7 @@ function displayREDFOR() {
     Deck.availQ = 0;
 }
 
-function addDataImage(x, prefix, y, spec){      
+function addDataImage(x, prefix, y, spec){
     var iData = document.createElement("img");
     iData.src = "png/" + spec + ".png";
     iData.setAttribute("class", "img-responsive");
@@ -519,28 +498,28 @@ function addDataImage(x, prefix, y, spec){
 
 function displayCard(card, prefix,type, pos){
     var isUnavailable = isError(card);
-    document.getElementById("D" + prefix + type + pos[type]).innerHTML = "";      
-          
+    document.getElementById("D" + prefix + type + pos[type]).innerHTML = "";
+
     var iData = document.createElement("img");
     iData.src = "png/blank.png";``
     iData.setAttribute("class", "img-responsive");
     iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-    document.getElementById("D" + prefix + type + pos[type]).appendChild(iData); 
-    card.iArrayIndex =""+ type + pos[type];   
-    
+    document.getElementById("D" + prefix + type + pos[type]).appendChild(iData);
+    card.iArrayIndex =""+ type + pos[type];
+
     if (prefix == '0'){
         let temp = pos[type];
         let elem = document.createElement('input');
         elem.type = 'button';
         elem.value = 'DELETE';
         elem.onclick = function(){CardDelete(type*10+ temp);}; //closure escape via math. FML
-        document.getElementById("L0" + type + pos[type]).appendChild(elem); 
+        document.getElementById("L0" + type + pos[type]).appendChild(elem);
     }
-    
+
     //unit name
     var uText = document.createElement("h6");
     uText.innerHTML = card.Unit.sNameU;
-    document.getElementById("L" + prefix + type + pos[type]).appendChild(uText); 
+    document.getElementById("L" + prefix + type + pos[type]).appendChild(uText);
     if(card.Transport != "0"){
         uText.innerHTML = card.Unit.sNameU + "<br>" + card.Transport.sNameU ;
         document.getElementById("L" + prefix + type + pos[type]).appendChild(uText);
@@ -549,8 +528,8 @@ function displayCard(card, prefix,type, pos){
         uText.innerHTML = card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU;
         document.getElementById("L" + prefix + type + pos[type]).appendChild(uText);
     }
-    
-    if (isUnavailable == true) { addDataImage(type, prefix, pos[type], "INVALID"); } 
+
+    if (isUnavailable == true) { addDataImage(type, prefix, pos[type], "INVALID"); }
 
     if (card.Unit.sUnitData.charAt(0)== '1') { addDataImage(type, prefix, pos[type], "antiair"); }
     if (card.Unit.sUnitData.charAt(1)== '1') { addDataImage(type, prefix, pos[type], "AAM"); }
@@ -571,26 +550,26 @@ function displayCard(card, prefix,type, pos){
     if (card.Unit.sUnitData.charAt(14) == '3') { addDataImage(type, prefix, pos[type], "rec3"); }
     if (card.Unit.sUnitData.charAt(15) == '1') { addDataImage(type, prefix, pos[type], "tube"); }
     if (card.Unit.sUnitData.charAt(16) == '1') { addDataImage(type, prefix, pos[type], "rad"); }
-        
+
     //cost
     uText = document.createElement("h5");
     uText.innerHTML = card.iCost;
     uText.setAttribute("style","position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;");
     document.getElementById("D" + prefix + type + pos[type]).appendChild(uText);
-            
+
     //avail
     var aText = document.createElement("h5");
     aText.innerHTML = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
     aText.setAttribute("style","position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;");
     document.getElementById("D" + prefix + type + pos[type]).appendChild(aText);
-    
+
     //flag
     iData = document.createElement("img");
     iData.src = "flags/" + card.sNation + ".png";
     iData.setAttribute("class", "img-thumbnail");
     iData.setAttribute("style", "position: absolute; top: 0; left: 0;");
     document.getElementById("D" + prefix + type + pos[type]).appendChild(iData);
-    
+
     //vet
     iData = document.createElement("img");
     iData.src = "rank/" + card.sVeterancy + ".png";
@@ -631,7 +610,7 @@ function displayUnits()
             DA = Matrix.general;
             break;
     }
-        
+
     for (var i = 0; i < Deck.Cards2T.length; i++)
     {
         Deck.Cards2T[i] = toSpec(Deck.Cards2T[i]);
@@ -647,10 +626,10 @@ function displayUnits()
         //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         type =9; //2 transports = naval inf.
         displayCard(Deck.Cards2T[i], "", type, counter);
-        displayCard(Deck.Cards2T[i], "0", type, counter);  
+        displayCard(Deck.Cards2T[i], "0", type, counter);
         Deck.deckpoints += DA[type][counter[type]];
-        counter[type] +=1;         
-    } 
+        counter[type] +=1;
+    }
     for (var i = 0; i < Deck.Cards1T.length; i++)
     {
         Deck.Cards1T[i] = toSpec(Deck.Cards1T[i]);
@@ -666,10 +645,10 @@ function displayUnits()
         else if (Deck.Cards1T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         else{type = 9;} //me=idiot, forgot to input naval
         displayCard(Deck.Cards1T[i], "", type, counter);
-        displayCard(Deck.Cards1T[i], "0", type, counter);  
+        displayCard(Deck.Cards1T[i], "0", type, counter);
         Deck.deckpoints += DA[type][counter[type]];
-        counter[type] +=1;         
-    } 
+        counter[type] +=1;
+    }
     for (var i = 0; i < Deck.Cards0T.length; i++)
     {
         Deck.Cards0T[i] = toSpec(Deck.Cards0T[i]);
@@ -685,73 +664,57 @@ function displayUnits()
         else if (Deck.Cards0T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         else{type = 9;} //me=idiot, forgot to input naval
         displayCard(Deck.Cards0T[i], "", type, counter);
-        displayCard(Deck.Cards0T[i], "0", type, counter); 
+        displayCard(Deck.Cards0T[i], "0", type, counter);
         Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;
-    } 
+    }
 }
 
 
 function resetDisplay()
-{    
+{
     var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0]; //"0,0,0" = ISR, FIN, YU
     showFlags(flagstr);
- 
-    var btSpec = document.getElementById("bMotorized");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bArmoured");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bSupport");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bMarine");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bMechanized");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bAirborne");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bNaval");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bGeneral");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bA");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bB");
-            btSpec.setAttribute("style","background-color: #fff");
-    btSpec = document.getElementById("bC");
-            btSpec.setAttribute("style","background-color: #fff");
+
+    ractive.set("Buttons.bMotorized", "#fff");
+    ractive.set("Buttons.bArmoured", "#fff");
+    ractive.set("Buttons.bSupport", "#fff");
+    ractive.set("Buttons.bMarine", "#fff");
+    ractive.set("Buttons.bMechanized", "#fff");
+    ractive.set("Buttons.bAirborne", "#fff");
+    ractive.set("Buttons.bNaval", "#fff");
+    ractive.set("Buttons.bGeneral", "#fff");
+    ractive.set("Buttons.bA", "#fff");
+    ractive.set("Buttons.bB", "#fff");
+    ractive.set("Buttons.bC", "#fff");
 
     for (var i = 1; i < 10; i++){
         for (var j = 1; j < 10; j++){
-            document.getElementById("D" + j + i).innerHTML = "";            
-            document.getElementById("L" + j + i).innerHTML = "";  
-            document.getElementById("D0" + j + i).innerHTML = "";      
+            document.getElementById("D" + j + i).innerHTML = "";
+            document.getElementById("L" + j + i).innerHTML = "";
+            document.getElementById("D0" + j + i).innerHTML = "";
             document.getElementById("L0" + j + i).innerHTML = "";
-        }   
-    }        
+        }
+    }
 }
 
 function updatePointsDisplay(DA)
 {
     for (var i = 1; i < 10; i++){
-        for (var j = 1; j < 10; j++){       
+        for (var j = 1; j < 10; j++){
                 var uText = document.createElement("h3");
                 uText.setAttribute("class","text-center");
-                uText.setAttribute("line-height","50%"); 
+                uText.setAttribute("line-height","50%");
                 uText.innerHTML = DA[i][j];
                 document.getElementById("D" + i + j).appendChild(uText);
-        }   
+        }
     }
     for (var i = 1; i < 10; i++){
-        for (var j = 1; j < 10; j++){       
+        for (var j = 1; j < 10; j++){
                 var uText = document.createElement("h2");
-                uText.setAttribute("class","text-center");   
+                uText.setAttribute("class","text-center");
                 uText.innerHTML = DA[i][j];
                 document.getElementById("D0" + i + j).appendChild(uText);
-        }   
+        }
     }
 }
-
-
-
-
-

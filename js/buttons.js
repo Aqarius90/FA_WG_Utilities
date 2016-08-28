@@ -1,6 +1,5 @@
-
-function btDecode()
-{
+function btDecode(){
+    
     debugClear();
     DeckDisAssembly();
     GUIDisplay();

@@ -8,7 +8,7 @@ function init() {
     }
     initMainDB();
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
-    GUIDisplay();
+   // GUIDisplay();
     
     $(document).ready(function() 
     { 

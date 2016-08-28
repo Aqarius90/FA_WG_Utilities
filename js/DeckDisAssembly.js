@@ -25,7 +25,8 @@ function  DeckAssembly()
 function DeckDisAssembly()
 {
   var binoutdebug = "NONE";
-  decodeDeck(sDeckString.value)
+  decodeDeck(ractive.get('sDeckString'))
+  //decodeDeck(sDeckString.value)
 }
 
 function decodeDeck (deckCode)
@@ -294,62 +295,62 @@ function decodeDeck (deckCode)
     debugUnitsOut();
 }
 
-        
+
         //deck decoding
 function DeckExport()
 {
-    
+
     var BinaryOut = ""
-    
+
     var sUtil = Deck.iNation.toString(2);
     var pad = "000000000";
     sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 9
     BinaryOut += sUtil;
-    
+
     sUtil = Deck.iSpec.toString(2);
     pad = "000";
     sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 3
     BinaryOut += sUtil;
-    
+
     sUtil = Deck.iEra.toString(2);
     pad = "00";
     sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 2
     BinaryOut += sUtil;
-    
+
     sUtil = Deck.i3Cards.toString(2);
     pad = "0000";
     sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 4
     BinaryOut += sUtil;
-    
+
     sUtil = Deck.i2Cards.toString(2);
     pad = "00000";
     sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 4
-    BinaryOut += sUtil;    
-    
+    BinaryOut += sUtil;
+
     for (var i = 0; i < Deck.Cards2T.length; i++)
     {
         //var newcard = toSpec(Deck.Cards2T[i]);
        // sUtil = newcard.sVeterancy;
-        
+
         sUtil = Deck.Cards2T[i].sVeterancy;
         BinaryOut += sUtil;
-        
+
         sUtil = Deck.Cards2T[i].Unit.iUnitID.toString(2);
         pad = "0000000000";
         sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
         BinaryOut += sUtil;
-        
+
         sUtil = Deck.Cards2T[i].Transport.iUnitID.toString(2);
         pad = "0000000000";
         sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
         BinaryOut += sUtil;
-        
+
         sUtil = Deck.Cards2T[i].Craft.iUnitID.toString(2);
         pad = "0000000000";
         sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
         BinaryOut += sUtil;
     }
-    
+
     for (var i = 0; i < Deck.Cards1T.length; i++)
     {
         //var newcard = toSpec(Deck.Cards1T[i]);
@@ -360,33 +361,33 @@ function DeckExport()
         pad = "0000000000";
         sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
         BinaryOut += sUtil;
-        
+
         sUtil = Deck.Cards1T[i].Transport.iUnitID.toString(2);
         pad = "0000000000";
         sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
         BinaryOut += sUtil;
     }
-    
+
     for (var i = 0; i < Deck.Cards0T.length; i++)
     {
         //var newcard = toSpec(Deck.Cards0T[i]);
         //sUtil = newcard.sVeterancy;
         sUtil = Deck.Cards0T[i].sVeterancy;
         BinaryOut += sUtil;
-        
+
         sUtil = Deck.Cards0T[i].Unit.iUnitID.toString(2);
         pad = "0000000000";
         sUtil = pad.substring(0, pad.length - sUtil.length) + sUtil; //pad left 10
         BinaryOut += sUtil;
     }
-    
-    var charArray = BinaryOut.match(/.{1,6}/g); //REGEX voodo 
+
+    var charArray = BinaryOut.match(/.{1,6}/g); //REGEX voodo
     pad = "000000";
     charArray[charArray.length-1] = charArray[charArray.length-1] + pad.substring(0, pad.length - charArray[charArray.length-1].length);
     var CharOut = "";
     var padCounter = 4;
     for (var i = 0; i < charArray.length; i++)
-    {        
+    {
       if (charArray[i] == "000000") { CharOut +="A" ; } else
       if (charArray[i] == "000001") { CharOut +="B" ; } else
       if (charArray[i] == "000010") { CharOut +="C" ; } else
@@ -451,11 +452,11 @@ function DeckExport()
       if (charArray[i] == "111110") { CharOut +="+" ; } else
       if (charArray[i] == "111101") { CharOut +="9" ; } else
       if (charArray[i] == "111111") { CharOut +="/" ; }
-    
+
         padCounter--;
         if(padCounter == 0){padCounter = 4;}
     }
-    
+
     if(padCounter == 1){
         CharOut += "=";
     }else if(padCounter == 2){
@@ -464,7 +465,7 @@ function DeckExport()
         CharOut += "A==";
     }
     var sDeckString = document.getElementById("sDeckString");
-    sDeckString.value = CharOut;    
+    ractive.set('sDeckString', CharOut);
 }
 
 Array.prototype.remove = function(from, to) {
