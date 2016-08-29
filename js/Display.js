@@ -511,8 +511,8 @@ function displayCard(card, type, pos){
     card.iArrayIndex =""+ type + pos[type];
     var sD  = "DeckView.D" +type + pos[type];
     var sL  = "DeckView.L" +type + pos[type];
-    var sD0 = "DeckView.D0" +type + pos[type];
-    var sL0 = "DeckView.L0" +type + pos[type];
+    var sD0 = "DetailView.D0" +type + pos[type];
+    var sL0 = "DetailView.L0" +type + pos[type];
     var isUnavailable = isError(card);
 
     var innerString = "<img src='png/blank.png' class='img-responsive' style='position: relative; top: 0; left: 0;' >";

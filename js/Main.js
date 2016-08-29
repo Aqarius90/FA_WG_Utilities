@@ -12,18 +12,18 @@ function init() {
     window.tDebug = [];
     ractiveDeck.set("debug", tDebug);
     $(document).ready(function()
-    {
-        $("#logTable").tablesorter();
-        $("#infTable").tablesorter();
-        $("#supTable").tablesorter();
-        $("#tnkTable").tablesorter();
-        $("#recTable").tablesorter();
-        $("#vehTable").tablesorter();
-        $("#helTable").tablesorter();
-        $("#airTable").tablesorter();
-        $("#navTable").tablesorter();
-    }
-);
+      {
+          $("#logTable").tablesorter();
+          $("#infTable").tablesorter();
+          $("#supTable").tablesorter();
+          $("#tnkTable").tablesorter();
+          $("#recTable").tablesorter();
+          $("#vehTable").tablesorter();
+          $("#helTable").tablesorter();
+          $("#airTable").tablesorter();
+          $("#navTable").tablesorter();
+      }
+    );
 }
 
 function listUnits() //get units for display
