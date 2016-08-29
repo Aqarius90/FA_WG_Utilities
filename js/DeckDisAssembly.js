@@ -24,7 +24,7 @@ function  DeckAssembly()
 
 function DeckDisAssembly()
 {
-  decodeDeck(ractive.get('sDeckString'))
+  decodeDeck(ractiveHeader.get('sDeckString'))
   //decodeDeck(sDeckString.value)
 }
 
@@ -284,7 +284,7 @@ function decodeDeck (deckCode)
         Deck.i1Cards++;
     }
     //cardDisplaySort(Deck.Cards0T, Deck.Cards1T, Deck.Cards2T);
-    ractive.set('sBinary', deckBinary);
+    ractiveHeader.set('sBinary', deckBinary);
     debugOutput(deckBinary);
 }
 
@@ -458,7 +458,7 @@ function DeckExport()
         CharOut += "A==";
     }
     var sDeckString = document.getElementById("sDeckString");
-    ractive.set('sDeckString', CharOut);
+    ractiveHeader.set('sDeckString', CharOut);
 }
 
 Array.prototype.remove = function(from, to) {

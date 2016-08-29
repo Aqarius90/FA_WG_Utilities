@@ -22,5 +22,5 @@ function debugOutput(binoutdebug){
       tablerow.push({ bin: Deck.Cards0T[i].Unit.iUnitID, parsing: Deck.Cards0T[i].Unit.sNameU});
     }
 
-    ractive.set("debug",tablerow);
+    ractiveDeck.set("debug",tablerow);
 }

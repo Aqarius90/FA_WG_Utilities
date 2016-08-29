@@ -10,7 +10,7 @@ function init() {
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
    // GUIDisplay();
     window.tDebug = [];
-    ractive.set("debug", tDebug);
+    ractiveDeck.set("debug", tDebug);
     $(document).ready(function()
     {
         $("#logTable").tablesorter();

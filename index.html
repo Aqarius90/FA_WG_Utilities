@@ -23,9 +23,11 @@
             </div>
         </div>
     </div>
-    <div id="anker">
+    <div id="ankerHeader">
     </div>
-    <script id='template' type='text/ractive'>
+    <div id="ankerDeck">
+    </div>
+    <script id='templateHeader' type='text/ractive'>
       <div class="row">
           <div class="col-sm-10">
             <input value="{{sDeckString}}" type="text" class="form-control">
@@ -294,20 +296,22 @@
               <p>{{lab.pointstally}}</p>
           </div>
       </div>
-    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-        <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
-        <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>
-        <li><a href="#Infantry" data-toggle="tab">Infantry</a></li>
-        <li><a href="#Support" data-toggle="tab">Support</a></li>
-        <li><a href="#Tank" data-toggle="tab">Tank</a></li>
-        <li><a href="#Recon" data-toggle="tab">Recon</a></li>
-        <li><a href="#Vehicle" data-toggle="tab">Vehicle</a></li>
-        <li><a href="#Helo" data-toggle="tab">Helo</a></li>
-        <li><a href="#Air" data-toggle="tab">Air</a></li>
-        <li><a href="#Naval" data-toggle="tab">Naval</a></li>
-        <li><a href="#DEBUG" data-toggle="tab">DEBUG</a></li>
-    </ul>
-    <div id="my-tab-content" class="tab-content panel">
+    </script>
+    <script id='templateDeck' type='text/ractive'>
+      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+          <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
+          <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>
+          <li><a href="#Infantry" data-toggle="tab">Infantry</a></li>
+          <li><a href="#Support" data-toggle="tab">Support</a></li>
+          <li><a href="#Tank" data-toggle="tab">Tank</a></li>
+          <li><a href="#Recon" data-toggle="tab">Recon</a></li>
+          <li><a href="#Vehicle" data-toggle="tab">Vehicle</a></li>
+          <li><a href="#Helo" data-toggle="tab">Helo</a></li>
+          <li><a href="#Air" data-toggle="tab">Air</a></li>
+          <li><a href="#Naval" data-toggle="tab">Naval</a></li>
+          <li><a href="#DEBUG" data-toggle="tab">DEBUG</a></li>
+      </ul>
+      <div id="my-tab-content" class="tab-content panel">
           {{#with DeckView}}
             <div class="tab-pane active" id="Deck">
               <div class="panel panel-body">

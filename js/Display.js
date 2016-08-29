@@ -40,9 +40,9 @@ function GUIDisplay() {
     switch (Deck.iSpec)
     {
         case 0://moto
-            ractive.set("Buttons.bMotorized", "#0f0");
+            ractiveHeader.set("Buttons.bMotorized", "#0f0");
             updatePointsDisplay(Matrix.moto);
-            ractive.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
+            ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
             document.getElementById("v10").src = "rank/001.png";
             document.getElementById("v11").src = "rank/010.png";
             document.getElementById("v12").src = "rank/011.png";
@@ -62,9 +62,9 @@ function GUIDisplay() {
             document.getElementById("v54").src = "rank/100.png";
             break;
         case 1://arm
-            ractive.set("Buttons.bArmoured", "#0f0");
+            ractiveHeader.set("Buttons.bArmoured", "#0f0");
             updatePointsDisplay(Matrix.armoured);
-            ractive.set("lab.tspec", "+4 cards, +2XP, -1 cost: Tank");
+            ractiveHeader.set("lab.tspec", "+4 cards, +2XP, -1 cost: Tank");
             document.getElementById("v40").src = "rank/010.png";
             document.getElementById("v41").src = "rank/011.png";
             document.getElementById("v42").src = "rank/100.png";
@@ -72,9 +72,9 @@ function GUIDisplay() {
             document.getElementById("v44").src = "rank/100.png";
             break;
         case 2://sup
-            ractive.set("Buttons.bSupport", "#0f0");
+            ractiveHeader.set("Buttons.bSupport", "#0f0");
             updatePointsDisplay(Matrix.support);
-            ractive.set("lab.tspec", "+4 cards,-1 cost: Logistics, Support;  +1XP: Support");
+            ractiveHeader.set("lab.tspec", "+4 cards,-1 cost: Logistics, Support;  +1XP: Support");
 
             document.getElementById("v20").src = "rank/010.png";
             document.getElementById("v21").src = "rank/011.png";
@@ -83,9 +83,9 @@ function GUIDisplay() {
             document.getElementById("v24").src = "rank/100.png";
             break;
         case 3://mar
-            ractive.set("Buttons.bMarine", "#0f0");
+            ractiveHeader.set("Buttons.bMarine", "#0f0");
             updatePointsDisplay(Matrix.marine);
-            ractive.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");
+            ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");
 
             document.getElementById("v10").src = "rank/001.png";
             document.getElementById("v11").src = "rank/010.png";
@@ -100,9 +100,9 @@ function GUIDisplay() {
             document.getElementById("v74").src = "rank/100.png";
             break;
         case 4://mec
-            ractive.set("Buttons.bMechanized", "#0f0");
+            ractiveHeader.set("Buttons.bMechanized", "#0f0");
             updatePointsDisplay(Matrix.mech);
-            ractive.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Vehicle");
+            ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Vehicle");
 
             document.getElementById("v10").src = "rank/001.png";
             document.getElementById("v11").src = "rank/010.png";
@@ -117,9 +117,9 @@ function GUIDisplay() {
             document.getElementById("v54").src = "rank/100.png";
             break;
         case 5://air
-            ractive.set("Buttons.bAirborne", "#0f0");
+            ractiveHeader.set("Buttons.bAirborne", "#0f0");
             updatePointsDisplay(Matrix.airborne);
-            ractive.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane");
+            ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane");
             document.getElementById("v10").src = "rank/001.png";
             document.getElementById("v11").src = "rank/010.png";
             document.getElementById("v12").src = "rank/011.png";
@@ -139,14 +139,14 @@ function GUIDisplay() {
             document.getElementById("v74").src = "rank/100.png";
             break;
         case 6://nav
-            ractive.set("Buttons.bNaval", "#0f0");
+            ractiveHeader.set("Buttons.bNaval", "#0f0");
             updatePointsDisplay(Matrix.naval);
-            ractive.set("lab.tspec", "ಠ_ಠ");
+            ractiveHeader.set("lab.tspec", "ಠ_ಠ");
             break;
         case 7://gen
-            ractive.set("Buttons.bGeneral", "#0f0");
+            ractiveHeader.set("Buttons.bGeneral", "#0f0");
             updatePointsDisplay(Matrix.general);
-            ractive.set("lab.tspec", "no bonus");
+            ractiveHeader.set("lab.tspec", "no bonus");
             document.getElementById("v00").src = "rank/000.png";
             document.getElementById("v01").src = "rank/001.png";
             document.getElementById("v02").src = "rank/010.png";
@@ -206,64 +206,64 @@ function GUIDisplay() {
     switch (Deck.iEra)
     {
         case 0://C
-            ractive.set("Buttons.bC", "#0f0");
-            ractive.set("lab.tera", "+10AP");
+            ractiveHeader.set("Buttons.bC", "#0f0");
+            ractiveHeader.set("lab.tera", "+10AP");
             Deck.deckpoitstotal += 10;
             break;
         case 1://B
-            ractive.set("Buttons.bB", "#0f0");
-            ractive.set("lab.tera", "+5AP");
+            ractiveHeader.set("Buttons.bB", "#0f0");
+            ractiveHeader.set("lab.tera", "+5AP");
             Deck.deckpoitstotal += 5;
             break;
         case 2://A
-            ractive.set("Buttons.bA", "#0f0");
-            ractive.set("lab.tera", "+0AP");
+            ractiveHeader.set("Buttons.bA", "#0f0");
+            ractiveHeader.set("lab.tera", "+0AP");
             break;
     }
     displayUnits();
     listUnits();
-    ractive.set("lab.pointstally", Deck.deckpoints + "/" + Deck.deckpoitstotal);
+    ractiveHeader.set("lab.pointstally", Deck.deckpoints + "/" + Deck.deckpoitstotal);
 }
 
 function showFlags(x) {
-    if(x[0]==1) {ractive.set("flags.nato", "flags/nato.png")}else{ractive.set("flags.nato", "flags/natob.png")};
-    if(x[1]==1) {ractive.set("flags.redfor", "flags/REDFOR.png")}else{ractive.set("flags.redfor", "flags/REDFORb.png")};
-    if(x[2]==1) {ractive.set("flags.BD", 'flags/BD.png')}else{ractive.set("flags.BD", "flags/BDb.png")};
-    if(x[3]==1) {ractive.set("flags.COM", 'flags/COM.png' )}else{ractive.set("flags.COM", "flags/COMb.png")};
-    if(x[4]==1) {ractive.set("flags.EU", 'flags/EU.png')}else{ractive.set("flags.EU", "flags/EUb.png")};
-    if(x[5]==1) {ractive.set("flags.LJ", 'flags/LJ.png')}else{ractive.set("flags.LJ", "flags/LJb.png")};
-    if(x[6]==1) {ractive.set("flags.NORAD", "flags/NORAD.png")}else{ractive.set("flags.NORAD", "flags/NORADb.png")};
-    if(x[7]==1) {ractive.set("flags.SCA", 'flags/SCA.png' )}else{ractive.set("flags.SCA", "flags/SCAb.png")};
-    if(x[8]==1) {ractive.set("flags.NSWP", 'flags/NSWP.png')}else{ractive.set("flags.NSWP", "flags/NSWPb.png")};
-    if(x[9]==1) {ractive.set("flags.RD", 'flags/RD.png'   )}else{ractive.set("flags.RD", "flags/RDb.png")};
-    if(x[10]==1){ractive.set("flags.RKA", 'flags/RKA.png' )}else{ractive.set("flags.RKA", "flags/RKAb.png")};
-    if(x[11]==1){ractive.set("flags.ANZAC", 'flags/ANZAC.png')}else{ractive.set("flags.ANZAC", "flags/ANZACb.png")};
-    if(x[12]==1){ractive.set("flags.BRD", 'flags/BRD.png' )}else{ractive.set("flags.BRD", "flags/BRDb.png")};
-    if(x[13]==1){ractive.set("flags.CAN", 'flags/CAN.png' )}else{ractive.set("flags.CAN", "flags/CANb.png")};
-    if(x[14]==1){ractive.set("flags.DEN", 'flags/DEN.png' )}else{ractive.set("flags.DEN", "flags/DENb.png")};
-    if(x[15]==1){ractive.set("flags.FRA", 'flags/FRA.png' )}else{ractive.set("flags.FRA", "flags/FRAb.png")};
-    if(x[16]==1){ractive.set("flags.JAP", 'flags/JAP.png' )}else{ractive.set("flags.JAP", "flags/JAPb.png")};
-    if(x[17]==1){ractive.set("flags.NED", 'flags/NED.png' )}else{ractive.set("flags.NED", "flags/NEDb.png")};
-    if(x[18]==1){ractive.set("flags.NOR", 'flags/NOR.png' )}else{ractive.set("flags.NOR", "flags/NORb.png")};
-    if(x[19]==1){ractive.set("flags.ROK", 'flags/ROK.png' )}else{ractive.set("flags.ROK", "flags/ROKb.png")};
-    if(x[20]==1){ractive.set("flags.SWE", 'flags/SWE.png' )}else{ractive.set("flags.SWE", "flags/SWEb.png")};
-    if(x[21]==1){ractive.set("flags.UK" , 'flags/UK.png'  )}else{ractive.set("flags.UK", "flags/UKb.png")};
-    if(x[22]==1){ractive.set("flags.USA", 'flags/USA.png' )}else{ractive.set("flags.USA", "flags/USAb.png")};
-    if(x[23]==1){ractive.set("flags.CZS", 'flags/CZS.png' )}else{ractive.set("flags.CZS", "flags/CZSb.png")};
-    if(x[24]==1){ractive.set("flags.DDR", 'flags/DDR.png' )}else{ractive.set("flags.DDR", "flags/DDRb.png")};
-    if(x[25]==1){ractive.set("flags.DPRK", 'flags/DPRK.png')}else{ractive.set("flags.DPRK", "flags/DPRKb.png")};
-    if(x[26]==1){ractive.set("flags.POL", 'flags/POL.png' )}else{ractive.set("flags.POL", "flags/POLb.png")};
-    if(x[27]==1){ractive.set("flags.PRC", 'flags/PRC.png' )}else{ractive.set("flags.PRC", "flags/PRCb.png")};
-    if(x[28]==1){ractive.set("flags.USSR", 'flags/USSR.png')}else{ractive.set("flags.USSR", "flags/USSRb.png")};
-    if(x[29]==1){ractive.set("flags.BRDNL", 'flags/BRDNL.png')}else{ractive.set("flags.BRDNL", "flags/BRDNLb.png")};
-    if(x[30]==1){ractive.set("flags.FIN", 'flags/FINb.png')}else{ractive.set("flags.FIN", "flags/FINb.png")};
-    if(x[31]==1){ractive.set("flags.YU", 'flags/YUb.png'  )}else{ractive.set("flags.YU", "flags/YUb.png")};
-    if(x[32]==1){ractive.set("flags.ISR", 'flags/ISRb.png')}else{ractive.set("flags.ISR", "flags/ISRb.png")};
+    if(x[0]==1) {ractiveHeader.set("flags.nato", "flags/nato.png")}else{ractiveHeader.set("flags.nato", "flags/natob.png")};
+    if(x[1]==1) {ractiveHeader.set("flags.redfor", "flags/REDFOR.png")}else{ractiveHeader.set("flags.redfor", "flags/REDFORb.png")};
+    if(x[2]==1) {ractiveHeader.set("flags.BD", 'flags/BD.png')}else{ractiveHeader.set("flags.BD", "flags/BDb.png")};
+    if(x[3]==1) {ractiveHeader.set("flags.COM", 'flags/COM.png' )}else{ractiveHeader.set("flags.COM", "flags/COMb.png")};
+    if(x[4]==1) {ractiveHeader.set("flags.EU", 'flags/EU.png')}else{ractiveHeader.set("flags.EU", "flags/EUb.png")};
+    if(x[5]==1) {ractiveHeader.set("flags.LJ", 'flags/LJ.png')}else{ractiveHeader.set("flags.LJ", "flags/LJb.png")};
+    if(x[6]==1) {ractiveHeader.set("flags.NORAD", "flags/NORAD.png")}else{ractiveHeader.set("flags.NORAD", "flags/NORADb.png")};
+    if(x[7]==1) {ractiveHeader.set("flags.SCA", 'flags/SCA.png' )}else{ractiveHeader.set("flags.SCA", "flags/SCAb.png")};
+    if(x[8]==1) {ractiveHeader.set("flags.NSWP", 'flags/NSWP.png')}else{ractiveHeader.set("flags.NSWP", "flags/NSWPb.png")};
+    if(x[9]==1) {ractiveHeader.set("flags.RD", 'flags/RD.png'   )}else{ractiveHeader.set("flags.RD", "flags/RDb.png")};
+    if(x[10]==1){ractiveHeader.set("flags.RKA", 'flags/RKA.png' )}else{ractiveHeader.set("flags.RKA", "flags/RKAb.png")};
+    if(x[11]==1){ractiveHeader.set("flags.ANZAC", 'flags/ANZAC.png')}else{ractiveHeader.set("flags.ANZAC", "flags/ANZACb.png")};
+    if(x[12]==1){ractiveHeader.set("flags.BRD", 'flags/BRD.png' )}else{ractiveHeader.set("flags.BRD", "flags/BRDb.png")};
+    if(x[13]==1){ractiveHeader.set("flags.CAN", 'flags/CAN.png' )}else{ractiveHeader.set("flags.CAN", "flags/CANb.png")};
+    if(x[14]==1){ractiveHeader.set("flags.DEN", 'flags/DEN.png' )}else{ractiveHeader.set("flags.DEN", "flags/DENb.png")};
+    if(x[15]==1){ractiveHeader.set("flags.FRA", 'flags/FRA.png' )}else{ractiveHeader.set("flags.FRA", "flags/FRAb.png")};
+    if(x[16]==1){ractiveHeader.set("flags.JAP", 'flags/JAP.png' )}else{ractiveHeader.set("flags.JAP", "flags/JAPb.png")};
+    if(x[17]==1){ractiveHeader.set("flags.NED", 'flags/NED.png' )}else{ractiveHeader.set("flags.NED", "flags/NEDb.png")};
+    if(x[18]==1){ractiveHeader.set("flags.NOR", 'flags/NOR.png' )}else{ractiveHeader.set("flags.NOR", "flags/NORb.png")};
+    if(x[19]==1){ractiveHeader.set("flags.ROK", 'flags/ROK.png' )}else{ractiveHeader.set("flags.ROK", "flags/ROKb.png")};
+    if(x[20]==1){ractiveHeader.set("flags.SWE", 'flags/SWE.png' )}else{ractiveHeader.set("flags.SWE", "flags/SWEb.png")};
+    if(x[21]==1){ractiveHeader.set("flags.UK" , 'flags/UK.png'  )}else{ractiveHeader.set("flags.UK", "flags/UKb.png")};
+    if(x[22]==1){ractiveHeader.set("flags.USA", 'flags/USA.png' )}else{ractiveHeader.set("flags.USA", "flags/USAb.png")};
+    if(x[23]==1){ractiveHeader.set("flags.CZS", 'flags/CZS.png' )}else{ractiveHeader.set("flags.CZS", "flags/CZSb.png")};
+    if(x[24]==1){ractiveHeader.set("flags.DDR", 'flags/DDR.png' )}else{ractiveHeader.set("flags.DDR", "flags/DDRb.png")};
+    if(x[25]==1){ractiveHeader.set("flags.DPRK", 'flags/DPRK.png')}else{ractiveHeader.set("flags.DPRK", "flags/DPRKb.png")};
+    if(x[26]==1){ractiveHeader.set("flags.POL", 'flags/POL.png' )}else{ractiveHeader.set("flags.POL", "flags/POLb.png")};
+    if(x[27]==1){ractiveHeader.set("flags.PRC", 'flags/PRC.png' )}else{ractiveHeader.set("flags.PRC", "flags/PRCb.png")};
+    if(x[28]==1){ractiveHeader.set("flags.USSR", 'flags/USSR.png')}else{ractiveHeader.set("flags.USSR", "flags/USSRb.png")};
+    if(x[29]==1){ractiveHeader.set("flags.BRDNL", 'flags/BRDNL.png')}else{ractiveHeader.set("flags.BRDNL", "flags/BRDNLb.png")};
+    if(x[30]==1){ractiveHeader.set("flags.FIN", 'flags/FINb.png')}else{ractiveHeader.set("flags.FIN", "flags/FINb.png")};
+    if(x[31]==1){ractiveHeader.set("flags.YU", 'flags/YUb.png'  )}else{ractiveHeader.set("flags.YU", "flags/YUb.png")};
+    if(x[32]==1){ractiveHeader.set("flags.ISR", 'flags/ISRb.png')}else{ractiveHeader.set("flags.ISR", "flags/ISRb.png")};
 }
 function displayUSA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+10%, +15AP");
+    ractiveHeader.set("lab.tnation", "+10%, +15AP");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 15;
 }
@@ -271,7 +271,7 @@ function displayUSA() {
 function displayUK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+20%, +15AP");
+    ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -279,7 +279,7 @@ function displayUK() {
 function displayFRA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+20%, +15AP");
+    ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -287,7 +287,7 @@ function displayFRA() {
 function displayBRD() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+20%, +15AP");
+    ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -295,7 +295,7 @@ function displayBRD() {
 function displayCAN() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+40%, +15AP");
+    ractiveHeader.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
@@ -303,7 +303,7 @@ function displayCAN() {
 function displayDEN(){
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+40%, +15AP");
+    ractiveHeader.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
@@ -311,7 +311,7 @@ function displayDEN(){
 function displaySWE() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+30%, +15AP");
+    ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -319,7 +319,7 @@ function displaySWE() {
 function displayNOR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+40%, +15AP");
+    ractiveHeader.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
@@ -327,7 +327,7 @@ function displayNOR() {
 function displayANZAC() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+30%, +15AP");
+    ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -335,7 +335,7 @@ function displayANZAC() {
 function displayJAP() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+30%, +15AP");
+    ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -343,7 +343,7 @@ function displayJAP() {
 function displayROK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+30%, +15AP");
+    ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -351,7 +351,7 @@ function displayROK() {
 function displayNED() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+20%, +15AP");
+    ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -359,7 +359,7 @@ function displayNED() {
 function displayEU() {
     var flagstr = [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+0%, +10AP");
+    ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
@@ -367,7 +367,7 @@ function displayEU() {
 function displaySCA() {
     var flagstr = [0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+15%, +10AP");
+    ractiveHeader.set("lab.tnation", "+15%, +10AP");
     Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
@@ -375,7 +375,7 @@ function displaySCA() {
 function displayCOM() {
     var flagstr = [0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+10%, +10AP");
+    ractiveHeader.set("lab.tnation", "+10%, +10AP");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 10;
 }
@@ -383,7 +383,7 @@ function displayCOM() {
 function displayBD() {
     var flagstr = [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+20%, +10AP");
+    ractiveHeader.set("lab.tnation", "+20%, +10AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 10;
 }
@@ -391,7 +391,7 @@ function displayBD() {
 function displayLJ() {
     var flagstr = [0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+15%, +10AP");
+    ractiveHeader.set("lab.tnation", "+15%, +10AP");
     Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
@@ -399,7 +399,7 @@ function displayLJ() {
 function displayNORAD() {
     var flagstr = [0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+0%, +10AP");
+    ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
@@ -407,7 +407,7 @@ function displayNORAD() {
 function displayBDRNL() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+10%, +10AP");
+    ractiveHeader.set("lab.tnation", "+10%, +10AP");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 10;
 }
@@ -415,14 +415,14 @@ function displayBDRNL() {
 function displayNato() {
     var flagstr = [1,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "No bonus");
+    ractiveHeader.set("lab.tnation", "No bonus");
     Deck.availQ = 0;
 }
 
 function displayDDR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+20%, +15AP");
+    ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -430,7 +430,7 @@ function displayDDR() {
 function displayUSSR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+10%, +15AP");
+    ractiveHeader.set("lab.tnation", "+10%, +15AP");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 15;
 }
@@ -438,7 +438,7 @@ function displayUSSR() {
 function displayPOL() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+20%, +15AP");
+    ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 15;
 }
@@ -446,7 +446,7 @@ function displayPOL() {
 function displayCZS() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+30%, +15AP");
+    ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -454,7 +454,7 @@ function displayCZS() {
 function displayPRC() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+30%, +15AP");
+    ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
     Deck.deckpoitstotal += 15;
 }
@@ -462,7 +462,7 @@ function displayPRC() {
 function displayDPRK() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+40%, +15AP");
+    ractiveHeader.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
     Deck.deckpoitstotal += 15;
 }
@@ -470,7 +470,7 @@ function displayDPRK() {
 function displayRD() {
     var flagstr = [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+20%, +10AP");
+    ractiveHeader.set("lab.tnation", "+20%, +10AP");
     Deck.availQ = 20;
     Deck.deckpoitstotal += 10;
 }
@@ -478,7 +478,7 @@ function displayRD() {
 function displayNSWP() {
     var flagstr = [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+15%, +10AP");
+    ractiveHeader.set("lab.tnation", "+15%, +10AP");
     Deck.availQ = 15;
     Deck.deckpoitstotal += 10;
 }
@@ -486,7 +486,7 @@ function displayNSWP() {
 function displayRKA() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "+0%, +10AP");
+    ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
@@ -494,7 +494,7 @@ function displayRKA() {
 function displayREDFOR() {
     var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0];
     showFlags(flagstr);
-    ractive.set("lab.tnation", "No bonus");
+    ractiveHeader.set("lab.tnation", "No bonus");
     Deck.availQ = 0;
 }
 
@@ -542,8 +542,8 @@ function displayCard(card, type, pos){
     innerString += ' <h5 style="position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;">' + temp + '</h5>';
     innerString += " <img src='flags/" + card.sNation + ".png' class='img-thumbnail' style='position: absolute; top: 0; left: 0;' >";
     innerString += " <img src='rank/" + card.sVeterancy + ".png' class='img-thumbnail-mini' style='position: absolute; bottom: 0; left: 0;' >";
-    ractive.set(sD, innerString);
-    ractive.set(sD0, innerString);
+    ractiveDeck.set(sD, innerString);
+    ractiveDeck.set(sD0, innerString);
 
     innerString = '<h6>' + card.Unit.sNameU + '</h6>';
     if(card.Transport != "0"){
@@ -552,10 +552,10 @@ function displayCard(card, type, pos){
     if(card.Craft != "0"){
         innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU +'</h6>';
     }
-    ractive.set(sL, innerString);
+    ractiveDeck.set(sL, innerString);
 
     innerString = '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type*10+ pos[type]+');"}>DELETE</button>';
-    ractive.set(sL0, innerString);
+    ractiveDeck.set(sL0, innerString);
 }
 
 
