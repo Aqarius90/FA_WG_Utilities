@@ -2,7 +2,6 @@ function GUIDisplay() {
 
     Deck.deckpoints = 0;
     Deck.deckpoitstotal = 45;
-    resetDisplay();
     //nation
     switch (Deck.iNation) {
         case 10:{displayUSA(); break; }
@@ -557,15 +556,6 @@ function displayCard(card, type, pos){
 
     innerString = '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type*10+ pos[type]+');"}>DELETE</button>';
     ractive.set(sL0, innerString);
-/*
-    if (prefix == '0'){
-        let temp = pos[type];
-        let elem = document.createElement('input');
-        elem.type = 'button';
-        elem.value = 'DELETE';
-        elem.onclick = function(){CardDelete(type*10+ temp);}; //closure escape via math. FML
-        document.getElementById("L0" + type + pos[type]).appendChild(elem);
-    }*/
 }
 
 
@@ -605,16 +595,7 @@ function displayUnits()
     {
         Deck.Cards2T[i] = toSpec(Deck.Cards2T[i]);
         var type;
-        //if (Deck.Cards2T[i].Unit.sUnitData.charAt(17) == '1'){type = 1;}//logi
-        //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(18) == '1'){type = 2;}//inf
-        //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(19) == '1'){type = 3;}//sup
-        //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(20) == '1'){type = 4;}//tnk
-        //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(21) == '1'){type = 5;}//rec
-        //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(22) == '1'){type = 6;}//veh
-        //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(23) == '1'){type = 7;}//hel
-        //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
-        //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
-        type =9; //2 transports = naval inf.
+        type = 9; //2 transports = naval inf.
         displayCard(Deck.Cards2T[i], type, counter);
         Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;
@@ -655,34 +636,6 @@ function displayUnits()
         Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;
     }
-}
-
-
-function resetDisplay()
-{
-    var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0]; //"0,0,0" = ISR, FIN, YU
-    showFlags(flagstr);
-
-    ractive.set("Buttons.bMotorized", "#fff");
-    ractive.set("Buttons.bArmoured", "#fff");
-    ractive.set("Buttons.bSupport", "#fff");
-    ractive.set("Buttons.bMarine", "#fff");
-    ractive.set("Buttons.bMechanized", "#fff");
-    ractive.set("Buttons.bAirborne", "#fff");
-    ractive.set("Buttons.bNaval", "#fff");
-    ractive.set("Buttons.bGeneral", "#fff");
-    ractive.set("Buttons.bA", "#fff");
-    ractive.set("Buttons.bB", "#fff");
-    ractive.set("Buttons.bC", "#fff");
-/*
-    for (var i = 1; i < 10; i++){
-        for (var j = 1; j < 10; j++){
-            document.getElementById("D" + j + i).innerHTML = "";
-            document.getElementById("L" + j + i).innerHTML = "";
-            document.getElementById("D0" + j + i).innerHTML = "";
-            document.getElementById("L0" + j + i).innerHTML = "";
-        }
-    }*/
 }
 
 function updatePointsDisplay(DA)
