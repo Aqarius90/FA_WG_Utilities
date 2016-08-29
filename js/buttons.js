@@ -1,6 +1,4 @@
 function btDecode(){
-    
-    debugClear();
     DeckDisAssembly();
     GUIDisplay();
     DeckExport();
@@ -20,7 +18,7 @@ function btNATO_Click() {
     Deck.iNation = 202;
     GUIDisplay();
     DeckExport();
-}        
+}
 
 function btREDFOR_Click() {
     Deck.sSide = "RED";

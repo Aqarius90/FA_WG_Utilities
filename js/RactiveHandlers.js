@@ -57,7 +57,10 @@
             tspec: '',
             tera: '',
             pointstally:''
-          }
-
+          },
+          debug: '',
+          sBinary:''
        }
   });
+
+  ractive.on("sort", function(event, column){ this.set("sortColumn", column);});

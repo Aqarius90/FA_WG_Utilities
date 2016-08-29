@@ -24,7 +24,6 @@ function  DeckAssembly()
 
 function DeckDisAssembly()
 {
-  var binoutdebug = "NONE";
   decodeDeck(ractive.get('sDeckString'))
   //decodeDeck(sDeckString.value)
 }
@@ -105,10 +104,6 @@ function decodeDeck (deckCode)
       if (deckCode.charAt(i) == "9") { deckBinary += "111101"; } else
       if (deckCode.charAt(i) == "/") { deckBinary += "111111"; }
     }
-    binoutdebug = deckBinary;
-    //DEBUG
-    var sDebug = document.getElementById("debug");
-    sDebug.innerHTML = binoutdebug;
 
     if (deckBinary.charAt(0) == '0')
     {
@@ -201,9 +196,6 @@ function decodeDeck (deckCode)
     }
     Deck.i2Cards = parseInt(s2Count, 2);
 
-        //DEBUG
-    debugHeader();
-
     var iPC = 23; //pos counter
     for (var i = 0; i < Deck.i3Cards; i++) //for each unit
     {
@@ -292,7 +284,8 @@ function decodeDeck (deckCode)
         Deck.i1Cards++;
     }
     //cardDisplaySort(Deck.Cards0T, Deck.Cards1T, Deck.Cards2T);
-    debugUnitsOut();
+    ractive.set('sBinary', deckBinary);
+    debugOutput(deckBinary);
 }
 
 

@@ -2629,14 +2629,18 @@
             <div class="tab-pane" id="DEBUG">
               <div class="container">
                 <p>DEBUG</p>
-                <p id="debug" style="word-wrap: break-word;">test</p>
-                  <table id="debugTable" style="width:100%">
-                    <tbody id="debugBody">
+                <p style="word-wrap: break-word;">{{sBinary}}</p>
+                  <table class="debug" style="width:100%">
+                  <tr>
+                    <th>bin</th>
+                    <th>parsing</th>
+                  </tr>
+                      {{#each debug}}
                       <tr>
-                        <th>bin</th>
-                        <th>parsing</th>
+                        <th>{{bin}}</th>
+                        <th>{{parsing}}</th>
                       </tr>
-                    </tbody>
+                      {{/each}}
                   </table>
                 </div>
             </div>
