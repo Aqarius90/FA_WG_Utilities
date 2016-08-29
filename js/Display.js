@@ -507,17 +507,57 @@ function addDataImage(x, prefix, y, spec){
     document.getElementById("D" + prefix + x + y).appendChild(iData);
 }
 
-function displayCard(card, prefix,type, pos){
-    var isUnavailable = isError(card);
-    document.getElementById("D" + prefix + type + pos[type]).innerHTML = "";
+function displayCard(card, type, pos){
 
-    var iData = document.createElement("img");
-    iData.src = "png/blank.png";``
-    iData.setAttribute("class", "img-responsive");
-    iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-    document.getElementById("D" + prefix + type + pos[type]).appendChild(iData);
     card.iArrayIndex =""+ type + pos[type];
+    var sD  = "DeckView.D" +type + pos[type];
+    var sL  = "DeckView.L" +type + pos[type];
+    var sD0 = "DeckView.D0" +type + pos[type];
+    var sL0 = "DeckView.L0" +type + pos[type];
+    var isUnavailable = isError(card);
 
+    var innerString = "<img src='png/blank.png' class='img-responsive' style='position: relative; top: 0; left: 0;' >";
+
+    if (isUnavailable == true) { innerString += " <img src='png/INVALID.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >"; }
+    if (card.Unit.sUnitData.charAt(0)  == '1') { innerString += " <img src='png/antiair.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(1)  == '1') { innerString += " <img src='png/AAM.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(2)  == '1') { innerString += " <img src='png/armour.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(3)  == '1') { innerString += " <img src='png/atgm.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(4)  == '1') { innerString += " <img src='png/carrier.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(5)  == '1') { innerString += " <img src='png/CMD.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(6)  == '1') { innerString += " <img src='png/helo.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(7)  == '1') { innerString += " <img src='png/inf.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(8)  == '1') { innerString += " <img src='png/log.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(9)  == '1') { innerString += " <img src='png/eng.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(10) == '1') { innerString += " <img src='png/plane.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(11) == '1') { innerString += " <img src='png/rad.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(12) == '1') { innerString += " <img src='png/rocket.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(13) == '1') { innerString += " <img src='png/mtr.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(14) == '1') { innerString += " <img src='png/rec.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(14) == '2') { innerString += " <img src='png/rec2.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(14) == '3') { innerString += " <img src='png/rec3.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(15) == '1') { innerString += " <img src='png/tube.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(16) == '1') { innerString += " <img src='png/rad.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    innerString += ' <h5 style="position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;">' + card.iCost + '</h5>';
+    var temp = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
+    innerString += ' <h5 style="position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;">' + temp + '</h5>';
+    innerString += " <img src='flags/" + card.sNation + ".png' class='img-thumbnail' style='position: absolute; top: 0; left: 0;' >";
+    innerString += " <img src='rank/" + card.sVeterancy + ".png' class='img-thumbnail-mini' style='position: absolute; bottom: 0; left: 0;' >";
+    ractive.set(sD, innerString);
+    ractive.set(sD0, innerString);
+
+    innerString = '<h6>' + card.Unit.sNameU + '</h6>';
+    if(card.Transport != "0"){
+        innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + '</h6>';
+    }
+    if(card.Craft != "0"){
+        innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU +'</h6>';
+    }
+    ractive.set(sL, innerString);
+
+    innerString = '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type*10+ pos[type]+');"}>DELETE</button>';
+    ractive.set(sL0, innerString);
+/*
     if (prefix == '0'){
         let temp = pos[type];
         let elem = document.createElement('input');
@@ -525,68 +565,7 @@ function displayCard(card, prefix,type, pos){
         elem.value = 'DELETE';
         elem.onclick = function(){CardDelete(type*10+ temp);}; //closure escape via math. FML
         document.getElementById("L0" + type + pos[type]).appendChild(elem);
-    }
-
-    //unit name
-    var uText = document.createElement("h6");
-    uText.innerHTML = card.Unit.sNameU;
-    document.getElementById("L" + prefix + type + pos[type]).appendChild(uText);
-    if(card.Transport != "0"){
-        uText.innerHTML = card.Unit.sNameU + "<br>" + card.Transport.sNameU ;
-        document.getElementById("L" + prefix + type + pos[type]).appendChild(uText);
-    }
-    if(card.Craft != "0"){
-        uText.innerHTML = card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU;
-        document.getElementById("L" + prefix + type + pos[type]).appendChild(uText);
-    }
-
-    if (isUnavailable == true) { addDataImage(type, prefix, pos[type], "INVALID"); }
-
-    if (card.Unit.sUnitData.charAt(0)== '1') { addDataImage(type, prefix, pos[type], "antiair"); }
-    if (card.Unit.sUnitData.charAt(1)== '1') { addDataImage(type, prefix, pos[type], "AAM"); }
-    if (card.Unit.sUnitData.charAt(2)== '1') { addDataImage(type, prefix, pos[type], "armour"); }
-    if (card.Unit.sUnitData.charAt(3)== '1') { addDataImage(type, prefix, pos[type], "atgm"); }
-    if (card.Unit.sUnitData.charAt(4)== '1') { addDataImage(type, prefix, pos[type], "carrier"); }
-    if (card.Unit.sUnitData.charAt(5)== '1') { addDataImage(type, prefix, pos[type], "CMD"); }
-    if (card.Unit.sUnitData.charAt(6)== '1') { addDataImage(type, prefix, pos[type], "helo"); }
-    if (card.Unit.sUnitData.charAt(7)== '1') { addDataImage(type, prefix, pos[type], "inf"); }
-    if (card.Unit.sUnitData.charAt(8)== '1') { addDataImage(type, prefix, pos[type], "log"); }
-    if (card.Unit.sUnitData.charAt(9)== '1') { addDataImage(type, prefix, pos[type], "eng"); }
-    if (card.Unit.sUnitData.charAt(10) == '1') { addDataImage(type, prefix, pos[type], "plane"); }
-    if (card.Unit.sUnitData.charAt(11) == '1') { addDataImage(type, prefix, pos[type], "rad"); }
-    if (card.Unit.sUnitData.charAt(12) == '1') { addDataImage(type, prefix, pos[type], "rocket"); }
-    if (card.Unit.sUnitData.charAt(13) == '1') { addDataImage(type, prefix, pos[type], "mtr"); }
-    if (card.Unit.sUnitData.charAt(14) == '1') { addDataImage(type, prefix, pos[type], "rec"); }
-    if (card.Unit.sUnitData.charAt(14) == '2') { addDataImage(type, prefix, pos[type], "rec2"); }
-    if (card.Unit.sUnitData.charAt(14) == '3') { addDataImage(type, prefix, pos[type], "rec3"); }
-    if (card.Unit.sUnitData.charAt(15) == '1') { addDataImage(type, prefix, pos[type], "tube"); }
-    if (card.Unit.sUnitData.charAt(16) == '1') { addDataImage(type, prefix, pos[type], "rad"); }
-
-    //cost
-    uText = document.createElement("h5");
-    uText.innerHTML = card.iCost;
-    uText.setAttribute("style","position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;");
-    document.getElementById("D" + prefix + type + pos[type]).appendChild(uText);
-
-    //avail
-    var aText = document.createElement("h5");
-    aText.innerHTML = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
-    aText.setAttribute("style","position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;");
-    document.getElementById("D" + prefix + type + pos[type]).appendChild(aText);
-
-    //flag
-    iData = document.createElement("img");
-    iData.src = "flags/" + card.sNation + ".png";
-    iData.setAttribute("class", "img-thumbnail");
-    iData.setAttribute("style", "position: absolute; top: 0; left: 0;");
-    document.getElementById("D" + prefix + type + pos[type]).appendChild(iData);
-
-    //vet
-    iData = document.createElement("img");
-    iData.src = "rank/" + card.sVeterancy + ".png";
-    iData.setAttribute("class", "img-thumbnail-mini");
-    iData.setAttribute("style", "position: absolute; bottom: 0; left: 0;");
-    document.getElementById("D" + prefix + type + pos[type]).appendChild(iData);
+    }*/
 }
 
 
@@ -636,8 +615,7 @@ function displayUnits()
         //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
         //else if (Deck.Cards2T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         type =9; //2 transports = naval inf.
-        displayCard(Deck.Cards2T[i], "", type, counter);
-        displayCard(Deck.Cards2T[i], "0", type, counter);
+        displayCard(Deck.Cards2T[i], type, counter);
         Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;
     }
@@ -655,8 +633,7 @@ function displayUnits()
         else if (Deck.Cards1T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
         else if (Deck.Cards1T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         else{type = 9;} //me=idiot, forgot to input naval
-        displayCard(Deck.Cards1T[i], "", type, counter);
-        displayCard(Deck.Cards1T[i], "0", type, counter);
+        displayCard(Deck.Cards1T[i], type, counter);
         Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;
     }
@@ -674,8 +651,7 @@ function displayUnits()
         else if (Deck.Cards0T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
         else if (Deck.Cards0T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
         else{type = 9;} //me=idiot, forgot to input naval
-        displayCard(Deck.Cards0T[i], "", type, counter);
-        displayCard(Deck.Cards0T[i], "0", type, counter);
+        displayCard(Deck.Cards0T[i], type, counter);
         Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;
     }
@@ -698,7 +674,7 @@ function resetDisplay()
     ractive.set("Buttons.bA", "#fff");
     ractive.set("Buttons.bB", "#fff");
     ractive.set("Buttons.bC", "#fff");
-
+/*
     for (var i = 1; i < 10; i++){
         for (var j = 1; j < 10; j++){
             document.getElementById("D" + j + i).innerHTML = "";
@@ -706,11 +682,11 @@ function resetDisplay()
             document.getElementById("D0" + j + i).innerHTML = "";
             document.getElementById("L0" + j + i).innerHTML = "";
         }
-    }
+    }*/
 }
 
 function updatePointsDisplay(DA)
-{
+{/*
     for (var i = 1; i < 10; i++){
         for (var j = 1; j < 10; j++){
                 var uText = document.createElement("h3");
@@ -727,5 +703,5 @@ function updatePointsDisplay(DA)
                 uText.innerHTML = DA[i][j];
                 document.getElementById("D0" + i + j).appendChild(uText);
         }
-    }
+    }*/
 }
