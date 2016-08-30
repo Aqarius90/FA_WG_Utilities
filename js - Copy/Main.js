@@ -257,7 +257,7 @@ function toList(card){
     }
 
 
-    var elem = document.createElement('input');
+    let elem = document.createElement('input');
     elem.type = 'button';
     elem.value = '>';
     elem.onclick = function(){ShowCard(card);};
