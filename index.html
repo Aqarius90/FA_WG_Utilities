@@ -1,215 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>FA WRD tools</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Display.js"></script>
-    <script src="js/Database.js"></script>
-    <script src="js/Main.js"></script>
-    <script src="js/buttons.js"></script>
-    <script src="js/TransportLinker.js"></script>
-    <script src="js/WeaponData.js"></script>
-    <script src="js/debugFunctions.js"></script>
-    <script src="js/DeckDisAssembly.js"></script>
-    <script type="text/javascript" src="sort/jquery.tablesorter.js"></script> 
+  <title>FA WRD tools</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src='js/ractive.js'></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+  .flg {
+      width: 50px;
+      height: 25px;
+      display: inline-block;
+      background: url(flags.png);
+      display:inline-block;
+      border:0px;
+      border-radius:0px;
+      margin:0px;
+      padding:0px;
+  }
+  #nato{
+    background-position: 0px 0px;
+  }
+  #red{
+    background-position: -50px 0px;
+  }
+  #bd{
+    background-position: -100px 0px;
+  }
+  #cw{
+    background-position: -150px 0px;
+  }
+  #eu{
+    background-position: -200px 0px;
+  }
+  #lj{
+    background-position: -250px 0px;
+  }
+  #nrd{
+    background-position: -300px 0px;
+  }
+  </style>
 </head>
 <body>
   <div class="container">
-
     <div class="panel">
         <div class="row">
-            <div class="col-sm-1">
+            <div class="col-sm-1"><a href="http://www.folkarps.com/">
+                <img src="flags/FA.png">
+                </a>
             </div>
             <div class="col-sm-10">
-                <h1 align="center">FA Utility : Wargame - Red Dragon</h1>            
+                <h1 align="center">FA Utility : Wargame - Red Dragon</h1>
             </div>
-            <div class="col-sm-1">       
-            </div>            
+            <div class="col-sm-1">
+            </div>
         </div>
     </div>
-    <div class="panel panel-body">
-        <div class="row">
-            <div class="col-sm-10">
-              <input id="sDeckString" type="text" class="form-control">
-            </div>
-            <div class="col-sm-1">
-              <button id="bDecode" type="button" class="btn btn-default btn-block btn-top-line" onclick="btDecode()">DECODE</button>
-            </div>
-            <div class="col-sm-1">
-              <button id="bClear" type="button" class="btn btn-default btn-block btn-top-line" onclick="btClear()">CLEAR</button>
-            </div>
-        </div>
+    <div id="ankerHeader">
+    </div>
+    <div id="ankerDeck">
+    </div>
+    <script id='templateHeader' type='text/ractive'>
+      <div class="row">
+          <div class="col-sm-10">
+            <input value="{{sDeckString}}" type="text" class="form-control">
+          </div>
+          <div class="col-sm-1">
+            <button type="button" class="btn btn-default btn-block btn-top-line" onclick="btDecode()">DECODE</button>
+          </div>
+          <div class="col-sm-1">
+            <button type="button" class="btn btn-default btn-block btn-top-line" onclick="btClear()">CLEAR</button>
+          </div>
+      </div>
+      <div class="panel panel-body">
         <div class="row">
           <div class="col-sm-9">
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="row">
                   <div class="col-sm-1">
-                    <button id="bNATO" type="button"  class="btn btn-default btn-block" onclick="btNATO_Click()">
-                      <img id="iNATO" src="flags/nato.png" class="img-responsive" width="100%" >
+                    <button type="button"  class="btn btn-default btn-block" onclick="btNATO_Click()">
+                      <img id="nato" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bREDFOR" type="button"  class="btn btn-default btn-block" onclick="btREDFOR_Click()">
-                      <img id="iREDFOR" src="flags/REDFOR.png" class="img-responsive" width="100%">
+                    <button type="button"  class="btn btn-default btn-block" onclick="btREDFOR_Click()">
+                      <img id="red" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bBD" type="button" class="btn btn-default btn-block" onclick="btBD_Click()">
-                      <img id="iBD" src="flags/BD.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btBD_Click()">
+                      <img id="bd" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bCOM" type="button" class="btn btn-default btn-block" onclick="btCOM_Click()">
-                      <img id="iCOM" src="flags/COM.png" class="img-responsive" width="100%" >
+                    <button type="button" class="btn btn-default btn-block" onclick="btCOM_Click()">
+                      <img id="cw" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bEU" type="button" class="btn btn-default btn-block" onclick="btEU_Click()">
-                      <img id="iEU" src="flags/EU.png" class="img-responsive" width="100%" >
+                    <button type="button" class="btn btn-default btn-block" onclick="btEU_Click()">
+                      <img id="eu" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bLJ" type="button" class="btn btn-default btn-block" onclick="btLJ_Click()">
-                      <img id="iLJ" src="flags/LJ.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btLJ_Click()">
+                      <img id="lj" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bNORAD" type="button" class="btn btn-default btn-block"  onclick="btNORAD_Click()">
-                      <img id="iNORAD" src="flags/NORAD.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block"  onclick="btNORAD_Click()">
+                      <img id="nrd" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bSCA" type="button" class="btn btn-default btn-block" onclick="btSCA_Click()">
-                      <img id="iSCA" src="flags/SCA.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btSCA_Click()">
+                      <img src="{{flags.SCA}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bBRDNL" type="button" class="btn btn-default btn-block" onclick="btBRDNL_Click()">
-                      <img id="iBRDNL" src="flags/BRDNL.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btBRDNL_Click()">
+                      <img src="{{flags.BRDNL}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bNSWP" type="button" class="btn btn-default btn-block" onclick="btNSWP_Click()">
-                      <img id="iNSWP" src="flags/NSWP.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btNSWP_Click()">
+                      <img src="{{flags.NSWP}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bRD" type="button" class="btn btn-default btn-block" onclick="btRD_Click()">
-                      <img id="iRD" src="flags/RD.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btRD_Click()">
+                      <img src="{{flags.RD}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bRKA" type="button" class="btn btn-default btn-block" onclick="btRKA_Click()">
-                      <img id="iRKA" src="flags/RKA.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btRKA_Click()">
+                      <img src="{{flags.RKA}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-1">
-                    <button id="bANZAC" type="button" class="btn btn-default btn-block" onclick="btANZAC_Click()">
-                      <img id="iANZAC" src="flags/ANZAC.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btANZAC_Click()">
+                      <img src="{{flags.ANZAC}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bBRD" type="button" class="btn btn-default btn-block" onclick="btBRD_Click()">
-                      <img id="iBRD" src="flags/BRD.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btBRD_Click()">
+                      <img src="{{flags.BRD}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bCAN" type="button" class="btn btn-default btn-block" onclick="btCAN_Click()">
-                      <img id="iCAN" src="flags/CAN.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btCAN_Click()">
+                      <img src="{{flags.CAN}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bDEN" type="button" class="btn btn-default btn-block" onclick="btDEN_Click()">
-                      <img id="iDEN" src="flags/DEN.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btDEN_Click()">
+                      <img src="{{flags.DEN}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bFRA" type="button" class="btn btn-default btn-block" onclick="btFRA_Click()">
-                      <img id="iFRA" src="flags/FRA.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btFRA_Click()">
+                      <img src="{{flags.FRA}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bJAP" type="button" class="btn btn-default btn-block" onclick="btJAP_Click()">
-                      <img id="iJAP" src="flags/JAP.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btJAP_Click()">
+                      <img src="{{flags.JAP}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bNED" type="button" class="btn btn-default btn-block" onclick="btNED_Click()">
-                      <img id="iNED" src="flags/NED.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btNED_Click()">
+                      <img src="{{flags.NED}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bNOR" type="button" class="btn btn-default btn-block" onclick="btNOR_Click()">
-                      <img id="iNOR" src="flags/NOR.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btNOR_Click()">
+                      <img src="{{flags.NOR}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bROK" type="button" class="btn btn-default btn-block" onclick="btROK_Click()">
-                      <img id="iROK" src="flags/ROK.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btROK_Click()">
+                      <img src="{{flags.ROK}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bSWE" type="button" class="btn btn-default btn-block" onclick="btSWE_Click()">
-                      <img id="iSWE" src="flags/SWE.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btSWE_Click()">
+                      <img src="{{flags.SWE}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bUK" type="button" class="btn btn-default btn-block" onclick="btUK_Click()">
-                      <img id="iUK" src="flags/UK.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btUK_Click()">
+                      <img src="{{flags.UK}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bUSA" type="button" class="btn btn-default btn-block" onclick="btUSA_Click()">
-                      <img id="iUSA" src="flags/USA.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btUSA_Click()">
+                      <img src="{{flags.USA}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-1">
                     <button id="bCZS" type="button" class="btn btn-default btn-block" onclick="btCZS_Click()">
-                      <img id="iCZS" src="flags/CZS.png" class="img-responsive" width="100%">
+                      <img id="iCZS" src="{{flags.CZS}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bDDR" type="button" class="btn btn-default btn-block" onclick="btDDR_Click()">
-                      <img id="iDDR" src="flags/DDR.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btDDR_Click()">
+                      <img src="{{flags.DDR}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bDPRK" type="button" class="btn btn-default btn-block" onclick="btDPRK_Click()">
-                      <img id="iDPRK" src="flags/DPRK.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btDPRK_Click()">
+                      <img src="{{flags.DPRK}}" class="img-responsive" width="100%">
                       </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bPOL" type="button" class="btn btn-default btn-block" onclick="btPOL_Click()">
-                      <img id="iPOL" src="flags/POL.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btPOL_Click()">
+                      <img src="{{flags.POL}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bPRC" type="button" class="btn btn-default btn-block" onclick="btPRC_Click()">
-                      <img id="iPRC" src="flags/PRC.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btPRC_Click()">
+                      <img src="{{flags.PRC}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bUSSR" type="button" class="btn btn-default btn-block" onclick="btUSSR_Click()">
-                      <img id="iUSSR" src="flags/USSR.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block" onclick="btUSSR_Click()">
+                      <img src="{{flags.USSR}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bFIN" type="button" class="btn btn-default btn-block">
-                      <img id="iFIN" src="flags/FINb.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="{{flags.FINb}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button id="bYU" type="button" class="btn btn-default btn-block">
-                      <img id="iYU" src="flags/YUb.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="{{flags.YUb}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                   <div class="col-sm-1">
@@ -219,8 +250,8 @@
                   <div class="col-sm-1">
                   </div>
                   <div class="col-sm-1">
-                    <button id="bISR" type="button" class="btn btn-default btn-block">
-                      <img id="iISR" src="flags/ISRb.png" class="img-responsive" width="100%">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img src="{{flags.ISRb}}" class="img-responsive" width="100%">
                     </button>
                   </div>
                 </div>
@@ -232,87 +263,90 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-sm-3">
-                    <button id="bMarine" type="button" class="btn btn-default btn-block" onclick="btMarine()">MAR
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bMarine}}" onclick="btMarine()">MAR
                     </button>
                   </div>
                   <div class="col-sm-3">
-                    <button id="bAirborne" type="button" class="btn btn-default btn-block" onclick="btAirborne()">AIR
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bAirborne}}" onclick="btAirborne()">AIR
                     </button>
                   </div>
                   <div class="col-sm-3">
-                    <button id="bMechanized"  type="button" class="btn btn-default btn-block" onclick="btMechanized()">MECH
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bMechanized}}" onclick="btMechanized()">MECH
                     </button>
                   </div>
                   <div class="col-sm-3">
-                    <button id="bArmoured" type="button" class="btn btn-default btn-block" onclick="btArmoured()">ARM
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bArmoured}}" onclick="btArmoured()">ARM
                     </button>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-3">
-                    <button id="bMotorized" type="button" class="btn btn-default btn-block" onclick="btMotorized()">MOTO
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bMotorized}}" onclick="btMotorized()">MOTO
                     </button>
                   </div>
                   <div class="col-sm-3">
-                    <button id="bSupport" type="button" class="btn btn-default btn-block" onclick="btSupport()">SUP
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bSupport}}" onclick="btSupport()">SUP
                     </button>
                   </div>
                   <div class="col-sm-3">
-                    <button id="bNaval" type="button" class="btn btn-default btn-block" onclick="btNaval()">NAV
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bNaval}}" onclick="btNaval()">NAV
                     </button>
                   </div>
                   <div class="col-sm-3">
-                    <button id="bGeneral" type="button" class="btn btn-default btn-block" onclick="btGeneral()">GEN
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bGeneral}}" onclick="btGeneral()">GEN
                     </button>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-4">
-                    <button id="bA" type="button" class="btn btn-default btn-block" onclick="btA()">A
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bA}}" onclick="btA()">A
                     </button>
                   </div>
                   <div class="col-sm-4">
-                    <button id="bB" type="button" class="btn btn-default btn-block" onclick="btB()">B
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bB}}" onclick="btB()">B
                     </button>
                   </div>
                   <div class="col-sm-4">
-                    <button id="bC" type="button" class="btn btn-default btn-block" onclick="btC()">C
-                    </button>
+                    <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bC}}" onclick="btC()">C
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-    </div>
-    <div class="panel panel-body">
-        <div class="col-sm-2">
-            <p id="tnation"></p>
-        </div>
-        <div class="col-sm-6">
-            <p id="tspec"></p>
-        </div>
-        <div class="col-sm-2">
-            <p id="tera"></p>
-        </div>
-        <div class="col-sm-2">
-            <p id="pointstally"></p>
-        </div>
-    </div>
-    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-        <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
-        <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>
-        <li><a href="#Infantry" data-toggle="tab">Infantry</a></li>
-        <li><a href="#Support" data-toggle="tab">Support</a></li>
-        <li><a href="#Tank" data-toggle="tab">Tank</a></li>
-        <li><a href="#Recon" data-toggle="tab">Recon</a></li>
-        <li><a href="#Vehicle" data-toggle="tab">Vehicle</a></li>
-        <li><a href="#Helo" data-toggle="tab">Helo</a></li>
-        <li><a href="#Air" data-toggle="tab">Air</a></li>
-        <li><a href="#Naval" data-toggle="tab">Naval</a></li>
-        <li><a href="#DEBUG" data-toggle="tab">DEBUG</a></li>
-    </ul>
-    <div id="my-tab-content" class="tab-content panel">
+        <div class="panel panel-body">
+          <div class="col-sm-2">
+              <p>{{lab.tnation}}</p>
+          </div>
+          <div class="col-sm-6">
+              <p>{{lab.tspec}}</p>
+          </div>
+          <div class="col-sm-2">
+              <p>{{lab.tera}}</p>
+          </div>
+          <div class="col-sm-2">
+              <p>{{lab.pointstally}}</p>
+          </div>
+      </div>
+    </script>
+    <script id='templateDeck' type='text/ractive'>
+      <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+          <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
+          <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>
+          <li><a href="#Infantry" data-toggle="tab">Infantry</a></li>
+          <li><a href="#Support" data-toggle="tab">Support</a></li>
+          <li><a href="#Tank" data-toggle="tab">Tank</a></li>
+          <li><a href="#Recon" data-toggle="tab">Recon</a></li>
+          <li><a href="#Vehicle" data-toggle="tab">Vehicle</a></li>
+          <li><a href="#Helo" data-toggle="tab">Helo</a></li>
+          <li><a href="#Air" data-toggle="tab">Air</a></li>
+          <li><a href="#Naval" data-toggle="tab">Naval</a></li>
+          <li><a href="#DEBUG" data-toggle="tab">DEBUG</a></li>
+      </ul>
+      <div id="my-tab-content" class="tab-content panel">
+          {{#with DeckView}}
             <div class="tab-pane active" id="Deck">
               <div class="panel panel-body">
                 <div class="row">
@@ -320,79 +354,79 @@
                         <h4>Logistics</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D11" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D11}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D12" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D12}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D13" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D13}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D14" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D14}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D15" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D15}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D16" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D16}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D17" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D17}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D18" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D18}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D19" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D19}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L11" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L11}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L12" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L12}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L13" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L13}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L14" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L14}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L15" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L15}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L16" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L16}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L17" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L17}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L18" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L18}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L19" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L19}}}
                     </div>
                   </div>
                 </div>
@@ -401,79 +435,79 @@
                         <h4>Infantry</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D21" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D21}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D22" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D22}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D23" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D23}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D24" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D24}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D25" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D25}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D26" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D26}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D27" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D27}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D28" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D28}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D29" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D29}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L21" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L21}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L22" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L22}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L23" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L23}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L24" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L24}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L25" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L25}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L26" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L26}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L27" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L27}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L28" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L28}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L29" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L29}}}
                     </div>
                   </div>
                 </div>
@@ -482,79 +516,79 @@
                         <h4>Support</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D31" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D31}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D32" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D32}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D33" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D33}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D34" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D34}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D35" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D35}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D36" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D36}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D37" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D37}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D38" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D38}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D39" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D39}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L31" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L31}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L32" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L32}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L33" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L33}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L34" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L34}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L35" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L35}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L36" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L36}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L37" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L37}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L38" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L38}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L39" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L39}}}
                     </div>
                   </div>
                 </div>
@@ -563,79 +597,79 @@
                         <h4>Tank</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D41" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D41}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D42" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D42}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D43" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D43}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D44" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D44}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D45" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D45}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D46" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D46}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D47" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D47}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D48" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D48}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D49" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D49}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L41" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L41}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L42" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L42}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L43" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L43}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L44" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L44}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L45" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L45}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L46" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L46}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L47" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L47}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L48" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L48}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L49" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L49}}}
                     </div>
                   </div>
                 </div>
@@ -644,79 +678,79 @@
                         <h4>Recon</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D51" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D51}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D52" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D52}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D53" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D53}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D54" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D54}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D55" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D55}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D56" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D56}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D57" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D57}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D58" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D58}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D59" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D59}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L51" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L51}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L52" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L52}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L53" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L53}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L54" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L54}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L55" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L55}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L56" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L56}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L57" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L57}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L58" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L58}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L59" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L59}}}
                     </div>
                   </div>
                 </div>
@@ -725,79 +759,79 @@
                         <h4>Vehicle</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D61" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D61}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D62" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D62}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D63" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D63}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D64" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D64}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D65" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D65}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D66" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D66}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D67" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D67}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D68" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D68}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D69" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D69}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L61" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L61}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L62" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L62}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L63" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L63}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L64" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L64}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L65" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L65}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L66" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L66}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L67" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L67}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L68" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L68}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L69" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L69}}}
                     </div>
                   </div>
                 </div>
@@ -806,79 +840,79 @@
                         <h4>Helicopter</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D71" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D71}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D72" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D72}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D73" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D73}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D74" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D74}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D75" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D75}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D76" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D76}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D77" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D77}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D78" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D78}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D79" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D79}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L71" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L71}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L72" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L72}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L73" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L73}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L74" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L74}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L75" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L75}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L76" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L76}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L77" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L77}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L78" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L78}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L79" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L79}}}
                     </div>
                   </div>
                 </div>
@@ -887,79 +921,79 @@
                         <h4>Plane</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D81" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D81}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D82" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D82}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D83" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D83}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D84" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D84}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D85" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D85}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D86" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D86}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D87" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D87}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D88" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D88}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D89" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D89}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L81" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L81}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L82" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L82}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L83" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L83}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L84" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L84}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L85" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L85}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L86" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L86}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L87" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L87}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L88" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L88}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L89" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L89}}}
                     </div>
                   </div>
                 </div>
@@ -968,84 +1002,86 @@
                         <h4>Naval</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D91" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D91}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D92" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D92}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D93" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D93}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D94" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D94}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D95" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D95}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D96" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D96}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D97" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D97}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D98" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D98}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D99" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D99}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L91" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L91}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L92" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L92}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L93" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L93}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L94" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L94}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L95" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L95}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L96" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L96}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L97" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L97}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L98" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L98}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L99" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L99}}}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            {{/with}}
+            {{#with DetailView}}
             <div class="tab-pane" id="Logistics">
               <div class="panel panel-body">
                 <div class="row">
@@ -1053,79 +1089,79 @@
                         <h4>Logistics</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D011" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D011}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D012" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D012}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D013" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D013}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D014" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D014}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D015" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D015}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D016" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D016}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D017" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D017}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D018" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D018}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D019" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D019}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L011" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L011}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L012" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L012}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L013" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L013}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L014" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L014}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L015" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L015}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L016" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L016}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L017" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L017}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L018" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L018}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L019" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L019}}}
                     </div>
                   </div>
                 </div>
@@ -1157,38 +1193,38 @@
                           <div id="logUP" class="col-sm-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v00" src="rank/000.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add00" type="button" class="btn btn-default btn-block" onclick="add(0,0)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                            
+                        <div class="col-sm-010">
                             <img id="v01" src="rank/001.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">     
+                        <div class="col-sm-010">
                             <button id="add01" type="button" class="btn btn-default btn-block" onclick="add(0, 1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v02" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">     
+                        <div class="col-sm-010">
                             <button id="add02" type="button" class="btn btn-default btn-block" onclick="add(0, 2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                            
+                        <div class="col-sm-010">
                             <img id="v03" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">     
+                        <div class="col-sm-010">
                             <button id="add03" type="button" class="btn btn-default btn-block" onclick="add(0, 3)">0
                             </button>
-                          </div>                
-                        <div class="col-sm-010">                            
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v04" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">     
+                        <div class="col-sm-010">
                             <button id="add04" type="button" class="btn btn-default btn-block" onclick="add(0, 4)">0
                             </button>
                           </div>
@@ -1201,7 +1237,7 @@
                           <div class="tab-pane active" id="UnitL">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Wlog1"></div>
-                                <div class="col-sm-4 panel" id="Wlog2"></div>                          
+                                <div class="col-sm-4 panel" id="Wlog2"></div>
                                 <div class="col-sm-4 panel" id="Wlog3"></div>
                             </div>
                             <div class="row panel" id="Dlog">
@@ -1210,7 +1246,7 @@
                           <div class="tab-pane" id="VehL">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WlogV1"></div>
-                                <div class="col-sm-4 panel" id="WlogV2"></div>                          
+                                <div class="col-sm-4 panel" id="WlogV2"></div>
                                 <div class="col-sm-4 panel" id="WlogV3"></div>
                             </div>
                             <div class="row panel" id="DlogV">
@@ -1228,79 +1264,79 @@
                         <h4>Infantry</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D021" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D021}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D022" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D022}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D023" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D023}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D024" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D024}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D025" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D025}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D026" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D026}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D027" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D027}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D028" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D028}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D029" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D029}}}
                     </div>
                   </div>
-                </div>                  
+                </div>
                 <div class="row">
                   <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L021" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L021}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L022" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L022}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L023" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L023}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L024" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L024}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L025" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L025}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L026" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L026}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L027" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L027}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L028" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L028}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L029" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L029}}}
                     </div>
                   </div>
                 </div>
@@ -1332,41 +1368,41 @@
                           <div id="infUP" class="col-sm-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v10" src="rank/000.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">    
+                        <div class="col-sm-010">
                             <button id="add10" type="button" class="btn btn-default btn-block" onclick="add(1,0)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                            
+                        <div class="col-sm-010">
                             <img id="v11" src="rank/001.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">    
+                        <div class="col-sm-010">
                             <button id="add11" type="button" class="btn btn-default btn-block" onclick="add(1,1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                             
+                        <div class="col-sm-010">
                             <img id="v12" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">    
+                        <div class="col-sm-010">
                             <button id="add12" type="button" class="btn btn-default btn-block" onclick="add(1,2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                           
+                        <div class="col-sm-010">
                             <img id="v13" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">    
+                        <div class="col-sm-010">
                             <button id="add13" type="button" class="btn btn-default btn-block" onclick="add(1,3)">0
                             </button>
-                          </div>               
-                        <div class="col-sm-010">                             
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v14" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
-                        <div class="col-sm-010">    
+                        <div class="col-sm-010">
                             <button id="add14" type="button" class="btn btn-default btn-block" onclick="add(1,4)">0
                             </button>
-                          </div>       
+                          </div>
                       </div>
                       <ul id="tabsi" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitI" data-toggle="tab">Unit</a></li>
@@ -1376,7 +1412,7 @@
                           <div class="tab-pane active" id="UnitI">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Winf1"></div>
-                                <div class="col-sm-4 panel" id="Winf2"></div>                          
+                                <div class="col-sm-4 panel" id="Winf2"></div>
                                 <div class="col-sm-4 panel" id="Winf3"></div>
                             </div>
                             <div class="row panel" id="Dinf">
@@ -1385,7 +1421,7 @@
                           <div class="tab-pane" id="VehI">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WinfV1"></div>
-                                <div class="col-sm-4 panel" id="WinfV2"></div>                          
+                                <div class="col-sm-4 panel" id="WinfV2"></div>
                                 <div class="col-sm-4 panel" id="WinfV3"></div>
                             </div>
                             <div class="row panel" id="DinfV">
@@ -1403,79 +1439,79 @@
                         <h4>Support</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D031" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D031}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D032" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D032}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D033" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D033}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D034" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D034}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D035" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D035}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D036" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D036}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D037" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D037}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D038" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D038}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D039" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D039}}}
                     </div>
                   </div>
-                </div>                  
+                </div>
                 <div class="row">
                   <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L031" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L031}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L032" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L032}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L033" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L033}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L034" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L034}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L035" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L035}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L036" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L036}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L037" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L037}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L038" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L038}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L039" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L039}}}
                     </div>
                   </div>
                 </div>
@@ -1506,35 +1542,35 @@
                           <div id="supUP" class="col-sm-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v20" src="rank/000.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add20" type="button" class="btn btn-default btn-block" onclick="add(2,0)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v21" src="rank/001.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add21" type="button" class="btn btn-default btn-block" onclick="add(2,1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v22" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add22" type="button" class="btn btn-default btn-block" onclick="add(2,2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v23" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add23" type="button" class="btn btn-default btn-block" onclick="add(2,3)">0
                             </button>
-                          </div>                      
-                        <div class="col-sm-010">                          
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v24" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
@@ -1550,7 +1586,7 @@
                           <div class="tab-pane active" id="UnitS">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Wsup1"></div>
-                                <div class="col-sm-4 panel" id="Wsup2"></div>                          
+                                <div class="col-sm-4 panel" id="Wsup2"></div>
                                 <div class="col-sm-4 panel" id="Wsup3"></div>
                             </div>
                             <div class="row panel" id="Dsup">
@@ -1559,7 +1595,7 @@
                           <div class="tab-pane" id="VehS">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WsupV1"></div>
-                                <div class="col-sm-4 panel" id="WsupV2"></div>                          
+                                <div class="col-sm-4 panel" id="WsupV2"></div>
                                 <div class="col-sm-4 panel" id="WsupV3"></div>
                             </div>
                             <div class="row panel" id="DsupV">
@@ -1577,79 +1613,79 @@
                         <h4>Tank</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D041" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D041}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D042" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D042}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D043" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D043}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D044" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D044}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D045" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D045}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D046" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D046}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D047" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D047}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D048" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D048}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D049" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D049}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L041" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L041}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L042" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L042}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L043" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L043}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L044" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L044}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L045" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L045}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L046" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L046}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L047" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L047}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L048" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L048}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L049" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L049}}}
                     </div>
                   </div>
                 </div>
@@ -1681,41 +1717,41 @@
                           <div id="tnkUP" class="col-sm-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v30" src="rank/000.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add30" type="button" class="btn btn-default btn-block" onclick="add(3,0)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v31" src="rank/001.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add31" type="button" class="btn btn-default btn-block" onclick="add(3,1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v32" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add32" type="button" class="btn btn-default btn-block" onclick="add(3,2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v33" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add33" type="button" class="btn btn-default btn-block" onclick="add(3,3)">0
                             </button>
-                          </div>                
-                        <div class="col-sm-010">                        
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v34" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add34" type="button" class="btn btn-default btn-block" onclick="add(3,4)">0
                             </button>
-                          </div>   
+                          </div>
                       </div>
                       <ul id="tabst" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitT" data-toggle="tab">Unit</a></li>
@@ -1725,7 +1761,7 @@
                           <div class="tab-pane active" id="UnitT">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Wtnk1"></div>
-                                <div class="col-sm-4 panel" id="Wtnk2"></div>                          
+                                <div class="col-sm-4 panel" id="Wtnk2"></div>
                                 <div class="col-sm-4 panel" id="Wtnk3"></div>
                             </div>
                             <div class="row panel" id="Dtnk">
@@ -1734,7 +1770,7 @@
                           <div class="tab-pane" id="VehT">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WtnkV1"></div>
-                                <div class="col-sm-4 panel" id="WtnkV2"></div>                          
+                                <div class="col-sm-4 panel" id="WtnkV2"></div>
                                 <div class="col-sm-4 panel" id="WtnkV3"></div>
                             </div>
                             <div class="row panel" id="DtnkV">
@@ -1752,79 +1788,79 @@
                         <h4>Recon</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D051" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D051}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D052" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D052}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D053" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D053}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D054" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D054}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D055" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D055}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D056" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D056}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D057" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D057}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D058" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D058}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D059" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D059}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L051" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L051}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L052" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L052}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L053" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L053}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L054" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L054}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L055" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L055}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L056" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L056}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L057" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L057}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L058" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L058}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L059" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L059}}}
                     </div>
                   </div>
                 </div>
@@ -1856,41 +1892,41 @@
                           <div id="recUP" class="col-sm-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v40" src="rank/000.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add40" type="button" class="btn btn-default btn-block" onclick="add(4,0)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v41" src="rank/001.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add41" type="button" class="btn btn-default btn-block" onclick="add(4,1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v42" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add42" type="button" class="btn btn-default btn-block" onclick="add(4,2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v43" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add43" type="button" class="btn btn-default btn-block" onclick="add(4,3)">0
                             </button>
-                          </div>                
-                        <div class="col-sm-010">                        
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v44" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add44" type="button" class="btn btn-default btn-block" onclick="add(4,4)">0
                             </button>
-                          </div>                      
+                          </div>
                       </div>
                       <ul id="tabsr" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitR" data-toggle="tab">Unit</a></li>
@@ -1900,7 +1936,7 @@
                           <div class="tab-pane active" id="UnitR">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Wrec1"></div>
-                                <div class="col-sm-4 panel" id="Wrec2"></div>                          
+                                <div class="col-sm-4 panel" id="Wrec2"></div>
                                 <div class="col-sm-4 panel" id="Wrec3"></div>
                             </div>
                             <div class="row panel" id="Drec">
@@ -1909,7 +1945,7 @@
                           <div class="tab-pane" id="VehR">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WrecV1"></div>
-                                <div class="col-sm-4 panel" id="WrecV2"></div>                          
+                                <div class="col-sm-4 panel" id="WrecV2"></div>
                                 <div class="col-sm-4 panel" id="WrecV3"></div>
                             </div>
                             <div class="row panel" id="DrecV">
@@ -1927,79 +1963,79 @@
                         <h4>Vehicle</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D061" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D061}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D062" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D062}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D063" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D063}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D064" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D064}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D065" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D065}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D066" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D066}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D067" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D067}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D068" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D068}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D069" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D069}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L061" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L061}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L062" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L062}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L063" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L063}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L064" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L064}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L065" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L065}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L066" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L066}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L067" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L067}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L068" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L068}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L069" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L069}}}
                     </div>
                   </div>
                 </div>
@@ -2031,35 +2067,35 @@
                           <div id="vehUP" class="col-sm-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v50" src="rank/000.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-1">
                             <button id="add50" type="button" class="btn btn-default btn-block" onclick="add(5,0)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v51" src="rank/001.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add51" type="button" class="btn btn-default btn-block" onclick="add(5,1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v52" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add52" type="button" class="btn btn-default btn-block" onclick="add(5,2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v53" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add53" type="button" class="btn btn-default btn-block" onclick="add(5,3)">0
                             </button>
-                          </div>                      
-                        <div class="col-sm-010">                          
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v54" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-1">
@@ -2075,7 +2111,7 @@
                           <div class="tab-pane active" id="UnitV">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Wveh1"></div>
-                                <div class="col-sm-4 panel" id="Wveh2"></div>                          
+                                <div class="col-sm-4 panel" id="Wveh2"></div>
                                 <div class="col-sm-4 panel" id="Wveh3"></div>
                             </div>
                             <div class="row panel" id="Dveh">
@@ -2084,7 +2120,7 @@
                           <div class="tab-pane" id="VehV">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WvehV1"></div>
-                                <div class="col-sm-4 panel" id="WvehV2"></div>                          
+                                <div class="col-sm-4 panel" id="WvehV2"></div>
                                 <div class="col-sm-4 panel" id="WvehV3"></div>
                             </div>
                             <div class="row panel" id="DvehV">
@@ -2102,79 +2138,79 @@
                         <h4>Helicopter</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D071" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D071}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D072" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D072}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D073" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D073}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D074" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D074}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D075" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D075}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D076" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D076}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D077" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D077}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D078" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D078}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D079" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D079}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L071" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L071}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L072" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L072}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L073" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L073}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L074" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L074}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L075" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L075}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L076" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L076}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L077" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L077}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L078" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L078}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L079" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L079}}}
                     </div>
                   </div>
                 </div>
@@ -2206,41 +2242,41 @@
                           <div id="helUP" class="col-sm-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v60" src="rank/000.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add60" type="button" class="btn btn-default btn-block" onclick="add(6,0)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v61" src="rank/001.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add61" type="button" class="btn btn-default btn-block" onclick="add(6,1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v62" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add62" type="button" class="btn btn-default btn-block" onclick="add(6,2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                        
+                        <div class="col-sm-010">
                             <img id="v63" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add63" type="button" class="btn btn-default btn-block" onclick="add(6,3)">0
                             </button>
-                          </div>                
-                        <div class="col-sm-010">                        
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v64" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add64" type="button" class="btn btn-default btn-block" onclick="add(6,4)">0
                             </button>
-                          </div>                      
+                          </div>
                       </div>
                       <ul id="tabsh" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitH" data-toggle="tab">Unit</a></li>
@@ -2250,7 +2286,7 @@
                           <div class="tab-pane active" id="UnitH">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Whel1"></div>
-                                <div class="col-sm-4 panel" id="Whel2"></div>                          
+                                <div class="col-sm-4 panel" id="Whel2"></div>
                                 <div class="col-sm-4 panel" id="Whel3"></div>
                             </div>
                             <div class="row panel" id="Dhel">
@@ -2259,7 +2295,7 @@
                           <div class="tab-pane" id="VehH">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WhelV1"></div>
-                                <div class="col-sm-4 panel" id="WhelV2"></div>                          
+                                <div class="col-sm-4 panel" id="WhelV2"></div>
                                 <div class="col-sm-4 panel" id="WhelV3"></div>
                             </div>
                             <div class="row panel" id="DhelV">
@@ -2277,79 +2313,79 @@
                         <h4>Plane</h4>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D081" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D081}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D082" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D082}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D083" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D083}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D084" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D084}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D085" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D085}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D086" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D086}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D087" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D087}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D088" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D088}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D089" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D089}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L081" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L081}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L082" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L082}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L083" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L083}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L084" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L084}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L085" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L085}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L086" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L086}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L087" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L087}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L088" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L088}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L089" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L089}}}
                     </div>
                   </div>
                 </div>
@@ -2395,27 +2431,27 @@
                             <button id="add71" type="button" class="btn btn-default btn-block" onclick="add(7,1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                         
+                        <div class="col-sm-010">
                             <img id="v72" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add72" type="button" class="btn btn-default btn-block" onclick="add(7,2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                       
+                        <div class="col-sm-010">
                             <img id="v73" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add73" type="button" class="btn btn-default btn-block" onclick="add(7,3)">0
                             </button>
-                          </div>               
-                        <div class="col-sm-010">                         
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v74" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add74" type="button" class="btn btn-default btn-block" onclick="add(7,4)">0
                             </button>
-                          </div>                    
+                          </div>
                       </div>
                       <ul id="tabsa" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitA" data-toggle="tab">Unit</a></li>
@@ -2425,7 +2461,7 @@
                           <div class="tab-pane active" id="UnitA">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Wair1"></div>
-                                <div class="col-sm-4 panel" id="Wair2"></div>                          
+                                <div class="col-sm-4 panel" id="Wair2"></div>
                                 <div class="col-sm-4 panel" id="Wair3"></div>
                             </div>
                             <div class="row panel" id="Dair">
@@ -2434,7 +2470,7 @@
                           <div class="tab-pane" id="VehA">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WairV1"></div>
-                                <div class="col-sm-4 panel" id="WairV2"></div>                          
+                                <div class="col-sm-4 panel" id="WairV2"></div>
                                 <div class="col-sm-4 panel" id="WairV3"></div>
                             </div>
                             <div class="row panel" id="DairV">
@@ -2453,79 +2489,79 @@
                         <h6>(not properly, anyway)</h6>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D091" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D091}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D092" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D092}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D093" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D093}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D094" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D094}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D095" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D095}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D096" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D096}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D097" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D097}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D098" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D098}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="D099" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{D099}}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-010">                    
+                  <div class="col-sm-010">
                   </div>
                   <div class="col-sm-010">
-                    <div id="L091" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L091}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L092" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L092}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L093" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L093}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L094" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L094}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L095" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L095}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L096" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L096}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L097" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L097}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L098" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L098}}}
                     </div>
                   </div>
                   <div class="col-sm-010">
-                    <div id="L099" style="position: relative; left: 0; top: 0;">
+                    <div style="position: relative; left: 0; top: 0;">{{{L099}}}
                     </div>
                   </div>
                 </div>
@@ -2545,7 +2581,7 @@
                                 <th>Cards</th>
                                 <th>View</th>
                             </tr>
-                        </thead>                      
+                        </thead>
                       <tbody id="navBody">
                       </tbody>
                   </table>
@@ -2557,35 +2593,35 @@
                           <div id="navUP" class="col-sm-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v80" src="rank/000.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add80" type="button" class="btn btn-default btn-block" onclick="add(8,0)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v81" src="rank/001.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add81" type="button" class="btn btn-default btn-block" onclick="add(8,1)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v82" src="rank/010.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add82" type="button" class="btn btn-default btn-block" onclick="add(8,2)">0
                             </button>
                           </div>
-                        <div class="col-sm-010">                          
+                        <div class="col-sm-010">
                             <img id="v83" src="rank/011.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
                             <button id="add83" type="button" class="btn btn-default btn-block" onclick="add(8,3)">0
                             </button>
-                          </div>                      
-                        <div class="col-sm-010">                          
+                          </div>
+                        <div class="col-sm-010">
                             <img id="v84" src="rank/100.png" class="img-responsive" width="100%">
                           </div>
                         <div class="col-sm-010">
@@ -2601,7 +2637,7 @@
                           <div class="tab-pane active" id="UnitN">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="Wnav1"></div>
-                                <div class="col-sm-4 panel" id="Wnav2"></div>                          
+                                <div class="col-sm-4 panel" id="Wnav2"></div>
                                 <div class="col-sm-4 panel" id="Wnav3"></div>
                             </div>
                             <div class="row panel" id="Dnav">
@@ -2610,7 +2646,7 @@
                           <div class="tab-pane" id="VehN">
                             <div class="row">
                                 <div class="col-sm-4 panel" id="WnavV1"></div>
-                                <div class="col-sm-4 panel" id="WnavV2"></div>                          
+                                <div class="col-sm-4 panel" id="WnavV2"></div>
                                 <div class="col-sm-4 panel" id="WnavV3"></div>
                             </div>
                             <div class="row panel" id="DnavV">
@@ -2621,24 +2657,42 @@
                 </div>
               </div>
             </div>
+            {{/with}}
             <div class="tab-pane" id="DEBUG">
               <div class="container">
                 <p>DEBUG</p>
-                <p id="debug" style="word-wrap: break-word;">test</p>
-                  <table id="debugTable" style="width:100%">
-                    <tbody id="debugBody">
+                <p style="word-wrap: break-word;">{{sBinary}}</p>
+                  <table class="debug" style="width:100%">
+                  <tr>
+                    <th>bin</th>
+                    <th>parsing</th>
+                  </tr>
+                      {{#each debug}}
                       <tr>
-                        <th>bin</th>
-                        <th>parsing</th>
+                        <th>{{bin}}</th>
+                        <th>{{parsing}}</th>
                       </tr>
-                    </tbody>
+                      {{/each}}
                   </table>
                 </div>
             </div>
         </div>
+      </script>
   </div>
 
+  <script src="js/RactiveHandlers.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/Display.js"></script>
+  <script src="js/Database.js"></script>
+  <script src="js/Main.js"></script>
+  <script src="js/buttons.js"></script>
+  <script src="js/TransportLinker.js"></script>
+  <script src="js/WeaponData.js"></script>
+  <script src="js/debugFunctions.js"></script>
+  <script src="js/DeckDisAssembly.js"></script>
+  <script type="text/javascript" src="sort/jquery.tablesorter.js"></script>
     <script>init();</script>
+
 
 </body>
 </html>

@@ -8,32 +8,33 @@ function init() {
     }
     initMainDB();
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
-    GUIDisplay();
-    
-    $(document).ready(function() 
-    { 
-        $("#logTable").tablesorter(); 
-        $("#infTable").tablesorter(); 
-        $("#supTable").tablesorter(); 
-        $("#tnkTable").tablesorter(); 
-        $("#recTable").tablesorter(); 
-        $("#vehTable").tablesorter(); 
-        $("#helTable").tablesorter(); 
-        $("#airTable").tablesorter(); 
-        $("#navTable").tablesorter(); 
-    } 
-); 
+   // GUIDisplay();
+    window.tDebug = [];
+    ractiveDeck.set("debug", tDebug);
+    $(document).ready(function()
+      {
+          $("#logTable").tablesorter();
+          $("#infTable").tablesorter();
+          $("#supTable").tablesorter();
+          $("#tnkTable").tablesorter();
+          $("#recTable").tablesorter();
+          $("#vehTable").tablesorter();
+          $("#helTable").tablesorter();
+          $("#airTable").tablesorter();
+          $("#navTable").tablesorter();
+      }
+    );
 }
 
 function listUnits() //get units for display
 {
     var tables = ["log", "inf", "sup", "tnk", "rec", "veh", "hel", "air", "nav"]
-    for(var i=0; i<9; i++){        
+    for(var i=0; i<9; i++){
         var body = document.getElementById(tables[i] + "Body");
         var blankBody = document.createElement('tbody');
         blankBody.setAttribute("id",tables[i] + "Body");
         body.parentNode.replaceChild(blankBody, body);
-                
+
         var table = document.getElementById(tables[i] + "Body"); //table sorter breaks with empty table
         var row = table.insertRow(table.rows.length);
         var nation = row.insertCell(0);
@@ -47,7 +48,7 @@ function listUnits() //get units for display
         var cardsT = row.insertCell(8);
         var btn = row.insertCell(9);
     }
-    
+
     if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA") {
        UnitLookup(Deck.sNation);
         UnitLookup("NATO");
@@ -146,22 +147,22 @@ function listUnits() //get units for display
         UnitLookup("DPRK");
         UnitLookup("USSR");
         UnitLookup("RED");
-    }    
-    
+    }
+
     $(document).ready(
-        function() 
-        { 
-        $("#logTable").trigger("update"); 
-        $("#infTable").trigger("update"); 
-        $("#supTable").trigger("update"); 
-        $("#tnkTable").trigger("update"); 
-        $("#recTable").trigger("update"); 
-        $("#vehTable").trigger("update"); 
-        $("#helTable").trigger("update"); 
-        $("#airTable").trigger("update"); 
-        $("#navTable").trigger("update"); 
-        } 
-    ); 
+        function()
+        {
+        $("#logTable").trigger("update");
+        $("#infTable").trigger("update");
+        $("#supTable").trigger("update");
+        $("#tnkTable").trigger("update");
+        $("#recTable").trigger("update");
+        $("#vehTable").trigger("update");
+        $("#helTable").trigger("update");
+        $("#airTable").trigger("update");
+        $("#navTable").trigger("update");
+        }
+    );
 }
 
 function UnitLookup(nation){
@@ -176,13 +177,13 @@ function UnitLookup(nation){
     else if (Deck.sSpec == "ARM"){spec=3;}
     else if (Deck.sSpec == "MOTO"){spec=4;}
     else if (Deck.sSpec == "SUP"){spec=5;}
-    
+
     for (var i=0; i<1024;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
             if ((card.sNation == nation || card.sNation == "NATO") && card.iYear <= year){
-                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){                    
-                    if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){  
+                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){
+                    if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){
                         var transport = 0;
                         if (card.sUnitData.charAt(7) == '1'){
                             for (var j=0; j<TransportLinker.length; j++){
@@ -190,7 +191,7 @@ function UnitLookup(nation){
                                     var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
                                     if (pair.iYear <= year) {
                                         if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || pair.iIsProto == '0'){
-                                            if (pair.sSpec.charAt(spec) != '1' || Deck.sSpec == "GEN"){  
+                                            if (pair.sSpec.charAt(spec) != '1' || Deck.sSpec == "GEN"){
                                                 toList(pair);
                                             }
                                         }
@@ -200,7 +201,7 @@ function UnitLookup(nation){
                         }
                         else{
                             var single = new VehicleCard("000", card, 0, 0);
-                            toList(single);                        
+                            toList(single);
                         }
                     }
                 }
@@ -209,7 +210,7 @@ function UnitLookup(nation){
     }
 }
 
-function toList(card){ 
+function toList(card){
     var type;
     if (card.Unit.sUnitData.charAt(17) == '1'){ type = "logTable";}//logi
     else if (card.Unit.sUnitData.charAt(18) == '1'){type = "infTable";}//inf
@@ -220,7 +221,7 @@ function toList(card){
     else if (card.Unit.sUnitData.charAt(23) == '1'){type = "helTable";}//hel
     else if (card.Unit.sUnitData.charAt(24) == '1'){type = "airTable";}//air
     else {type = "navTable";}//nav
-    
+
     var table = document.getElementById(type);
     var row = table.insertRow(table.rows.length);
     var nation = row.insertCell(0);
@@ -235,15 +236,15 @@ function toList(card){
     var btn = row.insertCell(9);
     nation.innerHTML = card.Unit.sNation;
     unit.innerHTML = card.Unit.sNameU;
-    cardsU.innerHTML = card.Unit.iCards;   
-    costU.innerHTML = card.Unit.iCost; 
-    
+    cardsU.innerHTML = card.Unit.iCards;
+    costU.innerHTML = card.Unit.iCost;
+
     var iData = document.createElement("img");
     iData.src = "pics/" + Deck.iSide + card.Unit.iUnitID + ".png";
     iData.setAttribute("class", "img-responsive");
     iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
-    picU.appendChild(iData); 
-    
+    picU.appendChild(iData);
+
     if(card.Transport !=0){
         var iData = document.createElement("img");
         iData.src = "pics/" + Deck.iSide + card.Transport.iUnitID + ".png";
@@ -251,16 +252,16 @@ function toList(card){
         iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
         picT.appendChild(iData);
         trans.innerHTML = card.Transport.sNameU;
-        cardsT.innerHTML = card.Transport.iCards;    
+        cardsT.innerHTML = card.Transport.iCards;
         costT.innerHTML = card.Transport.iCost;
-    }    
-    
-    
-    let elem = document.createElement('input');
+    }
+
+
+    var elem = document.createElement('input');
     elem.type = 'button';
     elem.value = '>';
     elem.onclick = function(){ShowCard(card);};
-    btn.appendChild(elem); 
+    btn.appendChild(elem);
 }
 
 function isError(Card) {
@@ -406,15 +407,15 @@ function ShowCard(Card)
     else if (Card.Unit.sUnitData.charAt(23) == '1'){type = "hel"; btn = 6;}//hel
     else if (Card.Unit.sUnitData.charAt(24) == '1'){type = "air"; btn = 7;}//air
     else {type = "navTable";}//nav
-    
-    
-    document.getElementById(type + "UD").innerHTML = "";  
+
+
+    document.getElementById(type + "UD").innerHTML = "";
     var iData = document.createElement("img");
     iData.src = "png/blank.png";
     iData.setAttribute("class", "img-responsive");
     iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-    document.getElementById(type + "UD").appendChild(iData); 
-    
+    document.getElementById(type + "UD").appendChild(iData);
+
     if (Card.Unit.sUnitData.charAt(0)== '1') { ShowData(type, "antiair"); }
     if (Card.Unit.sUnitData.charAt(1)== '1') { ShowData(type, "AAM"); }
     if (Card.Unit.sUnitData.charAt(2)== '1') { ShowData(type, "armour"); }
@@ -434,111 +435,111 @@ function ShowCard(Card)
     if (Card.Unit.sUnitData.charAt(14) == '3') { ShowData(type, "rec3"); }
     if (Card.Unit.sUnitData.charAt(15) == '1') { ShowData(type, "tube"); }
     if (Card.Unit.sUnitData.charAt(16) == '1') { ShowData(type, "rad"); }
-    
+
     iData = document.createElement("img");
-    iData.src = "pics/" + Deck.iSide + Card.Unit.iUnitID + ".png";
+    iData.src = "picsb/" + Deck.iSide + Card.Unit.iUnitID + ".png";
     iData.setAttribute("class", "img-responsive");
     iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-    document.getElementById(type + "UP").innerHTML = "";  
-    document.getElementById(type + "UP").appendChild(iData); 
-    
+    document.getElementById(type + "UP").innerHTML = "";
+    document.getElementById(type + "UP").appendChild(iData);
+
     selectedCards[btn] = Card;
-    
+
     document.getElementById("add"+btn+"0").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[0])/100);
     document.getElementById("add"+btn+"1").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[1])/100);
     document.getElementById("add"+btn+"2").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[2])/100);
     document.getElementById("add"+btn+"3").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[3])/100);
     document.getElementById("add"+btn+"4").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[4])/100);
-    
-    document.getElementById("D" + type).innerHTML = "";       
+
+    document.getElementById("D" + type).innerHTML = "";
     var uText = document.createElement("p");
     uText.innerHTML = Card.Unit.sNameU + "   (" + Card.Unit.iUnitID + ")";
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = "HP:" + Card.Unit.iHP;
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = InterpretSize(Card.Unit);
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = InterpretOptics(Card.Unit);
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = InterpretStealth(Card.Unit);
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = InterpretTraining(Card);
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = "Autonomy" + Card.Unit.iAutonomy;
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = Card.Unit.iYear;
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-    document.getElementById("D" + type).appendChild(uText); 
+    document.getElementById("D" + type).appendChild(uText);
     uText = document.createElement("p");
     uText.innerHTML = "Armor: F-"+ Card.Unit.iaArmor[0] + ", B-" + Card.Unit.iaArmor[1] + ", S-" + Card.Unit.iaArmor[2] + ", T-" + Card.Unit.iaArmor[3];
-    document.getElementById("D" + type).appendChild(uText); 
-    
+    document.getElementById("D" + type).appendChild(uText);
+
     showWeapon(Card.Unit.W1, type, 1);
     showWeapon(Card.Unit.W2, type, 2);
     showWeapon(Card.Unit.W3, type, 3);
-    
+
     if(Card.Transport != 0){
         type += "V";
-        
-        document.getElementById("D" + type).innerHTML = "";       
+
+        document.getElementById("D" + type).innerHTML = "";
         uText = document.createElement("p");
         uText.innerHTML = Card.Transport.sNameU  + "   (" + Card.Transport.iUnitID + ")";
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "HP:" + Card.Transport.iHP;
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = InterpretSize(Card.Transport);
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = InterpretOptics(Card.Transport);
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = InterpretStealth(Card.Transport);
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = InterpretTraining(Card);
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Autonomy" + Card.Transport.iAutonomy;
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = Card.Unit.iYear;
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-        document.getElementById("D" + type).appendChild(uText); 
+        document.getElementById("D" + type).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Armor: F-"+ Card.Transport.iaArmor[0] + ", B-" + Card.Transport.iaArmor[1] + ", S-" + Card.Transport.iaArmor[2] + ", T-" + Card.Transport.iaArmor[3];
-        document.getElementById("D" + type).appendChild(uText); 
-        
+        document.getElementById("D" + type).appendChild(uText);
+
         showWeapon(Card.Transport.W1, type, 1);
         showWeapon(Card.Transport.W2, type, 2);
         showWeapon(Card.Transport.W3, type, 3);
@@ -614,7 +615,7 @@ function ShowCard(Card)
 
 function showWeapon( wep, type, place)
 {
-    document.getElementById("W" + type + place).innerHTML = "";       
+    document.getElementById("W" + type + place).innerHTML = "";
     if (wep.sName != "NONE")
     {
         var uText = document.createElement("p");
@@ -622,41 +623,41 @@ function showWeapon( wep, type, place)
         document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = wep.iAmmo + "x " + wep.sRoundType;
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = " "+wep.sTags;
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Ground " + wep.rGround + "m";
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Helo " + wep.rHelo + "m";
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Plane " + wep.rAir + "m";
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         if (wep.iAccuracy > 100){
-            uText.innerHTML = "ACC " + wep.iAccuracy + "m";    
+            uText.innerHTML = "ACC " + wep.iAccuracy + "m";
         } else {
-            uText.innerHTML = "ACC " + wep.iAccuracy + "%";        
+            uText.innerHTML = "ACC " + wep.iAccuracy + "%";
         }
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "STAB " + wep.iStab + "%";
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "AP "+wep.AP;
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "HE "+wep.HE;
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "ROF" + wep.ROF;
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
         uText.innerHTML = "Supp. "+wep.iSuppression;
-        document.getElementById("W" + type + place).appendChild(uText); 
+        document.getElementById("W" + type + place).appendChild(uText);
         uText = document.createElement("p");
     }
 }
