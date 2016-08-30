@@ -2248,8 +2248,8 @@ select[multiple].input-lg {
       -ms-user-select: none;
           user-select: none;
   background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  border: 0px solid transparent;
+  border-radius: 0px;
 }
 @media (max-width: 992px) {
   .btn {
@@ -2297,7 +2297,7 @@ fieldset[disabled] a.btn {
 }
 .btn-default {
   color: #333;
-  background-color: #fff;
+  background-color: #ddd;
   border-color: #ccc;
 }
 .btn-default:focus,
@@ -2675,21 +2675,21 @@ fieldset[disabled] .btn-link:focus {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 .btn-sm,
 .btn-group-sm > .btn {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 .btn-block {
   display: block;
@@ -3883,4 +3883,27 @@ button.close {
 .modal-footer:after {
   clear: both;
 }
+
+
+.flg {
+    width: 50px;
+    height: 25px;
+    display: inline-block;
+    background: url(flags.png);
+    display:inline-block;
+    border:0px;
+    border-radius:0px;
+    margin:0px;
+    padding:0px;
+}
+#nato{
+  background-position: 0px 0px;
+}
+#red{
+  background-position: -50px 0px;
+}
+#bd{
+  background-position: -100px 0px;
+}
+
 /*# sourceMappingURL=bootstrap.css.map */

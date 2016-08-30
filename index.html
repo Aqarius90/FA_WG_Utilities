@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>FA WRD tools</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
+  <title>FA WRD tools</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src='js/ractive.js'></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+  .flg {
+      width: 50px;
+      height: 25px;
+      display: inline-block;
+      background: url(flags.png);
+      display:inline-block;
+      border:0px;
+      border-radius:0px;
+      margin:0px;
+      padding:0px;
+  }
+  #nato{
+    background-position: 0px 0px;
+  }
+  #red{
+    background-position: -50px 0px;
+  }
+  #bd{
+    background-position: -100px 0px;
+  }
+  #cw{
+    background-position: -150px 0px;
+  }
+  #eu{
+    background-position: -200px 0px;
+  }
+  #lj{
+    background-position: -250px 0px;
+  }
+  #nrd{
+    background-position: -300px 0px;
+  }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -46,37 +81,37 @@
                 <div class="row">
                   <div class="col-sm-1">
                     <button type="button"  class="btn btn-default btn-block" onclick="btNATO_Click()">
-                      <img src="{{flags.nato}}" class="img-responsive" width="100%" >
+                      <img id="nato" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
                     <button type="button"  class="btn btn-default btn-block" onclick="btREDFOR_Click()">
-                      <img src="{{flags.redfor}}" class="img-responsive" width="100%">
+                      <img id="red" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default btn-block" onclick="btBD_Click()">
-                      <img src="{{flags.BD}}" class="img-responsive" width="100%">
+                      <img id="bd" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default btn-block" onclick="btCOM_Click()">
-                      <img src="{{flags.COM}}" class="img-responsive" width="100%" >
+                      <img id="cw" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default btn-block" onclick="btEU_Click()">
-                      <img src="{{flags.EU}}" class="img-responsive" width="100%" >
+                      <img id="eu" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default btn-block" onclick="btLJ_Click()">
-                      <img src="{{flags.LJ}}" class="img-responsive" width="100%">
+                      <img id="lj" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default btn-block"  onclick="btNORAD_Click()">
-                      <img src="{{flags.NORAD}}" class="img-responsive" width="100%">
+                      <img id="nrd" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
@@ -2645,7 +2680,16 @@
       </script>
   </div>
 
-  <script src="js/compressed.js"></script>
+  <script src="js/RactiveHandlers.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/Display.js"></script>
+  <script src="js/Database.js"></script>
+  <script src="js/Main.js"></script>
+  <script src="js/buttons.js"></script>
+  <script src="js/TransportLinker.js"></script>
+  <script src="js/WeaponData.js"></script>
+  <script src="js/debugFunctions.js"></script>
+  <script src="js/DeckDisAssembly.js"></script>
   <script type="text/javascript" src="sort/jquery.tablesorter.js"></script>
     <script>init();</script>
 
