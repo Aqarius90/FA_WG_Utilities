@@ -408,7 +408,7 @@ function ShowCard(Card)
     else if (Card.Unit.sUnitData.charAt(22) == '1'){type = "veh"; btn = 5;}//veh
     else if (Card.Unit.sUnitData.charAt(23) == '1'){type = "hel"; btn = 6;}//hel
     else if (Card.Unit.sUnitData.charAt(24) == '1'){type = "air"; btn = 7;}//air
-    else {type = "navTable";}//nav
+    else {type = "nav";}//nav
 
 
     document.getElementById(type + "UD").innerHTML = "";
@@ -447,11 +447,13 @@ function ShowCard(Card)
 
     selectedCards[btn] = Card;
 
-    document.getElementById("add"+btn+"0").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[0])/100);
-    document.getElementById("add"+btn+"1").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[1])/100);
-    document.getElementById("add"+btn+"2").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[2])/100);
-    document.getElementById("add"+btn+"3").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[3])/100);
-    document.getElementById("add"+btn+"4").innerHTML = Math.round(((100 + Deck.availQ) * Card.iaAvailability[4])/100);
+    var avails = ractiveDeck.get('ranks.' + type);
+    avails.A0 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[0])/100);
+    avails.A1 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[1])/100);
+    avails.A2 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[2])/100);
+    avails.A3 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[3])/100);
+    avails.A4 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[4])/100);
+    ractiveDeck.update('ranks.' + type);
 
     document.getElementById("D" + type).innerHTML = "";
     var uText = document.createElement("p");

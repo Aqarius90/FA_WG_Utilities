@@ -2296,6 +2296,8 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
+  display: block;
+  width: 100%;
   color: #333;
   background-color: #ddd;
   border-color: #ccc;
@@ -2693,6 +2695,8 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-block {
   display: block;
+
+  background-color: #fff;
   width: 100%;
 }
 .btn-block + .btn-block {

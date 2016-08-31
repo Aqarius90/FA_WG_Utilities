@@ -40,183 +40,252 @@ function GUIDisplay() {
     switch (Deck.iSpec)
     {
         case 0://moto
-            ractiveHeader.set("Buttons.bMotorized", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bMarine = '#fff';
+            Buttons.bAirborne = '#fff';
+            Buttons.bMechanized = '#fff';
+            Buttons.bArmoured = '#fff';
+            Buttons.bMotorized = '#0f0';
+            Buttons.bSupport = '#fff';
+            Buttons.bNaval = '#fff';
+            Buttons.bGeneral = '#fff';
+            ractiveHeader.update('Buttons');
             updatePointsDisplay(Matrix.moto);
             ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
-            document.getElementById("v10").src = "rank/001.png";
-            document.getElementById("v11").src = "rank/010.png";
-            document.getElementById("v12").src = "rank/011.png";
-            document.getElementById("v13").src = "rank/100.png";
-            document.getElementById("v14").src = "rank/100.png";
-
-            document.getElementById("v40").src = "rank/001.png";
-            document.getElementById("v41").src = "rank/010.png";
-            document.getElementById("v42").src = "rank/011.png";
-            document.getElementById("v43").src = "rank/100.png";
-            document.getElementById("v44").src = "rank/100.png";
-
-            document.getElementById("v50").src = "rank/001.png";
-            document.getElementById("v51").src = "rank/010.png";
-            document.getElementById("v52").src = "rank/011.png";
-            document.getElementById("v53").src = "rank/100.png";
-            document.getElementById("v54").src = "rank/100.png";
+            var ranks = ractiveDeck.get('ranks');
+            ranks.inf.R0 = 'r001';
+            ranks.inf.R1 = 'r010';
+            ranks.inf.R2 = 'r011';
+            ranks.inf.R3 = 'r100';
+            ranks.rec.R0 = 'r001';
+            ranks.rec.R1 = 'r010';
+            ranks.rec.R2 = 'r011';
+            ranks.rec.R3 = 'r100';
+            ranks.veh.R0 = 'r001';
+            ranks.veh.R1 = 'r010';
+            ranks.veh.R2 = 'r011';
+            ranks.veh.R3 = 'r100';
+            ractiveDeck.update('ranks');
             break;
         case 1://arm
-            ractiveHeader.set("Buttons.bArmoured", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bMarine = '#fff';
+            Buttons.bAirborne = '#fff';
+            Buttons.bMechanized = '#fff';
+            Buttons.bArmoured = '#0f0';
+            Buttons.bMotorized = '#fff';
+            Buttons.bSupport = '#fff';
+            Buttons.bNaval = '#fff';
+            Buttons.bGeneral = '#fff';
+            ractiveHeader.update('Buttons');
             updatePointsDisplay(Matrix.armoured);
             ractiveHeader.set("lab.tspec", "+4 cards, +2XP, -1 cost: Tank");
-            document.getElementById("v40").src = "rank/010.png";
-            document.getElementById("v41").src = "rank/011.png";
-            document.getElementById("v42").src = "rank/100.png";
-            document.getElementById("v43").src = "rank/100.png";
-            document.getElementById("v44").src = "rank/100.png";
+            var ranks = ractiveDeck.get('ranks');
+            ranks.tnk.R0 = 'r010';
+            ranks.tnk.R1 = 'r011';
+            ranks.tnk.R2 = 'r100';
+            ranks.tnk.R3 = 'r100';
+            ractiveDeck.update('ranks');
             break;
         case 2://sup
-            ractiveHeader.set("Buttons.bSupport", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bMarine = '#fff';
+            Buttons.bAirborne = '#fff';
+            Buttons.bMechanized = '#fff';
+            Buttons.bArmoured = '#fff';
+            Buttons.bMotorized = '#fff';
+            Buttons.bSupport = '#0f0';
+            Buttons.bNaval = '#fff';
+            Buttons.bGeneral = '#fff';
+            ractiveHeader.update('Buttons');
             updatePointsDisplay(Matrix.support);
             ractiveHeader.set("lab.tspec", "+4 cards,-1 cost: Logistics, Support;  +1XP: Support");
-
-            document.getElementById("v20").src = "rank/010.png";
-            document.getElementById("v21").src = "rank/011.png";
-            document.getElementById("v22").src = "rank/100.png";
-            document.getElementById("v23").src = "rank/100.png";
-            document.getElementById("v24").src = "rank/100.png";
+            var ranks = ractiveDeck.get('ranks');
+            ranks.sup.R0 = 'r001';
+            ranks.sup.R1 = 'r010';
+            ranks.sup.R2 = 'r011';
+            ranks.sup.R3 = 'r100';
+            ractiveDeck.update('ranks');
             break;
         case 3://mar
-            ractiveHeader.set("Buttons.bMarine", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bMarine = '#0f0';
+            Buttons.bAirborne = '#fff';
+            Buttons.bMechanized = '#fff';
+            Buttons.bArmoured = '#fff';
+            Buttons.bMotorized = '#fff';
+            Buttons.bSupport = '#fff';
+            Buttons.bNaval = '#fff';
+            Buttons.bGeneral = '#fff';
+            ractiveHeader.update('Buttons');
             updatePointsDisplay(Matrix.marine);
             ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");
-
-            document.getElementById("v10").src = "rank/001.png";
-            document.getElementById("v11").src = "rank/010.png";
-            document.getElementById("v12").src = "rank/011.png";
-            document.getElementById("v13").src = "rank/100.png";
-            document.getElementById("v14").src = "rank/100.png";
-
-            document.getElementById("v70").src = "rank/001.png";
-            document.getElementById("v71").src = "rank/010.png";
-            document.getElementById("v72").src = "rank/011.png";
-            document.getElementById("v73").src = "rank/100.png";
-            document.getElementById("v74").src = "rank/100.png";
+            var ranks = ractiveDeck.get('ranks');
+            ranks.inf.R0 = 'r001';
+            ranks.inf.R1 = 'r010';
+            ranks.inf.R2 = 'r011';
+            ranks.inf.R3 = 'r100';
+            ranks.air.R0 = 'r001';
+            ranks.air.R1 = 'r010';
+            ranks.air.R2 = 'r011';
+            ranks.air.R3 = 'r100';
+            ractiveDeck.update('ranks');
             break;
         case 4://mec
-            ractiveHeader.set("Buttons.bMechanized", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bMarine = '#fff';
+            Buttons.bAirborne = '#fff';
+            Buttons.bMechanized = '#0f0';
+            Buttons.bArmoured = '#fff';
+            Buttons.bMotorized = '#fff';
+            Buttons.bSupport = '#fff';
+            Buttons.bNaval = '#fff';
+            Buttons.bGeneral = '#fff';
+            ractiveHeader.update('Buttons');
             updatePointsDisplay(Matrix.mech);
             ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Vehicle");
-
-            document.getElementById("v10").src = "rank/001.png";
-            document.getElementById("v11").src = "rank/010.png";
-            document.getElementById("v12").src = "rank/011.png";
-            document.getElementById("v13").src = "rank/100.png";
-            document.getElementById("v14").src = "rank/100.png";
-
-            document.getElementById("v50").src = "rank/001.png";
-            document.getElementById("v51").src = "rank/010.png";
-            document.getElementById("v52").src = "rank/011.png";
-            document.getElementById("v53").src = "rank/100.png";
-            document.getElementById("v54").src = "rank/100.png";
+            var ranks = ractiveDeck.get('ranks');
+            ranks.inf.R0 = 'r001';
+            ranks.inf.R1 = 'r010';
+            ranks.inf.R2 = 'r011';
+            ranks.inf.R3 = 'r100';
+            ranks.veh.R0 = 'r001';
+            ranks.veh.R1 = 'r010';
+            ranks.veh.R2 = 'r011';
+            ranks.veh.R3 = 'r100';
+            ractiveDeck.update('ranks');
             break;
         case 5://air
-            ractiveHeader.set("Buttons.bAirborne", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bMarine = '#fff';
+            Buttons.bAirborne = '#0f0';
+            Buttons.bMechanized = '#fff';
+            Buttons.bArmoured = '#fff';
+            Buttons.bMotorized = '#fff';
+            Buttons.bSupport = '#fff';
+            Buttons.bNaval = '#fff';
+            Buttons.bGeneral = '#fff';
+            ractiveHeader.update('Buttons');
             updatePointsDisplay(Matrix.airborne);
             ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane");
-            document.getElementById("v10").src = "rank/001.png";
-            document.getElementById("v11").src = "rank/010.png";
-            document.getElementById("v12").src = "rank/011.png";
-            document.getElementById("v13").src = "rank/100.png";
-            document.getElementById("v14").src = "rank/100.png";
-
-            document.getElementById("v60").src = "rank/001.png";
-            document.getElementById("v61").src = "rank/010.png";
-            document.getElementById("v62").src = "rank/011.png";
-            document.getElementById("v63").src = "rank/100.png";
-            document.getElementById("v64").src = "rank/100.png";
-
-            document.getElementById("v70").src = "rank/001.png";
-            document.getElementById("v71").src = "rank/010.png";
-            document.getElementById("v72").src = "rank/011.png";
-            document.getElementById("v73").src = "rank/100.png";
-            document.getElementById("v74").src = "rank/100.png";
+            var ranks = ractiveDeck.get('ranks');
+            ranks.inf.R0 = 'r001';
+            ranks.inf.R1 = 'r010';
+            ranks.inf.R2 = 'r011';
+            ranks.inf.R3 = 'r100';
+            ranks.hel.R0 = 'r001';
+            ranks.hel.R1 = 'r010';
+            ranks.hel.R2 = 'r011';
+            ranks.hel.R3 = 'r100';
+            ranks.air.R0 = 'r001';
+            ranks.air.R1 = 'r010';
+            ranks.air.R2 = 'r011';
+            ranks.air.R3 = 'r100';
+            ractiveDeck.update('ranks');
             break;
         case 6://nav
-            ractiveHeader.set("Buttons.bNaval", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bMarine = '#fff';
+            Buttons.bAirborne = '#fff';
+            Buttons.bMechanized = '#fff';
+            Buttons.bArmoured = '#fff';
+            Buttons.bMotorized = '#fff';
+            Buttons.bSupport = '#fff';
+            Buttons.bNaval = '#0f0';
+            Buttons.bGeneral = '#fff';
+            ractiveHeader.update('Buttons');
             updatePointsDisplay(Matrix.naval);
             ractiveHeader.set("lab.tspec", "ಠ_ಠ");
             break;
         case 7://gen
-            ractiveHeader.set("Buttons.bGeneral", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bMarine = '#fff';
+            Buttons.bAirborne = '#fff';
+            Buttons.bMechanized = '#fff';
+            Buttons.bArmoured = '#fff';
+            Buttons.bMotorized = '#fff';
+            Buttons.bSupport = '#fff';
+            Buttons.bNaval = '#fff';
+            Buttons.bGeneral = '#0f0';
+            ractiveHeader.update('Buttons');
             updatePointsDisplay(Matrix.general);
             ractiveHeader.set("lab.tspec", "no bonus");
-            document.getElementById("v00").src = "rank/000.png";
-            document.getElementById("v01").src = "rank/001.png";
-            document.getElementById("v02").src = "rank/010.png";
-            document.getElementById("v03").src = "rank/011.png";
-            document.getElementById("v04").src = "rank/100.png";
-
-            document.getElementById("v10").src = "rank/000.png";
-            document.getElementById("v11").src = "rank/001.png";
-            document.getElementById("v12").src = "rank/010.png";
-            document.getElementById("v13").src = "rank/011.png";
-            document.getElementById("v14").src = "rank/100.png";
-
-            document.getElementById("v20").src = "rank/000.png";
-            document.getElementById("v21").src = "rank/001.png";
-            document.getElementById("v22").src = "rank/010.png";
-            document.getElementById("v23").src = "rank/011.png";
-            document.getElementById("v24").src = "rank/100.png";
-
-            document.getElementById("v30").src = "rank/000.png";
-            document.getElementById("v31").src = "rank/001.png";
-            document.getElementById("v32").src = "rank/010.png";
-            document.getElementById("v33").src = "rank/011.png";
-            document.getElementById("v34").src = "rank/100.png";
-
-            document.getElementById("v40").src = "rank/000.png";
-            document.getElementById("v41").src = "rank/001.png";
-            document.getElementById("v42").src = "rank/010.png";
-            document.getElementById("v43").src = "rank/011.png";
-            document.getElementById("v44").src = "rank/100.png";
-
-            document.getElementById("v50").src = "rank/000.png";
-            document.getElementById("v51").src = "rank/001.png";
-            document.getElementById("v52").src = "rank/010.png";
-            document.getElementById("v53").src = "rank/011.png";
-            document.getElementById("v54").src = "rank/100.png";
-
-            document.getElementById("v60").src = "rank/000.png";
-            document.getElementById("v61").src = "rank/001.png";
-            document.getElementById("v62").src = "rank/010.png";
-            document.getElementById("v63").src = "rank/011.png";
-            document.getElementById("v64").src = "rank/100.png";
-
-            document.getElementById("v70").src = "rank/000.png";
-            document.getElementById("v71").src = "rank/001.png";
-            document.getElementById("v72").src = "rank/010.png";
-            document.getElementById("v73").src = "rank/011.png";
-            document.getElementById("v74").src = "rank/100.png";
-
-            document.getElementById("v80").src = "rank/000.png";
-            document.getElementById("v81").src = "rank/001.png";
-            document.getElementById("v82").src = "rank/010.png";
-            document.getElementById("v83").src = "rank/011.png";
-            document.getElementById("v84").src = "rank/100.png";
+            var ranks = ractiveDeck.get('ranks');
+            ranks.log.R0 = 'r000';
+            ranks.log.R1 = 'r001';
+            ranks.log.R2 = 'r010';
+            ranks.log.R3 = 'r011';
+            ranks.log.R4 = 'r100';
+            ranks.inf.R0 = 'r000';
+            ranks.inf.R1 = 'r001';
+            ranks.inf.R2 = 'r010';
+            ranks.inf.R3 = 'r011';
+            ranks.inf.R4 = 'r100';
+            ranks.sup.R0 = 'r000';
+            ranks.sup.R1 = 'r001';
+            ranks.sup.R2 = 'r010';
+            ranks.sup.R3 = 'r011';
+            ranks.sup.R4 = 'r100';
+            ranks.tnk.R0 = 'r000';
+            ranks.tnk.R1 = 'r001';
+            ranks.tnk.R2 = 'r010';
+            ranks.tnk.R3 = 'r011';
+            ranks.tnk.R4 = 'r100';
+            ranks.rec.R0 = 'r000';
+            ranks.rec.R1 = 'r001';
+            ranks.rec.R2 = 'r010';
+            ranks.rec.R3 = 'r011';
+            ranks.rec.R4 = 'r100';
+            ranks.veh.R0 = 'r000';
+            ranks.veh.R1 = 'r001';
+            ranks.veh.R2 = 'r010';
+            ranks.veh.R3 = 'r011';
+            ranks.veh.R4 = 'r100';
+            ranks.hel.R0 = 'r000';
+            ranks.hel.R1 = 'r001';
+            ranks.hel.R2 = 'r010';
+            ranks.hel.R3 = 'r011';
+            ranks.hel.R4 = 'r100';
+            ranks.air.R0 = 'r000';
+            ranks.air.R1 = 'r001';
+            ranks.air.R2 = 'r010';
+            ranks.air.R3 = 'r011';
+            ranks.air.R4 = 'r100';
+            ranks.nav.R0 = 'r000';
+            ranks.nav.R1 = 'r001';
+            ranks.nav.R2 = 'r010';
+            ranks.nav.R3 = 'r011';
+            ranks.nav.R4 = 'r100';
+            ractiveDeck.update('ranks');
 
             break;
     }
     switch (Deck.iEra)
     {
         case 0://C
-            ractiveHeader.set("Buttons.bC", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bC = '#0f0';
+            Buttons.bB = '#fff';
+            Buttons.bA = '#fff';
+            ractiveHeader.update('Buttons');
             ractiveHeader.set("lab.tera", "+10AP");
             Deck.deckpoitstotal += 10;
             break;
         case 1://B
-            ractiveHeader.set("Buttons.bB", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bC = '#fff';
+            Buttons.bB = '#0f0';
+            Buttons.bA = '#fff';
+            ractiveHeader.update('Buttons');
             ractiveHeader.set("lab.tera", "+5AP");
             Deck.deckpoitstotal += 5;
             break;
         case 2://A
-            ractiveHeader.set("Buttons.bA", "#0f0");
+            var Buttons = ractiveHeader.get('Buttons');
+            Buttons.bC = '#fff';
+            Buttons.bB = '#fff';
+            Buttons.bA = '#0f0';
+            ractiveHeader.update('Buttons');
             ractiveHeader.set("lab.tera", "+0AP");
             break;
     }
@@ -498,14 +567,6 @@ function displayREDFOR() {
     Deck.availQ = 0;
 }
 
-function addDataImage(x, prefix, y, spec){
-    var iData = document.createElement("img");
-    iData.src = "png/" + spec + ".png";
-    iData.setAttribute("class", "img-responsive");
-    iData.setAttribute("style", "position: absolute; top: 0; left: 0;");
-    document.getElementById("D" + prefix + x + y).appendChild(iData);
-}
-
 function displayCard(card, type, pos){
 
     card.iArrayIndex =""+ type + pos[type];
@@ -540,8 +601,8 @@ function displayCard(card, type, pos){
     innerString += ' <h5 style="position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;">' + card.iCost + '</h5>';
     var temp = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
     innerString += ' <h5 style="position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;">' + temp + '</h5>';
-    innerString += " <img src='" + card.sNation + ".png' class='img-thumbnail' style='position: absolute; top: 0; left: 0;' >";
-    innerString += " <img src='rank/" + card.sVeterancy + ".png' class='img-thumbnail-mini' style='position: absolute; bottom: 0; left: 0;' >";
+    innerString += " <img src='flags/" +card.sNation + ".png' class='img-thumbnail' style='position: absolute; top: 0; left: 0;' >";
+    innerString += " <img id='r" + card.sVeterancy + "' class='ranks' style='position: absolute; bottom: 0; left: 0;' >";
     ractiveDeck.set(sD, innerString);
     ractiveDeck.set(sD0, innerString);
 
@@ -554,7 +615,8 @@ function displayCard(card, type, pos){
     }
     ractiveDeck.set(sL, innerString);
 
-    innerString = '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type*10+ pos[type]+');"}>DELETE</button>';
+    innerString = '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type+ pos[type]+');"}>DELETE</button>';
+    console.log(innerString);
     ractiveDeck.set(sL0, innerString);
 }
 
@@ -639,24 +701,16 @@ function displayUnits()
 }
 
 function updatePointsDisplay(DA)
-{/*
+{
     for (var i = 1; i < 10; i++){
         for (var j = 1; j < 10; j++){
-                var uText = document.createElement("h3");
-                uText.setAttribute("class","text-center");
-                uText.setAttribute("line-height","50%");
-                uText.innerHTML = DA[i][j];
-                document.getElementById("D" + i + j).appendChild(uText);
+            var sD  = "DeckView.D" +i + j;
+            var sD0 = "DetailView.D0" +i + j;
+            var innerString = '<h3 class="text-center" style="line-height: 50%;">' +  DA[i][j] + '</h5>';
+            ractiveDeck.set(sD, innerString);
+            ractiveDeck.set(sD0, innerString);
         }
     }
-    for (var i = 1; i < 10; i++){
-        for (var j = 1; j < 10; j++){
-                var uText = document.createElement("h2");
-                uText.setAttribute("class","text-center");
-                uText.innerHTML = DA[i][j];
-                document.getElementById("D0" + i + j).appendChild(uText);
-        }
-    }*/
 }
 
 function debugOutput(binoutdebug){
