@@ -24,6 +24,8 @@ function init() {
           $("#navTable").tablesorter();
       }
     );
+    //if (document.readyState === "complete") {ractiveHeader.set('unloaded', false); }
+    ractiveHeader.set('unloaded', false);
 }
 
 function listUnits() //get units for display
