@@ -11,7 +11,6 @@
     .flg {
         width: 50px;
         height: 25px;
-        display: inline-block;
         background: url(flags.png);
         display:inline-block;
         border:0px;
@@ -85,6 +84,22 @@
       #xFIN{    background-position: -1500px -25px;  }
       #xYU{     background-position: -1550px -25px;  }
       #xISR{    background-position: -1600px -25px;  }
+      .ranks {
+        width: 38px;
+        height: 65px;
+        background-image: url(ranks.png);
+        display: block;
+        border:0px;
+        border-radius:0px;
+        margin:0px;
+        padding:0px;
+      }
+      #r000{  background-position: 0 0;      }
+      #r001{  background-position: -41px 0;      }
+      #r010{  background-position: -82px 0;      }
+      #r011{  background-position: -123px 0;      }
+      #r100{  background-position: -164px 0;      }
+      #r111{  background-position: -205px 0;      }
   </style>
 </head>
 <body>
@@ -1239,43 +1254,47 @@
                           </div>
                           <div id="logUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with log}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v00" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add00" type="button" class="btn btn-default btn-block" onclick="add(0,0)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v01" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add01" type="button" class="btn btn-default btn-block" onclick="add(0, 1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v02" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add02" type="button" class="btn btn-default btn-block" onclick="add(0, 2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v03" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add03" type="button" class="btn btn-default btn-block" onclick="add(0, 3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v04" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add04" type="button" class="btn btn-default btn-block" onclick="add(0, 4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabsl" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitL" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehL" data-toggle="tab">Transport</a></li>
@@ -1414,43 +1433,47 @@
                           </div>
                           <div id="infUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with inf}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v10" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add10" type="button" class="btn btn-default btn-block" onclick="add(1,0)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v11" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add11" type="button" class="btn btn-default btn-block" onclick="add(1,1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v12" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add12" type="button" class="btn btn-default btn-block" onclick="add(1,2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v13" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add13" type="button" class="btn btn-default btn-block" onclick="add(1,3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v14" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add14" type="button" class="btn btn-default btn-block" onclick="add(1,4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabsi" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitI" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehI" data-toggle="tab">Transport</a></li>
@@ -1588,43 +1611,47 @@
                           <div id="supUD" class="col-sm-6"></div>
                           <div id="supUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with sup}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v20" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add20" type="button" class="btn btn-default btn-block" onclick="add(2,0)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v21" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add21" type="button" class="btn btn-default btn-block" onclick="add(2,1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v22" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add22" type="button" class="btn btn-default btn-block" onclick="add(2,2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v23" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add23" type="button" class="btn btn-default btn-block" onclick="add(2,3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v24" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add24" type="button" class="btn btn-default btn-block" onclick="add(2,4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabss" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitS" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehS" data-toggle="tab">Transport</a></li>
@@ -1763,43 +1790,47 @@
                           </div>
                           <div id="tnkUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with tnk}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v30" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add30" type="button" class="btn btn-default btn-block" onclick="add(3,0)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v31" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add31" type="button" class="btn btn-default btn-block" onclick="add(3,1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v32" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add32" type="button" class="btn btn-default btn-block" onclick="add(3,2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v33" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add33" type="button" class="btn btn-default btn-block" onclick="add(3,3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v34" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add34" type="button" class="btn btn-default btn-block" onclick="add(3,4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabst" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitT" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehT" data-toggle="tab">Transport</a></li>
@@ -1938,43 +1969,47 @@
                           </div>
                           <div id="recUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with rec}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v40" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add40" type="button" class="btn btn-default btn-block" onclick="add(4,0)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v41" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add41" type="button" class="btn btn-default btn-block" onclick="add(4,1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v42" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add42" type="button" class="btn btn-default btn-block" onclick="add(4,2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v43" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add43" type="button" class="btn btn-default btn-block" onclick="add(4,3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v44" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add44" type="button" class="btn btn-default btn-block" onclick="add(4,4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabsr" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitR" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehR" data-toggle="tab">Transport</a></li>
@@ -2113,43 +2148,47 @@
                           </div>
                           <div id="vehUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with veh}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v50" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-1">
-                            <button id="add50" type="button" class="btn btn-default btn-block" onclick="add(5,0)">0
+                            <button id="add50" type="button" class="btn btn-default btn-block" onclick="add(5,0)">0 
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v51" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add51" type="button" class="btn btn-default btn-block" onclick="add(5,1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v52" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add52" type="button" class="btn btn-default btn-block" onclick="add(5,2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v53" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add53" type="button" class="btn btn-default btn-block" onclick="add(5,3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v54" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-1">
                             <button id="add54" type="button" class="btn btn-default btn-block" onclick="add(5,4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabsv" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitV" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehV" data-toggle="tab">Transport</a></li>
@@ -2288,43 +2327,47 @@
                           </div>
                           <div id="helUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with hel}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v60" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add60" type="button" class="btn btn-default btn-block" onclick="add(6,0)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v61" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add61" type="button" class="btn btn-default btn-block" onclick="add(6,1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v62" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add62" type="button" class="btn btn-default btn-block" onclick="add(6,2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v63" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add63" type="button" class="btn btn-default btn-block" onclick="add(6,3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v64" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add64" type="button" class="btn btn-default btn-block" onclick="add(6,4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabsh" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitH" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehH" data-toggle="tab">Transport</a></li>
@@ -2463,43 +2506,47 @@
                           </div>
                           <div id="airUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with air}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v70" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add70" type="button" class="btn btn-default btn-block" onclick="add(7,0)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v71" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add71" type="button" class="btn btn-default btn-block" onclick="add(7,1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v72" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add72" type="button" class="btn btn-default btn-block" onclick="add(7,2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v73" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add73" type="button" class="btn btn-default btn-block" onclick="add(7,3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v74" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add74" type="button" class="btn btn-default btn-block" onclick="add(7,4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabsa" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitA" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehA" data-toggle="tab">Transport</a></li>
@@ -2639,43 +2686,47 @@
                           </div>
                           <div id="navUP" class="col-sm-6"></div>
                       </div>
+                      {{#with ranks}}
+                      {{#with nav}}
                       <div class="row">
                         <div class="col-sm-010">
-                            <img id="v80" src="rank/000.png" class="img-responsive" width="100%">
+                          <img id="{{R0}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add80" type="button" class="btn btn-default btn-block" onclick="add(8,0)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v81" src="rank/001.png" class="img-responsive" width="100%">
+                          <img id="{{R1}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add81" type="button" class="btn btn-default btn-block" onclick="add(8,1)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v82" src="rank/010.png" class="img-responsive" width="100%">
+                          <img id="{{R2}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add82" type="button" class="btn btn-default btn-block" onclick="add(8,2)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v83" src="rank/011.png" class="img-responsive" width="100%">
+                          <img id="{{R3}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add83" type="button" class="btn btn-default btn-block" onclick="add(8,3)">0
                             </button>
                           </div>
                         <div class="col-sm-010">
-                            <img id="v84" src="rank/100.png" class="img-responsive" width="100%">
+                          <img id="{{R4}}" class="ranks">
                           </div>
                         <div class="col-sm-010">
                             <button id="add84" type="button" class="btn btn-default btn-block" onclick="add(8,4)">0
                             </button>
                           </div>
                       </div>
+                      {{/with}}
+                      {{/with}}
                       <ul id="tabsn" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitN" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehN" data-toggle="tab">Transport</a></li>
