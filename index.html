@@ -136,7 +136,193 @@
       </div>
       <div class="panel panel-body">
         <div class="row">
-          {{#with flags}}
+          {{#if unloaded}}
+
+            <div class="col-sm-9">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="row">
+                  <div class="col-sm-1">
+                    <button type="button"  class="btn btn-default btn-block" onclick="btNATO_Click()">
+                      <img id="NATO" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button"  class="btn btn-default btn-block" onclick="btREDFOR_Click()">
+                      <img id="REDFOR" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btBD_Click()">
+                      <img id="BD" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btCOM_Click()">
+                      <img id="COM" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btEU_Click()">
+                      <img id="EU" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btLJ_Click()">
+                      <img id="LJ" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block"  onclick="btNORAD_Click()">
+                      <img id="NORAD" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btSCA_Click()">
+                      <img id="SCA" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btBRDNL_Click()">
+                      <img id="BRDNL" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btNSWP_Click()">
+                      <img id="NSWP" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btRD_Click()">
+                      <img id="RD" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btRKA_Click()">
+                      <img id="RKA" class="flg">
+                    </button>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btANZAC_Click()">
+                      <img id="ANZAC" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btBRD_Click()">
+                      <img id="BRD" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btCAN_Click()">
+                      <img id="CAN" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btDEN_Click()">
+                      <img id="DEN" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btFRA_Click()">
+                      <img id="FRA" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btJAP_Click()">
+                      <img id="JAP" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btNED_Click()">
+                      <img id="NED" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btNOR_Click()">
+                      <img id="NOR" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btROK_Click()">
+                      <img id="ROK" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btSWE_Click()">
+                      <img id="SWE" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btUK_Click()">
+                      <img id="UK" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btUSA_Click()">
+                      <img id="USA" class="flg">
+                    </button>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-sm-1">
+                    <button id="bCZS" type="button" class="btn btn-default btn-block" onclick="btCZS_Click()">
+                      <img id="CZS" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btDDR_Click()">
+                      <img id="DDR" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btDPRK_Click()">
+                      <img id="DPRK" class="flg">
+                      </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btPOL_Click()">
+                      <img id="POL" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btPRC_Click()">
+                      <img id="PRC" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block" onclick="btUSSR_Click()">
+                      <img id="USSR" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img id="FIN" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img id="YU" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default btn-block">
+                      <img id="ISR" class="flg">
+                    </button>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{else}}
+            {{#with flags}}
             <div class="col-sm-9">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -321,6 +507,7 @@
               </div>
             </div>
             {{/with}}
+          {{/if}}
           <div class="col-sm-3">
             <div class="panel panel-default">
               <div class="panel-body">
@@ -2786,7 +2973,6 @@
   <script src="js/Main.js"></script>
   <script src="js/buttons.js"></script>
   <script src="js/TransportLinker.js"></script>
-  <script src="js/WeaponData.js"></script>
   <script src="js/debugFunctions.js"></script>
   <script src="js/DeckDisAssembly.js"></script>
   <script type="text/javascript" src="sort/jquery.tablesorter.js"></script>
