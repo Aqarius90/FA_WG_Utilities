@@ -51,106 +51,7 @@ function listUnits() //get units for display
         var btn = row.insertCell(9);
     }
 
-    if(Deck.sNation == "ANZAC" || Deck.sNation == "BRD" || Deck.sNation == "CAN" || Deck.sNation == "DEN" || Deck.sNation == "FRA" || Deck.sNation == "JAP" || Deck.sNation == "NED" || Deck.sNation == "NOR" || Deck.sNation == "ROK" || Deck.sNation == "SWE" || Deck.sNation == "UK" || Deck.sNation == "USA") {
-       UnitLookup(Deck.sNation);
-        UnitLookup("NATO");
-    }else if(Deck.sNation == "CZS" || Deck.sNation == "DDR" || Deck.sNation == "DPRK" || Deck.sNation == "POL" || Deck.sNation == "PRC" || Deck.sNation == "USSR" || Deck.sNation == "ISR" || Deck.sNation == "FIN" || Deck.sNation == "YU"){
-        UnitLookup(Deck.sNation);
-        UnitLookup("RED");
-    }
-    else if (Deck.sNation == "NATO")
-    {
-        UnitLookup("ANZAC");
-        UnitLookup("BRD");
-        UnitLookup("CAN");
-        UnitLookup("DEN");
-        UnitLookup("FRA");
-        UnitLookup("JAP");
-        UnitLookup("NED");
-        UnitLookup("NOR");
-        UnitLookup("ROK");
-        UnitLookup("SWE");
-        UnitLookup("UK");
-        UnitLookup("USA");
-        UnitLookup("ISR");
-        UnitLookup("NATO");
-    }
-    else if (Deck.sNation == "REDFOR")
-    {
-        UnitLookup("CZS");
-        UnitLookup("DDR");
-        UnitLookup("DPRK");
-        UnitLookup("POL");
-        UnitLookup("PRC");
-        UnitLookup("USSR");
-        UnitLookup("FIN");
-        UnitLookup("YU");
-        UnitLookup("RED");
-    }
-    else if (Deck.sNation == "BD")
-    {
-        UnitLookup("ROK");
-        UnitLookup("JAP");
-        UnitLookup("NATO");
-    }
-    else if (Deck.sNation == "CW")
-    {
-        UnitLookup("ANZAC");
-        UnitLookup("CAN");
-        UnitLookup("UK");
-        UnitLookup("NATO");
-    }
-    else if (Deck.sNation == "EU")
-    {
-        UnitLookup("BRD");
-        UnitLookup("FRA");
-        UnitLookup("NATO");
-    }
-    else if (Deck.sNation == "LJUT")
-    {
-        UnitLookup("BRD");
-        UnitLookup("DEN");
-        UnitLookup("NATO");
-    }
-    else if (Deck.sNation == "BDRNL")
-    {
-        UnitLookup("BRD");
-        UnitLookup("NED");
-        UnitLookup("NATO");
-    }
-    else if (Deck.sNation == "NORAD")
-    {
-        UnitLookup("CAN");
-        UnitLookup("USA");
-        UnitLookup("NATO");
-    }
-    else if (Deck.sNation == "SCA")
-    {
-        UnitLookup("DEN");
-        UnitLookup("NOR");
-        UnitLookup("SWE");
-        UnitLookup("NATO");
-    }
-    else if (Deck.sNation == "NSWP")
-    {
-        UnitLookup("CZS");
-        UnitLookup("DDR");
-        UnitLookup("POL");
-        UnitLookup("RED");
-    }
-    else if (Deck.sNation == "RD")
-    {
-        UnitLookup("DPRK");
-        UnitLookup("PRC");
-        UnitLookup("RED");
-    }
-    else if (Deck.sNation == "SOVKOR")
-    {
-        UnitLookup("DPRK");
-        UnitLookup("USSR");
-        UnitLookup("RED");
-    }
-
+    UnitLookup();
     $(document).ready(
         function()
         {
@@ -167,7 +68,75 @@ function listUnits() //get units for display
     );
 }
 
-function UnitLookup(nation){
+function checkNaton(card){
+  if(card.sNation == "ANZAC" && (Deck.sNation != "ANZAC" && Deck.sNation != "CW" && Deck.sNation != "NATO")){
+  console.log(card.sNameU);
+    return false;
+  }
+  else if(card.sNation == "BRD" && (Deck.sNation != "BRD" && Deck.sNation != "EU" && Deck.sNation != "LJUT" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "CAN" && (Deck.sNation != "CAN" && Deck.sNation != "CW" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "DEN" && (Deck.sNation != "DEN" && Deck.sNation != "LJUT" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "FRA" && (Deck.sNation != "FRA" && Deck.sNation != "EU" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "JAP" && (Deck.sNation != "JAP" && Deck.sNation != "BD" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "NED" && (Deck.sNation != "NED" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "NOR" && (Deck.sNation != "NOR" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "ROK" && (Deck.sNation != "ROK" && Deck.sNation != "BD" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "SWE" && (Deck.sNation != "SWE" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "UK" && (Deck.sNation != "UK" && Deck.sNation != "CW" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "USA" && (Deck.sNation != "USA" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){
+    return false;
+  }
+  else if(card.sNation == "NATO" && Deck.iSide != 0){
+    return false;
+  }
+
+  else if(card.sNation == "CZS" && (Deck.sNation != "CZS" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){
+    return false;
+  }
+  else if(card.sNation == "DDR" && (Deck.sNation != "DDR" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){
+    return false;
+  }
+  else if(card.sNation == "DPRK" && (Deck.sNation != "DPRK" && Deck.sNation != "RD" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){
+    return false;
+  }
+  else if(card.sNation == "POL" && (Deck.sNation != "POL" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){
+    return false;
+  }
+  else if(card.sNation == "PRC" && (Deck.sNation != "PRC" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){
+    return false;
+  }
+  else if(card.sNation == "USSR" && (Deck.sNation != "USSR" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){
+    return false;
+  }
+  else if(card.sNation == "RED" && Deck.iSide != 1){
+    return false;
+  }
+  else if(card.sNation != ""){
+    return true;
+  }
+}
+
+function UnitLookup(){
     var card;
     var year = 3000;
     if(Deck.sEra == "B"){ year = 1985;}//I think FOBs are "year 0". Should be "-7500" really
@@ -180,31 +149,30 @@ function UnitLookup(nation){
     else if (Deck.sSpec == "MOTO"){spec=4;}
     else if (Deck.sSpec == "SUP"){spec=5;}
 
+    var valid = true;
     for (var i=0; i<1024;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
-            if ((card.sNation == nation || card.sNation == "NATO") && card.iYear <= year){
-                if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || card.iIsProto == '0'){
-                    if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){
-                        var transport = 0;
-                        if (card.sUnitData.charAt(7) == '1'){
-                            for (var j=0; j<TransportLinker.length; j++){
-                                if (card.iUnitID == TransportLinker[j].uID && TransportLinker[j].iSide == Deck.iSide){
-                                    var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
-                                    if (pair.iYear <= year) {
-                                        if((Deck.sNation != "NATO" && Deck.sNation != "REDFOR") || pair.iIsProto == '0'){
-                                            if (pair.sSpec.charAt(spec) != '1' || Deck.sSpec == "GEN"){
-                                                toList(pair);
-                                            }
-                                        }
+          valid = checkNaton(card);
+            if (card.iYear <= year && valid == true){
+                if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){
+                    var transport = 0;
+                    if (card.sUnitData.charAt(7) == '1'){
+                        for (var j=0; j<TransportLinker.length; j++){
+                            if (card.iUnitID == TransportLinker[j].uID && TransportLinker[j].iSide == Deck.iSide){
+                                var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
+                                if (pair.iYear <= year) {
+                                    valid = checkNaton(card);
+                                    if ((pair.sSpec.charAt(spec) != '1' || Deck.sSpec == "GEN") && valid == true){
+                                        toList(pair);
                                     }
                                 }
                             }
                         }
-                        else{
-                            var single = new VehicleCard("000", card, 0, 0);
-                            toList(single);
-                        }
+                    }
+                    else{
+                        var single = new VehicleCard("000", card, 0, 0);
+                        toList(single);
                     }
                 }
             }

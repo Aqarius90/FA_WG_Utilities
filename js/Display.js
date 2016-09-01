@@ -606,9 +606,9 @@ function displayCard(card, type, pos){
     ractiveDeck.set(sD, innerString);
     ractiveDeck.set(sD0, innerString);
 
-    innerString = '<h6>' + card.Unit.sNameU + '</h6>';
+    innerString = '<h6>' + card.Unit.sNameU + "<br>" + "<br>" + '</h6>';
     if(card.Transport != "0"){
-        innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + '</h6>';
+        innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + '</h6>';
     }
     if(card.Craft != "0"){
         innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU +'</h6>';

@@ -457,7 +457,6 @@ function DeckExport()
     }else if(padCounter == 3){
         CharOut += "A==";
     }
-    var sDeckString = document.getElementById("sDeckString");
     ractiveHeader.set('sDeckString', CharOut);
 }
 
