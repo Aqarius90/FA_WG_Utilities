@@ -468,6 +468,15 @@ Array.prototype.remove = function(from, to) {
 
 function CardDelete(ID)
 {
+    var sD  = "DeckView.D" +ID;
+    var sL  = "DeckView.L" +ID;
+    var sD0 = "DetailView.D0" +ID;
+    var sL0 = "DetailView.L0" +ID;
+    ractiveDeck.set(sD, "");
+    ractiveDeck.set(sD0, "");
+    ractiveDeck.set(sL, "");
+    ractiveDeck.set(sL0, "");
+
     for (var j = 0; j< Deck.Cards2T.length; j++) {
         if (Deck.Cards2T[j].iArrayIndex == ID)
         {
@@ -490,6 +499,5 @@ function CardDelete(ID)
         }
     }
     GUIDisplay();
-    listUnits();
     DeckExport();
 }

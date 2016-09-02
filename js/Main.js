@@ -70,7 +70,6 @@ function listUnits() //get units for display
 
 function checkNaton(card){
   if(card.sNation == "ANZAC" && (Deck.sNation != "ANZAC" && Deck.sNation != "CW" && Deck.sNation != "NATO")){
-  console.log(card.sNameU);
     return false;
   }
   else if(card.sNation == "BRD" && (Deck.sNation != "BRD" && Deck.sNation != "EU" && Deck.sNation != "LJUT" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){

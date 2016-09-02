@@ -615,7 +615,6 @@ function displayCard(card, type, pos){
     ractiveDeck.set(sL, innerString);
 
     innerString += '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type+ pos[type]+');"}>DELETE</button>';
-    console.log(innerString);
     ractiveDeck.set(sL0, innerString);
 }
 
