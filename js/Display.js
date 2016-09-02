@@ -290,7 +290,6 @@ function GUIDisplay() {
             break;
     }
     displayUnits();
-    listUnits();
     ractiveHeader.set("lab.pointstally", Deck.deckpoints + "/" + Deck.deckpoitstotal);
 }
 

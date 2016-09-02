@@ -490,5 +490,6 @@ function CardDelete(ID)
         }
     }
     GUIDisplay();
+    listUnits();
     DeckExport();
 }

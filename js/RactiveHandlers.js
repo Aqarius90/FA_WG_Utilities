@@ -88,6 +88,7 @@
   function btDecode(){
       DeckDisAssembly();
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -95,6 +96,7 @@
   {
       Deck = new DeckAssembly();
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -104,6 +106,7 @@
       Deck.sNation = "NATO";
       Deck.iNation = 202;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -113,6 +116,7 @@
       Deck.sNation = "REDFOR";
       Deck.iNation = 362;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btBD_Click() {
@@ -121,6 +125,7 @@
       Deck.sNation = "BD";
       Deck.iNation = 195;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btCOM_Click() {
@@ -129,6 +134,7 @@
       Deck.sNation = "CW";
       Deck.iNation = 194;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btEU_Click() {
@@ -137,6 +143,7 @@
       Deck.sNation = "EU";
       Deck.iNation = 192;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btLJ_Click() {
@@ -145,6 +152,7 @@
       Deck.sNation = "LJUT";
       Deck.iNation = 198;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btBRDNL_Click() {
@@ -153,6 +161,7 @@
       Deck.sNation = "BDRNL";
       Deck.iNation = 201;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btNORAD_Click() {
@@ -161,6 +170,7 @@
       Deck.sNation = "NORAD";
       Deck.iNation = 200;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btSCA_Click() {
@@ -169,6 +179,7 @@
       Deck.sNation = "SCA";
       Deck.iNation = 193;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btNSWP_Click() {
@@ -177,6 +188,7 @@
       Deck.sNation = "NSWP";
       Deck.iNation = 357;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btRD_Click() {
@@ -185,6 +197,7 @@
       Deck.sNation = "RD";
       Deck.iNation = 356;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btRKA_Click() {
@@ -193,6 +206,7 @@
       Deck.sNation = "SOVKOR";
       Deck.iNation = 359;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btANZAC_Click() {
@@ -201,6 +215,7 @@
       Deck.sNation = "ANZAC";
       Deck.iNation = 138;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btBRD_Click() {
@@ -209,6 +224,7 @@
       Deck.sNation = "BRD";
       Deck.iNation = 58;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btCAN_Click() {
@@ -217,6 +233,7 @@
       Deck.sNation = "CAN";
       Deck.iNation = 74;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btDEN_Click() {
@@ -225,6 +242,7 @@
       Deck.sNation = "DEN";
       Deck.iNation = 90;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btFRA_Click() {
@@ -233,6 +251,7 @@
       Deck.sNation = "FRA";
       Deck.iNation = 42;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btJAP_Click() {
@@ -241,6 +260,7 @@
       Deck.sNation = "JAP";
       Deck.iNation = 154;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btNED_Click() {
@@ -249,6 +269,7 @@
       Deck.sNation = "NED";
       Deck.iNation = 186;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btNOR_Click() {
@@ -257,6 +278,7 @@
       Deck.sNation = "NOR";
       Deck.iNation = 122;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btROK_Click() {
@@ -265,6 +287,7 @@
       Deck.sNation = "ROK";
       Deck.iNation = 170;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btSWE_Click() {
@@ -273,6 +296,7 @@
       Deck.sNation = "SWE";
       Deck.iNation = 106;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btUK_Click() {
@@ -281,6 +305,7 @@
       Deck.sNation = "UK";
       Deck.iNation = 26;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btUSA_Click() {
@@ -289,6 +314,7 @@
       Deck.sNation = "USA";
       Deck.iNation = 10;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btCZS_Click() {
@@ -297,6 +323,7 @@
       Deck.sNation = "CZS";
       Deck.iNation = 314;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btDDR_Click() {
@@ -305,6 +332,7 @@
       Deck.sNation = "DDR";
       Deck.iNation = 266;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btDPRK_Click() {
@@ -313,6 +341,7 @@
       Deck.sNation = "DPRK";
       Deck.iNation = 346;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btPOL_Click() {
@@ -321,6 +350,7 @@
       Deck.sNation = "POL";
       Deck.iNation = 298;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
   function btPRC_Click() {
@@ -329,6 +359,7 @@
       Deck.sNation = "PRC";
       Deck.iNation = 330;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -338,6 +369,7 @@
       Deck.sNation = "USSR";
       Deck.iNation = 282;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -346,6 +378,7 @@
       Deck.sEra = "A";
       Deck.iEra = 2;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -354,6 +387,7 @@
       Deck.sEra = "B";
       Deck.iEra = 1;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -362,6 +396,7 @@
       Deck.sEra = "C";
       Deck.iEra = 0;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -369,6 +404,7 @@
       Deck.sSpec = "MAR";
       Deck.iSpec = 3;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -376,6 +412,7 @@
       Deck.sSpec = "AIR";
       Deck.iSpec = 5;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -383,6 +420,7 @@
       Deck.sSpec = "MECH";
       Deck.iSpec = 4;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -390,6 +428,7 @@
       Deck.sSpec = "ARM";
       Deck.iSpec = 1;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -397,6 +436,7 @@
       Deck.sSpec = "MOTO";
       Deck.iSpec = 0;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -404,6 +444,7 @@
       Deck.sSpec = "SUP";
       Deck.iSpec = 2;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -411,6 +452,7 @@
       Deck.sSpec = "GEN";
       Deck.iSpec = 7;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
 
@@ -418,5 +460,6 @@
       Deck.sSpec = "NAV";
       Deck.iSpec = 6;
       GUIDisplay();
+      listUnits();
       DeckExport();
   }
