@@ -8,28 +8,27 @@ function init() {
     }
     initMainDB();
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
-   // GUIDisplay();
     window.tDebug = [];
+    window.logit = [];
+    window.infit = [];
+    window.supit = [];
+    window.tnkit = [];
+    window.recit = [];
+    window.vehit = [];
+    window.helit = [];
+    window.airit = [];
+    window.navit = [];
+    window.unitsList = [];
     ractiveDeck.set("debug", tDebug);
-    $(document).ready(function()
-      {
-          $("#logTable").tablesorter();
-          $("#infTable").tablesorter();
-          $("#supTable").tablesorter();
-          $("#tnkTable").tablesorter();
-          $("#recTable").tablesorter();
-          $("#vehTable").tablesorter();
-          $("#helTable").tablesorter();
-          $("#airTable").tablesorter();
-          $("#navTable").tablesorter();
-      }
-    );
-    //if (document.readyState === "complete") {ractiveHeader.set('unloaded', false); }
     ractiveHeader.set('unloaded', false);
 }
 
+function getindex(index){
+  ShowCard(unitsList[index]);
+}
+
 function listUnits() //get units for display
-{
+{/*
     var tables = ["log", "inf", "sup", "tnk", "rec", "veh", "hel", "air", "nav"]
     for(var i=0; i<9; i++){
         var body = document.getElementById(tables[i] + "Body");
@@ -49,7 +48,7 @@ function listUnits() //get units for display
         var costT = row.insertCell(7);
         var cardsT = row.insertCell(8);
         var btn = row.insertCell(9);
-    }
+    }*/
 
     UnitLookup();
     $(document).ready(
@@ -177,61 +176,47 @@ function UnitLookup(){
             }
         }
     }
+    ractiveDeck.set("logistics", logit);
+    ractiveDeck.set("infantry", infit);
+    ractiveDeck.set("support", supit);
+    ractiveDeck.set("tanks", tnkit);
+    ractiveDeck.set("recon", recit);
+    ractiveDeck.set("vehicle", vehit);
+    ractiveDeck.set("helicopters", helit);
+    ractiveDeck.set("aircraft", airit);
+    ractiveDeck.set("naval", navit);
 }
 
 function toList(card){
-    var type;
-    if (card.Unit.sUnitData.charAt(17) == '1'){ type = "logTable";}//logi
-    else if (card.Unit.sUnitData.charAt(18) == '1'){type = "infTable";}//inf
-    else if (card.Unit.sUnitData.charAt(19) == '1'){type = "supTable";}//sup
-    else if (card.Unit.sUnitData.charAt(20) == '1'){type = "tnkTable";}//tnk
-    else if (card.Unit.sUnitData.charAt(21) == '1'){type = "recTable";}//rec
-    else if (card.Unit.sUnitData.charAt(22) == '1'){type = "vehTable";}//veh
-    else if (card.Unit.sUnitData.charAt(23) == '1'){type = "helTable";}//hel
-    else if (card.Unit.sUnitData.charAt(24) == '1'){type = "airTable";}//air
-    else {type = "navTable";}//nav
 
-    var table = document.getElementById(type);
-    var row = table.insertRow(table.rows.length);
-    var nation = row.insertCell(0);
-    var picU = row.insertCell(1);
-    var unit = row.insertCell(2);
-    var costU = row.insertCell(3);
-    var cardsU = row.insertCell(4);
-    var picT = row.insertCell(5);
-    var trans = row.insertCell(6);
-    var costT = row.insertCell(7);
-    var cardsT = row.insertCell(8);
-    var btn = row.insertCell(9);
-    nation.innerHTML = card.Unit.sNation;
-    unit.innerHTML = card.Unit.sNameU;
-    cardsU.innerHTML = card.Unit.iCards;
-    costU.innerHTML = card.Unit.iCost;
+      unitsList.push(card);
+      var index  = unitsList.length -1;
+      //btn.appendChild(elem);
+     var temp ={ nation: card.Unit.sNation,
+      pic: 'pics/' + Deck.iSide + card.Unit.iUnitID + '.png',
+      unit: card.Unit.sNameU,
+      points: card.Unit.iCost,
+      cards: card.Unit.iCards,
+      tpic: 'pics/' + Deck.iSide + card.Transport.iUnitID + '.png',
+      tunit: card.Transport.sNameU,
+      tpoints: card.Transport.iCost,
+      tcards: card.Transport.iCards,
+      view:  '<button type="button" class="btn" onclick="getindex(' + index + ')">Show</button>'
+    };
+    //  type.push(temp);
 
-    var iData = document.createElement("img");
-    iData.src = "pics/" + Deck.iSide + card.Unit.iUnitID + ".png";
-    iData.setAttribute("class", "img-responsive");
-    iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
-    picU.appendChild(iData);
-
-    if(card.Transport !=0){
-        var iData = document.createElement("img");
-        iData.src = "pics/" + Deck.iSide + card.Transport.iUnitID + ".png";
-        iData.setAttribute("class", "img-responsive");
-        iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
-        picT.appendChild(iData);
-        trans.innerHTML = card.Transport.sNameU;
-        cardsT.innerHTML = card.Transport.iCards;
-        costT.innerHTML = card.Transport.iCost;
+           if (card.Unit.sUnitData.charAt(17) == '1'){logit.push(temp);}
+      else if (card.Unit.sUnitData.charAt(18) == '1'){infit.push(temp);}
+      else if (card.Unit.sUnitData.charAt(19) == '1'){supit.push(temp);}
+      else if (card.Unit.sUnitData.charAt(20) == '1'){tnkit.push(temp);}
+      else if (card.Unit.sUnitData.charAt(21) == '1'){recit.push(temp);}
+      else if (card.Unit.sUnitData.charAt(22) == '1'){vehit.push(temp);}
+      else if (card.Unit.sUnitData.charAt(23) == '1'){helit.push(temp);}
+      else if (card.Unit.sUnitData.charAt(24) == '1'){airit.push(temp);}
+      else {navit.push(temp);}
     }
 
 
-    var elem = document.createElement('input');
-    elem.type = 'button';
-    elem.value = '>';
-    elem.onclick = function(){ShowCard(card);};
-    btn.appendChild(elem);
-}
 
 function isError(Card) {
     var isUnavailable = false;

@@ -24,8 +24,8 @@ function  DeckAssembly()
 
 function DeckDisAssembly()
 {
-  decodeDeck(ractiveHeader.get('sDeckString'))
-  //decodeDeck(sDeckString.value)
+  var binoutdebug = "NONE";
+  decodeDeck(sDeckString.value)
 }
 
 function decodeDeck (deckCode)
@@ -457,7 +457,8 @@ function DeckExport()
     }else if(padCounter == 3){
         CharOut += "A==";
     }
-    ractiveHeader.set('sDeckString', CharOut);
+    var sDeckString = document.getElementById("sDeckString");
+    sDeckString.value = CharOut; 
 }
 
 Array.prototype.remove = function(from, to) {
