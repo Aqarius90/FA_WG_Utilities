@@ -576,27 +576,28 @@ function displayCard(card, type, pos){
     var isUnavailable = isError(card);
 
     var innerString = "<img src='png/blank.png' class='img-responsive' style='position: relative; top: 0; left: 0;' >";
+    //var innerString = "<img class='img-responsive' style='position: relative; top: 0; left: 0;' id='blank'>";
 
-    if (isUnavailable == true) { innerString += " <img src='png/INVALID.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >"; }
-    if (card.Unit.sUnitData.charAt(0)  == '1') { innerString += " <img src='png/antiair.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(1)  == '1') { innerString += " <img src='png/AAM.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(2)  == '1') { innerString += " <img src='png/armour.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(3)  == '1') { innerString += " <img src='png/atgm.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(4)  == '1') { innerString += " <img src='png/carrier.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(5)  == '1') { innerString += " <img src='png/CMD.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(6)  == '1') { innerString += " <img src='png/helo.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(7)  == '1') { innerString += " <img src='png/inf.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(8)  == '1') { innerString += " <img src='png/log.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(9)  == '1') { innerString += " <img src='png/eng.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(10) == '1') { innerString += " <img src='png/plane.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(11) == '1') { innerString += " <img src='png/rad.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(12) == '1') { innerString += " <img src='png/rocket.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(13) == '1') { innerString += " <img src='png/mtr.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(14) == '1') { innerString += " <img src='png/rec.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(14) == '2') { innerString += " <img src='png/rec2.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(14) == '3') { innerString += " <img src='png/rec3.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(15) == '1') { innerString += " <img src='png/tube.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
-    if (card.Unit.sUnitData.charAt(16) == '1') { innerString += " <img src='png/rad.png' class='img-responsive' style='position: absolute; top: 0; left: 0;' >";}
+    if (card.Unit.sUnitData.charAt(0)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='antiair' >";}
+    if (card.Unit.sUnitData.charAt(1)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='AAM' >";}
+    if (card.Unit.sUnitData.charAt(2)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='armour' >";}
+    if (card.Unit.sUnitData.charAt(3)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='atgm' >";}
+    if (card.Unit.sUnitData.charAt(4)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='carrier' >";}
+    if (card.Unit.sUnitData.charAt(5)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='CMD'  >";}
+    if (card.Unit.sUnitData.charAt(6)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='helo' >";}
+    if (card.Unit.sUnitData.charAt(7)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='inf' >";}
+    if (card.Unit.sUnitData.charAt(8)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='log' >";}
+    if (card.Unit.sUnitData.charAt(9)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='eng' >";}
+    if (card.Unit.sUnitData.charAt(10) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='plane' >";}
+    if (card.Unit.sUnitData.charAt(11) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rad' >";}
+    if (card.Unit.sUnitData.charAt(12) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rocket' >";}
+    if (card.Unit.sUnitData.charAt(13) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='mtr' >";}
+    if (card.Unit.sUnitData.charAt(14) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rec' >";}
+    if (card.Unit.sUnitData.charAt(14) == '2') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rec2' >";}
+    if (card.Unit.sUnitData.charAt(14) == '3') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rec3' >";}
+    if (card.Unit.sUnitData.charAt(15) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='tube' >";}
+    if (card.Unit.sUnitData.charAt(16) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rad' >";}
+        if (isUnavailable == true)                 { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='error' >"; }
     innerString += ' <h5 style="position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;">' + card.iCost + '</h5>';
     var temp = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
     innerString += ' <h5 style="position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;">' + temp + '</h5>';
@@ -613,7 +614,6 @@ function displayCard(card, type, pos){
         innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU +'</h6>';
     }
     ractiveDeck.set(sL, innerString);
-
     innerString += '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type+ pos[type]+');"}>DELETE</button>';
     ractiveDeck.set(sL0, innerString);
 }
@@ -696,19 +696,23 @@ function displayUnits()
         Deck.deckpoints += DA[type][counter[type]];
         counter[type] +=1;
     }
+    for (var i = 1; i < 10; i++){
+        for (var j = counter[i]; j < 10; j++){
+            var sD  = "DeckView.D" +i + j;
+            var sL  = "DeckView.L"+i + j;
+            var sD0 = "DetailView.D0" +i + j;
+            var sL0 = "DetailView.L0" +i + j;
+            var innerString = '<h3 class="text-center" style="line-height: 50%;">' +  DA[i][j] + '</h5>';
+            ractiveDeck.set(sD, innerString);
+            ractiveDeck.set(sD0, innerString);
+            ractiveDeck.set(sL, "");
+            ractiveDeck.set(sL0, "");
+        }
+    }
 }
 
 function updatePointsDisplay(DA)
 {
-    for (var i = 1; i < 10; i++){
-        for (var j = 1; j < 10; j++){
-            var sD  = "DeckView.D" +i + j;
-            var sD0 = "DetailView.D0" +i + j;
-            var innerString = '<h3 class="text-center" style="line-height: 50%;">' +  DA[i][j] + '</h5>';
-            ractiveDeck.set(sD, innerString);
-            ractiveDeck.set(sD0, innerString);
-        }
-    }
 }
 
 function debugOutput(binoutdebug){

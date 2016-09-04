@@ -100,6 +100,36 @@
       #r011{  background-position: -58px 0;      }
       #r100{  background-position: -76px 0;      }
       #r111{  background-position: -97px 0;      }
+      .unit {
+        width: 100px;
+        height: 51px;
+        background-image: url(unitstats.png);
+        display: block;
+        border:0px;
+        border-radius:0px;
+        margin:0px;
+        padding:0px;
+      }
+      #blank{  background-position: 0 0;      }
+      #error{  background-position: -100px 0;      }
+      #antiair{background-position: -200px 0;      }
+      #AAM{    background-position: -300px 0;      }
+      #armour{ background-position: -400px 0;      }
+      #atgm{   background-position: -500px 0;      }
+      #carrier{background-position: -600px 0;      }
+      #CMD{    background-position: -700px 0;      }
+      #helo{   background-position: -800px 0;      }
+      #inf{    background-position: -900px 0;      }
+      #log{    background-position: -1000px 0;      }
+      #eng{    background-position: -1100px 0;      }
+      #plane{  background-position: -1200px 0;      }
+      #rocket{ background-position: -1300px 0;      }
+      #mtr{    background-position: -1400px 0;      }
+      #rec{    background-position: -1500px 0;      }
+      #rec2{   background-position: -1600px 0;      }
+      #rec3{   background-position: -1700px 0;      }
+      #tube{   background-position: -1800px 0;      }
+      #rad{    background-position: -1900px 0;      }
   </style>
   <link REL="SHORTCUT ICON" HREF="favicon.ico">
 </head>
@@ -1331,9 +1361,9 @@
               </div>
             </div>
             {{/with}}
+            {{#with DetailView}}
             <div class="tab-pane" id="Logistics">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Logistics</h4>
@@ -1415,36 +1445,25 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="logistics" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(logistics, sortColumn)}}
+                    <table id="logTable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
+                        </thead>
+                      <tbody id="logBody">
+                      </tbody>
                     </table>
                   </div>
                   <div class="col-sm-4">
@@ -1507,7 +1526,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabsl" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitL" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehL" data-toggle="tab">Transport</a></li>
@@ -1532,14 +1550,12 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Infantry">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Infantry</h4>
@@ -1621,36 +1637,25 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="infantry" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(infantry, sortColumn)}}
+                  <table id="infTable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
+                        </thead>
+                    <tbody id="infBody">
+                    </tbody>
                     </table>
                   </div>
                   <div class="col-sm-4">
@@ -1713,7 +1718,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabsi" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitI" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehI" data-toggle="tab">Transport</a></li>
@@ -1738,14 +1742,12 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Support">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Support</h4>
@@ -1827,36 +1829,25 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="support" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(support, sortColumn)}}
+                  <table id="supTable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
+                        </thead>
+                    <tbody id="supBody">
+                    </tbody>
                     </table>
                   </div>
                   <div class="col-sm-4">
@@ -1918,7 +1909,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabss" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitS" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehS" data-toggle="tab">Transport</a></li>
@@ -1943,14 +1933,12 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Tank">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Tank</h4>
@@ -2032,36 +2020,25 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="tanks" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(tanks, sortColumn)}}
+                  <table id="tnkTable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
+                        </thead>
+                    <tbody id="tnkBody">
+                    </tbody>
                     </table>
                   </div>
                   <div class="col-sm-4">
@@ -2124,7 +2101,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabst" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitT" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehT" data-toggle="tab">Transport</a></li>
@@ -2149,14 +2125,12 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Recon">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Recon</h4>
@@ -2238,37 +2212,26 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="recon" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(recon, sortColumn)}}
+                  <table id="recTable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
-                    </table>
+                        </thead>
+                    <tbody id="recBody">
+                    </tbody>
+                  </table>
                   </div>
                   <div class="col-sm-4">
                       <div class="row">
@@ -2330,7 +2293,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabsr" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitR" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehR" data-toggle="tab">Transport</a></li>
@@ -2355,14 +2317,12 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Vehicle">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Vehicle</h4>
@@ -2444,36 +2404,25 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="vehicle" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(vehicle, sortColumn)}}
+                  <table id="vehTable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
+                        </thead>
+                    <tbody id="vehBody">
+                    </tbody>
                     </table>
                   </div>
                   <div class="col-sm-4">
@@ -2536,7 +2485,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabsv" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitV" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehV" data-toggle="tab">Transport</a></li>
@@ -2561,14 +2509,12 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Helo">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>Helicopter</h4>
@@ -2650,36 +2596,25 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="helicopters" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(helicopters, sortColumn)}}
+                  <table id="helTable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
+                        </thead>
+                    <tbody id="helBody">
+                    </tbody>
                     </table>
                   </div>
                   <div class="col-sm-4">
@@ -2742,7 +2677,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabsh" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitH" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehH" data-toggle="tab">Transport</a></li>
@@ -2767,14 +2701,12 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Air">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class= "col-sm-010">
                         <h4>Plane</h4>
@@ -2856,36 +2788,25 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="aircraft" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(aircraft, sortColumn)}}
+                  <table id="airTable" class="sortable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
+                        </thead>
+                    <tbody id="airBody">
+                    </tbody>
                     </table>
                   </div>
                   <div class="col-sm-4">
@@ -2948,7 +2869,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabsa" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitA" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehA" data-toggle="tab">Transport</a></li>
@@ -2973,14 +2893,12 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="Naval">
               <div class="panel panel-body">
-                {{#with DetailView}}
                 <div class="row">
                   <div class="col-sm-010">
                         <h4>NOT IMPLEMENTED</h4>
@@ -3063,36 +2981,25 @@
                     </div>
                   </div>
                 </div>
-                {{/with}}
                 <div class="row">
                   <div class="col-sm-8">
-                    <table class="naval" style="width:100%">
-                        <tr>
-                            <th class='sortable {{ sortColumn === "nation" ? "sorted" : "" }}' on-click='sort:nation'>Nation</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "unit" ? "sorted" : "" }}' on-click='sort:unit'>Unit</th>
-                            <th class='sortable {{ sortColumn === "points" ? "sorted" : "" }}' on-click='sort:points'>Points</th>
-                            <th class='sortable {{ sortColumn === "cards" ? "sorted" : "" }}' on-click='sort:cards'>Cards</th>
-                            <th></th>
-                            <th class='sortable {{ sortColumn === "tunit" ? "sorted" : "" }}' on-click='sort:tunit'>Transport</th>
-                            <th class='sortable {{ sortColumn === "tpoints" ? "sorted" : "" }}' on-click='sort:tpoints'>Points</th>
-                            <th class='sortable {{ sortColumn === "tcards" ? "sorted" : "" }}' on-click='sort:tcards'>Cards</th>
-                            <th>View</th>
-                        </tr>
-                        {{#each sort(naval, sortColumn)}}
+                  <table id="navTable" class="sortable" style="width:100%">
+                        <thead>
                             <tr>
-                                <td>{{nation}}</td>
-                                <td> <img src="{{pic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{unit}}</td>
-                                <td>{{points}}</td>
-                                <td>{{cards}}</td>
-                                <td><img src="{{tpic}}" class="img-responsive" style="position: relative; top: 0; left: 0; width: 58px; height: 30px;"></td>
-                                <td>{{tunit}}</td>
-                                <td>{{tpoints}}</td>
-                                <td>{{tcards}}</td>
-                                <td>{{{view}}}</td>
+                                <th>Nation</th>
+                                <th></th>
+                                <th>Unit</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th></th>
+                                <th>Transport</th>
+                                <th>Points</th>
+                                <th>Cards</th>
+                                <th>View</th>
                             </tr>
-                        {{/each}}
+                        </thead>
+                      <tbody id="navBody">
+                      </tbody>
                     </table>
                   </div>
                   <div class="col-sm-4">
@@ -3155,7 +3062,6 @@
                       </div>
                       {{/with}}
                       {{/with}}
-                      {{#with DetailView}}
                       <ul id="tabsn" class="nav nav-tabs" data-tabs="tabs">
                           <li class="active"><a href="#UnitN" data-toggle="tab">Unit</a></li>
                           <li><a href="#VehN" data-toggle="tab">Transport</a></li>
@@ -3180,11 +3086,11 @@
                             </div>
                           </div>
                       </div>
-                      {{/with}}
+                  </div>
                   </div>
                 </div>
               </div>
-            </div>
+            {{/with}}
             <div class="tab-pane" id="DEBUG">
               <div class="container">
                 <p>DEBUG</p>
