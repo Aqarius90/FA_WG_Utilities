@@ -57,10 +57,9 @@
             tspec: '',
             tera: '',
             pointstally:''
-          },
+          }
         }
       });
-
   var ractiveDeck = new Ractive({
     el: 'ankerDeck',
     template: '#templateDeck',
@@ -80,40 +79,16 @@
             veh:{  R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0'},
             hel:{  R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0'},
             air:{  R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0'},
-            nav:{  R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0'},
-          },
-
-          logistics: [],
-          infantry: [],
-          support: [],
-          tanks: [],
-          recon: [],
-          vehicle: [],
-          helicopters: [],
-          aircraft: [],
-          naval: [],
-
-          sort: function ( array, column ) {
-            array = array.slice(); // clone, so we don't modify the underlying data
-
-            return array.sort( function ( a, b ) {
-              return a[ column ] < b[ column ] ? -1 : 1;
-            });
-          },
-          sortColumn: 'nation'
+            nav:{  R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0'}
+          }
        }
   });
 
-
-ractiveDeck.on( 'sort', function ( event, column ) {
-  this.set( 'sortColumn', column );
-});
-
   function btDecode(){
+      Deck = new DeckAssembly();
       DeckDisAssembly();
       GUIDisplay();
       listUnits();
-      DeckExport();
   }
 
   function btClear()
