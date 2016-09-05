@@ -636,7 +636,7 @@ function add(type, veterancy){
     if (selectedCards[type].iaAvailability[veterancy] != 0){
         veterancy = veterancy.toString(2);
         if (selectedCards[type].Craft != 0){
-            var newcard = new VehicleCard(veterancy, selectedCards[type].Unit, selectedCards[type].Transport, selectedCards[type].Craft)
+            var newcard = new VehicleCard(veterancy, selectedCards[type].Unit, selectedCards[type].Transport, 1)
             Deck.Cards2T[Deck.i3Cards] = newcard;
             Deck.i3Cards++;
         } else if (selectedCards[type].Transport != 0){

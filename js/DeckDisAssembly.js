@@ -226,7 +226,7 @@ function decodeDeck (deckCode)
         var Unit = CardsDB[iUnit][Deck.iSide];
         var Ifv = CardsDB[iIFV][Deck.iSide];
         var Craft = CardsDB[iCraft][Deck.iSide];
-        Deck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, Craft);
+        Deck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, 1);
         Deck.Cards2T[i].Unit.sUnitData = Deck.Cards2T[i].Unit.sUnitData.substr(0, 17)+ "000000001";//is not regular inf
         Deck.Cards2T[i] = toGen(Deck.Cards2T[i]);
     }
@@ -458,7 +458,7 @@ function DeckExport()
         CharOut += "A==";
     }
     var sDeckString = document.getElementById("sDeckString");
-    sDeckString.value = CharOut; 
+    sDeckString.value = CharOut;
 }
 
 Array.prototype.remove = function(from, to) {

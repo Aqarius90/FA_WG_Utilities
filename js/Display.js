@@ -606,12 +606,15 @@ function displayCard(card, type, pos){
     ractiveDeck.set(sD, innerString);
     ractiveDeck.set(sD0, innerString);
 
-    innerString = '<h6>' + card.Unit.sNameU + "<br>" + "<br>" + '</h6>';
-    if(card.Transport != "0"){
+    console.log(card);
+    if (card.Craft == 0){
+      if (card.Transport == 0){
+        innerString = '<h6>' + card.Unit.sNameU + "<br>" + "<br>" + '</h6>';
+      } else {
         innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + '</h6>';
-    }
-    if(card.Craft != "0"){
-        innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU +'</h6>';
+      }
+    } else {
+      innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU +'</h6>';
     }
     ractiveDeck.set(sL, innerString);
     innerString += '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type+ pos[type]+');"}>DELETE</button>';
