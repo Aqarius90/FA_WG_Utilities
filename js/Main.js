@@ -403,6 +403,10 @@ function ShowCard(Card)
     if (Card.Unit.sUnitData.charAt(14) == '3') { ShowData(type, "rec3"); }
     if (Card.Unit.sUnitData.charAt(15) == '1') { ShowData(type, "tube"); }
     if (Card.Unit.sUnitData.charAt(16) == '1') { ShowData(type, "rad"); }
+    if (Card.Unit.sUnitData.charAt(26) == '1') { ShowData(type, "amph"); }
+    if (Card.Unit.sUnitData.charAt(28) == '1') { ShowData(type, "nav1"); }
+    if (Card.Unit.sUnitData.charAt(28) == '2') { ShowData(type, "nav2"); }
+    if (Card.Unit.sUnitData.charAt(28) == '3') { ShowData(type, "nav2"); }
 
     iData = document.createElement("img");
     iData.src = "picsb/" + Deck.iSide + Card.Unit.iUnitID + ".png";

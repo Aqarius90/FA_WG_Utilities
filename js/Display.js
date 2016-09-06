@@ -597,7 +597,39 @@ function displayCard(card, type, pos){
     if (card.Unit.sUnitData.charAt(14) == '3') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rec3' >";}
     if (card.Unit.sUnitData.charAt(15) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='tube' >";}
     if (card.Unit.sUnitData.charAt(16) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rad' >";}
-        if (isUnavailable == true)                 { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='error' >"; }
+    if (card.Unit.sUnitData.charAt(26) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='amph' >";}
+    if (card.Unit.sUnitData.charAt(28) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav1' >";}
+    if (card.Unit.sUnitData.charAt(28) == '2') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav2' >";}
+    if (card.Unit.sUnitData.charAt(28) == '3') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav2' >";}
+    if (isUnavailable == true)                 { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='error' >"; }
+
+    if(card.Transport != 0){
+
+          if (card.Transport.sUnitData.charAt(0)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='antiair' >";}
+          if (card.Transport.sUnitData.charAt(1)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='AAM' >";}
+          if (card.Transport.sUnitData.charAt(2)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='armour' >";}
+          if (card.Transport.sUnitData.charAt(3)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='atgm' >";}
+          if (card.Transport.sUnitData.charAt(4)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='carrier' >";}
+          if (card.Transport.sUnitData.charAt(5)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='CMD'  >";}
+          if (card.Transport.sUnitData.charAt(6)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='helo' >";}
+          if (card.Transport.sUnitData.charAt(7)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='inf' >";}
+          if (card.Transport.sUnitData.charAt(8)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='log' >";}
+          if (card.Transport.sUnitData.charAt(9)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='eng' >";}
+          if (card.Transport.sUnitData.charAt(10) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='plane' >";}
+          if (card.Transport.sUnitData.charAt(11) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rad' >";}
+          if (card.Transport.sUnitData.charAt(12) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rocket' >";}
+          if (card.Transport.sUnitData.charAt(13) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='mtr' >";}
+          if (card.Transport.sUnitData.charAt(14) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rec' >";}
+          if (card.Transport.sUnitData.charAt(14) == '2') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rec2' >";}
+          if (card.Transport.sUnitData.charAt(14) == '3') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rec3' >";}
+          if (card.Transport.sUnitData.charAt(15) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='tube' >";}
+          if (card.Transport.sUnitData.charAt(16) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='rad' >";}
+          if (card.Transport.sUnitData.charAt(26) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='amph' >";}
+          if (card.Transport.sUnitData.charAt(28) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav1' >";}
+          if (card.Transport.sUnitData.charAt(28) == '2') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav2' >";}
+          if (card.Transport.sUnitData.charAt(28) == '3') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav2' >";}
+          if (isUnavailable == true)                 { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='error' >"; }
+    }
     innerString += ' <h5 style="position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;">' + card.iCost + '</h5>';
     var temp = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
     innerString += ' <h5 style="position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;">' + temp + '</h5>';

@@ -94,7 +94,7 @@ function initMainDB()
 function Create()
 {
     // ID, DATA, AVAIL, SPEC, YEAR, COST,, CARDS PROTO, NATION, NAME
-    //data: AA, AA missile, armor, atgm, transport, CMD, helo, inf, logi, NPLM, plane, SEAD, MLRS, MTR, recon, tube, radar, amphib, naval, ship
+    //data: AA, AA missile, armor, atgm, transport, CMD, helo, inf, logi, NPLM, plane, SEAD, MLRS, MTR, recon, tube, radar, amphib, naval, ship, moto
     CardsDB[   0][0] = new Datacard(   0, "00000000000000000000000000000", [ 0,  0,  0,  0,  0], "1111111",    0,   0, 0, 0, "", "");
     CardsDB[   1][0] = new Datacard(   1, "00000101000000000100000000000", [ 0,  3,  0,  0,  0], "1110110", 1975, 100, 1, 0, "FRA", "⍟ Groupe de CMDT");
     CardsDB[   2][0] = new Datacard(   2, "00000001000000000010000000000", [ 0, 20, 16,  0,  0], "1011110", 1975,  10, 3, 0, "CAN", "Can. Rifles");
@@ -1566,7 +1566,7 @@ function Create()
     CardsDB[ 443][1] = new Datacard( 443, "00000000000000000000000000000", [ 0,  0,  0,  0,  0], "0000000",    0,   0, 0, 0, "", "");
     CardsDB[ 444][1] = new Datacard( 444, "00010000000000000000000001001", [ 8,  7,  6,  5,  4], "1111111", 1960,  40, 2, 0, "RED", "Komar");
     CardsDB[ 445][1] = new Datacard( 445, "00000000100000000000000001001", [ 0,  3,  0,  0,  0], "1111111", 1970, 120, 2, 0, "RED", "Muna");
-    CardsDB[ 446][1] = new Datacard( 446, "10010010000000001000000001003", [ 3,  0,  2,  0,  1], "1111111", 1972, 120, 2, 0, "RED", "⍟ Naijn");
+    CardsDB[ 446][1] = new Datacard( 446, "10010100000000001000000001003", [ 3,  0,  2,  0,  1], "1111111", 1972, 120, 2, 0, "RED", "⍟ Najin");
     CardsDB[ 447][1] = new Datacard( 447, "11010000000000001000000001002", [ 5,  0,  4,  0,  3], "1111111", 1979, 120, 2, 0, "RED", "Nanushka-III");
     CardsDB[ 448][1] = new Datacard( 448, "00010000000000000000000001002", [ 5,  0,  4,  0,  3], "1111111", 1971,  60, 2, 0, "RED", "Moskit");
     CardsDB[ 449][1] = new Datacard( 449, "00000000000010000000000001001", [ 3,  0,  2,  0,  1], "1111111", 1976,  80, 2, 0, "RED", "CHONG-JU");
