@@ -1788,7 +1788,7 @@ window.TransportLinker = [
         new TransportPair(0,  984,  990),  //VUURPLOEG 95	YP-408 PWI
         new TransportPair(0,  984,  940),  //	AMX-PRI
         new TransportPair(0,  984,  998),  //	AB-204B
-		new TransportPair(1,  619,  332), //#command VELITELSKÇ ÿTÇB	TATRA 148
+		    new TransportPair(1,  619,  332), //#command VELITELSKÇ ÿTÇB	TATRA 148
         new TransportPair(1,  619,  424), //	OT-64A
         new TransportPair(1,  619,  425), //	OT-64C
         new TransportPair(1,  619,  644), //	Mi-4T

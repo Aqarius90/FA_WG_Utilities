@@ -136,9 +136,11 @@ function checkNaton(card){
 
 function UnitLookup(){
     var card;
+    var naval;
+    var dry;
     var year = 3000;
     if(Deck.sEra == "B"){ year = 1985;}//I think FOBs are "year 0". Should be "-7500" really
-    if(Deck.sEra == "C"){ year = 1980;}
+    else if(Deck.sEra == "C"){ year = 1980;}
     var spec = -1;
     if(Deck.sSpec == "MAR"){spec=0;}
     else if (Deck.sSpec == "AIR"){spec=1;}
@@ -146,31 +148,41 @@ function UnitLookup(){
     else if (Deck.sSpec == "ARM"){spec=3;}
     else if (Deck.sSpec == "MOTO"){spec=4;}
     else if (Deck.sSpec == "SUP"){spec=5;}
+    else if (Deck.sSpec == "NAV"){spec=6;}
 
     var valid = true;
     for (var i=0; i<1024;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
-          valid = checkNaton(card);
+            valid = checkNaton(card);
             if (card.iYear <= year && valid == true){
-                if (card.sSpecDeck.charAt(spec) == '1' || Deck.sSpec == "GEN"){
-                    var transport = 0;
-                    if (card.sUnitData.charAt(7) == '1'){
-                        for (var j=0; j<TransportLinker.length; j++){
-                            if (card.iUnitID == TransportLinker[j].uID && TransportLinker[j].iSide == Deck.iSide){
-                                var pair = new VehicleCard("000", card, CardsDB[TransportLinker[j].vID][Deck.iSide], 0);
-                                if (pair.iYear <= year) {
-                                    valid = checkNaton(card);
-                                    if ((pair.sSpec.charAt(spec) != '1' || Deck.sSpec == "GEN") && valid == true){
-                                        toList(pair);
+                if (card.sUnitData.charAt(7) == '1'){//if is inf
+                    for (var j=0; j<TransportLinker.length; j++){
+                        if (card.iUnitID == TransportLinker[j].uID && Deck.iSide == TransportLinker[j].iSide){
+                            var veh = CardsDB[TransportLinker[j].vID][Deck.iSide];
+                            if (veh.iYear <= year) {
+                                if (Deck.sSpec == "GEN" || veh.sSpec.charAt(spec) != '1'){
+                                    if (Deck.sSpec == "GEN" || card.sSpec.charAt(spec) != '1'){
+                                        dry = new VehicleCard("000", card, veh, 0)
+                                        toList(dry);
                                     }
+                                }
+                                if(card.sUnitData.charAt(27) == '1'){
+                                    send = new VehicleCard("000", card, 0, 0);
+                                    toList(send);
                                 }
                             }
                         }
                     }
-                    else{
-                        var single = new VehicleCard("000", card, 0, 0);
-                        toList(single);
+                }
+                else{//is veh
+                    if (Deck.sSpec == "GEN" || card.sSpec.charAt(spec) != '1'){
+                        dry = new VehicleCard("000", card, 0, 0);
+                        toList(dry);
+                    }
+                    if(card.sUnitData.charAt(27) == '1'){
+                        send = new VehicleCard("000", card, 1, 0)
+                        toList(send);
                     }
                 }
             }
@@ -180,14 +192,14 @@ function UnitLookup(){
 
 function toList(card){
     var type;
-    if (card.Unit.sUnitData.charAt(17) == '1'){ type = "logTable";}//logi
-    else if (card.Unit.sUnitData.charAt(18) == '1'){type = "infTable";}//inf
-    else if (card.Unit.sUnitData.charAt(19) == '1'){type = "supTable";}//sup
-    else if (card.Unit.sUnitData.charAt(20) == '1'){type = "tnkTable";}//tnk
-    else if (card.Unit.sUnitData.charAt(21) == '1'){type = "recTable";}//rec
-    else if (card.Unit.sUnitData.charAt(22) == '1'){type = "vehTable";}//veh
-    else if (card.Unit.sUnitData.charAt(23) == '1'){type = "helTable";}//hel
-    else if (card.Unit.sUnitData.charAt(24) == '1'){type = "airTable";}//air
+    if (card.UnitTypeData.charAt(0) == '1'){ type = "logTable";}//logi
+    else if (card.UnitTypeData.charAt(1) == '1'){type = "infTable";}//inf
+    else if (card.UnitTypeData.charAt(2) == '1'){type = "supTable";}//sup
+    else if (card.UnitTypeData.charAt(3) == '1'){type = "tnkTable";}//tnk
+    else if (card.UnitTypeData.charAt(4) == '1'){type = "recTable";}//rec
+    else if (card.UnitTypeData.charAt(5)== '1'){type = "vehTable";}//veh
+    else if (card.UnitTypeData.charAt(6) == '1'){type = "helTable";}//hel
+    else if (card.UnitTypeData.charAt(7) == '1'){type = "airTable";}//air
     else {type = "navTable";}//nav
 
     var table = document.getElementById(type);
@@ -224,11 +236,10 @@ function toList(card){
         costT.innerHTML = card.Transport.iCost;
     }
 
-
     var elem = document.createElement('input');
     elem.type = 'button';
     elem.value = '>';
-    elem.onclick = function(){ShowCard(card);};
+    elem.onclick = function(){ShowCard( new VehicleCard ("000", card.Unit, card.Transport, card.Craft));};
     btn.appendChild(elem);
 }
 
@@ -366,14 +377,14 @@ function ShowData(type, spec) {
 function ShowCard(Card)
 {
     var type, btn;
-    if (Card.Unit.sUnitData.charAt(17) == '1'){ type = "log"; btn = 0;}//logi
-    else if (Card.Unit.sUnitData.charAt(18) == '1'){type = "inf"; btn = 1;}//inf
-    else if (Card.Unit.sUnitData.charAt(19) == '1'){type = "sup"; btn = 2;}//sup
-    else if (Card.Unit.sUnitData.charAt(20) == '1'){type = "tnk"; btn = 3;}//tnk
-    else if (Card.Unit.sUnitData.charAt(21) == '1'){type = "rec"; btn = 4;}//rec
-    else if (Card.Unit.sUnitData.charAt(22) == '1'){type = "veh"; btn = 5;}//veh
-    else if (Card.Unit.sUnitData.charAt(23) == '1'){type = "hel"; btn = 6;}//hel
-    else if (Card.Unit.sUnitData.charAt(24) == '1'){type = "air"; btn = 7;}//air
+    if (Card.UnitTypeData.charAt(0) == '1'){ type = "log"; btn = 0;}//logi
+    else if (Card.UnitTypeData.charAt(1) == '1'){type = "inf"; btn = 1;}//inf
+    else if (Card.UnitTypeData.charAt(2) == '1'){type = "sup"; btn = 2;}//sup
+    else if (Card.UnitTypeData.charAt(3) == '1'){type = "tnk"; btn = 3;}//tnk
+    else if (Card.UnitTypeData.charAt(4) == '1'){type = "rec"; btn = 4;}//rec
+    else if (Card.UnitTypeData.charAt(5) == '1'){type = "veh"; btn = 5;}//veh
+    else if (Card.UnitTypeData.charAt(6) == '1'){type = "hel"; btn = 6;}//hel
+    else if (Card.UnitTypeData.charAt(7) == '1'){type = "air"; btn = 7;}//air
     else {type = "nav";}//nav
 
 
@@ -519,10 +530,6 @@ function ShowCard(Card)
         showWeapon(Card.Transport.W3, type, 3);
     }
 }
-/*
-            //lLOGunitProto.Content = Card.Unit.iIsProto;
-            //lLOGunitDeck.Content = Card.Unit.
-    }*/
 
  function InterpretTraining(Card)
  {

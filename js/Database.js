@@ -33,39 +33,66 @@ function VehicleCard(VET, UNIT, TRANSPORT, CRAFT) {
     this.iVet = parseInt(VET, 2);
     this.iVet0 = this.iVet; //normalized
     this.sNation = UNIT.sNation; //trusting the database here
-
-    if (TRANSPORT === 0) { this.iYear = UNIT.iYear; } else {this.iYear = UNIT.iYear < TRANSPORT.iYear ? UNIT.iYear : TRANSPORT.iYear; } //landing craft are not limiting here IIRC
-    if (CRAFT == 1){ this.sSpec = '1111111';}
-    else if (TRANSPORT !== 0 && CRAFT == 0) { //naval is unlimited
-        this.sSpec = "";
-        for (var i = 0; i < 7; i++){
-            if (UNIT.sSpecDeck.charAt(i) == '0' || TRANSPORT.sSpecDeck.charAt(i) == '0') { this.sSpec += '0'; } else {this.sSpec += '1'; } //"JS strings are immutable" WTF?!?
-        }
-    } else {        this.sSpec = UNIT.sSpecDeck;    }
-    if (UNIT.iIsProto === 1 || TRANSPORT.iIsProto === 1) { this.iIsProto = 1; } else { this.iIsProto = 0}
-    this.iArrayIndex = ""; //for deck pos tracking
-    this.iaAvailability = [];
-    if (TRANSPORT === 0) {this.iaAvailability = UNIT.iaAvailability;} else {
-      for (var i = 0; i < 5; i++){
-          this.iaAvailability[i] = UNIT.iaAvailability[i] < TRANSPORT.iaAvailability[i] ? UNIT.iaAvailability[i] : TRANSPORT.iaAvailability[i];
-      }
+    this.UnitTypeData = UNIT.sUnitData.slice(17); //fucking javascript and fucking passbyreff and fuck landing craft it's all their fault
+    if (TRANSPORT == 0){ //unit
+      this.iYear = UNIT.iYear;
+      this.sSpec = UNIT.sSpecDeck;
+      this.iIsProto = UNIT.iIsProto;
+      this.iaAvailability = UNIT.iaAvailability;
+      this.iCost = UNIT.iCost;
+      this.Unit = UNIT;
+      this.Transport = 0;
+      this.Craft = 0;
     }
-
-    this.Unit = UNIT;
-    this.Transport = TRANSPORT;
-    if(CRAFT !=0){
-      if (UNIT.iSide == 0){
+    else if (TRANSPORT == 1 || TRANSPORT == CardsDB[537][0] || TRANSPORT == CardsDB[458][1]){//naval unit
+      if (Deck.iSide == 0){ //oddly enough, you never [[make]] a unit card without setting the side first.
+        this.Transport = CardsDB[537][0];
+      } else{
+        this.Transport = CardsDB[458][1];
+      }
+      this.iYear = UNIT.iYear;
+      this.sSpec = "1111111"; //naval is unlimited
+      this.iIsProto = UNIT.iIsProto;
+      this.iaAvailability = UNIT.iaAvailability;
+      this.iCost = UNIT.iCost + this.Transport.iCost;
+      this.Unit = UNIT;
+      this.UnitTypeData = "000000001"
+      this.Craft = 0;
+    }
+    else if (CRAFT == 0){ // inf
+      this.iYear = UNIT.iYear < TRANSPORT.iYear ? UNIT.iYear : TRANSPORT.iYear;
+      this.sSpec = "";
+      for (var i = 0; i < 7; i++){
+          if (UNIT.sSpecDeck.charAt(i) == '0' || TRANSPORT.sSpecDeck.charAt(i) == '0') { this.sSpec += '0'; } else {this.sSpec += '1'; } //"JS strings are immutable" WTF?!?
+      }
+      if (UNIT.iIsProto === 1 || TRANSPORT.iIsProto === 1) { this.iIsProto = 1; } else { this.iIsProto = 0}
+      this.iaAvailability = [];
+      for (var i = 0; i < 5; i++){
+        this.iaAvailability[i] = UNIT.iaAvailability[i] < TRANSPORT.iaAvailability[i] ? UNIT.iaAvailability[i] : TRANSPORT.iaAvailability[i];
+      }
+      this.iCost = UNIT.iCost + TRANSPORT.iCost;
+      this.Unit = UNIT;
+      this.Transport = TRANSPORT;
+      this.Craft = 0;
+    }
+    else if (CRAFT == 1 || CRAFT == CardsDB[537][0] || CRAFT == CardsDB[458][1]){ //naval inf
+      if (Deck.iSide == 0){
         this.Craft = CardsDB[537][0];
       } else{
         this.Craft = CardsDB[458][1];
       }
-    } else {
-      this.Craft = 0;
+      this.iYear = UNIT.iYear < TRANSPORT.iYear ? UNIT.iYear : TRANSPORT.iYear;
+      this.sSpec = "1111111";
+      if (UNIT.iIsProto === 1 || TRANSPORT.iIsProto === 1) { this.iIsProto = 1; } else { this.iIsProto = 0}
+      this.iaAvailability = [];
+      for (var i = 0; i < 5; i++){
+        this.iaAvailability[i] = UNIT.iaAvailability[i] < TRANSPORT.iaAvailability[i] ? UNIT.iaAvailability[i] : TRANSPORT.iaAvailability[i];
+      }
+      this.iCost = UNIT.iCost + TRANSPORT.iCost + this.Craft.iCost;
+      this.Unit = UNIT;
+      this.UnitTypeData = "000000001"
+      this.Transport = TRANSPORT;
     }
-
-    if (TRANSPORT == 0 && CRAFT == 0) { this.iCost = UNIT.iCost;} else
-    if (TRANSPORT !== 0 && CRAFT == 0) {this.iCost = UNIT.iCost + TRANSPORT.iCost; } else
-    {this.iCost = UNIT.iCost + TRANSPORT.iCost + CRAFT.iCost;}
 }
 
 

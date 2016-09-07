@@ -227,7 +227,7 @@ function decodeDeck (deckCode)
         var Ifv = CardsDB[iIFV][Deck.iSide];
         var Craft = CardsDB[iCraft][Deck.iSide];
         Deck.Cards2T[i] = new VehicleCard(sVet, Unit, Ifv, 1);
-        Deck.Cards2T[i].Unit.sUnitData = Deck.Cards2T[i].Unit.sUnitData.substr(0, 17)+ "000000001";//is not regular inf
+        Deck.Cards2T[i].UnitTypeData = "000000001";//is not regular inf
         Deck.Cards2T[i] = toGen(Deck.Cards2T[i]);
     }
 
@@ -256,7 +256,7 @@ function decodeDeck (deckCode)
         Deck.Cards1T[i] = new VehicleCard(sVet, Unit, Ifv, 0);
         if (Deck.Cards1T[i].Unit.sUnitData.charAt(7) != '1' )// if not inf
         {
-              Deck.Cards1T[i].Unit.sUnitData = Deck.Cards1T[i].Unit.sUnitData.substr(0, 17)+ "000000001"; // is naval
+            Deck.Cards1T[i].UnitTypeData = "000000001"; // is naval
         };
         Deck.Cards1T[i] = toGen(Deck.Cards1T[i]);
     }

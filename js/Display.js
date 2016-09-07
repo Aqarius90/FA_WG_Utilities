@@ -699,15 +699,15 @@ function displayUnits()
     {
         Deck.Cards1T[i] = toSpec(Deck.Cards1T[i]);
         var type;
-        if (Deck.Cards1T[i].Unit.sUnitData.charAt(17) == '1'){type = 1;}//logi
-        else if (Deck.Cards1T[i].Unit.sUnitData.charAt(18) == '1'){type = 2;}//inf
-        else if (Deck.Cards1T[i].Unit.sUnitData.charAt(19) == '1'){type = 3;}//sup
-        else if (Deck.Cards1T[i].Unit.sUnitData.charAt(20) == '1'){type = 4;}//tnk
-        else if (Deck.Cards1T[i].Unit.sUnitData.charAt(21) == '1'){type = 5;}//rec
-        else if (Deck.Cards1T[i].Unit.sUnitData.charAt(22) == '1'){type = 6;}//veh
-        else if (Deck.Cards1T[i].Unit.sUnitData.charAt(23) == '1'){type = 7;}//hel
-        else if (Deck.Cards1T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
-        else if (Deck.Cards1T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
+        if (Deck.Cards1T[i].UnitTypeData.charAt(0) == '1'){type = 1;}//logi
+        else if (Deck.Cards1T[i].UnitTypeData.charAt(1) == '1'){type = 2;}//inf
+        else if (Deck.Cards1T[i].UnitTypeData.charAt(2) == '1'){type = 3;}//sup
+        else if (Deck.Cards1T[i].UnitTypeData.charAt(3) == '1'){type = 4;}//tnk
+        else if (Deck.Cards1T[i].UnitTypeData.charAt(4) == '1'){type = 5;}//rec
+        else if (Deck.Cards1T[i].UnitTypeData.charAt(5) == '1'){type = 6;}//veh
+        else if (Deck.Cards1T[i].UnitTypeData.charAt(6) == '1'){type = 7;}//hel
+        else if (Deck.Cards1T[i].UnitTypeData.charAt(7) == '1'){type = 8;}//air
+        else if (Deck.Cards1T[i].UnitTypeData.charAt(8) == '1'){type = 9;}//nav
         else{type = 9;} //me=idiot, forgot to input naval
         displayCard(Deck.Cards1T[i], type, counter);
         Deck.deckpoints += DA[type][counter[type]];
@@ -717,15 +717,15 @@ function displayUnits()
     {
         Deck.Cards0T[i] = toSpec(Deck.Cards0T[i]);
         var type;
-        if (Deck.Cards0T[i].Unit.sUnitData.charAt(17) == '1'){type = 1;}//logi
-        else if (Deck.Cards0T[i].Unit.sUnitData.charAt(18) == '1'){type = 2;}//inf
-        else if (Deck.Cards0T[i].Unit.sUnitData.charAt(19) == '1'){type = 3;}//sup
-        else if (Deck.Cards0T[i].Unit.sUnitData.charAt(20) == '1'){type = 4;}//tnk
-        else if (Deck.Cards0T[i].Unit.sUnitData.charAt(21) == '1'){type = 5;}//rec
-        else if (Deck.Cards0T[i].Unit.sUnitData.charAt(22) == '1'){type = 6;}//veh
-        else if (Deck.Cards0T[i].Unit.sUnitData.charAt(23) == '1'){type = 7;}//hel
-        else if (Deck.Cards0T[i].Unit.sUnitData.charAt(24) == '1'){type = 8;}//air
-        else if (Deck.Cards0T[i].Unit.sUnitData.charAt(25) == '1'){type = 9;}//nav
+        if (Deck.Cards0T[i].UnitTypeData.charAt(0) == '1'){type = 1;}//logi
+        else if (Deck.Cards0T[i].UnitTypeData.charAt(1) == '1'){type = 2;}//inf
+        else if (Deck.Cards0T[i].UnitTypeData.charAt(2) == '1'){type = 3;}//sup
+        else if (Deck.Cards0T[i].UnitTypeData.charAt(3) == '1'){type = 4;}//tnk
+        else if (Deck.Cards0T[i].UnitTypeData.charAt(4) == '1'){type = 5;}//rec
+        else if (Deck.Cards0T[i].UnitTypeData.charAt(5) == '1'){type = 6;}//veh
+        else if (Deck.Cards0T[i].UnitTypeData.charAt(6) == '1'){type = 7;}//hel
+        else if (Deck.Cards0T[i].UnitTypeData.charAt(7) == '1'){type = 8;}//air
+        else if (Deck.Cards0T[i].UnitTypeData.charAt(8) == '1'){type = 9;}//nav
         else{type = 9;} //me=idiot, forgot to input naval
         displayCard(Deck.Cards0T[i], type, counter);
         Deck.deckpoints += DA[type][counter[type]];
