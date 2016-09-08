@@ -227,7 +227,7 @@ function WeaponDataLoad()
     MainArmory[201] = new Weapon(  1925,    0,     0,   25,  0,  12,  2.00, "10",   95, "[HEAT][STAT][AOE]", "82MM HEAT", "BZK vz.59A");
     MainArmory[202] = new Weapon(  1925,    0,     0,   45, 35,  12,  3.00, "10",  121, "[KE][AOE]", "105MM", "L7A3");
     MainArmory[203] = new Weapon(  2275,    0,     0,   60, 45,  12,  3.00, "10",  121, "[KE][AOE]", "105MM", "L7A3");
-    MainArmory[204] = new Weapon(  1925,    0,     0,   35,  0,  13,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS missile", "MAT 49");
+    MainArmory[204] = new Weapon(  1925,    0,     0,   35,  0,  13,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS missile", "MAT");
     MainArmory[205] = new Weapon(  2100,    0,     0,   45,  5,  13,  3.00, "10",  115, "[KE][AOE]", "103mm", "BS-3");
     MainArmory[206] = new Weapon(  2100,    0,     0,   50, 35,  13,  3.00, "10",  121, "[KE][AOE]", "105MM", "L7A3");
     MainArmory[207] = new Weapon(   455,    0,     0,   40,  0,  14,  0.00, "10",  292, "[HEAT][STAT]", "73MM HEAT", "LRAC 73");
@@ -533,7 +533,7 @@ function WeaponDataLoad()
     MainArmory[507] = new Weapon(     0,    0,  5600,   40, 40,   0,  5.00,  "0S",  200, "[AOE][SA]", "SA Radar missile", "R.530");
     MainArmory[508] = new Weapon(     0,    0,  7000,   40, 40,   0,  5.00,  "0S",  200, "[AOE][SA]", "SA Radar missile", "PL-11");
     MainArmory[509] = new Weapon(     0,    0,  5600,   40, 40,   0,  8.00,  "2s",  320, "[AOE][FF]", "IR missiles", "R-40T Vympel");
-    MainArmory[510] = new Weapon(     0,    0,   700,   35, 35,   0,  5.00,  "0S",  200, "[AOE][SA]", "SA Radar missile", "AIM-7E SPARROW");
+    MainArmory[510] = new Weapon(     0,    0,  7000,   35, 35,   0,  5.00,  "0S",  200, "[AOE][SA]", "SA Radar missile", "AIM-7E SPARROW");
     MainArmory[511] = new Weapon(     0,    0,  7700,   40, 40,   0,  6.00,  "0S",  240, "[AOE][SA]", "SA Radar missile", "AIM-7F SPARROW");
     MainArmory[512] = new Weapon(  2100, 1575,  2800,   30, 30,   0,  1.00, "4028",   92, "[AOE]", "20MM", "M61A1 Vulcan");
     MainArmory[513] = new Weapon(   700,    0,     0,   60,  0,  19,  0.00,  "10",  336, "[HEAT][STAT]", "84MM HEAT", "LRAC F1");
@@ -1033,6 +1033,7 @@ function WeaponDataLoad()
     MainArmory[1007] = new Weapon(  4375, 2100, 140,  25,  25,  0,  6.00, "24",    58, "[AOE][DEF]", "120mm", "Dual PJ-33A");
     MainArmory[1008] = new Weapon(     0, 2800, 2800,  60,  60,  0,  5.00, "12s",    200, "[AOE][FF][RAD][DEF]", "Radar missile", "HQ-7");
     MainArmory[1009] = new Weapon(     0,  2450, 3150,  60, 60,  0,  5.00, "1s",    300, "[AOE][FF][RAD][DEF]", "Radar missile", "3K95 Kinzhal");
+    MainArmory[1010] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "60",  150, "[NPLM]", "340KG IRON BOMB", "Mk77");
 }
 
 function TransportPair(iside, infID, vehID)

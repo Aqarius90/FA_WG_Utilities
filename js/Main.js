@@ -245,7 +245,7 @@ function toList(card){
 
 function isError(Card) {
     var isUnavailable = false;
-    isUnavailable = checkNation(Card);
+    isUnavailable = !checkNation(Card);
     if (Deck.sEra == "B" && Card.iYear > 1985){ isUnavailable = true; }
     else if (Deck.sEra == "C" && Card.iYear > 1980){ isUnavailable = true; }
     if (Deck.sSpec == "MAR" && Card.sSpec.charAt(0) != '1') { isUnavailable = true; }
