@@ -67,7 +67,7 @@ function listUnits() //get units for display
     );
 }
 
-function checkNaton(card){
+function checkNation(card){
   if(card.sNation == "ANZAC" && (Deck.sNation != "ANZAC" && Deck.sNation != "CW" && Deck.sNation != "NATO")){
     return false;
   }
@@ -154,15 +154,15 @@ function UnitLookup(){
     for (var i=0; i<1024;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
-            valid = checkNaton(card);
+            valid = checkNation(card);
             if (card.iYear <= year && valid == true){
                 if (card.sUnitData.charAt(7) == '1'){//if is inf
                     for (var j=0; j<TransportLinker.length; j++){
                         if (card.iUnitID == TransportLinker[j].uID && Deck.iSide == TransportLinker[j].iSide){
                             var veh = CardsDB[TransportLinker[j].vID][Deck.iSide];
                             if (veh.iYear <= year) {
-                                if (Deck.sSpec == "GEN" || veh.sSpec.charAt(spec) != '1'){
-                                    if (Deck.sSpec == "GEN" || card.sSpec.charAt(spec) != '1'){
+                                if (Deck.sSpec == "GEN" || veh.sSpecDeck.charAt(spec) == '1'){
+                                    if (Deck.sSpec == "GEN" || card.sSpecDeck.charAt(spec) == '1'){
                                         dry = new VehicleCard("000", card, veh, 0)
                                         toList(dry);
                                     }
@@ -176,7 +176,7 @@ function UnitLookup(){
                     }
                 }
                 else{//is veh
-                    if (Deck.sSpec == "GEN" || card.sSpec.charAt(spec) != '1'){
+                    if (Deck.sSpec == "GEN" || card.sSpecDeck.charAt(spec) == '1'){
                         dry = new VehicleCard("000", card, 0, 0);
                         toList(dry);
                     }
@@ -245,116 +245,7 @@ function toList(card){
 
 function isError(Card) {
     var isUnavailable = false;
-    if (Deck.sNation == "NATO")
-    {
-        if (
-        Card.sNation != "ANZAC" &&
-        Card.sNation != "BRD" &&
-        Card.sNation != "CAN" &&
-        Card.sNation != "DEN" &&
-        Card.sNation != "FRA" &&
-        Card.sNation != "JAP" &&
-        Card.sNation != "NED" &&
-        Card.sNation != "NOR" &&
-        Card.sNation != "ROK" &&
-        Card.sNation != "SWE" &&
-        Card.sNation != "UK" &&
-        Card.sNation != "USA" &&
-        Card.sNation != "NATO")
-        { isUnavailable = true;}
-        if (Card.iIsProto == 1) { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "REDFOR")
-    {
-        if (
-        Card.sNation != "RED" &&
-        Card.sNation != "CZS" &&
-        Card.sNation != "DDR" &&
-        Card.sNation != "DPRK" &&
-        Card.sNation != "POL" &&
-        Card.sNation != "PRC" &&
-        Card.sNation != "USSR")
-        { isUnavailable = true; }
-        if (Card.iIsProto == 1) { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "BD")
-    {
-        if (
-        Card.sNation != "NATO" &&
-        Card.sNation != "JAP" &&
-        Card.sNation != "ROK") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "CW")
-    {
-        if (
-        Card.sNation != "NATO" &&
-        Card.sNation != "ANZAC" &&
-        Card.sNation != "CAN" &&
-        Card.sNation != "UK") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "EU")
-    {
-        if (
-        Card.sNation != "NATO" &&
-        Card.sNation != "BRD" &&
-        Card.sNation != "FRA") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "LJUT")
-    {
-        if (
-        Card.sNation != "NATO" &&
-        Card.sNation != "BRD" &&
-        Card.sNation != "DEN") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "NORAD")
-    {
-        if (
-        Card.sNation != "NATO" &&
-        Card.sNation != "CAN" &&
-        Card.sNation != "USA") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "SCA")
-    {
-        if (
-        Card.sNation != "NATO" &&
-        Card.sNation != "DEN" &&
-        Card.sNation != "NOR" &&
-        Card.sNation != "SWE") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "NSWP")
-    {
-        if (
-        Card.sNation != "RED" &&
-        Card.sNation != "CZS" &&
-        Card.sNation != "DDR" &&
-        Card.sNation != "POL") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "RD")
-    {
-        if (
-        Card.sNation != "RED" &&
-        Card.sNation != "DPRK" &&
-        Card.sNation != "PRC") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "SOVKOR")
-    {
-        if (
-        Card.sNation != "RED" &&
-        Card.sNation != "DPRK" &&
-        Card.sNation != "USSR") { isUnavailable = true; }
-    }
-    else if (Deck.sNation == "BDRNL")
-    {
-        if (
-        Card.sNation != "NATO" &&
-        Card.sNation != "BRD" &&
-        Card.sNation != "NED") { isUnavailable = true; }
-    }
-    else
-    {
-        if (Card.sNation != Deck.sNation)
-        { isUnavailable = true; }
-    }
+    isUnavailable = checkNation(Card);
     if (Deck.sEra == "B" && Card.iYear > 1985){ isUnavailable = true; }
     else if (Deck.sEra == "C" && Card.iYear > 1980){ isUnavailable = true; }
     if (Deck.sSpec == "MAR" && Card.sSpec.charAt(0) != '1') { isUnavailable = true; }
@@ -385,7 +276,7 @@ function ShowCard(Card)
     else if (Card.UnitTypeData.charAt(5) == '1'){type = "veh"; btn = 5;}//veh
     else if (Card.UnitTypeData.charAt(6) == '1'){type = "hel"; btn = 6;}//hel
     else if (Card.UnitTypeData.charAt(7) == '1'){type = "air"; btn = 7;}//air
-    else {type = "nav";}//nav
+    else {type = "nav"; btn = 8;}//nav
 
 
     document.getElementById(type + "UD").innerHTML = "";

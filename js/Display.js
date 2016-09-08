@@ -637,8 +637,7 @@ function displayCard(card, type, pos){
     innerString += " <img id='r" + card.sVeterancy + "' class='ranks' style='position: absolute; bottom: 0; left: 0;' >";
     ractiveDeck.set(sD, innerString);
     ractiveDeck.set(sD0, innerString);
-
-    console.log(card);
+    
     if (card.Craft == 0){
       if (card.Transport == 0){
         innerString = '<h6>' + card.Unit.sNameU + "<br>" + "<br>" + '</h6>';
