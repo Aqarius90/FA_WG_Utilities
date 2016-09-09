@@ -2,11 +2,9 @@
 function init() {
     window.Deck = new DeckAssembly();
     window.CardsDB = new Array(1024);
-    window.TransportArray = new Array(1024);
     window.Matrix = new matrix();
     for (var i = 0; i < 1025; i++) {
     CardsDB[i]=Array(2);
-    TransportArray[i]=Array(2);
     }
     initMainDB();
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
