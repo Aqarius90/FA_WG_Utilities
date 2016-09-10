@@ -159,9 +159,10 @@ function UnitLookup(){
             valid = checkNation(card);
             if (card.iYear <= year && valid == true){
                 if (card.sUnitData.charAt(7) == '1'){//if is inf
-                    for (var j=0; j<TransportLinker.length; j++){
-                        if (card.iUnitID == TransportLinker[j].uID && Deck.iSide == TransportLinker[j].iSide){
-                            var veh = CardsDB[TransportLinker[j].vID][Deck.iSide];
+                    for (var j=0; j < TransportArray[card.iUnitID][Deck.iSide].length; j++){
+                        if(TransportArray[card.iUnitID][Deck.iSide][j] != 0){
+                            var veh = CardsDB[TransportArray[card.iUnitID][Deck.iSide][j]][Deck.iSide];
+                          //  console.log(veh);
                             if (veh.iYear <= year) {
                                 if (Deck.sSpec == "GEN" || veh.sSpecDeck.charAt(spec) == '1'){
                                     if (Deck.sSpec == "GEN" || card.sSpecDeck.charAt(spec) == '1'){
