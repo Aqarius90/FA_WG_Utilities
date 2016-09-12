@@ -242,7 +242,7 @@ function toList(card){
 
     var elem = document.createElement('input');
     elem.type = 'button';
-    elem.value = '>';
+    elem.value = 'Select';
     elem.onclick = function(){ShowCard( new VehicleCard ("000", card.Unit, card.Transport, card.Craft));};
     btn.appendChild(elem);
 }
