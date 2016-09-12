@@ -637,15 +637,27 @@ function displayCard(card, type, pos){
     innerString += " <img id='r" + card.sVeterancy + "' class='ranks' style='position: absolute; bottom: 0; left: 0;' >";
     ractiveDeck.set(sD, innerString);
     ractiveDeck.set(sD0, innerString);
-    
+
     if (card.Craft == 0){
       if (card.Transport == 0){
-        innerString = '<h6>' + card.Unit.sNameU + "<br>" + "<br>" + '</h6>';
+        IDlist.push(card.Unit.iUnitID);
+        var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
+        innerString = '<h6>' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + "<br>" + '</h6>';
       } else {
-        innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + '</h6>';
+        IDlist.push(card.Unit.iUnitID);
+        IDlist.push(card.Transport.iUnitID);
+        var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
+        var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
+        innerString = '<h6>' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + card.Transport.sNameU + " " + cardnrT + "/"+ + card.Transport.iCards + "<br>" + '</h6>';
       }
-    } else {
-      innerString = '<h6>' + card.Unit.sNameU + "<br>" + card.Transport.sNameU + "<br>" + card.Craft.sNameU +'</h6>';
+      } else {
+        IDlist.push(card.Unit.iUnitID);
+        IDlist.push(card.Transport.iUnitID);
+        IDlist.push(card.Craft.iUnitID);
+        var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
+        var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
+        var cardnrC = IDlist.filter(function(x){return x==card.Craft.iUnitID}).length;
+      innerString = '<h6>' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + card.Transport.sNameU + " " + cardnrT + "/"+ + card.Transport.iCards + "<br>" + card.Craft.sNameU + " " + cardnrU + "/"  + card.Craft.iCards +'</h6>';
     }
     ractiveDeck.set(sL, innerString);
     innerString += '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type+ pos[type]+');"}>DELETE</button>';
@@ -685,6 +697,7 @@ function displayUnits()
             break;
     }
 
+    IDlist = [];
     for (var i = 0; i < Deck.Cards2T.length; i++)
     {
         Deck.Cards2T[i] = toSpec(Deck.Cards2T[i]);

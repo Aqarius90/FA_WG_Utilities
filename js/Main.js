@@ -10,6 +10,7 @@ function init() {
     }
     initMainDB();
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
+    window.IDlist = [];
     window.tDebug = [];
     ractiveDeck.set("debug", tDebug);
     $(document).ready(function()
