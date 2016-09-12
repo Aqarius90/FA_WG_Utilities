@@ -171,8 +171,8 @@ function UnitLookup(){
                                         toList(dry);
                                     }
                                 }
-                                if(card.sUnitData.charAt(27) == '1'){
-                                    send = new VehicleCard("000", card, 0, 0);
+                                if(veh.sUnitData.charAt(27) == '1'){
+                                    send = new VehicleCard("000", card, veh, 1);
                                     toList(send);
                                 }
                             }
