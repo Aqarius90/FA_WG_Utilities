@@ -638,26 +638,36 @@ function displayCard(card, type, pos){
     ractiveDeck.set(sD, innerString);
     ractiveDeck.set(sD0, innerString);
 
+    var color = "black";
     if (card.Craft == 0){
       if (card.Transport == 0){
         IDlist.push(card.Unit.iUnitID);
         var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
-        innerString = '<h6>' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + "<br>" + '</h6>';
+        if(cardnr>card.Unit.iCards){color = "red"}
+        innerString = '<h6 style="color:' + color + '">' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + "<br>" + '</h6>';
       } else {
         IDlist.push(card.Unit.iUnitID);
         IDlist.push(card.Transport.iUnitID);
         var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
         var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
-        innerString = '<h6>' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + card.Transport.sNameU + " " + cardnrT + "/"+ card.Transport.iCards + "<br>" + '</h6>';
+        if(cardnr>card.Unit.iCards){color = "red"}
+        if(cardnrT>card.Transport.iCards){color = "red"}
+        innerString = '<h6 style="color:' + color + '">' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + card.Transport.sNameU + " " + cardnrT + "/"+ card.Transport.iCards + "<br>" + '</h6>';
       }
       } else {
         IDlist.push(card.Unit.iUnitID);
         IDlist.push(card.Transport.iUnitID);
         IDlist.push(card.Craft.iUnitID);
+        if(cardnr>card.Unit.iCards){color = "red"}
+        if(cardnrT>card.Transport.iCards){color = "red"}
+        if(cardnrC>card.Unit.iCards){color = "red"}
         var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
         var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
         var cardnrC = IDlist.filter(function(x){return x==card.Craft.iUnitID}).length;
-      innerString = '<h6>' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + card.Transport.sNameU + " " + cardnrT + "/"+ card.Transport.iCards + "<br>" + card.Craft.sNameU + " " + cardnrC + "/"  + card.Craft.iCards +'</h6>';
+        if(cardnr>card.Unit.iCards){color = "red"}
+        if(cardnrT>card.Transport.iCards){color = "red"}
+        if(cardnrC>card.Craft.iCards){color = "red"}
+      innerString = '<h6 style="color:' + color + '">' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + card.Transport.sNameU + " " + cardnrT + "/"+ card.Transport.iCards + "<br>" + card.Craft.sNameU + " " + cardnrC + "/"  + card.Craft.iCards +'</h6>';
     }
     ractiveDeck.set(sL, innerString);
     innerString += '<button type="button" class="btn btn-default btn-block btn-top-line" onclick="CardDelete('+type+ pos[type]+');"}>DELETE</button>';
