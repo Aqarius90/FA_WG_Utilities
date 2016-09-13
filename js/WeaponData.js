@@ -1171,10 +1171,10 @@ function SetTransports(){
     TransportArray[ 807][0] = [  48,  37, 616];
     TransportArray[ 164][0] = [ 501, 163, 626];
     TransportArray[ 165][0] = [ 163, 504, 626];
-    TransportArray[ 167][0] = [ 163, 868, 626, 885];
-    TransportArray[ 170][0] = [ 501, 163, 868, 626, 885];
-    TransportArray[ 169][0] = [ 626, 885];
-    TransportArray[ 821][0] = [ 163, 868, 626, 885];
+    TransportArray[ 167][0] = [ 163, 868, 626, 855];
+    TransportArray[ 170][0] = [ 501, 163, 868, 626, 855];
+    TransportArray[ 169][0] = [ 626, 855];
+    TransportArray[ 821][0] = [ 163, 868, 626, 855];
     TransportArray[ 173][0] = [ 163, 504, 626];
     TransportArray[ 172][0] = [ 163, 504, 626];
     TransportArray[ 171][0] = [ 163, 504];
