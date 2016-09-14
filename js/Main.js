@@ -231,8 +231,8 @@ function toList(card){
 
     if(card.Transport !=0){
         var iData = document.createElement("img");
-        iData.src = "pics/" + Deck.iSide + card.Transport.iUnitID + ".png";
-        iData.setAttribute("class", "img-responsive");
+        //iData.src = "pics/" + Deck.iSide + card.Unit.iUnitID + ".png"; '<h3 class="text-center" style="line-height: 50%;">' +  DA[i][j] + '</h5>'
+        iData.setAttribute("class", "img-responsive sprite sprite-" + Deck.iSide + card.Transport.iUnitID );
         iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
         picT.appendChild(iData);
         trans.innerHTML = card.Transport.sNameU;
