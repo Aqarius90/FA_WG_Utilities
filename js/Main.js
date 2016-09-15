@@ -132,9 +132,14 @@ function checkNation(card){
   else if(card.sNation == "RED" && Deck.iSide != 1){
     return false;
   }
+  else if(card.iIsProto == 1 && (Deck.sNation == "RED" || Deck.sNation == "NATO")){
+    return false;
+  }
   else if(card.sNation != ""){
     return true;
   }
+
+
 }
 
 function UnitLookup(){
@@ -163,7 +168,6 @@ function UnitLookup(){
                     for (var j=0; j < TransportArray[card.iUnitID][Deck.iSide].length; j++){
                         if(TransportArray[card.iUnitID][Deck.iSide][j] != 0){
                             var veh = CardsDB[TransportArray[card.iUnitID][Deck.iSide][j]][Deck.iSide];
-                          //  console.log(veh);
                             if (veh.iYear <= year) {
                                 if (Deck.sSpec == "GEN" || veh.sSpecDeck.charAt(spec) == '1'){
                                     if (Deck.sSpec == "GEN" || card.sSpecDeck.charAt(spec) == '1'){
