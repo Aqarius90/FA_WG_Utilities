@@ -5,8 +5,8 @@ function init() {
     window.TransportArray = new Array(1024);
     window.Matrix = new matrix();
     for (var i = 0; i < 1025; i++) {
-    CardsDB[i]=Array(2);
-    TransportArray[i]=Array(2);
+      CardsDB[i]=Array(2);
+      TransportArray[i]=Array(2);
     }
     initMainDB();
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
@@ -71,75 +71,30 @@ function listUnits() //get units for display
 }
 
 function checkNation(card){
-  if(card.sNation == "ANZAC" && (Deck.sNation != "ANZAC" && Deck.sNation != "CW" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "BRD" && (Deck.sNation != "BRD" && Deck.sNation != "EU" && Deck.sNation != "LJUT" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "CAN" && (Deck.sNation != "CAN" && Deck.sNation != "CW" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "DEN" && (Deck.sNation != "DEN" && Deck.sNation != "LJUT" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "FRA" && (Deck.sNation != "FRA" && Deck.sNation != "EU" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "JAP" && (Deck.sNation != "JAP" && Deck.sNation != "BD" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "NED" && (Deck.sNation != "NED" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "NOR" && (Deck.sNation != "NOR" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "ROK" && (Deck.sNation != "ROK" && Deck.sNation != "BD" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "SWE" && (Deck.sNation != "SWE" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "UK" && (Deck.sNation != "UK" && Deck.sNation != "CW" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "USA" && (Deck.sNation != "USA" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){
-    return false;
-  }
-  else if(card.sNation == "NATO" && Deck.iSide != 0){
-    return false;
-  }
+  if(card.sNation == "ANZAC" && (Deck.sNation != "ANZAC" && Deck.sNation != "CW" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "BRD" && (Deck.sNation != "BRD" && Deck.sNation != "EU" && Deck.sNation != "LJUT" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "CAN" && (Deck.sNation != "CAN" && Deck.sNation != "CW" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "DEN" && (Deck.sNation != "DEN" && Deck.sNation != "LJUT" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "FRA" && (Deck.sNation != "FRA" && Deck.sNation != "EU" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "JAP" && (Deck.sNation != "JAP" && Deck.sNation != "BD" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "NED" && (Deck.sNation != "NED" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "NOR" && (Deck.sNation != "NOR" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "ROK" && (Deck.sNation != "ROK" && Deck.sNation != "BD" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "SWE" && (Deck.sNation != "SWE" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "UK" && (Deck.sNation != "UK" && Deck.sNation != "CW" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "USA" && (Deck.sNation != "USA" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "NATO" && Deck.iSide != 0){ return false; }
 
-  else if(card.sNation == "CZS" && (Deck.sNation != "CZS" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){
-    return false;
-  }
-  else if(card.sNation == "DDR" && (Deck.sNation != "DDR" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){
-    return false;
-  }
-  else if(card.sNation == "DPRK" && (Deck.sNation != "DPRK" && Deck.sNation != "RD" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){
-    return false;
-  }
-  else if(card.sNation == "POL" && (Deck.sNation != "POL" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){
-    return false;
-  }
-  else if(card.sNation == "PRC" && (Deck.sNation != "PRC" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){
-    return false;
-  }
-  else if(card.sNation == "USSR" && (Deck.sNation != "USSR" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){
-    return false;
-  }
-  else if(card.sNation == "RED" && Deck.iSide != 1){
-    return false;
-  }
-  else if(card.iIsProto == 1 && (Deck.sNation == "RED" || Deck.sNation == "NATO")){
-    return false;
-  }
-  else if(card.sNation != ""){
-    return true;
-  }
+  else if(card.sNation == "CZS" && (Deck.sNation != "CZS" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "DDR" && (Deck.sNation != "DDR" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "DPRK" && (Deck.sNation != "DPRK" && Deck.sNation != "RD" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "POL" && (Deck.sNation != "POL" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "PRC" && (Deck.sNation != "PRC" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "USSR" && (Deck.sNation != "USSR" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "RED" && Deck.iSide != 1){ return false; }
 
-
+  else if(card.iIsProto == 1 && (Deck.sNation == "RED" || Deck.sNation == "NATO")){ return false; }
+  else if(card.sNation != ""){ return true; }
 }
 
 function UnitLookup(){
@@ -147,7 +102,7 @@ function UnitLookup(){
     var naval;
     var dry;
     var year = 3000;
-    if(Deck.sEra == "B"){ year = 1985;}//I think FOBs are "year 0". Should be "-7500" really
+    if(Deck.sEra == "B"){ year = 1985;}
     else if(Deck.sEra == "C"){ year = 1980;}
     var spec = -1;
     if(Deck.sSpec == "MAR"){spec=0;}
@@ -432,16 +387,11 @@ function ShowCard(Card)
  {
      switch (Card.Unit.iTraining)
      {
-         case 1:
-             return "Training: Militia";
-         case 2:
-             return "Training: Line";
-         case 3:
-             return "Training: Shock";
-         case 4:
-             return "Training: Elite";
-         default:
-             return "";
+         case 1: return "Training: Militia";
+         case 2: return "Training: Line";
+         case 3: return "Training: Shock";
+         case 4: return "Training: Elite";
+         default: return "none";
      }
  }
 
@@ -464,18 +414,13 @@ function ShowCard(Card)
      if (Card.sUnitData.charAt(24) == '1') { optika = "Air Detection"; } else { optika = "Optics"; }
      switch (Card.iOptics)
      {
-         case 1:
-             return optika + ": Poor";
-         case 2:
-             return optika + ": Medium";
-         case 3:
-             return optika + ": Good";
-         case 4:
-             return optika + ": Very good";
-         case 5:
-             return optika + ": Exceptional";
+         case 1: return optika + ": Poor";
+         case 2:  return optika + ": Medium";
+         case 3:  return optika + ": Good";
+         case 4:  return optika + ": Very good";
+         case 5:  return optika + ": Exceptional";
+         default: "Steevie Wonder";
      }
-     return "Steevie Wonder";
  }
 
  function InterpretSize(Card)
@@ -483,9 +428,9 @@ function ShowCard(Card)
      switch (Card.iSize)
      {
          case 1: return "Size: Very small";
-         case 2: return  "Size: Small";
-         case 3: return  "Size: Medium";
-         case 4: return  "Size: Big";
+         case 2: return "Size: Small";
+         case 3: return "Size: Medium";
+         case 4: return "Size: Big";
          case 5: return "Size: Very big";
          default: return "ECM:" + Card.iSize + "%";
      }
