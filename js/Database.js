@@ -75,9 +75,9 @@ function VehicleCard(VET, UNIT, TRANSPORT, CRAFT) {
       this.Transport = TRANSPORT;
       this.Craft = 0;
     }
-    else if (CRAFT == 1 || CRAFT == CardsDB[537][0] || CRAFT == CardsDB[458][1]){ //naval inf
+    else if (CRAFT == 1 || CRAFT == CardsDB[573][0] || CRAFT == CardsDB[458][1]){ //naval inf
       if (Deck.iSide == 0){
-        this.Craft = CardsDB[537][0];
+        this.Craft = CardsDB[573][0];
       } else{
         this.Craft = CardsDB[458][1];
       }
