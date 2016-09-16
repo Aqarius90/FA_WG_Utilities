@@ -2289,7 +2289,7 @@ fieldset[disabled] .btn {
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;
           box-shadow: none;
-  opacity: .65;
+  opacity: .35;
 }
 a.btn.disabled,
 fieldset[disabled] a.btn {
@@ -3887,6 +3887,5 @@ button.close {
 .modal-footer:after {
   clear: both;
 }
-
 
 /*# sourceMappingURL=bootstrap.css.map */

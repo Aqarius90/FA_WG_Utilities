@@ -50,7 +50,6 @@ function listUnits() //get units for display
         var trans = row.insertCell(6);
         var costT = row.insertCell(7);
         var cardsT = row.insertCell(8);
-        var btn = row.insertCell(9);
     }
 
     UnitLookup();
@@ -91,9 +90,9 @@ function checkNation(card){
   else if(card.sNation == "POL" && (Deck.sNation != "POL" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "PRC" && (Deck.sNation != "PRC" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "USSR" && (Deck.sNation != "USSR" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){ return false; }
-  else if(card.sNation == "RED" && Deck.iSide != 1){ return false; }
+  else if(card.sNation == "REDFOR" && Deck.iSide != 1){ return false; }
 
-  else if(card.iIsProto == 1 && (Deck.sNation == "RED" || Deck.sNation == "NATO")){ return false; }
+  else if(card.iIsProto == 1 && (Deck.sNation == "REDFOR" || Deck.sNation == "NATO")){ return false; }
   else if(card.sNation != ""){ return true; }
 }
 
@@ -176,7 +175,6 @@ function toList(card){
     var trans = row.insertCell(6);
     var costT = row.insertCell(7);
     var cardsT = row.insertCell(8);
-    var btn = row.insertCell(9);
     nation.innerHTML = card.Unit.sNation;
     unit.innerHTML = card.Unit.sNameU;
     cardsU.innerHTML = card.Unit.iCards;
@@ -197,11 +195,7 @@ function toList(card){
         costT.innerHTML = card.Transport.iCost;
     }
 
-    var elem = document.createElement('input');
-    elem.type = 'button';
-    elem.value = 'Select';
-    elem.onclick = function(){ShowCard( new VehicleCard ("000", card.Unit, card.Transport, card.Craft));};
-    btn.appendChild(elem);
+    row.onclick =  function(){ShowCard( new VehicleCard ("000", card.Unit, card.Transport, card.Craft));};
 }
 
 function isError(Card) {
@@ -270,6 +264,7 @@ function ShowCard(Card)
     if (Card.Unit.sUnitData.charAt(28) == '1') { ShowData(type, "nav1"); }
     if (Card.Unit.sUnitData.charAt(28) == '2') { ShowData(type, "nav2"); }
     if (Card.Unit.sUnitData.charAt(28) == '3') { ShowData(type, "nav2"); }
+    if (Card.Unit.sUnitData.charAt(29) == '3') { ShowData(type, "moto"); }
 
     iData = document.createElement("img");
     iData.src = "picsb/" + Deck.iSide + Card.Unit.iUnitID + ".png";
@@ -282,10 +277,15 @@ function ShowCard(Card)
 
     var avails = ractiveDeck.get('ranks.' + type);
     avails.A0 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[0])/100);
+    if(Card.iaAvailability[0] == 0){ avails.B0 = "disabled"} else { avails.B0 = "" }
     avails.A1 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[1])/100);
+    if(Card.iaAvailability[1] == 0){ avails.B1 = "disabled"} else { avails.B1 = "" }
     avails.A2 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[2])/100);
+    if(Card.iaAvailability[2] == 0){ avails.B2 = "disabled"} else { avails.B2 = "" }
     avails.A3 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[3])/100);
+    if(Card.iaAvailability[3] == 0){ avails.B3 = "disabled"} else { avails.B3 = "" }
     avails.A4 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[4])/100);
+    if(Card.iaAvailability[4] == 0){ avails.B4 = "disabled"} else { avails.B4 = "" }
     ractiveDeck.update('ranks.' + type);
 
     document.getElementById("D" + type).innerHTML = "";
@@ -335,6 +335,38 @@ function ShowCard(Card)
 
     if(Card.Transport != 0){
         type += "V";
+
+        if (Card.Transport.sUnitData.charAt(0)== '1') { ShowData(type, "antiair"); }
+        if (Card.Transport.sUnitData.charAt(1)== '1') { ShowData(type, "AAM"); }
+        if (Card.Transport.sUnitData.charAt(2)== '1') { ShowData(type, "armour"); }
+        if (Card.Transport.sUnitData.charAt(3)== '1') { ShowData(type, "atgm"); }
+        if (Card.Transport.sUnitData.charAt(4)== '1') { ShowData(type, "carrier"); }
+        if (Card.Transport.sUnitData.charAt(5)== '1') { ShowData(type, "CMD"); }
+        if (Card.Transport.sUnitData.charAt(6)== '1') { ShowData(type, "helo"); }
+        if (Card.Transport.sUnitData.charAt(7)== '1') { ShowData(type, "inf"); }
+        if (Card.Transport.sUnitData.charAt(8)== '1') { ShowData(type, "log"); }
+        if (Card.Transport.sUnitData.charAt(9)== '1') { ShowData(type, "eng"); }
+        if (Card.Transport.sUnitData.charAt(10) == '1') { ShowData(type, "plane"); }
+        if (Card.Transport.sUnitData.charAt(11) == '1') { ShowData(type, "rad"); }
+        if (Card.Transport.sUnitData.charAt(12) == '1') { ShowData(type, "rocket"); }
+        if (Card.Transport.sUnitData.charAt(13) == '1') { ShowData(type, "mtr"); }
+        if (Card.Transport.sUnitData.charAt(14) == '1') { ShowData(type, "rec"); }
+        if (Card.Transport.sUnitData.charAt(14) == '2') { ShowData(type, "rec2"); }
+        if (Card.Transport.sUnitData.charAt(14) == '3') { ShowData(type, "rec3"); }
+        if (Card.Transport.sUnitData.charAt(15) == '1') { ShowData(type, "tube"); }
+        if (Card.Transport.sUnitData.charAt(16) == '1') { ShowData(type, "rad"); }
+        if (Card.Transport.sUnitData.charAt(26) == '1') { ShowData(type, "amph"); }
+        if (Card.Transport.sUnitData.charAt(28) == '1') { ShowData(type, "nav1"); }
+        if (Card.Transport.sUnitData.charAt(28) == '2') { ShowData(type, "nav2"); }
+        if (Card.Transport.sUnitData.charAt(28) == '3') { ShowData(type, "nav2"); }
+        if (Card.Transport.sUnitData.charAt(29) == '3') { ShowData(type, "moto"); }
+
+        iData = document.createElement("img");
+        iData.src = "picsb/" + Deck.iSide + Card.Transport.iUnitID + ".png";
+        iData.setAttribute("class", "img-responsive");
+        iData.setAttribute("style", "position: relative; top: 0; left: 0;");
+        document.getElementById(type + "UP").innerHTML = "";
+        document.getElementById(type + "UP").appendChild(iData);
 
         document.getElementById("D" + type).innerHTML = "";
         uText = document.createElement("p");
@@ -391,7 +423,7 @@ function ShowCard(Card)
          case 2: return "Training: Line";
          case 3: return "Training: Shock";
          case 4: return "Training: Elite";
-         default: return "none";
+         default: return "";
      }
  }
 

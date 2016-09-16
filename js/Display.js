@@ -34,6 +34,7 @@ function GUIDisplay() {
         case 357:{displayNSWP(); break;}
         case 359:{displayRKA(); break;}
         case 362:{displayREDFOR(); break;}
+        default: {displayBLANK(); break;}
     }
 
     //spec
@@ -50,7 +51,6 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            updatePointsDisplay(Matrix.moto);
             ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
@@ -78,7 +78,6 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            updatePointsDisplay(Matrix.armoured);
             ractiveHeader.set("lab.tspec", "+4 cards, +2XP, -1 cost: Tank");
             var ranks = ractiveDeck.get('ranks');
             ranks.tnk.R0 = 'r010';
@@ -98,7 +97,6 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            updatePointsDisplay(Matrix.support);
             ractiveHeader.set("lab.tspec", "+4 cards,-1 cost: Logistics, Support;  +1XP: Support");
             var ranks = ractiveDeck.get('ranks');
             ranks.sup.R0 = 'r001';
@@ -118,7 +116,6 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            updatePointsDisplay(Matrix.marine);
             ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
@@ -142,7 +139,6 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            updatePointsDisplay(Matrix.mech);
             ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Vehicle");
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
@@ -166,7 +162,6 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            updatePointsDisplay(Matrix.airborne);
             ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane");
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
@@ -194,7 +189,6 @@ function GUIDisplay() {
             Buttons.bNaval = '#0f0';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            updatePointsDisplay(Matrix.naval);
             ractiveHeader.set("lab.tspec", "ಠ_ಠ");
             break;
         case 7://gen
@@ -208,7 +202,6 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#0f0';
             ractiveHeader.update('Buttons');
-            updatePointsDisplay(Matrix.general);
             ractiveHeader.set("lab.tspec", "no bonus");
             var ranks = ractiveDeck.get('ranks');
             ranks.log.R0 = 'r000';
@@ -566,6 +559,13 @@ function displayREDFOR() {
     Deck.availQ = 0;
 }
 
+function displayBLANK() {
+    var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0];
+    showFlags(flagstr);
+    ractiveHeader.set("lab.tnation", "");
+    Deck.availQ = 0;
+  }
+
 function displayCard(card, type, pos){
 
     card.iArrayIndex =""+ type + pos[type];
@@ -576,7 +576,6 @@ function displayCard(card, type, pos){
     var isUnavailable = isError(card);
 
     var innerString = "<img src='png/blank.png' class='img-responsive' style='position: relative; top: 0; left: 0;' >";
-    //var innerString = "<img class='img-responsive' style='position: relative; top: 0; left: 0;' id='blank'>";
 
     if (card.Unit.sUnitData.charAt(0)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='antiair' >";}
     if (card.Unit.sUnitData.charAt(1)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='AAM' >";}
@@ -601,10 +600,9 @@ function displayCard(card, type, pos){
     if (card.Unit.sUnitData.charAt(28) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav1' >";}
     if (card.Unit.sUnitData.charAt(28) == '2') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav2' >";}
     if (card.Unit.sUnitData.charAt(28) == '3') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav2' >";}
-    if (isUnavailable == true)                 { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='error' >"; }
+    if (card.Unit.sUnitData.charAt(29) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='moto' >";}
 
     if(card.Transport != 0){
-
           if (card.Transport.sUnitData.charAt(0)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='antiair' >";}
           if (card.Transport.sUnitData.charAt(1)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='AAM' >";}
           if (card.Transport.sUnitData.charAt(2)  == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='armour' >";}
@@ -628,13 +626,16 @@ function displayCard(card, type, pos){
           if (card.Transport.sUnitData.charAt(28) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav1' >";}
           if (card.Transport.sUnitData.charAt(28) == '2') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav2' >";}
           if (card.Transport.sUnitData.charAt(28) == '3') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='nav2' >";}
-          if (isUnavailable == true)                 { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='error' >"; }
+          if (card.Transport.sUnitData.charAt(29) == '1') { innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='moto' >";}
     }
     innerString += ' <h5 style="position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;">' + card.iCost + '</h5>';
     var temp = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
-    innerString += ' <h5 style="position: absolute; bottom: 0; left: 35%; color:#fff; font-weight:900;">' + temp + '</h5>';
+    innerString += ' <h5 style="position: absolute; top: 0; left: 50%; color:#fff; font-weight:900;">' + temp + '</h5>';
     innerString += " <img src='flags/" +card.sNation + ".png' class='img-thumbnail' style='position: absolute; top: 0; left: 0;' >";
     innerString += " <img id='r" + card.sVeterancy + "' class='ranks' style='position: absolute; bottom: 0; left: 0;' >";
+
+    if (isUnavailable == true){ innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='error' >"; }
+    if(card.Transport != 0){if (isUnavailable == true){ innerString += " <img class='unit img-responsive' style='position: absolute; top: 0; left: 0;' id='error' >"; } }
     ractiveDeck.set(sD, innerString);
     ractiveDeck.set(sD0, innerString);
 
@@ -714,7 +715,7 @@ function displayUnits()
         var type;
         type = 9; //2 transports = naval inf.
         displayCard(Deck.Cards2T[i], type, counter);
-        Deck.deckpoints += DA[type][counter[type]];
+        if(counter[type]<10){Deck.deckpoints += DA[type][counter[type]];}
         counter[type] +=1;
     }
     for (var i = 0; i < Deck.Cards1T.length; i++)
@@ -732,7 +733,7 @@ function displayUnits()
         else if (Deck.Cards1T[i].UnitTypeData.charAt(8) == '1'){type = 9;}//nav
         else{type = 9;} //me=idiot, forgot to input naval
         displayCard(Deck.Cards1T[i], type, counter);
-        Deck.deckpoints += DA[type][counter[type]];
+        if(counter[type]<10){Deck.deckpoints += DA[type][counter[type]];}
         counter[type] +=1;
     }
     for (var i = 0; i < Deck.Cards0T.length; i++)
@@ -750,7 +751,7 @@ function displayUnits()
         else if (Deck.Cards0T[i].UnitTypeData.charAt(8) == '1'){type = 9;}//nav
         else{type = 9;} //me=idiot, forgot to input naval
         displayCard(Deck.Cards0T[i], type, counter);
-        Deck.deckpoints += DA[type][counter[type]];
+        if(counter[type]<10){Deck.deckpoints += DA[type][counter[type]];}
         counter[type] +=1;
     }
     for (var i = 1; i < 10; i++){
@@ -766,10 +767,6 @@ function displayUnits()
             ractiveDeck.set(sL0, "");
         }
     }
-}
-
-function updatePointsDisplay(DA)
-{
 }
 
 function debugOutput(binoutdebug){
