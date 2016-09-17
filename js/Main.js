@@ -588,7 +588,7 @@ function toSpec(Card)
     }
     else if (sData.charAt(20) == '1' && (Deck.sSpec == "ARM")) // tanks
     {
-        Card.iVet = Card.iVet0 + 1;
+        Card.iVet = Card.iVet0 + 2;
     }
     else if (sData.charAt(21) == '1' && (Deck.sSpec == "MOTO"))  //recon
     {

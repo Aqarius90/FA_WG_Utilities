@@ -451,7 +451,7 @@ function DeckExport()
     }
 
     if(padCounter == 1){
-        CharOut += "=";
+        CharOut += "A";
     }else if(padCounter == 2){
         CharOut += "A=";
     }else if(padCounter == 3){

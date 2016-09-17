@@ -560,7 +560,7 @@ function displayREDFOR() {
 }
 
 function displayBLANK() {
-    var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0];
+    var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "");
     Deck.availQ = 0;
