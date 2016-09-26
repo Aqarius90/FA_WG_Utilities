@@ -116,7 +116,7 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");
+            ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");  //DEBUG +xp naval?
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
             ranks.inf.R1 = 'r010';
@@ -630,6 +630,8 @@ function displayCard(card, type, pos){
     }
     innerString += ' <h5 style="position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;">' + card.iCost + '</h5>';
     var temp = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
+    console.log(card.iaAvailability);
+    console.log(card.iaAvailability[card.iVet0]);
     innerString += ' <h5 style="position: absolute; top: 0; left: 50%; color:#fff; font-weight:900;">' + temp + '</h5>';
     innerString += " <img src='flags/" +card.sNation + ".png' class='img-thumbnail' style='position: absolute; top: 0; left: 0;' >";
     innerString += " <img id='r" + card.sVeterancy + "' class='ranks' style='position: absolute; bottom: 0; left: 0;' >";
@@ -642,13 +644,17 @@ function displayCard(card, type, pos){
     var color = "black";
     if (card.Craft == 0){
       if (card.Transport == 0){
-        IDlist.push(card.Unit.iUnitID);
+        if (type !=9){
+          IDlist.push(card.Unit.iUnitID)
+        };
         var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
         if(cardnr>card.Unit.iCards){color = "red"}
         innerString = '<h6 style="color:' + color + '">' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + "<br>" + '</h6>';
       } else {
-        IDlist.push(card.Unit.iUnitID);
-        IDlist.push(card.Transport.iUnitID);
+        if (type !=9){
+          IDlist.push(card.Unit.iUnitID);
+          IDlist.push(card.Transport.iUnitID);
+        };
         var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
         var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
         if(cardnr>card.Unit.iCards){color = "red"}
@@ -656,9 +662,11 @@ function displayCard(card, type, pos){
         innerString = '<h6 style="color:' + color + '">' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + card.Transport.sNameU + " " + cardnrT + "/"+ card.Transport.iCards + "<br>" + '</h6>';
       }
       } else {
-        IDlist.push(card.Unit.iUnitID);
-        IDlist.push(card.Transport.iUnitID);
-        IDlist.push(card.Craft.iUnitID);
+        if (type !=9){
+          IDlist.push(card.Unit.iUnitID);
+          IDlist.push(card.Transport.iUnitID);
+          IDlist.push(card.Craft.iUnitID);
+        };
         if(cardnr>card.Unit.iCards){color = "red"}
         if(cardnrT>card.Transport.iCards){color = "red"}
         if(cardnrC>card.Unit.iCards){color = "red"}
