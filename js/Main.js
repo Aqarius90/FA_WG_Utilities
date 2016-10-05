@@ -82,6 +82,7 @@ function checkNation(card){
   else if(card.sNation == "SWE" && (Deck.sNation != "SWE" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
   else if(card.sNation == "UK" && (Deck.sNation != "UK" && Deck.sNation != "CW" && Deck.sNation != "NATO")){ return false; }
   else if(card.sNation == "USA" && (Deck.sNation != "USA" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){ return false; }
+  else if(card.sNation == "ISR" && (Deck.sNation != "ISR" && Deck.sNation != "NATO")){ return false; }
   else if(card.sNation == "NATO" && Deck.iSide != 0){ return false; }
 
   else if(card.sNation == "CZS" && (Deck.sNation != "CZS" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
@@ -113,7 +114,7 @@ function UnitLookup(){
     else if (Deck.sSpec == "NAV"){spec=6;}
 
     var valid = true;
-    for (var i=0; i<1024;i++){
+    for (var i=0; i<1113;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
             valid = checkNation(card);

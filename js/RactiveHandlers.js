@@ -37,7 +37,7 @@ var ractiveHeader = new Ractive({
                     USSR: 'USSR',
                     FIN: 'xFIN',
                     YU:  'xYU',
-                    ISR: 'xISR'
+                    ISR: 'ISR'
                   },
           Buttons : {
             bMarine: '#fff',
@@ -103,7 +103,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "NATO";
-      Deck.iNation = 202;
+      Deck.iNation = "000110101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -113,7 +113,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "REDFOR";
-      Deck.iNation = 362;
+      Deck.iNation = "010011001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -122,7 +122,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "BD";
-      Deck.iNation = 195;
+      Deck.iNation = "000110100011";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -131,7 +131,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "CW";
-      Deck.iNation = 194;
+      Deck.iNation = "000110100010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -140,7 +140,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "EU";
-      Deck.iNation = 192;
+      Deck.iNation = "000110100000";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -149,7 +149,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "LJUT";
-      Deck.iNation = 198;
+      Deck.iNation = "000110100110";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -158,7 +158,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "BDRNL";
-      Deck.iNation = 201;
+      Deck.iNation = "000110101001";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -167,7 +167,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "NORAD";
-      Deck.iNation = 200;
+      Deck.iNation = "000110101000";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -176,7 +176,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "SCA";
-      Deck.iNation = 193;
+      Deck.iNation = "000110100001";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -185,7 +185,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "NSWP";
-      Deck.iNation = 357;
+      Deck.iNation = "010011000101";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -194,7 +194,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "RD";
-      Deck.iNation = 356;
+      Deck.iNation = "010011000100";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -203,7 +203,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "SOVKOR";
-      Deck.iNation = 359;
+      Deck.iNation = "010011000111";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -212,7 +212,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "ANZAC";
-      Deck.iNation = 138;
+      Deck.iNation = "000100001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -221,7 +221,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "BRD";
-      Deck.iNation = 58;
+      Deck.iNation = "000001101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -230,7 +230,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "CAN";
-      Deck.iNation = 74;
+      Deck.iNation = "000010001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -239,7 +239,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "DEN";
-      Deck.iNation = 90;
+      Deck.iNation = "000010101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -248,7 +248,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "FRA";
-      Deck.iNation = 42;
+      Deck.iNation = "000001001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -257,7 +257,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "JAP";
-      Deck.iNation = 154;
+      Deck.iNation = "000100101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -266,7 +266,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "NED";
-      Deck.iNation = 186;
+      Deck.iNation = "000101101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -275,7 +275,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "NOR";
-      Deck.iNation = 122;
+      Deck.iNation = "000011101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -284,7 +284,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "ROK";
-      Deck.iNation = 170;
+      Deck.iNation = "000101001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -293,7 +293,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "SWE";
-      Deck.iNation = 106;
+      Deck.iNation = "000011001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -302,7 +302,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "UK";
-      Deck.iNation = 26;
+      Deck.iNation = "000000101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -311,7 +311,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "BLU";
       Deck.iSide = 0;
       Deck.sNation = "USA";
-      Deck.iNation = 10;
+      Deck.iNation = "000000001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -320,7 +320,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "CZS";
-      Deck.iNation = 314;
+      Deck.iNation = "010001101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -329,7 +329,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "DDR";
-      Deck.iNation = 266;
+      Deck.iNation = "010000001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -338,7 +338,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "DPRK";
-      Deck.iNation = 346;
+      Deck.iNation = "010010101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -347,7 +347,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "POL";
-      Deck.iNation = 298;
+      Deck.iNation = "010001001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -356,7 +356,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "PRC";
-      Deck.iNation = 330;
+      Deck.iNation = "010010001010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -366,7 +366,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "USSR";
-      Deck.iNation = 282;
+      Deck.iNation = "010000101010";
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -374,7 +374,7 @@ var ractiveHeader = new Ractive({
 
   function btISR_Click() {
       Deck.sSide = "BLU";
-      Deck.iSide = 1;
+      Deck.iSide = 0;
       Deck.sNation = "ISR";
       Deck.iNation = "000110001010";
       GUIDisplay();
@@ -472,26 +472,3 @@ var ractiveHeader = new Ractive({
       listUnits();
       DeckExport();
   }
-
-/*
-//ch-47c US, no stats
-// TH-495 availability increased
-// Number of packs of Humvee increased from 5 to 7
-// Sheridan service date fixed to fit with the MGM-51C that it is armed with.
-// LVTP-7A1 availability increased by one step
-//- M2 Bradley availability increased by one step
-//- Redeye & Stingers now have access to Bradley as transport
-//- Marder 1/A1/A2 armor increased from 3/2/1/1 to 4/2/1/1, availability increased by one step
-//- Marder 1A3 armor changed from 4/3/2/2 to 5/3/2/2
-//HMV availability increased by one step
-???- Kutei now have access to HMV as transport
-//VAB T-20 availability increased by one step
-//- FV510 Warrior MILAN avaialbility increased by one step
-//- FV432 is now available to Territorials
-//- STRV 103B & STRV 103C are amphibious (how have we miss that for so long ?! :shock: )
-//- WZ-551 availability increased by one step debug
-// Type-63 range & fuel capacity were inverted
-
-@Gq8AEEg=
-
-*/
