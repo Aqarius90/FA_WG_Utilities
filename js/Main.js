@@ -1,10 +1,10 @@
 //var Dicts = new Dictionaries();
 function init() {
     window.Deck = new DeckAssembly();
-    window.CardsDB = new Array(1024);
-    window.TransportArray = new Array(1024);
+    window.CardsDB = new Array(1500);
+    window.TransportArray = new Array(1500);
     window.Matrix = new matrix();
-    for (var i = 0; i < 1025; i++) {
+    for (var i = 0; i < 1500; i++) {
       CardsDB[i]=Array(2);
       TransportArray[i]=Array(2);
     }

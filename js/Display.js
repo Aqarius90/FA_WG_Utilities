@@ -3,39 +3,38 @@ function GUIDisplay() {
     Deck.deckpoints = 0;
     Deck.deckpoitstotal = 45;
     //nation
-    switch (Deck.iNation) {
-        case 10:{displayUSA(); break; }
-        case 26:{displayUK(); break; }
-        case 42:{displayFRA(); break;}
-        case 58:{displayBRD(); break;}
-        case 74:{displayCAN(); break;}
-        case 90:{displayDEN(); break;}
-        case 106:{displaySWE(); break;}
-        case 122:{displayNOR(); break;}
-        case 138:{displayANZAC(); break;}
-        case 154:{displayJAP(); break;}
-        case 170:{displayROK(); break;}
-        case 186:{displayNED(); break;}
-        case 192:{displayEU(); break;}
-        case 193:{displaySCA(); break;}
-        case 194:{displayCOM(); break;}
-        case 195:{displayBD(); break;}
-        case 198:{displayLJ(); break;}
-        case 200:{displayNORAD(); break;}
-        case 201:{displayBDRNL(); break;}
-        case 202:{displayNato(); break;}
-        case 266:{displayDDR(); break;}
-        case 282:{displayUSSR(); break;}
-        case 298:{displayPOL(); break;}
-        case 314:{displayCZS(); break;}
-        case 330:{displayPRC(); break;}
-        case 346:{displayDPRK(); break;}
-        case 356:{displayRD(); break;}
-        case 357:{displayNSWP(); break;}
-        case 359:{displayRKA(); break;}
-        case 362:{displayREDFOR(); break;}
-        default: {displayBLANK(); break;}
-    }
+    if (Deck.sNation == "")  { displayUSA(); } else
+    if (Deck.sNation == "")  { displayUK(); } else
+    if (Deck.sNation == "")  { displayFRA(); } else
+    if (Deck.sNation == "")  { displayBRD(); } else
+    if (Deck.sNation == "")  { displayCAN(); } else
+    if (Deck.sNation == "")  { displayDEN(); } else
+    if (Deck.sNation == "000011001010") { displaySWE(); } else
+    if (Deck.sNation == "") { displayNOR(); } else
+    if (Deck.sNation == "") { displayANZAC(); } else
+    if (Deck.sNation == "") { displayJAP(); } else
+    if (Deck.sNation == "") { displayROK(); } else
+    if (Deck.sNation == "000101101010") { displayNED(); } else
+    if (Deck.sNation == "") { displayEU(); } else
+    if (Deck.sNation == "") { displaySCA(); } else
+    if (Deck.sNation == "000110100010") { displayCOM(); } else
+    if (Deck.sNation == "") { displayBD(); } else
+    if (Deck.sNation == "") { displayLJ(); } else
+    if (Deck.sNation == "") { displayNORAD(); } else
+    if (Deck.sNation == "") { displayBDRNL(); } else
+    if (Deck.sNation == "") { displayNato(); } else
+    if (Deck.sNation == "010000001010") { displayDDR(); } else
+    if (Deck.sNation == "") { displayUSSR(); } else
+    if (Deck.sNation == "") { displayPOL(); } else
+    if (Deck.sNation == "") { displayCZS(); } else
+    if (Deck.sNation == "") { displayPRC(); } else
+    if (Deck.sNation == "") { displayDPRK(); } else
+    if (Deck.sNation == "") { displayRD(); } else
+    if (Deck.sNation == "") { displayNSWP(); } else
+    if (Deck.sNation == "") { displayRKA(); } else
+    if (Deck.sNation == "") { displayREDFOR(); } else
+    if (Deck.sNation == "000110001010") { displayISR(); } else
+    { displayBLANK();}
 
     //spec
     switch (Deck.iSpec)
@@ -287,6 +286,7 @@ function GUIDisplay() {
 }
 
 function showFlags(x) {
+  console.log(x);
     if(x[0]==1) {ractiveHeader.set("flags.NATO", "NATO")}else{ractiveHeader.set("flags.NATO", "xNATO")};
     if(x[1]==1) {ractiveHeader.set("flags.REDFOR", "REDFOR")}else{ractiveHeader.set("flags.REDFOR", "xREDFOR")};
     if(x[2]==1) {ractiveHeader.set("flags.BD", 'BD')}else{ractiveHeader.set("flags.BD", "xBD")};
@@ -410,6 +410,7 @@ function displayROK() {
 }
 
 function displayNED() {
+  console.log("NED");
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +15AP");
@@ -559,6 +560,13 @@ function displayREDFOR() {
     Deck.availQ = 0;
 }
 
+function displayISR() {
+    var flagstr = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1];
+    showFlags(flagstr);
+    ractiveHeader.set("lab.tnation", "No bonus");
+    Deck.availQ = 0;
+}
+
 function displayBLANK() {
     var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0];
     showFlags(flagstr);
@@ -630,8 +638,6 @@ function displayCard(card, type, pos){
     }
     innerString += ' <h5 style="position: absolute; bottom: 0; right: 0; color:#ff0; font-weight:900;">' + card.iCost + '</h5>';
     var temp = Math.round(((100 + Deck.availQ) * card.iaAvailability[card.iVet0])/100);
-    console.log(card.iaAvailability);
-    console.log(card.iaAvailability[card.iVet0]);
     innerString += ' <h5 style="position: absolute; top: 0; left: 50%; color:#fff; font-weight:900;">' + temp + '</h5>';
     innerString += " <img src='flags/" +card.sNation + ".png' class='img-thumbnail' style='position: absolute; top: 0; left: 0;' >";
     innerString += " <img id='r" + card.sVeterancy + "' class='ranks' style='position: absolute; bottom: 0; left: 0;' >";

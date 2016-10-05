@@ -104,12 +104,12 @@ function decodeDeck (deckCode)
       if (deckCode.charAt(i) == "9") { deckBinary += "111101"; } else
       if (deckCode.charAt(i) == "/") { deckBinary += "111111"; }
     }
-    if (deckBinary.charAt(0) == '0')
+    if (deckBinary.charAt(1) == '0')
     {
         Deck.sSide = "BLU";
         Deck.iSide = 0;
     }
-    else if (deckBinary.charAt(0) == '1')
+    else if (deckBinary.charAt(1) == '1')
     {
         Deck.sSide = "RED";
         Deck.iSide = 1;
@@ -124,40 +124,37 @@ function decodeDeck (deckCode)
     {
         Deck.sNation += deckBinary.charAt(i);
     }
-    Deck.iNation = parseInt(Deck.sNation, 2);
-    if (Deck.iNation == 10)  { Deck.sNation = "USA"; } else
-    if (Deck.iNation == 26)  { Deck.sNation = "UK"; } else
-    if (Deck.iNation == 42)  { Deck.sNation = "FRA"; } else
-    if (Deck.iNation == 58)  { Deck.sNation = "BRD"; } else
-    if (Deck.iNation == 74)  { Deck.sNation = "CAN"; } else
-    if (Deck.iNation == 90)  { Deck.sNation = "DEN"; } else
-    if (Deck.iNation == 106) { Deck.sNation = "SWE"; } else
-    if (Deck.iNation == 122) { Deck.sNation = "NOR"; } else
-    if (Deck.iNation == 138) { Deck.sNation = "ANZAC"; } else
-    if (Deck.iNation == 154) { Deck.sNation = "JAP"; } else
-    if (Deck.iNation == 170) { Deck.sNation = "ROK"; } else
-    if (Deck.iNation == 186) { Deck.sNation = "NED"; } else
-    if (Deck.iNation == 192) { Deck.sNation = "EU"; } else
-    if (Deck.iNation == 193) { Deck.sNation = "SCA"; } else
-    if (Deck.iNation == 194) { Deck.sNation = "CW"; } else
-    if (Deck.iNation == 195) { Deck.sNation = "BD"; } else
-    if (Deck.iNation == 198) { Deck.sNation = "LJUT"; } else
-    if (Deck.iNation == 200) { Deck.sNation = "NORAD"; } else
-    if (Deck.iNation == 201) { Deck.sNation = "BDRNL"; } else
-    if (Deck.iNation == 202) { Deck.sNation = "NATO"; } else
-    if (Deck.iNation == 266) { Deck.sNation = "DDR"; } else
-    if (Deck.iNation == 282) { Deck.sNation = "USSR"; } else
-    if (Deck.iNation == 298) { Deck.sNation = "POL"; } else
-    if (Deck.iNation == 314) { Deck.sNation = "CZS"; } else
-    if (Deck.iNation == 330) { Deck.sNation = "PRC"; } else
-    if (Deck.iNation == 346) { Deck.sNation = "DPRK"; } else
-    if (Deck.iNation == 356) { Deck.sNation = "RD"; } else
-    if (Deck.iNation == 357) { Deck.sNation = "NSWP"; } else
-    if (Deck.iNation == 359) { Deck.sNation = "SOVKOR"; } else
-    if (Deck.iNation == 362) { Deck.sNation = "REDFOR"; } else
-
-    if (Deck.iNation == 426)  { Deck.sNation = "UK"; }
-
+    if (Deck.sNation == "")  { Deck.sNation = "USA"; } else
+    if (Deck.sNation == "")  { Deck.sNation = "UK"; } else
+    if (Deck.sNation == "")  { Deck.sNation = "FRA"; } else
+    if (Deck.sNation == "")  { Deck.sNation = "BRD"; } else
+    if (Deck.sNation == "")  { Deck.sNation = "CAN"; } else
+    if (Deck.sNation == "")  { Deck.sNation = "DEN"; } else
+    if (Deck.sNation == "000011001010") { Deck.sNation = "SWE"; } else
+    if (Deck.sNation == "") { Deck.sNation = "NOR"; } else
+    if (Deck.sNation == "") { Deck.sNation = "ANZAC"; } else
+    if (Deck.sNation == "") { Deck.sNation = "JAP"; } else
+    if (Deck.sNation == "") { Deck.sNation = "ROK"; } else
+    if (Deck.sNation == "000101101010") { Deck.sNation = "NED"; } else
+    if (Deck.sNation == "") { Deck.sNation = "EU"; } else
+    if (Deck.sNation == "") { Deck.sNation = "SCA"; } else
+    if (Deck.sNation == "000110100010") { Deck.sNation = "CW"; } else
+    if (Deck.sNation == "") { Deck.sNation = "BD"; } else
+    if (Deck.sNation == "") { Deck.sNation = "LJUT"; } else
+    if (Deck.sNation == "") { Deck.sNation = "NORAD"; } else
+    if (Deck.sNation == "") { Deck.sNation = "BDRNL"; } else
+    if (Deck.sNation == "") { Deck.sNation = "NATO"; } else
+    if (Deck.sNation == "010000001010") { Deck.sNation = "DDR"; } else
+    if (Deck.sNation == "") { Deck.sNation = "USSR"; } else
+    if (Deck.sNation == "") { Deck.sNation = "POL"; } else
+    if (Deck.sNation == "") { Deck.sNation = "CZS"; } else
+    if (Deck.sNation == "") { Deck.sNation = "PRC"; } else
+    if (Deck.sNation == "") { Deck.sNation = "DPRK"; } else
+    if (Deck.sNation == "") { Deck.sNation = "RD"; } else
+    if (Deck.sNation == "") { Deck.sNation = "NSWP"; } else
+    if (Deck.sNation == "") { Deck.sNation = "SOVKOR"; } else
+    if (Deck.sNation == "") { Deck.sNation = "REDFOR"; } else
+    if (Deck.sNation == "000110001010") { Deck.sNation = "ISR";}
     Deck.sSpec = "";
     for (var i = 12; i <= 14; i++)
     {
@@ -204,21 +201,25 @@ function decodeDeck (deckCode)
         {
             sVet += deckBinary.charAt(j);
         }
+        console.log(sVet);
         iPC += 3;
         for (var j = iPC; j <= (iPC + 10); j++) //find unit
         {
             sUnit += deckBinary.charAt(j);
         }
+        console.log(sUnit);
         iPC += 10;
         for (var j = iPC; j <= (iPC + 10); j++) //find transport
         {
             sIFV += deckBinary.charAt(j);
         }
+        console.log(sIFV);
         iPC += 11;
         for (var j = iPC; j <= (iPC + 10); j++)  //find ship
         {
             sCraft += deckBinary.charAt(j);
         }
+        console.log(sCraft);
         iPC += 11;
         var iUnit = parseInt(sUnit, 2);
         var iIFV = parseInt(sIFV, 2);
@@ -238,16 +239,19 @@ function decodeDeck (deckCode)
         {
             sVet += deckBinary.charAt(j);
         }
+        console.log(sVet);
         iPC += 3;
         for (var j = iPC; j <= (iPC + 10); j++)
         {
             sUnit += deckBinary.charAt(j);
         }
+        console.log(sUnit);
         iPC += 11;
         for (var j = iPC; j <= (iPC + 10); j++)
         {
             sIFV += deckBinary.charAt(j);
         }
+        console.log(sIFV);
         iPC += 11;
         var iUnit = parseInt(sUnit, 2);
         var iIFV = parseInt(sIFV, 2);
@@ -269,11 +273,13 @@ function decodeDeck (deckCode)
         {
             sVet += deckBinary.charAt(j);
         }
+        console.log(sVet);
         iPC += 3;
         for (var j = iPC; j <= (iPC + 10); j++)
         {
             sUnit += deckBinary.charAt(j);
         }
+        console.log(sUnit);
         iPC += 11;
         iLength = deckBinary.length - iPC;
 
@@ -283,8 +289,6 @@ function decodeDeck (deckCode)
         Deck.Cards0T[Deck.i1Cards] = toGen(Deck.Cards0T[Deck.i1Cards]);
         Deck.i1Cards++;
     }
-        console.log(deckBinary);
-        debugOutput(deckBinary);
     //cardDisplaySort(Deck.Cards0T, Deck.Cards1T, Deck.Cards2T);
     ractiveHeader.set('sBinary', deckBinary);
     debugOutput(deckBinary);

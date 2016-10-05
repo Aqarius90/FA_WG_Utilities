@@ -372,6 +372,16 @@ var ractiveHeader = new Ractive({
       DeckExport();
   }
 
+  function btISR_Click() {
+      Deck.sSide = "BLU";
+      Deck.iSide = 1;
+      Deck.sNation = "ISR";
+      Deck.iNation = "000110001010";
+      GUIDisplay();
+      listUnits();
+      DeckExport();
+  }
+
   function btA()
   {
       Deck.sEra = "A";
@@ -478,85 +488,9 @@ var ractiveHeader = new Ractive({
 //VAB T-20 availability increased by one step
 //- FV510 Warrior MILAN avaialbility increased by one step
 //- FV432 is now available to Territorials
-
-SWEDEN:
-- STRV 103B & STRV 103C are amphibious (how have we miss that for so long ?! :shock: )
-- PVHKP 9A price reduced from 50$ to 40$
-- PVTGB 9031 m/77 & PVTGB 9031 m/84 accuracy difference between HE and AP fixed
-- PATGB XA-180 armor reduced from 2/2/1/1 to 1/1/1/1, availability increased by one step.
-- EPBV 302A armor increased from 2/1/1/1 to 4/2/1/1.
-- EPVB 3022 armor increased from 2/1/1/1 to 4/2/1/1.
-- STRF 9040 armor increased from 4/3/2/2 to 5/3/2/2.
-- RBS 70 & RBS 90 now carry 8 missiles.
-- Rover RBS 70 & Rover RBS 90 removed from Mechanized deck
-
-USSR:
-- T-72 obr 1989 price increased from 135$ to 140$
-- BRDM-2U optics changed from poor to medium as other command units
-- T-62MV1's HE gun range fixed to match AP range
-- BMD-1 price reduced from 15$ to 10$
-- BMD-1P price reduced from 20$ to 15$
-- BMP-1 series armor increased from 2/1/1/1 to 3/1/1/1 (BMP-1D armor unchanged)
-- BMP-2 series armor increased from 2/2/1/1 to 4/2/1/1, price increased from 20$ to 25$
-- BMP-2D armor changed from 3/3/2/1 to 4/3/1/1, price increased from 20$ to 25$
-- BMP-2 obr 86 armor increased from 3/2/1/1 to 4/3/1/1, price increased from 25$ to 30$
-- BMP-3 armor increased from 3/2/2/1 to 5/4/2/1, price increased from 35$ to 40$, missile loadout increased from 4 to 6
-- BTR-90 armor increased from 2/2/1/1 to 3/2/1/1, optics increased from poor to medium
-- BTR-T armor increased from 7/3/2/2 to 13/5/2/2, price increased from 20$ to 25$
-- SU-122 price reduced from 20$ to 15$, HE power reduced from 5 to 4
-- Su-27M veterancy reduced from elite to hardened
-- MiG-27K price reduced from 145$ to 135$
-
-POLAND:
-- BTR-40 can now transports recon infantry, price increased from 10$ to 15$ (optics remain good)
-- BWP-1 & BWP-2 armor modification like USSR
-- Topaz & Topaz-2A armor increase from 1/1/1/1 to 2/1/1/1
-
-E-GERMANY:
-- SPW-40 now transports recon infantry, price increased from 10$ to 15$ (optics remain good)
-- Fla-Kom Strela-2 access to Mi-8 Removed
-- Wachregiment speed increased from 25kmh to 30kmh
-- SPW-50PK armor increased from 1/1/1/1 to 2/1/1/1 [Disclaimer: the SPW-50PU command variant was forgotten, it'll be fixed in a next patch]
-- BMP-1 series armor increased from 2/1/1/1 to 3/1/1/1
-- BMP-2 series armor increased from 2/2/1/1 to 4/2/1/1
-- Mot-Schützen & Mot-Schützen '90 availavility reduced by one step to be in line with other shock troops
-
-CSSR:
-- BVP-1 series armor increased from 2/1/1/1 to 3/1/1/1
-- BVP-2 armor increased from 2/2/1/1 to 4/2/1/1
-- BVP-2 vz. 86 armor increased from 3/2/1/1 to 4/3/1/1
-- Vysadkari '90 availability increased by one step
-- Granatomet' AGS-17 noise increased to match MG
-
-CHINA:
-- HJ-9 missile guidance changed from SACLOS to SALH, speed increased
-- ZZC-55 now transports Liè Rén, price increased from 10$ to 15$ (optics remain good)
-- HN-5A access to Mi-8 removed
-- PTZ-59 statistics corrected based on the ZTZ-59-II, accuracy increased from 40 to 50, rate of fire reduced from 7 to 6.
-- PGZ-95 now can fire all its missiles in a row
-- ZTS-63-II speed increased from 60kmh to 70kmh, gun range increased from 2100m to 2275m, price increased from 40$ to 45$
-- WZ-551 availability increased by one step
-- ZTZ-85-IIA price reduced from 85$ to 80$
-- ZBD-86 ammo loadout fixed from 20 to 40 ammo like other BMP-1
-- ZTQ-62 & ZTQ-62-1 rate of fire increased from 6 RPM to 8 RPM
-- ZSD-63A armor reduced from 2/1/1/1 to 1/1/1/1
-- ZSD-90 armor increased from 2/2/1/1 to 4/2/1/1
-- Lu Zhandui '75 & '90 number of men per squad reduced from 15 to 10, price reduced by 5 points, number of rockets reduced from 12 to 8
-- PGZ-63 price reduced from 15$ to 10$
-
-N-KOREA:
-- Type-63 range & fuel capacity were inverted
-- T-72M's HE gun range fixed to match AP range
-- BTR-50PK armor increased from 1/1/1/1 to 2/1/1/1
-- VTT-323 price reduced from 15$ to 10$
-- VTT-323 Susong-Po price reduced from 20$ to 15$
-- VTT-323 Hwasung-Chong price reduced from 20$ to 15$
-- Ch'onma-ho IV rerolled as Ch'onma-Ho V to fit the model
-- All variants of Humvee' HP increased from 5 to 10 [Disclaimer: M966 TOW-2 & M1025 CP were forgotten, they'll be fixed in a next patch]
-- All variants of Stalwart' HP increased from 5 to 10
-- Eastern Block availability bonus removed
-- All variants of Osa AK's price increased from 40$ to 45$ [Disclaimer: Polish 9K33M2 Romb was forgotten, it'll be fixed in a next patch]
-
+//- STRV 103B & STRV 103C are amphibious (how have we miss that for so long ?! :shock: )
+//- WZ-551 availability increased by one step debug
+// Type-63 range & fuel capacity were inverted
 
 @Gq8AEEg=
 
