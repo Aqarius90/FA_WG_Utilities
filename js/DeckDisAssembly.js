@@ -104,7 +104,6 @@ function decodeDeck (deckCode)
       if (deckCode.charAt(i) == "9") { deckBinary += "111101"; } else
       if (deckCode.charAt(i) == "/") { deckBinary += "111111"; }
     }
-
     if (deckBinary.charAt(0) == '0')
     {
         Deck.sSide = "BLU";
@@ -121,7 +120,7 @@ function decodeDeck (deckCode)
         Deck.iSide = 2;
     }
     Deck.sNation = "";
-    for (var i = 0; i <= 8; i++)
+    for (var i = 0; i <= 11; i++)
     {
         Deck.sNation += deckBinary.charAt(i);
     }
@@ -155,10 +154,12 @@ function decodeDeck (deckCode)
     if (Deck.iNation == 356) { Deck.sNation = "RD"; } else
     if (Deck.iNation == 357) { Deck.sNation = "NSWP"; } else
     if (Deck.iNation == 359) { Deck.sNation = "SOVKOR"; } else
-    if (Deck.iNation == 362) { Deck.sNation = "REDFOR"; }
+    if (Deck.iNation == 362) { Deck.sNation = "REDFOR"; } else
+
+    if (Deck.iNation == 426)  { Deck.sNation = "UK"; }
 
     Deck.sSpec = "";
-    for (var i = 9; i <= 11; i++)
+    for (var i = 12; i <= 14; i++)
     {
         Deck.sSpec += deckBinary.charAt(i);
     }
@@ -173,7 +174,7 @@ function decodeDeck (deckCode)
     if (Deck.iSpec == 7) { Deck.sSpec = "GEN"; }
 
     Deck.sEra = "";
-    for (var i = 12; i <= 13; i++)
+    for (var i = 15; i <= 16; i++)
     {
         Deck.sEra +=  deckBinary.charAt(i);
     }
@@ -184,19 +185,18 @@ function decodeDeck (deckCode)
 
     //Units
     var s3Count = "";
-    for (var i = 14; i <= 17; i++)
+    for (var i = 17; i <= 20; i++)
     {
         s3Count += deckBinary.charAt(i);
     }
     Deck.i3Cards = parseInt(s3Count, 2);
     var s2Count = "";
-    for (var i = 18; i <= 22; i++)
+    for (var i = 21; i <= 25; i++)
     {
         s2Count += deckBinary.charAt(i);
     }
     Deck.i2Cards = parseInt(s2Count, 2);
-
-    var iPC = 23; //pos counter
+    var iPC = 26; //pos counter
     for (var i = 0; i < Deck.i3Cards; i++) //for each unit
     {
         var sVet = "", sUnit = "", sIFV = "", sCraft = "";
@@ -205,21 +205,21 @@ function decodeDeck (deckCode)
             sVet += deckBinary.charAt(j);
         }
         iPC += 3;
-        for (var j = iPC; j <= (iPC + 9); j++) //find unit
+        for (var j = iPC; j <= (iPC + 10); j++) //find unit
         {
             sUnit += deckBinary.charAt(j);
         }
         iPC += 10;
-        for (var j = iPC; j <= (iPC + 9); j++) //find transport
+        for (var j = iPC; j <= (iPC + 10); j++) //find transport
         {
             sIFV += deckBinary.charAt(j);
         }
-        iPC += 10;
-        for (var j = iPC; j <= (iPC + 9); j++)  //find ship
+        iPC += 11;
+        for (var j = iPC; j <= (iPC + 10); j++)  //find ship
         {
             sCraft += deckBinary.charAt(j);
         }
-        iPC += 10;
+        iPC += 11;
         var iUnit = parseInt(sUnit, 2);
         var iIFV = parseInt(sIFV, 2);
         var iCraft = parseInt(sCraft, 2);
@@ -239,16 +239,16 @@ function decodeDeck (deckCode)
             sVet += deckBinary.charAt(j);
         }
         iPC += 3;
-        for (var j = iPC; j <= (iPC + 9); j++)
+        for (var j = iPC; j <= (iPC + 10); j++)
         {
             sUnit += deckBinary.charAt(j);
         }
-        iPC += 10;
-        for (var j = iPC; j <= (iPC + 9); j++)
+        iPC += 11;
+        for (var j = iPC; j <= (iPC + 10); j++)
         {
             sIFV += deckBinary.charAt(j);
         }
-        iPC += 10;
+        iPC += 11;
         var iUnit = parseInt(sUnit, 2);
         var iIFV = parseInt(sIFV, 2);
         var Unit = CardsDB[iUnit][Deck.iSide];
@@ -270,11 +270,11 @@ function decodeDeck (deckCode)
             sVet += deckBinary.charAt(j);
         }
         iPC += 3;
-        for (var j = iPC; j <= (iPC + 9); j++)
+        for (var j = iPC; j <= (iPC + 10); j++)
         {
             sUnit += deckBinary.charAt(j);
         }
-        iPC += 10;
+        iPC += 11;
         iLength = deckBinary.length - iPC;
 
         var iUnit = parseInt(sUnit, 2);
@@ -283,6 +283,8 @@ function decodeDeck (deckCode)
         Deck.Cards0T[Deck.i1Cards] = toGen(Deck.Cards0T[Deck.i1Cards]);
         Deck.i1Cards++;
     }
+        console.log(deckBinary);
+        debugOutput(deckBinary);
     //cardDisplaySort(Deck.Cards0T, Deck.Cards1T, Deck.Cards2T);
     ractiveHeader.set('sBinary', deckBinary);
     debugOutput(deckBinary);

@@ -436,8 +436,8 @@ function displaySCA() {
 function displayCOM() {
     var flagstr = [0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+10%, +10AP");
-    Deck.availQ = 10;
+    ractiveHeader.set("lab.tnation", "+0%, +10AP");
+    Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
 
@@ -539,8 +539,8 @@ function displayRD() {
 function displayNSWP() {
     var flagstr = [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+15%, +10AP");
-    Deck.availQ = 15;
+    ractiveHeader.set("lab.tnation", "+0%, +10AP");
+    Deck.availQ = 0;
     Deck.deckpoitstotal += 10;
 }
 
@@ -780,11 +780,11 @@ function displayUnits()
 function debugOutput(binoutdebug){
     var tablerow = [];
     tablerow.push({ bin: binoutdebug.charAt(0), parsing: Deck.sSide });
-    tablerow.push({ bin: binoutdebug.substr(0,9), parsing: Deck.sNation });
-    tablerow.push({ bin: binoutdebug.substr(9,3), parsing: Deck.sSpec });
-    tablerow.push({ bin: binoutdebug.substr(12,2), parsing: Deck.sEra });
-    tablerow.push({ bin: binoutdebug.substr(14,4), parsing: "inf-naval:  " + parseInt(binoutdebug.substr(14,4), 2) });
-    tablerow.push({ bin: binoutdebug.substr(14,4), parsing: "inf-land, veh-naval:  "+ parseInt(binoutdebug.substr(18,5), 2) });
+    tablerow.push({ bin: binoutdebug.substr(0,12), parsing: Deck.sNation });
+    tablerow.push({ bin: binoutdebug.substr(12,3), parsing: Deck.sSpec });
+    tablerow.push({ bin: binoutdebug.substr(15,2), parsing: Deck.sEra });
+    tablerow.push({ bin: binoutdebug.substr(17,4), parsing: "inf-naval:  " + parseInt(binoutdebug.substr(17,4), 2) });
+    tablerow.push({ bin: binoutdebug.substr(21,5), parsing: "inf-land, veh-naval:  "+ parseInt(binoutdebug.substr(21,5), 2) });
 
     for (var i = 0; i < Deck.i3Cards; i++) {
       tablerow.push({ bin: Deck.Cards2T[i].Unit.iUnitID, parsing: Deck.Cards2T[i].Unit.sNameU});
