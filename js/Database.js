@@ -637,7 +637,7 @@ function Create()
     CardsDB[ 513][0] = new Datacard( 513, "100000000000000110010000000000", [ 0,  6,  4,  0,  0], "0011010", 1987,  55, 2, 0, "JAP", "GunTank");
     CardsDB[ 514][0] = new Datacard( 514, "001000000000001000000100000101", [16, 12,  8,  6,  4], "1110110", 1987,  30, 2, 0, "JAP", "HachiNana Shiki");//Type 87 CRV (87式偵察警戒車 87-Shiki teisatsu keikai-sha)
     CardsDB[ 515][0] = new Datacard( 515, "001110000000000000000010000000", [16, 12,  8,  6,  4], "0011000", 1989,  25, 5, 0, "JAP", "HachiKyū Shiki"); //Mitsubishi Type 89 IFV //89式装甲戦闘車
-    CardsDB[ 516][0] = new Datacard( 516, "001000000000000000001000000000", [ 0,  2,  0,  1,  0], "0001000", 1992, 170, 1, 1, "JAP", "KyūMaru Shiki Sensha"); //90式戦車 Kyū-maru-shiki-sensha
+    CardsDB[ 516][0] = new Datacard( 516, "001000000000000000001000000000", [ 0,  2,  0,  1,  0], "0001000", 1992, 170, 2, 1, "JAP", "KyūMaru Shiki Sensha"); //90式戦車 Kyū-maru-shiki-sensha
     CardsDB[ 517][0] = new Datacard( 517, "000001010000000001000000000000", [ 0,  3,  0,  0,  0], "1110110", 1975, 100, 1, 0, "UK", "⍟ HQ Section");
     CardsDB[ 518][0] = new Datacard( 518, "000000010000000000100000000000", [ 0,  0, 12,  8,  0], "1100110", 1975,  30, 2, 0, "UK", "Ghurkas");
     CardsDB[ 519][0] = new Datacard( 519, "000001010000000001000000000000", [ 0,  3,  0,  0,  0], "1110110", 1975, 100, 1, 0, "USA", "⍟ TACOM");
