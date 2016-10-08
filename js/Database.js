@@ -120,8 +120,8 @@ function initMainDB()
 function Create()
 {
     SetTransports();
-    // ID, DATA, AVAIL, SPEC, YEAR, COST,, CARDS PROTO, NATION, NAME
-    //data: AA, AA missile, armor, atgm, transport, CMD, helo, inf, logi, NPLM, plane, SEAD, MLRS, MTR, recon, tube, radar||amphib, naval, ship, moto
+    // ID, DATA, AVAIL, SPEC, YEAR, COST, CARDS, PROTO, NATION, NAME
+    //data: AA, AA missile, armor, atgm, transport, CMD, helo, inf, logi, NPLM, plane, SEAD, MLRS, MTR, recon, tube, radar|LOG INF SUP TNK REC VEH HEL AIR NAV|amphib, naval, ship, moto
     CardsDB[   0][0] = new Datacard(   0, "000000000000000000000000000000", [ 0,  0,  0,  0,  0], "1111111",    0,   0, 0, 0, "", "");
     CardsDB[   1][0] = new Datacard(   1, "000001010000000001000000000000", [ 0,  3,  0,  0,  0], "1110110", 1975, 100, 1, 0, "FRA", "⍟ Groupe de CMDT");
     CardsDB[   2][0] = new Datacard(   2, "000000010000000000100000000000", [ 0, 20, 16,  0,  0], "1011110", 1975,  10, 3, 0, "CAN", "Can. Rifles");

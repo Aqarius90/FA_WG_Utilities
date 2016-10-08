@@ -3888,4 +3888,9 @@ button.close {
   clear: both;
 }
 
+
+.full-height {
+  height: 100%;
+  min-height: 100%;
+}
 /*# sourceMappingURL=bootstrap.css.map */

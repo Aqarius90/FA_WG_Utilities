@@ -50,7 +50,9 @@ var ractiveHeader = new Ractive({
             bGeneral: '#fff',
             bA: '#fff',
             bB: '#fff',
-            bC: '#fff'
+            bC: '#fff',
+            DATA: '#0f0',
+            PICS: '#fff'
           },
           lab:{
             tnation : '',
@@ -471,4 +473,18 @@ var ractiveHeader = new Ractive({
       GUIDisplay();
       listUnits();
       DeckExport();
+  }
+
+  function btDATA() {
+      DataDisplay = 1;
+      document.getElementById("DataButton").style.background='#0f0';
+      document.getElementById("PicsButton").style.background='#fff';
+      GUIDisplay();
+  }
+
+  function btPICS() {
+      DataDisplay = 0;
+      document.getElementById("DataButton").style.background='#fff';
+      document.getElementById("PicsButton").style.background='#0f0';
+      GUIDisplay();
   }

@@ -12,6 +12,7 @@ function init() {
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
     window.IDlist = [];
     window.tDebug = [];
+    window.DataDisplay = 1;
     ractiveDeck.set("debug", tDebug);
     $(document).ready(function()
       {
@@ -249,7 +250,8 @@ function ShowCard(Card)
     if (Card.Unit.sUnitData.charAt(4)== '1') { ShowData(type, "carrier"); }
     if (Card.Unit.sUnitData.charAt(5)== '1') { ShowData(type, "CMD"); }
     if (Card.Unit.sUnitData.charAt(6)== '1') { ShowData(type, "helo"); }
-    if (Card.Unit.sUnitData.charAt(7)== '1') { ShowData(type, "inf"); }
+    if (Card.Unit.sUnitData.charAt(7)== '1' && Card.Unit.sUnitData.charAt(14) == '2') { ShowData(type, "rinf"); }
+    if (Card.Unit.sUnitData.charAt(7)== '1' && Card.Unit.sUnitData.charAt(14) != '2') { ShowData(type, "inf"); }
     if (Card.Unit.sUnitData.charAt(8)== '1') { ShowData(type, "log"); }
     if (Card.Unit.sUnitData.charAt(9)== '1') { ShowData(type, "eng"); }
     if (Card.Unit.sUnitData.charAt(10) == '1') { ShowData(type, "plane"); }
@@ -265,7 +267,7 @@ function ShowCard(Card)
     if (Card.Unit.sUnitData.charAt(28) == '1') { ShowData(type, "nav1"); }
     if (Card.Unit.sUnitData.charAt(28) == '2') { ShowData(type, "nav2"); }
     if (Card.Unit.sUnitData.charAt(28) == '3') { ShowData(type, "nav2"); }
-    if (Card.Unit.sUnitData.charAt(29) == '3') { ShowData(type, "moto"); }
+    if (Card.Unit.sUnitData.charAt(29) == '1') { ShowData(type, "moto"); }
 
     iData = document.createElement("img");
     iData.src = "picsb/" + Deck.iSide + Card.Unit.iUnitID + ".png";
@@ -344,7 +346,8 @@ function ShowCard(Card)
         if (Card.Transport.sUnitData.charAt(4)== '1') { ShowData(type, "carrier"); }
         if (Card.Transport.sUnitData.charAt(5)== '1') { ShowData(type, "CMD"); }
         if (Card.Transport.sUnitData.charAt(6)== '1') { ShowData(type, "helo"); }
-        if (Card.Transport.sUnitData.charAt(7)== '1') { ShowData(type, "inf"); }
+        if (Card.Transport.sUnitData.charAt(7)== '1' && Card.Unit.sUnitData.charAt(14) == '2') { ShowData(type, "rinf"); }
+        if (Card.Transport.sUnitData.charAt(7)== '1' && Card.Unit.sUnitData.charAt(14) != '2') { ShowData(type, "inf"); }
         if (Card.Transport.sUnitData.charAt(8)== '1') { ShowData(type, "log"); }
         if (Card.Transport.sUnitData.charAt(9)== '1') { ShowData(type, "eng"); }
         if (Card.Transport.sUnitData.charAt(10) == '1') { ShowData(type, "plane"); }
@@ -360,7 +363,7 @@ function ShowCard(Card)
         if (Card.Transport.sUnitData.charAt(28) == '1') { ShowData(type, "nav1"); }
         if (Card.Transport.sUnitData.charAt(28) == '2') { ShowData(type, "nav2"); }
         if (Card.Transport.sUnitData.charAt(28) == '3') { ShowData(type, "nav2"); }
-        if (Card.Transport.sUnitData.charAt(29) == '3') { ShowData(type, "moto"); }
+        if (Card.Transport.sUnitData.charAt(29) == '1') { ShowData(type, "moto"); }
 
         iData = document.createElement("img");
         iData.src = "picsb/" + Deck.iSide + Card.Transport.iUnitID + ".png";
