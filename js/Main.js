@@ -339,6 +339,13 @@ function ShowCard(Card)
     if(Card.Transport != 0){
         type += "V";
 
+        document.getElementById(type + "UD").innerHTML = "";
+        var iData = document.createElement("img");
+        iData.src = "png/blankb.png";
+        iData.setAttribute("class", "img-responsive");
+        iData.setAttribute("style", "position: relative; top: 0; left: 0;");
+        document.getElementById(type + "UD").appendChild(iData);
+
         if (Card.Transport.sUnitData.charAt(0)== '1') { ShowData(type, "antiair"); }
         if (Card.Transport.sUnitData.charAt(1)== '1') { ShowData(type, "AAM"); }
         if (Card.Transport.sUnitData.charAt(2)== '1') { ShowData(type, "armour"); }
