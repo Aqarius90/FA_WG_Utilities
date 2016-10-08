@@ -286,7 +286,6 @@ function GUIDisplay() {
 }
 
 function showFlags(x) {
-  console.log(x);
     if(x[0]==1) {ractiveHeader.set("flags.NATO", "NATO")}else{ractiveHeader.set("flags.NATO", "xNATO")};
     if(x[1]==1) {ractiveHeader.set("flags.REDFOR", "REDFOR")}else{ractiveHeader.set("flags.REDFOR", "xREDFOR")};
     if(x[2]==1) {ractiveHeader.set("flags.BD", 'BD')}else{ractiveHeader.set("flags.BD", "xBD")};
@@ -410,7 +409,6 @@ function displayROK() {
 }
 
 function displayNED() {
-  console.log("NED");
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +15AP");

@@ -12,14 +12,25 @@ function Weapon(ground, helo, air, acc, stab, ap, he, rof, supp, tags, rounds, n
     this.ROF = rof;
     this.iSuppression = supp;
     this.sTags = tags;
-	this.iAmmo = 0;
+	  this.iAmmo = 0;
 }
 
 function Arm(id, ammo)
 {
-    SetTransports();
-    MainArmory[id].iAmmo = ammo;
-    return MainArmory[id];
+    this.sName = MainArmory[id].sName;
+    this.sRoundType = MainArmory[id].sRoundType;
+    this.rGround = MainArmory[id].rGround;
+    this.rHelo = MainArmory[id].rHelo;
+    this.rAir = MainArmory[id].rAir;
+    this.iAccuracy = MainArmory[id].iAccuracy;
+    this.iStab = MainArmory[id].iStab;
+    this.AP = MainArmory[id].AP;
+    this.HE = MainArmory[id].HE;
+    this.ROF = MainArmory[id].ROF;
+    this.iSuppression = MainArmory[id].iSuppression;
+    this.sTags = MainArmory[id].sTags;
+    this.iAmmo = ammo;
+    return this;
 }
 
 function WeaponDataLoad()
@@ -899,6 +910,8 @@ function WeaponDataLoad()
     MainArmory[1061] = new Weapon(     0, 2100,  3500,   40, 40,   0,  4.00, "2S",  160, "[AOE][FF]", "IR missile", "Shafrir 2");
     MainArmory[1062] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "51",  150, "[NPLM]", "340KG Iron BOMB", "Mk77"); //5
     MainArmory[1063] = new Weapon(  3500,    0,     0,   25,  0,   0, 23.00, "12",  600, "[AOE]", "1400KG bomb", "M1118"); //1
+    MainArmory[1064] = new Weapon(  2975,    0,     0,   70, 60,  28,  0.00, "1s",  150, "[HEAT][SA]", "SALH missile", "Nimrod");
+    MainArmory[1065] = new Weapon(  1050, 2800,  2625,   55, 35,   0,  1.00, "818",  92, "[AOE][RAD]", "20mm", "M168 VULCAN");
 
     //rationalisation
     MainArmory[610] = new Weapon(  1050, 1050,     0,   20, 10,   0,  1.00, "1052",  36, "[AOE]", "7.62mm", "GSHG-7.62");

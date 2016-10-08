@@ -114,13 +114,12 @@ function UnitLookup(){
     else if (Deck.sSpec == "NAV"){spec=6;}
 
     var valid = true;
-    for (var i=0; i<1113;i++){
+    for (var i=0; i<1114;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
             valid = checkNation(card);
             if (card.iYear <= year && valid == true){
                 if (card.sUnitData.charAt(7) == '1'){//if is inf
-                    console.log(card.iUnitID);
                     for (var j=0; j < TransportArray[card.iUnitID][Deck.iSide].length; j++){
                         if(TransportArray[card.iUnitID][Deck.iSide][j] != 0){
                             var veh = CardsDB[TransportArray[card.iUnitID][Deck.iSide][j]][Deck.iSide];
