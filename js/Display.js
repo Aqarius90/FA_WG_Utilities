@@ -561,8 +561,9 @@ function displayREDFOR() {
 function displayISR() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "No bonus");
-    Deck.availQ = 0;
+    ractiveHeader.set("lab.tnation", "+10%, +15AP");
+    Deck.availQ = 10;
+    Deck.deckpoitstotal += 15;
 }
 
 function displayBLANK() {
