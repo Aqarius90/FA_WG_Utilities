@@ -286,7 +286,7 @@ function WeaponDataLoad()
     MainArmory[254] = new Weapon(  2625,    0,     0,   45,  0,  20,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "Konkurs");
     MainArmory[255] = new Weapon(  2800,    0,     0,   55,  0,  20,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "Kokon");
     MainArmory[256] = new Weapon(  2275,    0,     0,   70, 70,  22,  3.00, "12",  138, "[KE][AOE]", "120mm", "GIAT 120");
-    MainArmory[257] = new Weapon(  2450,    0,     0,   60,  0,  21,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "Chu-MAT");
+    MainArmory[257] = new Weapon(  2450,    0,     0,   60,  0,  21,  0.00, "5S",  150, "[HEAT][GUID]", "SALH missile", "Chu-MAT");
     MainArmory[258] = new Weapon(  2625,    0,     0,   40, 10,  22,  1.00, "6s",  150, "[HEAT][GUID]", "SACLOS missile", "HOT 1");
     MainArmory[259] = new Weapon(  2625,    0,     0,   45,  0,  22,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS missile", "SWINGFIRE");
     MainArmory[260] = new Weapon(  2625,    0,     0,   50,  0,  23,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "Konkurs-M");
@@ -1038,13 +1038,13 @@ function WeaponDataLoad()
     //MG
     MainArmory[708] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "400",   55, "[STAT]","7.62mm", "Kg m/37");     //militia
     MainArmory[497] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","7.62mm", "62 Shiki");    //line (honbuhan, shojobuntai)
-    MainArmory[489] = new Weapon(   875,  595,     0,   20,  5,   0,  0.50, "450",   55, "[CQC]", "7.7mm", "Bren L4");      //line diggers <<same as shock
+    MainArmory[489] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "450",   55, "[STAT]", "7.7mm", "Bren L4");     //line diggers <<same as shock
     MainArmory[518] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","7.62mm", "C6");          //line
     MainArmory[762] = new Weapon(   770,  595,     0,   30,  0,   0,  0.50, "450",   55, "[STAT]","7.62mm", "FAL0");        //line, israel
     MainArmory[991] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","7.62mm", "FN MAG");      //line hq, grenadiers
 	  MainArmory[658] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","6.5mm", "Ksp m/58");     //line
     MainArmory[728] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","7.62mm", "L7A1");        //line
-    MainArmory[731] = new Weapon(   770,  595,     0,   30, 10,   0,  0.50, "600",   40, "[CQC]", "5.56mm", "L86 LMG");     //line, fusiliers only
+    MainArmory[731] = new Weapon(   770,  595,     0,   30, 10,   0,  0.50, "500",   40, "[CQC]", "5.56mm", "L86 LMG");     //line, fusiliers only
     MainArmory[745] = new Weapon(   875,  525,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","7.62mm", "M240");        //line, tacom, light rifles
     MainArmory[760] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","7.62mm", "M60");         //line rifles, sochongsu,  bonbu
     MainArmory[795] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "594",   55, "[STAT]","7.62mm", "MG3");         //line, also dane militia
