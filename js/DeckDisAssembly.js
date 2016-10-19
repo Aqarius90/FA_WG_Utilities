@@ -206,7 +206,7 @@ function decodeDeck (deckCode)
         {
             sUnit += deckBinary.charAt(j);
         }
-        iPC += 10;
+        iPC += 11;
         for (var j = iPC; j <= (iPC + 10); j++) //find transport
         {
             sIFV += deckBinary.charAt(j);
