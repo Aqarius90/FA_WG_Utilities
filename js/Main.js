@@ -86,12 +86,14 @@ function checkNation(card){
   else if(card.sNation == "ISR" && (Deck.sNation != "ISR" && Deck.sNation != "NATO")){ return false; }
   else if(card.sNation == "NATO" && Deck.iSide != 0){ return false; }
 
-  else if(card.sNation == "CZS" && (Deck.sNation != "CZS" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "CZS" && (Deck.sNation != "CZS" && Deck.sNation != "NSWP" && Deck.sNation != "YUCZE" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "DDR" && (Deck.sNation != "DDR" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "DPRK" && (Deck.sNation != "DPRK" && Deck.sNation != "RD" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){ return false; }
-  else if(card.sNation == "POL" && (Deck.sNation != "POL" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "POL" && (Deck.sNation != "POL" && Deck.sNation != "NSWP" && Deck.sNation != "FINPL" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "PRC" && (Deck.sNation != "PRC" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "USSR" && (Deck.sNation != "USSR" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "FIN" && (Deck.sNation != "FIN" && Deck.sNation != "FINPL" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "YU" && (Deck.sNation != "YU" && Deck.sNation != "YUCZE" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "REDFOR" && Deck.iSide != 1){ return false; }
 
   else if(card.iIsProto == 1 && (Deck.sNation == "REDFOR" || Deck.sNation == "NATO")){ return false; }

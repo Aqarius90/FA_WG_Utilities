@@ -390,7 +390,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "FINPL";
-      Deck.iNation = "000000000000"; //enable
+      Deck.iNation = "010011001011"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -400,7 +400,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "YUCZE";
-      Deck.iNation = "000000000000"; //enable
+      Deck.iNation = "010011001100"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -410,7 +410,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "ISR";
-      Deck.iNation = "000000000000"; //enable
+      Deck.iNation = "010011001010"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -420,7 +420,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "ISR";
-      Deck.iNation = "000000000000"; //enable
+      Deck.iNation = "010011101010"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();

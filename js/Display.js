@@ -327,7 +327,7 @@ function showFlags(x) {
     if(x[34]==1){ractiveHeader.set("flags.YUCZE", 'YUCZE'  )}else{ractiveHeader.set("flags.YUCZE", "xYUCZE")};
 }
 function displayUSA() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+10%, +15AP");
     Deck.availQ = 10;
@@ -335,7 +335,7 @@ function displayUSA() {
 }
 
 function displayUK() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
@@ -343,7 +343,7 @@ function displayUK() {
 }
 
 function displayFRA() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
@@ -351,7 +351,7 @@ function displayFRA() {
 }
 
 function displayBRD() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
@@ -359,7 +359,7 @@ function displayBRD() {
 }
 
 function displayCAN() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
@@ -367,7 +367,7 @@ function displayCAN() {
 }
 
 function displayDEN(){
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
@@ -375,7 +375,7 @@ function displayDEN(){
 }
 
 function displaySWE() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
@@ -383,7 +383,7 @@ function displaySWE() {
 }
 
 function displayNOR() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
@@ -391,7 +391,7 @@ function displayNOR() {
 }
 
 function displayANZAC() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
@@ -399,7 +399,7 @@ function displayANZAC() {
 }
 
 function displayJAP() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
@@ -407,7 +407,7 @@ function displayJAP() {
 }
 
 function displayROK() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
@@ -415,7 +415,7 @@ function displayROK() {
 }
 
 function displayNED() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
@@ -423,7 +423,7 @@ function displayNED() {
 }
 
 function displayEU() {
-    var flagstr = [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
@@ -431,7 +431,7 @@ function displayEU() {
 }
 
 function displaySCA() {
-    var flagstr = [0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+15%, +10AP");
     Deck.availQ = 15;
@@ -439,7 +439,7 @@ function displaySCA() {
 }
 
 function displayCOM() {
-    var flagstr = [0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
@@ -447,7 +447,7 @@ function displayCOM() {
 }
 
 function displayBD() {
-    var flagstr = [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +10AP");
     Deck.availQ = 20;
@@ -455,7 +455,7 @@ function displayBD() {
 }
 
 function displayLJ() {
-    var flagstr = [0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+15%, +10AP");
     Deck.availQ = 15;
@@ -463,7 +463,7 @@ function displayLJ() {
 }
 
 function displayNORAD() {
-    var flagstr = [0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
@@ -471,7 +471,7 @@ function displayNORAD() {
 }
 
 function displayBDRNL() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+10%, +10AP");
     Deck.availQ = 10;
@@ -479,14 +479,14 @@ function displayBDRNL() {
 }
 
 function displayNato() {
-    var flagstr = [1,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0];
+    var flagstr = [1,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "No bonus");
     Deck.availQ = 0;
 }
 
 function displayDDR() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
@@ -494,7 +494,7 @@ function displayDDR() {
 }
 
 function displayUSSR() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+10%, +15AP");
     Deck.availQ = 10;
@@ -502,7 +502,7 @@ function displayUSSR() {
 }
 
 function displayPOL() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +15AP");
     Deck.availQ = 20;
@@ -510,7 +510,7 @@ function displayPOL() {
 }
 
 function displayCZS() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
@@ -518,7 +518,7 @@ function displayCZS() {
 }
 
 function displayPRC() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+30%, +15AP");
     Deck.availQ = 30;
@@ -526,7 +526,7 @@ function displayPRC() {
 }
 
 function displayDPRK() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+40%, +15AP");
     Deck.availQ = 40;
@@ -534,7 +534,7 @@ function displayDPRK() {
 }
 
 function displayRD() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+20%, +10AP");
     Deck.availQ = 20;
@@ -542,7 +542,7 @@ function displayRD() {
 }
 
 function displayNSWP() {
-    var flagstr = [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
@@ -550,7 +550,7 @@ function displayNSWP() {
 }
 
 function displayRKA() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;
@@ -558,14 +558,14 @@ function displayRKA() {
 }
 
 function displayREDFOR() {
-    var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0];
+    var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "No bonus");
+    ractiveHeader.set("lab.tnation", "No bonus redfor");
     Deck.availQ = 0;
 }
 
 function displayISR() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1];
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+10%, +15AP");
     Deck.availQ = 10;
@@ -573,12 +573,44 @@ function displayISR() {
 }
 
 function displayBLANK() {
-    var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0];
+    var flagstr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "");
     Deck.availQ = 10;
     Deck.deckpoitstotal += 15;
   }
+
+function displayFINPL() {
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0];
+    showFlags(flagstr);
+    ractiveHeader.set("lab.tnation", "+0%, +0AP");
+    Deck.availQ = 0;
+    Deck.deckpoitstotal += 0; //enable fix
+}
+
+function displayYUCZE() {
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1];
+    showFlags(flagstr);
+    ractiveHeader.set("lab.tnation", "+0%, +0AP");
+    Deck.availQ = 0;
+    Deck.deckpoitstotal += 0; //enable fix
+}
+
+function displayFIN() {
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0];
+    showFlags(flagstr);
+    ractiveHeader.set("lab.tnation", "+0%, +0AP");
+    Deck.availQ = 0;
+    Deck.deckpoitstotal += 0; //enable fix
+}
+
+function displayYU() {
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0];
+    showFlags(flagstr);
+    ractiveHeader.set("lab.tnation", "+0%, +0AP");
+    Deck.availQ = 0;
+    Deck.deckpoitstotal += 0; //enable fix
+}
 
 function displayCard(card, type, pos){
 
