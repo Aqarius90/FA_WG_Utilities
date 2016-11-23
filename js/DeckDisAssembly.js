@@ -151,10 +151,14 @@ function decodeDeck (deckCode)
     if (Deck.iNation == "010001101010") { Deck.sNation = "CZS"; } else
     if (Deck.iNation == "010010001010") { Deck.sNation = "PRC"; } else
     if (Deck.iNation == "010010101010") { Deck.sNation = "DPRK"; } else
+    if (Deck.iNation == "010011001010") { Deck.sNation = "FIN"; } else //enable placeholder
+    if (Deck.iNation == "010011101010") { Deck.sNation = "YU"; } else //enable placeholder
     if (Deck.iNation == "010011000100") { Deck.sNation = "RD"; } else
     if (Deck.iNation == "010011000101") { Deck.sNation = "NSWP"; } else
     if (Deck.iNation == "010011000111") { Deck.sNation = "SOVKOR"; } else
-    if (Deck.iNation == "010011001010") { Deck.sNation = "REDFOR"; }
+    if (Deck.iNation == "010011001010") { Deck.sNation = "REDFOR"; } else
+    if (Deck.iNation == "010011001011") { Deck.sNation = "FINPL"; } else  //enable placeholder
+    if (Deck.iNation == "010011001100") { Deck.sNation = "YUCZE"; }       //enable placeholder
     Deck.sSpec = "";
     for (var i = 12; i <= 14; i++)
     {

@@ -35,9 +35,11 @@ var ractiveHeader = new Ractive({
                     POL:  'POL',
                     PRC:  'PRC',
                     USSR: 'USSR',
-                    FIN: 'xFIN',
-                    YU:  'xYU',
-                    ISR: 'ISR'
+                    FIN: 'xFIN',  //enable
+                    YU:  'xYU',  //enable
+                    ISR: 'ISR',
+                    FINPL: 'xFINPL',  //enable
+                    YUCZE: 'xYUCZE'   //enable
                   },
           Buttons : {
             bMarine: '#fff',
@@ -379,6 +381,46 @@ var ractiveHeader = new Ractive({
       Deck.iSide = 0;
       Deck.sNation = "ISR";
       Deck.iNation = "000110001010";
+      GUIDisplay();
+      listUnits();
+      DeckExport();
+  }
+
+  function btFINPL_Click() {
+      Deck.sSide = "RED";
+      Deck.iSide = 1;
+      Deck.sNation = "FINPL";
+      Deck.iNation = "000000000000"; //enable
+      GUIDisplay();
+      listUnits();
+      DeckExport();
+  }
+
+  function btYUCZE_Click() {
+      Deck.sSide = "RED";
+      Deck.iSide = 1;
+      Deck.sNation = "YUCZE";
+      Deck.iNation = "000000000000"; //enable
+      GUIDisplay();
+      listUnits();
+      DeckExport();
+  }
+
+  function btFIN_Click() {
+      Deck.sSide = "RED";
+      Deck.iSide = 1;
+      Deck.sNation = "ISR";
+      Deck.iNation = "000000000000"; //enable
+      GUIDisplay();
+      listUnits();
+      DeckExport();
+  }
+
+  function btYU_Click() {
+      Deck.sSide = "RED";
+      Deck.iSide = 1;
+      Deck.sNation = "ISR";
+      Deck.iNation = "000000000000"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();
