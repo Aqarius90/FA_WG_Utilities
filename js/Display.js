@@ -30,14 +30,14 @@ function GUIDisplay() {
     if (Deck.iNation == "010001101010") { displayCZS(); } else
     if (Deck.iNation == "010010001010") { displayPRC(); } else
     if (Deck.iNation == "010010101010") { displayDPRK(); } else
-    if (Deck.iNation == "010011001010") { displayFIN(); } else //enable placeholder
-    if (Deck.iNation == "010011101010") { displayYU(); } else //enable placeholder
+    //if (Deck.iNation == "010011001010") { displayFIN(); } else //enable placeholder
+    //if (Deck.iNation == "010011101010") { displayYU(); } else //enable placeholder
     if (Deck.iNation == "010011000100") { displayRD(); } else
     if (Deck.iNation == "010011000101") { displayNSWP(); } else
     if (Deck.iNation == "010011000111") { displayRKA(); } else
     if (Deck.iNation == "010011001010") { displayREDFOR(); } else
-    if (Deck.iNation == "010011001011") { displayFINPL(); } else  //enable placeholder
-    if (Deck.iNation == "010011001100") { displayYUCZE(); } else  //enable placeholder
+    //if (Deck.iNation == "010011001011") { displayFINPL(); } else  //enable placeholder
+    //if (Deck.iNation == "010011001100") { displayYUCZE(); } else  //enable placeholder
     { displayBLANK();}
 
     //spec
