@@ -58,7 +58,7 @@ var ractiveHeader = new Ractive({
           },
           lab:{
             tnation : '',
-            tspec: '',
+            //tspec: '',
             tera: '',
             pointstally:''
           }
@@ -84,7 +84,8 @@ var ractiveHeader = new Ractive({
             hel:{  R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0', B0:"", B1:'', B2:'', B3:'', B4:''},
             air:{  R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0', B0:"", B1:'', B2:'', B3:'', B4:''},
             nav:{  R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0', B0:"", B1:'', B2:'', B3:'', B4:''}
-          }
+          },
+          headers:{ logi: 'Logistics', infa:'Infantry', supo:"Support", tank:"Tank", reco:"Recon", vehi:"Vehicle", helo:"Helicopter", airp:"Air", nava:"Naval"}
        }
   });
 
@@ -390,7 +391,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "FINPL";
-      Deck.iNation = "010011001011"; //enable
+  //    Deck.iNation = "010011001011"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -400,7 +401,7 @@ var ractiveHeader = new Ractive({
       Deck.sSide = "RED";
       Deck.iSide = 1;
       Deck.sNation = "YUCZE";
-      Deck.iNation = "010011001100"; //enable
+  //    Deck.iNation = "010011001100"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -409,8 +410,8 @@ var ractiveHeader = new Ractive({
   function btFIN_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "ISR";
-      Deck.iNation = "010011001010"; //enable
+      Deck.sNation = "FIN";
+    //  Deck.iNation = "010011001010"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();
@@ -419,8 +420,8 @@ var ractiveHeader = new Ractive({
   function btYU_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "ISR";
-      Deck.iNation = "010011101010"; //enable
+      Deck.sNation = "YU";
+  //    Deck.iNation = "010011101010"; //enable
       GUIDisplay();
       listUnits();
       DeckExport();

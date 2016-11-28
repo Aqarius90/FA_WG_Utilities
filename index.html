@@ -2054,6 +2054,11 @@
                     </button>
                   </div>
                   <div class="col-sm-1">
+                    <button type="button" class="btn btn-default" onclick="btRKA_Click()">
+                      <img id="{{RKA}}" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
                     <button type="button" class="btn btn-default" onclick="btNSWP_Click()">
                       <img id="{{NSWP}}" class="flg">
                     </button>
@@ -2061,11 +2066,6 @@
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default" onclick="btRD_Click()">
                       <img id="{{RD}}" class="flg">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default" onclick="btRKA_Click()">
-                      <img id="{{RKA}}" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
@@ -2111,10 +2111,36 @@
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default" onclick="btNED_Click()">
+                  <button type="button" class="btn btn-default" onclick="btNED_Click()">
                       <img id="{{NED}}" class="flg">
                     </button>
                   </div>
+                    <div class="col-sm-1">
+                    </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default" onclick="btCZS_Click()">
+                      <img id="{{CZS}}" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default" onclick="btDDR_Click()">
+                      <img id="{{DDR}}" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                  <button type="button" class="btn btn-default" onclick="btDPRK_Click()">
+                    <img id="{{DPRK}}" class="flg">
+                    </button>
+                  </div>
+                  <div class="col-sm-1">
+                    <button type="button" class="btn btn-default" onclick="btPOL_Click()">
+                      <img id="{{POL}}" class="flg">
+                      </button>
+                  </div>
+                    <div class="col-sm-1">
+                    </div>
+                  </div>
+                  <div class="row">
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default" onclick="btNOR_Click()">
                       <img id="{{NOR}}" class="flg">
@@ -2140,27 +2166,14 @@
                       <img id="{{USA}}" class="flg">
                     </button>
                   </div>
-                  </div>
-                  <div class="row">
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default" onclick="btCZS_Click()">
-                      <img id="{{CZS}}" class="flg">
+                    <button type="button" class="btn btn-default" onclick="btISR_Click()">
+                      <img id="{{ISR}}" class="flg">
                     </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default" onclick="btDDR_Click()">
-                      <img id="{{DDR}}" class="flg">
-                    </button>
                   </div>
                   <div class="col-sm-1">
-                    <button type="button" class="btn btn-default" onclick="btDPRK_Click()">
-                      <img id="{{DPRK}}" class="flg">
-                      </button>
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default" onclick="btPOL_Click()">
-                      <img id="{{POL}}" class="flg">
-                    </button>
                   </div>
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default" onclick="btPRC_Click()">
@@ -2180,18 +2193,7 @@
                   <div class="col-sm-1">
                     <button type="button" class="btn btn-default" onclick="btYU_Click()">
                       <img id="{{YU}}" class="flg">
-                    </button>
-                  </div>
-                  <div class="col-sm-1">
-                  </div>
-                  <div class="col-sm-1">
-                  </div>
-                  <div class="col-sm-1">
-                  </div>
-                  <div class="col-sm-1">
-                    <button type="button" class="btn btn-default" onclick="btISR_Click()">
-                      <img id="{{ISR}}" class="flg">
-                    </button>
+                      </button>
                   </div>
                   </div>
                 </div>
@@ -2248,42 +2250,41 @@
                   </div>
                   <div class="col-sm-4">
                     <button type="button" class="btn btn-default btn-block" style="background-color: {{Buttons.bC}}" onclick="btC()">C
-                      </button>
-                    </div>
+                    </button>
                   </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                      <h5 style="vertical-align:bottom; line-height:30px;">{{lab.tnation}}</h5>
+                  </div>
+                  <div class="col-sm-3">
+                      <h5 style="vertical-align:bottom; line-height:30px;">{{lab.tera}}</h5>
+                  </div>
+                  <div class="col-sm-3">
+                      <h4 style="vertical-align:bottom; line-height:30px;">{{lab.pointstally}}</h4>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="panel panel-body">
-          <div class="col-sm-2">
-              <p>{{lab.tnation}}</p>
-          </div>
-          <div class="col-sm-6">
-              <p>{{lab.tspec}}</p>
-          </div>
-          <div class="col-sm-2">
-              <p>{{lab.tera}}</p>
-          </div>
-          <div class="col-sm-2">
-              <p>{{lab.pointstally}}</p>
-          </div>
-      </div>
     </script>
     <script id='templateDeck' type='text/ractive'>
       <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+      {{#with headers}}
           <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
-          <li><a href="#Logistics" data-toggle="tab">Logistics</a></li>
-          <li><a href="#Infantry" data-toggle="tab">Infantry</a></li>
-          <li><a href="#Support" data-toggle="tab">Support</a></li>
-          <li><a href="#Tank" data-toggle="tab">Tank</a></li>
-          <li><a href="#Recon" data-toggle="tab">Recon</a></li>
-          <li><a href="#Vehicle" data-toggle="tab">Vehicle</a></li>
-          <li><a href="#Helo" data-toggle="tab">Helo</a></li>
-          <li><a href="#Air" data-toggle="tab">Air</a></li>
-          <li><a href="#Naval" data-toggle="tab">Naval</a></li>
+          <li><a href="#Logistics" data-toggle="tab">{{{logi}}}</a></li>
+          <li><a href="#Infantry" data-toggle="tab">{{{infa}}}</a></li>
+          <li><a href="#Support" data-toggle="tab">{{{supo}}}</a></li>
+          <li><a href="#Tank" data-toggle="tab">{{{tank}}}</a></li>
+          <li><a href="#Recon" data-toggle="tab">{{{reco}}}</a></li>
+          <li><a href="#Vehicle" data-toggle="tab">{{{vehi}}}</a></li>
+          <li><a href="#Helo" data-toggle="tab">{{{helo}}}</a></li>
+          <li><a href="#Air" data-toggle="tab">{{{airp}}}</a></li>
+          <li><a href="#Naval" data-toggle="tab">{{{nava}}}</a></li>
           <li><a href="#DEBUG" data-toggle="tab">DEBUG</a></li>
+          {{/with}}
       </ul>
       <div id="my-tab-content" class="tab-content panel">
             {{#with DeckView}}

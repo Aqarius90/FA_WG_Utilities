@@ -3893,4 +3893,8 @@ button.close {
   height: 100%;
   min-height: 100%;
 }
+
+.nationpick {
+  min-height: 0.3px;
+  background: linear-gradient(to right,  #00f 0%, #00f 58.33333333%, #f00 58.33333333%, #F00 100%);}
 /*# sourceMappingURL=bootstrap.css.map */

@@ -54,7 +54,18 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
+            //ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
+            var headers = ractiveDeck.get('headers');
+            headers.logi = 'Logistics';
+            headers.infa = 'Infantry (+1)';
+            headers.supo = "Support";
+            headers.tank = "Tank";
+            headers.reco = "Recon (+1)";
+            headers.vehi = "Vehicle (+1)"
+            headers.helo = "Helicopter";
+            headers.airp = "Air";
+            headers.nava = "Naval";
+            ractiveDeck.update('headers')
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
             ranks.inf.R1 = 'r010';
@@ -81,7 +92,18 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "+4 cards, +2XP, -1 cost: Tank");
+            //ractiveHeader.set("lab.tspec", "+4 cards, +2XP, -1 cost: Tank");
+            var headers = ractiveDeck.get('headers');
+            headers.logi = 'Logistics';
+            headers.infa = 'Infantry';
+            headers.supo = "Support";
+            headers.tank = "Tank (+2)";
+            headers.reco = "Recon";
+            headers.vehi = "Vehicle"
+            headers.helo = "Helicopter";
+            headers.airp = "Air";
+            headers.nava = "Naval";
+            ractiveDeck.update('headers')
             var ranks = ractiveDeck.get('ranks');
             ranks.tnk.R0 = 'r010';
             ranks.tnk.R1 = 'r011';
@@ -100,7 +122,18 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "+4 cards,-1 cost: Logistics, Support;  +1XP: Support");
+            //ractiveHeader.set("lab.tspec", "+4 cards,-1 cost: Logistics, Support;  +1XP: Support");
+            var headers = ractiveDeck.get('headers');
+            headers.logi = 'Logistics (+1)';
+            headers.infa = 'Infantry';
+            headers.supo = "Support (+1)";
+            headers.tank = "Tank";
+            headers.reco = "Recon";
+            headers.vehi = "Vehicle"
+            headers.helo = "Helicopter";
+            headers.airp = "Air";
+            headers.nava = "Naval";
+            ractiveDeck.update('headers')
             var ranks = ractiveDeck.get('ranks');
             ranks.sup.R0 = 'r001';
             ranks.sup.R1 = 'r010';
@@ -119,7 +152,18 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");  //DEBUG +xp naval?
+            //ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");  //DEBUG +xp naval?
+            var headers = ractiveDeck.get('headers');
+            headers.logi = 'Logistics';
+            headers.infa = 'Infantry (+1)';
+            headers.supo = "Support";
+            headers.tank = "Tank";
+            headers.reco = "Recon";
+            headers.vehi = "Vehicle"
+            headers.helo = "Helicopter";
+            headers.airp = "Air (+1)";
+            headers.nava = "Naval";
+            ractiveDeck.update('headers')
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
             ranks.inf.R1 = 'r010';
@@ -142,7 +186,18 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Vehicle");
+            //ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Vehicle");
+            var headers = ractiveDeck.get('headers');
+            headers.logi = 'Logistics';
+            headers.infa = 'Infantry (+1)';
+            headers.supo = "Support";
+            headers.tank = "Tank";
+            headers.reco = "Recon";
+            headers.vehi = "Vehicle (+1)"
+            headers.helo = "Helicopter";
+            headers.airp = "Air";
+            headers.nava = "Naval";
+            ractiveDeck.update('headers')
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
             ranks.inf.R1 = 'r010';
@@ -165,7 +220,18 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane");
+            //ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane");
+            var headers = ractiveDeck.get('headers');
+            headers.logi = 'Logistics';
+            headers.infa = 'Infantry (+1)';
+            headers.supo = "Support";
+            headers.tank = "Tank";
+            headers.reco = "Recon";
+            headers.vehi = "Vehicle"
+            headers.helo = "Helicopter (+1)";
+            headers.airp = "Air (+1)";
+            headers.nava = "Naval";
+            ractiveDeck.update('headers')
             var ranks = ractiveDeck.get('ranks');
             ranks.inf.R0 = 'r001';
             ranks.inf.R1 = 'r010';
@@ -192,7 +258,18 @@ function GUIDisplay() {
             Buttons.bNaval = '#0f0';
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "ಠ_ಠ");
+            //ractiveHeader.set("lab.tspec", "ಠ_ಠ");
+            var headers = ractiveDeck.get('headers');
+            headers.logi = 'Logistics';
+            headers.infa = 'Infantry';
+            headers.supo = "Support";
+            headers.tank = "Tank";
+            headers.reco = "Recon";
+            headers.vehi = "Vehicle"
+            headers.helo = "Helicopter";
+            headers.airp = "Air";
+            headers.nava = "Naval";
+            ractiveDeck.update('headers')
             break;
         case 7://gen
             var Buttons = ractiveHeader.get('Buttons');
@@ -205,7 +282,18 @@ function GUIDisplay() {
             Buttons.bNaval = '#fff';
             Buttons.bGeneral = '#0f0';
             ractiveHeader.update('Buttons');
-            ractiveHeader.set("lab.tspec", "no bonus");
+            //ractiveHeader.set("lab.tspec", "no bonus");
+            var headers = ractiveDeck.get('headers');
+            headers.logi = 'Logistics';
+            headers.infa = 'Infantry';
+            headers.supo = "Support";
+            headers.tank = "Tank";
+            headers.reco = "Recon";
+            headers.vehi = "Vehicle"
+            headers.helo = "Helicopter";
+            headers.airp = "Air";
+            headers.nava = "Naval";
+            ractiveDeck.update('headers')
             var ranks = ractiveDeck.get('ranks');
             ranks.log.R0 = 'r000';
             ranks.log.R1 = 'r001';
@@ -478,8 +566,16 @@ function displayBDRNL() {
     Deck.deckpoitstotal += 10;
 }
 
+function displayISR() {
+    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0];
+    showFlags(flagstr);
+    ractiveHeader.set("lab.tnation", "+10%, +15AP");
+    Deck.availQ = 10;
+    Deck.deckpoitstotal += 15;
+}
+
 function displayNato() {
-    var flagstr = [1,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0];
+    var flagstr = [1,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "No bonus");
     Deck.availQ = 0;
@@ -562,14 +658,6 @@ function displayREDFOR() {
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "No bonus redfor");
     Deck.availQ = 0;
-}
-
-function displayISR() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0];
-    showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+10%, +15AP");
-    Deck.availQ = 10;
-    Deck.deckpoitstotal += 15;
 }
 
 function displayBLANK() {
