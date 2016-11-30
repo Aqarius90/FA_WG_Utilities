@@ -64,7 +64,17 @@ var ractiveHeader = new Ractive({
           }
         }
       });
-  var ractiveDeck = new Ractive({
+
+var ractiveDB = new Ractive({
+   el:'ankerDB',
+    template: '#templateDB',
+    data: {
+        DBisLoaded: false,
+        DBisNotLoaded: true
+    }
+});
+
+var ractiveDeck = new Ractive({
     el: 'ankerDeck',
     template: '#templateDeck',
     data: {

@@ -1977,10 +1977,47 @@
             </div>
         </div>
     </div>
-    <div id="ankerHeader">
-    </div>
-    <div id="ankerDeck">
-    </div>
+    <ul id="mainnav" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#DeckBuilder" data-toggle="tab">DeckBuilder</a></li>
+  <!-- set name to display -->
+        <li><a href="#DataDB" data-toggle="tab">DB</a></li>
+    </ul>
+      <div id="my-tabmain" class="tab-content panel">
+        <div class="tab-pane active" id="DeckBuilder">
+          <div class="panel panel-body">
+            <div id="ankerHeader">
+            </div>
+            <div id="ankerDeck">
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="DataDB">            
+            <div id="ankerDB">
+            </div>     
+                   
+          </div>
+      </div>
+      
+    <script id='templateDB' type='text/ractive'>
+        {{#if DBisNotLoaded}}
+            <div class="row">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" id="DBButton" class="btn btn-default btn-block"  style="line-height: 3; background-color: #fff" onclick="initDB()">Load Database
+                    </button> 
+                </div>
+                <div class="col-sm-4">
+                </div>
+            </div>
+        {{/if}}
+        {{#if DBisLoaded}}
+                    <button type="button" id="DBButton" class="btn btn-default btn-block"  style="line-height: 3; background-color: #fff" onclick="initDB()">Load Database
+                    </button> 
+        {{/if}}
+    </script>       
+      
+      
     <script id='templateHeader' type='text/ractive'>
       <div class="row">
           <div class="col-sm-10">
@@ -4800,15 +4837,16 @@
         </div>
       </script>
   </div>
-
   <script src="js/RactiveHandlers.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/Display.js"></script>
   <script src="js/Database.js"></script>
+  <script src="js/FullDB.js"></script>
   <script src="js/Main.js"></script>
   <script src="js/WeaponData.js"></script>
   <script src="js/DeckDisAssembly.js"></script>
   <script type="text/javascript" src="sort/jquery.tablesorter.js"></script>
+  <script src="jquery-csv.js"></script>
     <script>init();</script>
 
 
