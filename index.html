@@ -1980,7 +1980,7 @@
     <ul id="mainnav" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#DeckBuilder" data-toggle="tab">DeckBuilder</a></li>
   <!-- set name to display -->
-        <li><a href="#DataDB" data-toggle="tab">DB</a></li>
+        <li><a href="#DataDB" data-toggle="tab"></a></li>
     </ul>
       <div id="my-tabmain" class="tab-content panel">
         <div class="tab-pane active" id="DeckBuilder">
@@ -1991,13 +1991,13 @@
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="DataDB">            
+        <div class="tab-pane" id="DataDB">
             <div id="ankerDB">
-            </div>     
-                   
+            </div>
+
           </div>
       </div>
-      
+
     <script id='templateDB' type='text/ractive'>
         {{#if DBisNotLoaded}}
             <div class="row">
@@ -2005,7 +2005,7 @@
                 </div>
                 <div class="col-sm-4">
                     <button type="button" id="DBButton" class="btn btn-default btn-block"  style="line-height: 3; background-color: #fff" onclick="initDB()">Load Database
-                    </button> 
+                    </button>
                 </div>
                 <div class="col-sm-4">
                 </div>
@@ -2013,11 +2013,11 @@
         {{/if}}
         {{#if DBisLoaded}}
                     <button type="button" id="DBButton" class="btn btn-default btn-block"  style="line-height: 3; background-color: #fff" onclick="initDB()">Load Database
-                    </button> 
+                    </button>
         {{/if}}
-    </script>       
-      
-      
+    </script>
+
+
     <script id='templateHeader' type='text/ractive'>
       <div class="row">
           <div class="col-sm-10">
@@ -4846,7 +4846,6 @@
   <script src="js/WeaponData.js"></script>
   <script src="js/DeckDisAssembly.js"></script>
   <script type="text/javascript" src="sort/jquery.tablesorter.js"></script>
-  <script src="jquery-csv.js"></script>
     <script>init();</script>
 
 
