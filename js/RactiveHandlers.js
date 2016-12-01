@@ -70,7 +70,17 @@ var ractiveDB = new Ractive({
     template: '#templateDB',
     data: {
         DBisLoaded: false,
-        DBisNotLoaded: true
+        DBisNotLoaded: true,
+        btVeh: false,
+        btInf: false,
+        btHel: false,
+        btAir: false,
+        btShp: false,
+        btVeh: '#fff',
+        btInf: '#fff',
+        btHel: '#fff',
+        btAir: '#fff',
+        btShp: '#fff'
     }
 });
 

@@ -2004,7 +2004,7 @@
                 <div class="col-sm-4">
                 </div>
                 <div class="col-sm-4">
-                    <button type="button" id="DBButton" class="btn btn-default btn-block"  style="line-height: 3; background-color: #fff" onclick="initDB()">Load Database
+                    <button type="button" id="DBButton" class="btn btn-default btn-block"  style="line-height: 3; background-color: #fff" onclick="initDB()">Load Database (WIP)
                     </button>
                 </div>
                 <div class="col-sm-4">
@@ -2012,8 +2012,175 @@
             </div>
         {{/if}}
         {{#if DBisLoaded}}
-                    <button type="button" id="DBButton" class="btn btn-default btn-block"  style="line-height: 3; background-color: #fff" onclick="initDB()">Load Database
+             <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <button type="button" class="btn btn-default btn-block"  style="line-height: 3; background-color: {{{btVeh}}}" onclick="vehDB()">Vehicles
                     </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default btn-block"  style="line-height: 3; background-color: {{{btINF}}}" onclick="infDB()">Infantry
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default btn-block"  style="line-height: 3; background-color: {{{btHel}}}" onclick="helDB()">Helicopters
+                    </button>
+                 </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default btn-block"  style="line-height: 3; background-color: {{{btAir}}}" onclick="airDB()">Aircraft
+                    </button>
+                 </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default btn-block"  style="line-height: 3; background-color: {{{btShp}}}" onclick="shpDB()">Ships
+                    </button>
+                 </div>
+            </div>
+            {{#if DBisVeh}}
+              <div class="row">
+                <div class="col-md-4">
+                    <h4>     Common data</h4>
+                </div>
+                <div class="col-md-8">
+                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>HelicopterDetectionRadius</th>
+                                <th>StunDamageRegen</th>
+                                <th>StunDamageToGetStunned</th>
+                                <th>SuppressionCeiling</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logBody">
+                            <tr>
+                               <td>7000</td>
+                               <td>5</td>
+                               <td>300</td>
+                               <td>800</td>
+                            </tr>
+                    </table>
+                </div>
+              </div>          
+            {{/if}}
+            {{#if DBisInf}}
+              <div class="row">
+                <div class="col-md-4">
+                    <h4>     Common data</h4>
+                </div>
+                <div class="col-md-8">
+                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>HelicopterDetectionRadius</th>
+                                <th>StunDamageRegen</th>
+                                <th>StunDamageToGetStunned</th>
+                                <th>SuppressionCeiling</th>
+                                <th>SuppressDamageRatioIfTransporterKilled</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logBody">
+                            <tr>
+                               <td>7000</td>
+                               <td>5</td>
+                               <td>300</td>
+                               <td>800</td>
+                               <td>0.75</td>
+                            </tr>
+                    </table>
+                </div>
+              </div>   
+            {{/if}}
+            {{#if DBisHel}}
+              <div class="row">
+                <div class="col-md-4">
+                    <h4>     Common data</h4>
+                </div>
+                <div class="col-md-8">
+                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>HelicopterDetectionRadius</th>
+                                <th>StunDamageRegen</th>
+                                <th>StunDamageToGetStunned</th>
+                                <th>SuppressionCeiling</th>
+                                <th>HelicopterFlyingAltitude</th>
+                                <th>HelicopterHoverAltitude</th>
+                                <th>LateralSpeed</th>
+                                <th>PorteeVision</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logBody">
+                            <tr>
+                               <td>7000</td>
+                               <td>5</td>
+                               <td>300</td>
+                               <td>800</td>
+                               <td>150</td>
+                               <td>20</td>
+                               <td>2600</td>
+                               <td>5000</td>
+                            </tr>
+                    </table>
+                </div>
+              </div>   
+            {{/if}}
+            {{#if DBisAir}}
+              <div class="row">
+                <div class="col-md-4">
+                    <h4>     Common data</h4>
+                </div>
+                <div class="col-md-8">
+                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>HelicopterDetectionRadius</th>
+                                <th>StunDamageRegen</th>
+                                <th>StunDamageToGetStunned</th>
+                                <th>SuppressionCeiling</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logBody">
+                            <tr>
+                               <td>7000</td>
+                               <td>5</td>
+                               <td>300</td>
+                               <td>800</td>
+                            </tr>
+                    </table>
+                </div>
+              </div> 
+            {{/if}}
+            {{#if DBisShp}}
+              <div class="row">
+                <div class="col-md-4">
+                    <h4>     Common data</h4>
+                </div>
+                <div class="col-md-8">
+                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>HelicopterDetectionRadius</th>
+                                <th>ArmorTop</th>
+                                <th>IsPrototype</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logBody">
+                            <tr>
+                               <td>7000</td>
+                               <td>0</td>
+                               <td>false</td>
+                            </tr>
+                    </table>
+                </div>
+              </div> 
+            {{/if}}
+            
+            <div>
+               <table id="DBtable" class="sortable table-hover" style="width:100%">
+                    <thead>
+                    </thead>
+                  <tbody id="DBbody">
+                  </tbody>
+                </table>
+            </div>
         {{/if}}
     </script>
 
