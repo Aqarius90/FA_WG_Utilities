@@ -6,9 +6,103 @@ function initDB(){
       DBstring = new String(data);
         //DBarr = CSVToArray(DBstring);
         DBarr = jQuery.csv.toArrays(data);
-        ractiveDB.set({DBisLoaded: true});
         ListData();
+        ractiveDB.set({DBisLoaded: true});
     });
+}
+
+function ListData(){
+    window.DBveh = new Array();
+    window.DBinf = new Array();
+    window.DBhel = new Array();
+    window.DBair = new Array();
+    window.DBshp = new Array();
+    DBveh[0] = DBarr[0];
+    DBinf[0] = DBarr[0];
+    DBhel[0] = DBarr[0];
+    DBair[0] = DBarr[0];
+    DBshp[0] = DBarr[0];
+    
+    for (var i = 0; i < DBarr[0].length; i++) {
+        if(DBarr[0][i] == "MovementType"){
+            for (var j = 1; j < DBarr.length; j++) {
+                if(DBarr[j][i] == "Wheeled" || DBarr[j][i] == "Tracked"){
+                    DBveh[DBveh.length] = DBarr[j];
+                }
+                else{
+                    if(DBarr[j][i] == "Foot"){
+                        DBinf[DBinf.length] = DBarr[j];
+                    }
+                    else{
+                        if(DBarr[j][i] == "Air"){
+                            if(DBarr[j][i-2] > 450){
+                                DBair[DBair.length] = DBarr[j];
+                            }
+                            else{
+                                DBhel[DBhel.length] = DBarr[j];
+                            }
+                        }
+                        else{
+                            if(DBarr[j][i] == "Water"){
+                                DBshp[DBshp.length] = DBarr[j];
+                            }
+                        }
+                    }      
+                }              
+            }
+        i=DBarr.length;
+        }
+    }
+}
+
+
+
+
+
+function DisplayDB(tableData, type){
+    var head = ractiveDB.get('DBhead');
+    head = '';
+    var body = ractiveDB.get('DBbody');
+    body = '';
+    var tmp = 0;
+    //var table = document.getElementById('DBtable');
+    //var tableBody = document.getElementById('DBbody');
+    var tableArr = new Array();
+    for (var j = 0; j < tableData.length; j++) {
+        tableArr[j] = new Array();
+        //console.log(j);
+    }
+    /*console.log(tableArr);*/
+    for (var i = 0; i < tableData[0].length; i++) {   
+        if((type == 1 && (tableData[0][i] == "Name" || tableData[0][i] == "Amphibious"))){   
+            console.log(tableData[0][i])  ;
+            for (var k = 0; k < tableData.length; k++) {
+                tableArr[k][tmp] = tableData[k][i]; 
+                tmp++;
+            }
+        }        
+    }
+    console.log(tableArr)
+    var table = document.getElementById('DBtable');
+    var tableBody = document.getElementById('DBbody');
+    
+    for (var i = 0; i < 2; i++) {   
+        var row = table.insertRow(i);
+            for (var k = 0; k < tableArr[0].length; k++) {                
+                var cell = row.insertCell(k);
+                cell.innerHTML = tableArr[i][k];
+            }
+    }
+    
+    /*
+    for (var i = 0; i < tableArr[0].length; i++) {
+        body += "<tr>";
+            for (var j = 0; j < tableArr.length; j++) {
+                body += "<td>" + tableArr[i][j] + "</td>";
+            }
+        body += "</tr>";
+    }                
+    ractiveDB.update('DBbody');*/
 }
 
 function vehDB(){
@@ -16,7 +110,8 @@ function vehDB(){
     ractiveDB.set({DBisInf: false});
     ractiveDB.set({DBisHel: false});
     ractiveDB.set({DBisAir: false});
-    ractiveDB.set({DBisShp: false});  
+    ractiveDB.set({DBisShp: false});
+    DisplayDB(DBveh, 1);
 }
 
 function infDB(){
@@ -25,6 +120,7 @@ function infDB(){
     ractiveDB.set({DBisHel: false});
     ractiveDB.set({DBisAir: false});
     ractiveDB.set({DBisShp: false});  
+    DisplayDB(DBinf, 2);
 }
 
 function helDB(){
@@ -33,6 +129,7 @@ function helDB(){
     ractiveDB.set({DBisHel: true});
     ractiveDB.set({DBisAir: false});
     ractiveDB.set({DBisShp: false});   
+    DisplayDB(DBhel, 3);
 }
 function airDB(){
     ractiveDB.set({DBisVeh: false});    
@@ -40,37 +137,13 @@ function airDB(){
     ractiveDB.set({DBisHel: false});
     ractiveDB.set({DBisAir: true});
     ractiveDB.set({DBisShp: false});    
+    DisplayDB(DBair, 4);
 }
 function shpDB(){
     ractiveDB.set({DBisVeh: false});    
     ractiveDB.set({DBisInf: false});
     ractiveDB.set({DBisHel: false});
     ractiveDB.set({DBisAir: false});
-    ractiveDB.set({DBisShp: true});    
-}
-
-
-//DisplayDB();
-function DisplayDB(){
-    function createTable(tableData) {
-        var table = document.getElementById('DBtable');
-        var tableBody = document.getElementById('DBbody');
-        
-        DBarr.forEach(function(rowData) {
-            var row = document.createElement('tr');
-        
-            rowData.forEach(function(cellData) {
-              var cell = document.createElement('td');
-              cell.appendChild(document.createTextNode(cellData));
-              row.appendChild(cell);
-            });
-        
-            tableBody.appendChild(row);
-          });
-        
-          table.appendChild(tableBody);
-          document.body.appendChild(table);
-    }
-
-createTable([["row 1, cell 1", "row 1, cell 2"], ["row 2, cell 1", "row 2, cell 2"]]);
+    ractiveDB.set({DBisShp: true}); 
+    DisplayDB(DBshp, 5);   
 }

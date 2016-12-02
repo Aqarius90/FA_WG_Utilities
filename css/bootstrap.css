@@ -1529,7 +1529,9 @@ th {
 .table-condensed > thead > tr > td,
 .table-condensed > tbody > tr > td,
 .table-condensed > tfoot > tr > td {
-  padding: 5px;
+  line-height: 1;
+  padding: 3px;
+  font-size: 10px;
 }
 .table-bordered {
   border: 1px solid #ddd;

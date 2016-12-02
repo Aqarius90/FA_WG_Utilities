@@ -80,7 +80,9 @@ var ractiveDB = new Ractive({
         btInf: '#fff',
         btHel: '#fff',
         btAir: '#fff',
-        btShp: '#fff'
+        btShp: '#fff',
+        DBhead: '',
+        DBbody: ''
     }
 });
 

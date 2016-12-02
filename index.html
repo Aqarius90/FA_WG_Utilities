@@ -2035,12 +2035,13 @@
                  </div>
             </div>
             {{#if DBisVeh}}
+            <div class="panel" style="overflow: auto;">
               <div class="row">
-                <div class="col-md-4">
-                    <h4>     Common data</h4>
+                <div class="col-md-1">
+                    <h5>     Common data</h5>
                 </div>
                 <div class="col-md-8">
-                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                    <table id="logTable" class="sortable table-condensed" style="width:100%">
                         <thead>
                             <tr>
                                 <th>HelicopterDetectionRadius</th>
@@ -2058,15 +2059,17 @@
                             </tr>
                     </table>
                 </div>
-              </div>          
+              </div>   
+            </div>
             {{/if}}
             {{#if DBisInf}}
+            <div class="panel" style="overflow: auto;">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-1">
                     <h4>     Common data</h4>
                 </div>
                 <div class="col-md-8">
-                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                    <table id="logTable" class="sortable table-condensed" style="width:100%">
                         <thead>
                             <tr>
                                 <th>HelicopterDetectionRadius</th>
@@ -2087,14 +2090,16 @@
                     </table>
                 </div>
               </div>   
+            </div>
             {{/if}}
             {{#if DBisHel}}
+            <div class="panel" style="overflow: auto;">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-1">
                     <h4>     Common data</h4>
                 </div>
                 <div class="col-md-8">
-                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                    <table id="logTable" class="sortable table-condensed" style="width:100%">
                         <thead>
                             <tr>
                                 <th>HelicopterDetectionRadius</th>
@@ -2120,15 +2125,17 @@
                             </tr>
                     </table>
                 </div>
-              </div>   
+              </div> 
+            </div>
             {{/if}}
             {{#if DBisAir}}
+            <div class="panel" style="overflow: auto;">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-1">
                     <h4>     Common data</h4>
                 </div>
                 <div class="col-md-8">
-                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                    <table id="logTable" class="sortable table-condensed" style="width:100%">
                         <thead>
                             <tr>
                                 <th>HelicopterDetectionRadius</th>
@@ -2147,14 +2154,16 @@
                     </table>
                 </div>
               </div> 
+            </div>
             {{/if}}
             {{#if DBisShp}}
+            <div class="panel" style="overflow: auto;">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-1">
                     <h4>     Common data</h4>
                 </div>
                 <div class="col-md-8">
-                    <table id="logTable" class="sortable table-hover" style="width:100%">
+                    <table id="logTable" class="sortable table-condensed" style="width:100%">
                         <thead>
                             <tr>
                                 <th>HelicopterDetectionRadius</th>
@@ -2170,16 +2179,19 @@
                             </tr>
                     </table>
                 </div>
-              </div> 
+              </div>
+            </div>
             {{/if}}
             
-            <div>
+            <div class="panel" style="overflow: auto;">
+            <div class="col-md-12" style="overflow: auto;">
                <table id="DBtable" class="sortable table-hover" style="width:100%">
-                    <thead>
+                    <thead>                       
                     </thead>
-                  <tbody id="DBbody">
-                  </tbody>
+                    <tbody id="DBbody">
+                    </tbody>
                 </table>
+            </div>
             </div>
         {{/if}}
     </script>
