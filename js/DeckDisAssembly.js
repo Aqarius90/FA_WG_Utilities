@@ -124,41 +124,40 @@ function decodeDeck (deckCode)
     {
         Deck.iNation += deckBinary.charAt(i);
     }//magic numbers galore
-    if (Deck.iNation == "000000001010") { Deck.sNation = "USA"; } else
-    if (Deck.iNation == "000000101010") { Deck.sNation = "UK"; } else
-    if (Deck.iNation == "000001001010") { Deck.sNation = "FRA"; } else
-    if (Deck.iNation == "000001101010") { Deck.sNation = "BRD"; } else
-    if (Deck.iNation == "000010001010") { Deck.sNation = "CAN"; } else
-    if (Deck.iNation == "000010101010") { Deck.sNation = "DEN"; } else
-    if (Deck.iNation == "000011001010") { Deck.sNation = "SWE"; } else
-    if (Deck.iNation == "000011101010") { Deck.sNation = "NOR"; } else
-    if (Deck.iNation == "000100001010") { Deck.sNation = "ANZAC"; } else
-    if (Deck.iNation == "000100101010") { Deck.sNation = "JAP"; } else
-    if (Deck.iNation == "000101001010") { Deck.sNation = "ROK"; } else
-    if (Deck.iNation == "000101101010") { Deck.sNation = "NED"; } else
-    if (Deck.iNation == "000110001010") { Deck.sNation = "ISR";} else
-    if (Deck.iNation == "000110100000") { Deck.sNation = "EU"; } else
-    if (Deck.iNation == "000110100001") { Deck.sNation = "SCA"; } else
-    if (Deck.iNation == "000110100010") { Deck.sNation = "CW"; } else
-    if (Deck.iNation == "000110100011") { Deck.sNation = "BD"; } else
-    if (Deck.iNation == "000110100110") { Deck.sNation = "LJUT"; } else
-    if (Deck.iNation == "000110101000") { Deck.sNation = "NORAD"; } else
-    if (Deck.iNation == "000110101001") { Deck.sNation = "BDRNL"; } else
-    if (Deck.iNation == "000110101010") { Deck.sNation = "NATO"; } else
-    if (Deck.iNation == "010000001010") { Deck.sNation = "DDR"; } else
-    if (Deck.iNation == "010000101010") { Deck.sNation = "USSR"; } else
-    if (Deck.iNation == "010001001010") { Deck.sNation = "POL"; } else
-    if (Deck.iNation == "010001101010") { Deck.sNation = "CZS"; } else
-    if (Deck.iNation == "010010001010") { Deck.sNation = "PRC"; } else
-    if (Deck.iNation == "010010101010") { Deck.sNation = "DPRK"; } else
-    if (Deck.iNation == "010011001010") { Deck.sNation = "FIN"; } else //enable placeholder
-    if (Deck.iNation == "010011101010") { Deck.sNation = "YU"; } else //enable placeholder
-    if (Deck.iNation == "010011000100") { Deck.sNation = "RD"; } else
-    if (Deck.iNation == "010011000101") { Deck.sNation = "NSWP"; } else
-    if (Deck.iNation == "010011000111") { Deck.sNation = "SOVKOR"; } else
-    if (Deck.iNation == "010011001010") { Deck.sNation = "REDFOR"; } else
-    if (Deck.iNation == "010011001011") { Deck.sNation = "FINPL"; } else  //enable placeholder
-    if (Deck.iNation == "010011001100") { Deck.sNation = "YUCZE"; }       //enable placeholder
+    if (Deck.iNation == "000000001100") { Deck.sNation = "USA"; } else
+    if (Deck.iNation == "000000101100") { Deck.sNation = "UK"; } else
+    if (Deck.iNation == "000001001100") { Deck.sNation = "FRA"; } else
+    if (Deck.iNation == "000001101100") { Deck.sNation = "BRD"; } else
+    if (Deck.iNation == "000010001100") { Deck.sNation = "CAN"; } else
+    if (Deck.iNation == "000010101100") { Deck.sNation = "DEN"; } else
+    if (Deck.iNation == "000011001100") { Deck.sNation = "SWE"; } else
+    if (Deck.iNation == "000011101100") { Deck.sNation = "NOR"; } else
+    if (Deck.iNation == "000100001100") { Deck.sNation = "ANZAC"; } else
+    if (Deck.iNation == "000100101100") { Deck.sNation = "JAP"; } else
+    if (Deck.iNation == "000101001100") { Deck.sNation = "ROK"; } else
+    if (Deck.iNation == "000101101100") { Deck.sNation = "NED"; } else
+    if (Deck.iNation == "000110001100") { Deck.sNation = "ISR";} else
+    if (Deck.iNation == "000111100000") { Deck.sNation = "EU"; } else
+    if (Deck.iNation == "000111100001") { Deck.sNation = "SCA"; } else
+    if (Deck.iNation == "000111100010") { Deck.sNation = "CW"; } else
+    if (Deck.iNation == "000111100011") { Deck.sNation = "BD"; } else
+    if (Deck.iNation == "000111100110") { Deck.sNation = "LJUT"; } else
+    if (Deck.iNation == "000111101000") { Deck.sNation = "NORAD"; } else
+    if (Deck.iNation == "000111101001") { Deck.sNation = "BDRNL"; } else
+    if (Deck.iNation == "000111101100") { Deck.sNation = "NATO"; } else
+    if (Deck.iNation == "010000001100") { Deck.sNation = "DDR"; } else
+    if (Deck.iNation == "010000101100") { Deck.sNation = "USSR"; } else
+    if (Deck.iNation == "010001001100") { Deck.sNation = "POL"; } else
+    if (Deck.iNation == "010001101100") { Deck.sNation = "CZS"; } else
+    if (Deck.iNation == "010010001100") { Deck.sNation = "PRC"; } else
+    if (Deck.iNation == "010010101100") { Deck.sNation = "DPRK"; } else
+    if (Deck.iNation == "010011001100") { Deck.sNation = "FIN"; } else
+    if (Deck.iNation == "010011101100") { Deck.sNation = "YU"; } else
+    if (Deck.iNation == "010100100100") { Deck.sNation = "RD"; } else
+    if (Deck.iNation == "010100100101") { Deck.sNation = "NSWP"; } else
+    if (Deck.iNation == "010100101010") { Deck.sNation = "FINPL"; } else
+    if (Deck.iNation == "010100101011") { Deck.sNation = "YUCZE"; } else
+    if (Deck.iNation == "010100101100") { Deck.sNation = "REDFOR"; } 
     Deck.sSpec = "";
     for (var i = 12; i <= 14; i++)
     {

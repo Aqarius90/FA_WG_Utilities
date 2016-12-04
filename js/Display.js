@@ -30,14 +30,13 @@ function GUIDisplay() {
     if (Deck.iNation == "010001101010") { displayCZS(); } else
     if (Deck.iNation == "010010001010") { displayPRC(); } else
     if (Deck.iNation == "010010101010") { displayDPRK(); } else
-    //if (Deck.iNation == "010011001010") { displayFIN(); } else //enable placeholder
-    //if (Deck.iNation == "010011101010") { displayYU(); } else //enable placeholder
+    if (Deck.iNation == "010011001100") { displayFIN(); } else
+    if (Deck.iNation == "010011101100") { displayYU(); } else
     if (Deck.iNation == "010011000100") { displayRD(); } else
     if (Deck.iNation == "010011000101") { displayNSWP(); } else
-    if (Deck.iNation == "010011000111") { displayRKA(); } else
     if (Deck.iNation == "010011001010") { displayREDFOR(); } else
-    //if (Deck.iNation == "010011001011") { displayFINPL(); } else  //enable placeholder
-    //if (Deck.iNation == "010011001100") { displayYUCZE(); } else  //enable placeholder
+    if (Deck.iNation == "010100101010") { displayFINPL(); } else
+    if (Deck.iNation == "010100101011") { displayYUCZE(); } else
     { displayBLANK();}
 
     //spec
@@ -388,7 +387,7 @@ function showFlags(x) {
     if(x[7]==1) {ractiveHeader.set("flags.SCA", 'SCA' )}else{ractiveHeader.set("flags.SCA", "xSCA")};
     if(x[8]==1) {ractiveHeader.set("flags.NSWP", 'NSWP')}else{ractiveHeader.set("flags.NSWP", "xNSWP")};
     if(x[9]==1) {ractiveHeader.set("flags.RD", 'RD'   )}else{ractiveHeader.set("flags.RD", "xRD")};
-    if(x[10]==1){ractiveHeader.set("flags.RKA", 'RKA' )}else{ractiveHeader.set("flags.RKA", "xRKA")};
+    //if(x[10]==1){ractiveHeader.set("flags.RKA", 'RKA' )}else{ractiveHeader.set("flags.RKA", "xRKA")};
     if(x[11]==1){ractiveHeader.set("flags.ANZAC", 'ANZAC')}else{ractiveHeader.set("flags.ANZAC", "xANZAC")};
     if(x[12]==1){ractiveHeader.set("flags.BRD", 'BRD' )}else{ractiveHeader.set("flags.BRD", "xBRD")};
     if(x[13]==1){ractiveHeader.set("flags.CAN", 'CAN' )}else{ractiveHeader.set("flags.CAN", "xCAN")};
@@ -639,14 +638,6 @@ function displayRD() {
 
 function displayNSWP() {
     var flagstr = [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0];
-    showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+0%, +10AP");
-    Deck.availQ = 0;
-    Deck.deckpoitstotal += 10;
-}
-
-function displayRKA() {
-    var flagstr = [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0];
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "+0%, +10AP");
     Deck.availQ = 0;

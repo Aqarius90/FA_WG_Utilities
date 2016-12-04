@@ -55,7 +55,7 @@ function WeaponDataLoad()
     MainArmory[ 17] = new Weapon( 24500,    0,     0, 5460,  0,   0,  7.00, "4",  357, "[AOE][CORR][STAT][SMK]", "155mm", "FH155");
     MainArmory[ 18] = new Weapon( 35000,    0,     0, 4550,  0,   0, 11.00, "4",  442, "[AOE][CORR][STAT]", "220M", "9M27F");
     MainArmory[ 19] = new Weapon( 42000,    0,     0, 4550,  0,   0, 11.00, "4",  450, "[AOE][CORR][STAT]", "227mm ROCKET", "M26");
-    MainArmory[ 20] = new Weapon(  1050,  875,     0,   15,  5,   0,  0.75, "588",   90, "", "12.7mm", "NSVT");
+    MainArmory[ 20] = new Weapon(  1050, 1050,     0,   15,  5,   0,  0.75, "588",   90, "", "12.7mm", "NSVT");
     MainArmory[ 21] = new Weapon( 35000,    0,     0, 4550,  0,   5,  0.00, "4",  442, "[HEAT][CLUS][CORR][STAT]", "220M", "9M27F");
     MainArmory[ 22] = new Weapon( 42000,    0,     0, 4550,  0,   6,  0.00, "4",  450, "[HEAT][CLUS]", "227mm ROCKET", "M26");
     MainArmory[ 23] = new Weapon(  1050,    0,     0,   70,  0,   0,  8.00, "6",  380, "[AOE][STAT]", "165mm", "M135");
@@ -86,7 +86,7 @@ function WeaponDataLoad()
     MainArmory[ 48] = new Weapon(     0, 2800,  4550,   60,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-Hawk");
     MainArmory[ 49] = new Weapon(     0, 3500,  4550,   60,  0,   0,  9.00, "25S",  360, "[AOE][GUID][RAD]", "Radar missiles", "MIM-23B I-Hawk PIP III");
     MainArmory[ 50] = new Weapon(  1050,    0,     0,   20,  5,   4,  1.00, "6",   69, "[HEAT]", "60mm HEAT", "HB 60");
-    MainArmory[ 51] = new Weapon(  1925,    0,     0,   30,  0,  11,  3.00, "6S",  115, "[KE][STAT][AOE]", "100mm", "D-10T");
+    MainArmory[ 51] = new Weapon(  1925,    0,     0,   30,  0,  11,  3.00, "7",  115, "[KE][STAT][AOE]", "100mm", "D-10T");
     MainArmory[ 52] = new Weapon(  1925,    0,     0,   40, 10,  11,  3.00, "6",  133, "[KE][AOE]", "115mm", "2A20");
     MainArmory[ 53] = new Weapon(  1925,    0,     0,   30,  5,  13,  3.00, "6",  133, "[KE][AOE]", "115mm", "2A20");
     MainArmory[ 54] = new Weapon(  2100,    0,     0,   45, 15,  13,  3.00, "6",  133, "[KE][AOE]", "115mm", "2A20");
@@ -101,8 +101,8 @@ function WeaponDataLoad()
     MainArmory[ 63] = new Weapon(  2100,    0,     0,   50, 25,  18,  4.00, "7",  144, "[KE][AOE]", "125mm", "2A46");
     MainArmory[ 64] = new Weapon(  2800,    0,     0,   20,  5,   0,  4.00, "7",   49, "[AOE]", "85mm", "D-70");
     MainArmory[ 65] = new Weapon(  3500,    0,     0, 3640,  0,   0, 10.00, "7",  442, "[NPLM][CORR][STAT]", "220mm", "M0.1.01.04");
-    MainArmory[ 66] = new Weapon(     0, 2625,  4200,   50, 50,   0,  9.00, "7",  360, "[AOE][GUID][RAD]", "Radar missiles", "9M38");
-    MainArmory[ 67] = new Weapon(     0, 2800,  4550,   65, 65,   0,  9.00, "7",  360, "[AOE][GUID][RAD]", "Radar missiles", "9M38M1");
+    MainArmory[ 66] = new Weapon(     0, 2625,  4200,   50,  0,   0,  9.00, "30s",  360, "[AOE][GUID][RAD]", "Radar missiles", "9M38");
+    MainArmory[ 67] = new Weapon(     0, 2800,  4550,   65,  0,   0,  9.00, "30s",  360, "[AOE][GUID][RAD]", "Radar missiles", "9M38M1");
     MainArmory[ 68] = new Weapon(     0, 2800,  4550,   65,  0,   0,  9.00, "30S",  360, "[AOE][GUID][RAD]", "Radar missiles", "V-600P");
     MainArmory[ 69] = new Weapon(  1575,    0,     0,   35,  0,   7,  2.00, "7",   88, "[HEAT][STAT][AOE]", "76mm HEAT", "L5A1");
     MainArmory[ 70] = new Weapon(  1925,    0,     0,   20,  0,   7,  3.00, "7",  121, "[HEAT][STAT]", "105mm HEAT", "L28");
@@ -253,7 +253,7 @@ function WeaponDataLoad()
     MainArmory[218] = new Weapon(   700,    0,     0,   60,  0,  18,  0.00, "10",  336, "[HEAT][STAT]", "84mm HEAT", "CARL GUSTAV M2");
     MainArmory[221] = new Weapon(   525,    0,     0,   30,  0,  13,  0.00, "20",  264, "[HEAT][STAT]", "66mm HEAT Rocket", "M72 LAW");
     MainArmory[222] = new Weapon(   875,    0,     0,   60,  0,  20,  0.00, "10",  336, "[HEAT][STAT]", "84mm HEAT", "Carl Gustav M3");
-    MainArmory[223] = new Weapon(  2625,    0,     0,   60,  0,  20,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS missile", "I-TOW");
+    MainArmory[223] = new Weapon(  2625,    0,     0,   60,  0,  20,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "I-TOW");
     MainArmory[224] = new Weapon(  2275,    0,     0,   55,  0,  21,  3.00, "10",  138, "[KE][STAT][AOE]", "120mm", "BWK120");
     MainArmory[225] = new Weapon(  2100,    0,     0,   50, 15,  15,  3.00, "7",  115, "[KE][AOE]", "100mm", "D-10T");
     MainArmory[226] = new Weapon(  2625,    0,     0,   40, 10,  22,  1.00, "6s",  150, "[HEAT][GUID]", "SACLOS missile", "HOT 1");
@@ -277,7 +277,7 @@ function WeaponDataLoad()
     MainArmory[245] = new Weapon(  2100,    0,     0,   50, 25,  13,  3.00, "12",  115, "[KE][AOE]", "100mm", "2A15 Norov");
     MainArmory[246] = new Weapon(  1575,    0,     0,   45,  0,  15,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "Metys");
     MainArmory[247] = new Weapon(  2625,    0,     0,   50,  0,  15,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "TOW");
-    MainArmory[248] = new Weapon(  2450,    0,     0,   40, 10,  16,  1.00, "5s",  150, "[HEAT][GUID]", "SACLOS missile", "Fagot-M");
+    MainArmory[248] = new Weapon(  2450,    0,     0,   40,  0,  16,  1.00, "5s",  150, "[HEAT][GUID]", "SACLOS missile", "Fagot-M");
     MainArmory[249] = new Weapon(  2450,    0,     0,   45,  0,  16,  0.00, "5s",  150, "[HEAT][GUID]", "SACLOS missile", "Faktoriya");
     MainArmory[250] = new Weapon(  2450,    0,     0,   40,  0,  17,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "MILAN F1");
     MainArmory[251] = new Weapon(  2625,    0,     0,   60,  0,  20,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS missile", "I-TOW");
@@ -301,7 +301,7 @@ function WeaponDataLoad()
     MainArmory[269] = new Weapon(     0, 2275,  1820,   70, 70,   0,  5.00, "20S",  200, "[AOE][FF]", "IR missiles", "Type 91");
     MainArmory[270] = new Weapon(     0, 2275,  1820,   50,  0,   0,  3.00, "4S",  120, "[AOE][FF][STAT]", "IR missiles", "Strela-3");
     MainArmory[271] = new Weapon(     0, 2800,  2240,   55,  0,   0,  4.00, "8S",  160, "[AOE][GUID]", "SACLOS missile", "Twin RBS 90");
-    MainArmory[272] = new Weapon(  2450,    0,     0,   40,  0,  15,  0.00, "20S",  150, "[HEAT][GUID]", "MCLOS misile", "Malyutka-P");
+    MainArmory[272] = new Weapon(  2450,    0,     0,   40,  0,  15,  0.00, "20S",  150, "[HEAT][GUID]", "SACLOS misile", "Malyutka-P");
     MainArmory[273] = new Weapon(  7700,    0,     0,   50,  0,  80,  4.00, "20S",    0, "[HEAT][FF][STAT][SHIP]", "Radar missiles", "RGM-84 Harpoon");
     MainArmory[274] = new Weapon(   525,    0,     0,   35,  0,   0,  4.00, "15",  150, "[NPLM][STAT]", "Napalm rounds", "AG1 3x40");
     MainArmory[277] = new Weapon(     0, 2450,  1960,   40, 40,   0,  4.00, "10S",  160, "[AOE][FF]", "IR missiles", "Igla-1");
@@ -423,7 +423,7 @@ function WeaponDataLoad()
     MainArmory[399] = new Weapon(  3325,    0,     0,   50, 50,  30,  0.00, "1S",  150, "[HEAT][SA]", "SALH missile", "AGM-65E MAVERICK");
     MainArmory[400] = new Weapon(     0, 1575,  2100,   20, 20,   0,  2.00, "62",  173, "[AOE]", "75mm rocket", "Jaktraket m/57");
     MainArmory[403] = new Weapon(  2100,    0,     0,   30, 30,   0,  2.00, "67",  161, "[AOE]", "70mm ROCKETS", "M151 CRV7");
-    MainArmory[404] = new Weapon(  2100,    0,     0,   15,  5,   0,  2.00, "61",  161, "[AOE]", "70mm ROCKETS", "FFAR");
+    MainArmory[404] = new Weapon(  2100,    0,     0,   15,  5,   0,  2.00, "67",  161, "[AOE]", "70mm ROCKETS", "FFAR");
     MainArmory[405] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "0S",    0, "0", "0", "Bofors L/60");
     MainArmory[406] = new Weapon(   455,    0,     0,   60,  0,   0,  1.00, "72",   90, "[AOE][STAT]", "40mm FRAG", "Pallad-M");
     MainArmory[409] = new Weapon(  3500,    0,     0,   15,  0,   0, 15.00, "75",  600, "[AOE]", "500kg bombs", "FAB 500");
@@ -450,14 +450,14 @@ function WeaponDataLoad()
     MainArmory[437] = new Weapon(  1575, 1575,     0,   20, 10,   2,  1.00, "1153",   46, "[KE][AOE]", "20mm", "M197 VULCAN");
     MainArmory[438] = new Weapon(  2100,    0,     0,   30, 20,   0,  2.00, "132",  157, "[AOE]", "68mm", "SNEB");
     MainArmory[439] = new Weapon(  2100,    0,     0,   20, 10,   0,  2.00, "136",  184, "[AOE]", "80mm ROCKETS", "S-80FP");
-    MainArmory[440] = new Weapon(  1225,  525,     0,   15, 10,   0,  1.00, "137",   80, "[AOE]", "40mm FRAG", "Mk19");
-    MainArmory[442] = new Weapon(  1225,  525,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
+    MainArmory[440] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "137",   80, "[AOE]", "40mm FRAG", "Mk19");
+    MainArmory[442] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
     MainArmory[444] = new Weapon(  2100,    0,     0,   10,  5,   0,  2.00, "149",  161, "[AOE]", "70mm ROCKETS", "FFAR");
     MainArmory[450] = new Weapon(     0, 2450,  1960,   70,  0,   0,  5.00, "6S",  200, "[AOE][FF][STAT]", "IR missiles", "Type 91");
     MainArmory[458] = new Weapon(  3500,    0,     0,    5,  0,   0, 11.00, "166",  600, "[AOE]", "250kg Iron bombs", "FAB 250");
     MainArmory[464] = new Weapon(  1575, 1575,  1400,   15,  0,   0,  2.00, "171",  228, "[AOE][STAT]", "57mm", "S-68A");
     MainArmory[465] = new Weapon(  1050, 2800,  1750,   15,  0,   0,  2.00, "171",  228, "[AOE][STAT]", "57mm", "T69");
-    MainArmory[466] = new Weapon(  1750,  525,     0,   15,  5,   0,  1.00, "172",   80, "[AOE]", "40mm FRAG", "Twin Mk19");
+    MainArmory[466] = new Weapon(  1750,    0,     0,   15,  5,   0,  1.00, "172",   80, "[AOE]", "40mm FRAG", "Twin Mk19");
     MainArmory[467] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "60",   150, "[NPLM]", "340KG BOMB", "“Bidons speciaoux”");
     MainArmory[468] = new Weapon(  1750, 1575,     0,   50, 25,   2,  1.00, "204",   58, "[KE][AOE]", "25mm", "BUSHMASTER");
     MainArmory[469] = new Weapon(  1750, 1575,     0,   60, 30,   3,  1.00, "204",   58, "[KE][AOE]", "25mm", "BUSHMASTER");
@@ -500,21 +500,21 @@ function WeaponDataLoad()
     MainArmory[545] = new Weapon(  1750, 1575,     0,   25, 10,   2,  1.00, "450",   58, "[KE][AOE]", "25mm", "ZPT 90");
     MainArmory[546] = new Weapon(  1050, 2800,  2625,   40,  0,   0,  1.50, "451",  160, "[AOE][RAD]", "40mm", "Twin Ivakan m/48");
     MainArmory[547] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm PB", "MP2A1");
-    MainArmory[548] = new Weapon(  1050, 2450,  1750,   10,  0,   0,  1.00, "472",   92, "[AOE][STAT]", "23mm", "ZU-23-2");
+    MainArmory[548] = new Weapon(  1050, 2450,  1750,   15,  0,   0,  1.00, "472",   92, "[AOE][STAT]", "23mm", "ZU-23-2");
     MainArmory[549] = new Weapon(  1400, 1750,     0,   10,  5,   1,  1.00, "510",  110, "[KE]", "14.5mm", "ZPTU-2");
-    MainArmory[556] = new Weapon(  2100, 1575,  2275,   20, 20,   0,  1.00, "535",   46, "[AOE]", "23mm", "Gsh-23L");
+    MainArmory[556] = new Weapon(  2100, 1575,  2275,   30, 30,   0,  1.00, "1071",   46, "[AOE]", "23mm", "Gsh-23L");
     MainArmory[557] = new Weapon(  1050, 2625,  1750,   15,  0,   0,  1.00, "545",  120, "[AOE][STAT]", "30m", "PLDvK vz.53/59");
     MainArmory[558] = new Weapon(  1050, 2625,  1750,   25,  0,   0,  1.00, "545",  120, "[AOE][STAT]", "30m", "PLDvK vz.53/59");
     MainArmory[559] = new Weapon(  2100, 1575,  2275,   30, 30,   0,  1.00, "326",   60, "[AOE]", "30mm", "ADEN 30");
     MainArmory[560] = new Weapon(  1575, 1575,     0,   15, 10,   2,  1.00, "562",   46, "[KE][AOE]", "20mm", "M621");
-    MainArmory[561] = new Weapon(  1775, 1575,     0,   25, 10,   2,  1.00, "562",   69, "[KE][AOE]", "30mm", "2A42");
-    MainArmory[562] = new Weapon(  1750, 1575,     0,   30, 20,   2,  1.00, "562",   69, "[KE][AOE]", "30mm", "2A42");
+    MainArmory[561] = new Weapon(  1775, 1575,     0,   25, 10,   2,  1.00, "562",   60, "[KE][AOE]", "30mm", "2A42");
+    MainArmory[562] = new Weapon(  1750, 1575,     0,   30, 20,   2,  1.00, "562",   60, "[KE][AOE]", "30mm", "2A42");
     MainArmory[563] = new Weapon(  1750, 1575,     0,   30, 10,   2,  1.00, "562",   58, "[KE][AOE]", "25mm", "KBA 25");
-    MainArmory[564] = new Weapon(  1750, 1575,     0,   25, 10,   2,  1.00, "562",   69, "[KE][AOE]", "30mm", "VK-30");
-    MainArmory[565] = new Weapon(  1575, 1575,     0,   60, 50,   3,  1.00, "562",   69, "[KE][AOE]", "30mm", "2A42");
+    MainArmory[564] = new Weapon(  1750, 1575,     0,   25, 10,   2,  1.00, "562",   60, "[KE][AOE]", "30mm", "VK-30");
+    MainArmory[565] = new Weapon(  1575, 1575,     0,   60, 50,   3,  1.00, "562",   60, "[KE][AOE]", "30mm", "2A42");
     MainArmory[566] = new Weapon(  2800,    0,     0,   70, 50,  26,  0.00, "4S",  150, "[HEAT][FF]", "SALH missile", "AGM-114C HELLFIRE");
-    MainArmory[567] = new Weapon(  1050,  875,     0,   10,  5,   0,  0.75, "588",   90, "", "12.7mm", "DshK");
-    MainArmory[568] = new Weapon(  1050,  875,     0,   15,  5,   0,  0.75, "588",   90, "", "12.7mm", "NSVT");
+    MainArmory[567] = new Weapon(  1050,  875,     0,   10,  5,   0,  0.75, "652",   90, "", "12.7mm", "DshK");
+    MainArmory[568] = new Weapon(  1050,  875,     0,   15,  5,   0,  0.75, "652",   90, "", "12.7mm", "NSVT");
     MainArmory[569] = new Weapon(  1575, 1575,     0,   15, 15,   2,  1.00, "749",   46, "[KE][AOE]", "20mm", "HS.820");
     MainArmory[570] = new Weapon(  1050,  875,     0,   15,  5,   0,  0.75, "588",   90, "", "12.7mm", "T54");
     MainArmory[571] = new Weapon(  2800, 1575,  1575,   30, 30,   0,  1.00, "631",   60, "[AOE]", "30mm", "Gsh-2-30");
@@ -616,7 +616,7 @@ function WeaponDataLoad()
     MainArmory[699] = new Weapon(  2450, 1575,  2100,   40, 40,   0,  1.00, "6157",  115, "[AOE]", "25mm", "GAU-12/A Equalizer");
     MainArmory[700] = new Weapon(     0,    0,  2800,   30, 30,   0,  1.00, "857",  100, "[AOE]", "23mm", "Gsh-23L");
     MainArmory[702] = new Weapon(  1575, 1575,     0,   15, 15,   2,  1.00, "749",   40, "[KE][AOE]", "20mm", "HS.820");
-    MainArmory[704] = new Weapon(     0, 2450,  1960,   55, 55,   0,  5.00, "6s",  200, "[AOE][FF][STAT]", "IR missiles", "Igla-N");
+    MainArmory[704] = new Weapon(     0, 2450,  1960,   55,  0,   0,  5.00, "6s",  200, "[AOE][FF][STAT]", "IR missiles", "Igla-N");
     MainArmory[705] = new Weapon(     0, 2625,  2100,   60, 60,   0,  4.00, "9",  160, "[AOE][FF]", "IR missiles", "Igla-V");
     MainArmory[706] = new Weapon(  2800,    0,     0,   60, 50,  24,  0.00, "6s",  150, "[HEAT][SA]", "SALH missile", "Invar");
     MainArmory[707] = new Weapon(  1750, 1575,     0,   25, 10,   2,  1.00, "562",   58, "[KE][AOE]", "25mm", "KBA 25");
@@ -645,7 +645,7 @@ function WeaponDataLoad()
     MainArmory[737] = new Weapon( 24500,    0,     0, 4550,  0,   0,  7.00, "12",  357, "[AOE][CORR][STAT][SMK]", "155mm", "m/60");
     MainArmory[739] = new Weapon(  2625,    0,     0,   40, 40,   0,  3.00, "200",  161, "[AOE]", "70mm ROCKETS", "M151 CRV7");
     MainArmory[740] = new Weapon(  2100,    0,     0,   20, 10,   0,  2.00, "132",  161, "[AOE]", "70mm ROCKETS", "M151 HYDRA");
-    MainArmory[741] = new Weapon(  2450,    0,     0,   30, 30,   0,  3.00, "271",  161, "[AOE]", "70mm ROCKETS", "M151 HYDRA");
+    MainArmory[741] = new Weapon(  2450,    0,     0,   30, 30,   0,  3.00, "257",  161, "[AOE]", "70mm ROCKETS", "M151 HYDRA");
     MainArmory[742] = new Weapon(   525,    0,     0,   40,  0,   0,  4.00, "17",  150, "[NPLM][STAT]", "Napalm rounds", "M202 Flash");
     MainArmory[743] = new Weapon(   525,    0,     0,   30,  0,  10,  0.00, "10",  360, "[HEAT][STAT]", "83mm HEAT Rocket", "M20A1 Super Bazooka");
     MainArmory[744] = new Weapon(  3850,    0,     0, 2275,  0,   0,  2.00, "22",  138, "[AOE][CORR][STAT][SMK]", "60mm", "M224 Mortar");
@@ -663,8 +663,8 @@ function WeaponDataLoad()
     MainArmory[757] = new Weapon(  1925,    0,     0,   50,  0,  15,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 SUPER DRAGON");
     MainArmory[758] = new Weapon( 49000,    0,     0, 2275,  0,   0, 20.00, "0", 1340, "[AOE][CORR][STAT]", "570mm rocket", "M52 Tactical missile");
     MainArmory[759] = new Weapon(  1575,    0,     0,   40,  0,   4,  2.00, "6",   87, "[KE][STAT][AOE]", "75mm", "M6");
-    MainArmory[763] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "000000",    0, "", "000000", "9K33M OSA-M");
-    MainArmory[764] = new Weapon(  1225,  525,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
+    MainArmory[763] = new Weapon(     0, 2800,  3500,   40, 40,   0,  6.00, "8s", 240, "[AOE][FF][RAD][DEF]", "Radar missile", "9K33M OSA-M");
+    MainArmory[764] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
     MainArmory[765] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "000000",    0, "", "000000", "AK630 CIWS");
     MainArmory[766] = new Weapon(     0, 2450,  1960,   55, 55,   0,  4.00, "10S",  160, "[AOE][FF]", "IR missiles", "Igla");
     MainArmory[767] = new Weapon(  2625,    0,     0,   45,  0,  20,  0.00, "20S",  150, "[HEAT][GUID]", "SACLOS missile", "Konkurs");
@@ -687,7 +687,7 @@ function WeaponDataLoad()
     MainArmory[785] = new Weapon(  1750,  525,     0,   10,  5,   0,  1.00, "63",   80, "[AOE]", "40mm FRAG", "M75");
     MainArmory[786] = new Weapon(  1925,    0,     0,   40, 20,  11,  5.00, "8",  175, "[HEAT][AOE]", "152mm HEAT", "M81");
     MainArmory[787] = new Weapon(  1925,    0,     0,   45, 15,  11,  5.00, "8",  175, "[HEAT][AOE]", "152mm HEAT", "M81E1");
-    MainArmory[789] = new Weapon(  2450,    0,     0,   35,  0,  13,  0.00, "10S",  150, "[HEAT][GUID]", "MCLOS misile", "Malyutka");
+    MainArmory[789] = new Weapon(  2450,    0,     0,   35,  0,  13,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS misile", "Malyutka");
     MainArmory[791] = new Weapon(  2100, 1575,  2275,   35, 35,   0,  1.00, "1285",   54, "[AOE]", "27mm", "MAUSER BK-27");
     MainArmory[792] = new Weapon(  2100, 1575,  2800,   35, 35,   0,  1.00, "1285",   54, "[AOE]", "27mm", "MAUSER BK-27");
     MainArmory[793] = new Weapon(  3500,    0,     0,   20,  0,   0, 15.00, "42",  600, "[AOE]", "500KG Iron bombs", "MC/GP Mk.10");
@@ -785,7 +785,7 @@ function WeaponDataLoad()
     MainArmory[898] = new Weapon(  2450,    0,     0,   30, 30,   0,  4.00, "299",  311, "[AOE]", "135mm rocket", "Sprangraket m/56");
     MainArmory[899] = new Weapon(  2450,    0,     0,   30,  0,  17,  0.00, "20S",  150, "[HEAT][GUID]", "SACLOS missile", "SS-11");
     MainArmory[900] = new Weapon(  2625, 3150,  2450,   65,  0,  12,  6.00, "20S",  150, "[HEAT][GUID]", "SACLOS missile", "STARSTREAK");
-    MainArmory[903] = new Weapon(     0, 2100,  1680,   30, 30,   0,  3.00, "20S",  120, "[AOE][FF]", "IR missiles", "Strela-2M");
+    MainArmory[903] = new Weapon(     0, 2100,  1680,   30, 30,   0,  3.00, "10S",  120, "[AOE][FF]", "IR missiles", "Strela-2M");
     MainArmory[904] = new Weapon(     0, 2100,  1680,   30,  0,   0,  3.00, "6s",  120, "[AOE][FF][STAT]", "IR missiles", "Strela-3");
     MainArmory[905] = new Weapon(     0, 2275,  1820,   50, 50,   0,  3.00, "10S",  120, "[AOE][FF]", "IR missiles", "Strela-3");
     MainArmory[906] = new Weapon(     0,    0,   700,   60, 60,   0,  5.00, "0S",  200, "[AOE][SA]", "SA Radar missile", "Super 530 D");
@@ -806,12 +806,12 @@ function WeaponDataLoad()
     MainArmory[921] = new Weapon(  1925,    0,     0,   40, 10,  15,  3.00, "7",  115, "[KE][AOE]", "100mm", "T69-II");
     MainArmory[922] = new Weapon( 14000,    0,     0, 1820,  0,   0,  7.00, "7",  291, "[AOE][CORR][STAT]", "130mm rockets", "T75");
     MainArmory[923] = new Weapon(  2100,    0,     0,   50, 25,  16,  3.00, "7",  121, "[KE][AOE]", "105mm", "T83");
-    MainArmory[924] = new Weapon(  2100,    0,     0,   55, 30,  15,  3.00, "8",  121, "[KE][AOE]", "105mm", "T83");
-    MainArmory[925] = new Weapon(  2275,    0,     0,   55, 40,  16,  3.00, "8S",  121, "[KE][AOE]", "105mm", "T83");
+    MainArmory[924] = new Weapon(  2100,    0,     0,   55, 30,  15,  3.00, "9",  121, "[KE][AOE]", "105mm", "T83");
+    MainArmory[925] = new Weapon(  2275,    0,     0,   55, 40,  16,  3.00, "8",  121, "[KE][AOE]", "105mm", "T83");
     MainArmory[926] = new Weapon(  7700,    0,     0, 3640,  0,   0,  5.00, "9",  276, "[AOE][CORR][STAT][SMK]", "120mm", "Tampella");
     MainArmory[927] = new Weapon(  1050, 2800,  2625,   50, 35,   0,  1.00, "277",  120, "[AOE][RAD]", "30mm radar", "Twin 2A38M");
     MainArmory[928] = new Weapon(  2100, 1575,  2275,   30, 30,   0,  1.00, "1071",   60, "[AOE]", "30mm", "Twin ADEN 30");
-    MainArmory[929] = new Weapon(  1750,  525,     0,   15,  5,   0,  1.00, "173",   70, "[AOE]", "30mm FRAG", "Twin AGS-17");
+    MainArmory[929] = new Weapon(  1750,    0,     0,   15,  5,   0,  1.00, "173",   70, "[AOE]", "30mm FRAG", "Twin AGS-17");
     MainArmory[930] = new Weapon(  2100, 1575,  2100,   20, 20,   0,  1.00, "1071",   40, "[AOE]", "20mm", "TWIN COLT MK12");
     MainArmory[931] = new Weapon(  2100, 1575,  2800,   40, 40,   0,  1.00, "1071",   60, "[AOE]", "30mm", "Twin DEFA 550");
     MainArmory[932] = new Weapon(  1050, 2800,  2625,   65,  0,   0,  1.00, "793",  140, "[AOE][RAD][STAT]", "35mm", "Twin GDF-001");
@@ -831,7 +831,7 @@ function WeaponDataLoad()
     MainArmory[956] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "75",  150, "[NPLM]", "500kg bombs", "ZB500x8");
     MainArmory[957] = new Weapon(  1050, 2450,  1750,   10,  5,   0,  1.00, "472",   92, "[AOE]", "23mm", "ZU-23-2");
     MainArmory[958] = new Weapon(  1050, 2625,  1750,   25, 15,   0,  1.00, "472",   92, "[AOE]", "23mm", "ZU-23-2");
-    MainArmory[959] = new Weapon(  1925,    0,     0,   15,  5,   9,  1.00, "5",  141, "[HEAT][STAT]", "122mm", "2A18");
+    MainArmory[959] = new Weapon(  1925,    0,     0,   15,  0,   9,  1.00, "5",  141, "[HEAT][STAT]", "122mm", "2A18");
     MainArmory[960] = new Weapon(  1925,    0,     0,   20,  5,  14,  1.00, "7",  138, "[HEAT][STAT]", "120mm HEAT", "2A51 Nona");
     MainArmory[961] = new Weapon(  1925,    0,     0,   15,  5,  16,  1.00, "8",  175, "[HEAT]", "152mm", "2A64");
     MainArmory[963] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "000000",    0, "", "000000", "AK630 CIWS");//???
@@ -846,7 +846,7 @@ function WeaponDataLoad()
     MainArmory[972] = new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "533",   40, "", "5.56mm", "C7 Carbine");
     MainArmory[973] = new Weapon(  3500,    0,     0,   20,  0,   6,  0.00, "51",  300, "[HEAT][CLUS]", "340KG BOMB", "CBU-24");
     MainArmory[974] = new Weapon(  3500,    0,     0,   25,  0,   8,  0.00, "42",  300, "[HEAT][CLUS]", "450KG cluster", "CBU-87");
-    MainArmory[976] = new Weapon(     0, 3500,  3500,   80, 80,   0,  6.00, "12s", 240, "[AOE][FF][RAD][DEF]", "000000", "Crotale CN2");
+    MainArmory[976] = new Weapon(     0, 3500,  3500,   80, 80,   0,  6.00, "12s", 240, "[AOE][FF][RAD][DEF]", "Radar missile", "Crotale CN2");
     MainArmory[977] = new Weapon(  1925,    0,     0,   15,  5,  12,  1.00, "6",  175, "[HEAT][STAT]", "152mm HEAT", "D-22");
     MainArmory[978] = new Weapon(  1400, 2625,   700,   40, 40,   0,  1.00, "2076",   0, "[AOE][RAD][DEF]", "40mm", "DARDO CIWS");
     MainArmory[979] = new Weapon(  2100, 1575,  2275,   30, 30,   0,  1.00, "326",   60, "[AOE]", "30mm", "DEFA 550");
@@ -876,7 +876,7 @@ function WeaponDataLoad()
     MainArmory[1010] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "60",  150, "[NPLM]", "340KG Iron BOMB", "Mk77");
     MainArmory[1021] = new Weapon(  2625,    0,     0,   65,  0,  21,  0.00, "5s",  150, "[HEAT][GUID]", "SALH missiles", "Spike LR");
     MainArmory[1022] = new Weapon(  1575,    0,     0,   35,  0,  10,  2.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 DRAGON");
-    MainArmory[1025] = new Weapon(  1225,  350,     0,   15,  0,   0,  1.00, "142",  90, "[AOE][STAT]", "30mm FRAG", "Mk19");
+    MainArmory[1025] = new Weapon(  1225,    0,     0,   15,  0,   0,  1.00, "142",  90, "[AOE][STAT]", "30mm FRAG", "Mk19");
     MainArmory[1027] = new Weapon(   875,    0,     0,   70,  0,  21,  1.00, "10",  332, "[HEAT][STAT]", "83mm HEAT rocket", "B300");
     MainArmory[1029] = new Weapon(  1050, 2450,  1750,   25,  0,   0,  1.00, "913",  80, "[AOE][STAT]", "20mm", "TCM 20");
     MainArmory[1030] = new Weapon(  9100,    0,     0, 3868,  0,   0,  6.00, "7", 345, "[AOE][CORR][STAT][SMK]", "160mm", "M-66");
@@ -912,6 +912,86 @@ function WeaponDataLoad()
     MainArmory[1063] = new Weapon(  3500,    0,     0,   25,  0,   0, 23.00, "12",  600, "[AOE]", "1400KG bomb", "M1118"); //1
     MainArmory[1064] = new Weapon(  2975,    0,     0,   70, 60,  28,  0.00, "1s",  150, "[HEAT][SA]", "SALH missile", "Nimrod");
     MainArmory[1065] = new Weapon(  1050, 2800,  2625,   55, 35,   0,  1.00, "818",  92, "[AOE][RAD]", "20mm", "M168 VULCAN");
+    MainArmory[1066] = new Weapon(  2275,    0,     0,   60, 45,  16,  3.00, "9",  121, "[KE][AOE]", "105mm", "T83");
+    MainArmory[1067] = new Weapon(  2275,    0,     0,   60, 45,  17,  3.00, "9",  121, "[KE][AOE]", "105mm", "T83");
+    MainArmory[1068] = new Weapon(  2100,    0,     0,   45, 15,  16,  3.00, "7",  115, "[KE][AOE]", "100mm", "T69-II");
+    MainArmory[1069] = new Weapon(  2275,    0,     0,   50, 25,  17,  3.00, "6",  133, "[KE][AOE]", "115mm", "2A20");
+    MainArmory[1070] = new Weapon(  2275,    0,     0,   30, 20,   0,  4.00, "293", 92, "[AOE]", "128mm rocket", "Plamen A");
+    MainArmory[1071] = new Weapon(  1225, 1225,     0,   20, 10,   0,  0.75, "1249",  90, "", "12.7mm", "M2 BROWNING");
+    MainArmory[1072] = new Weapon(  2450,    0,     0,   50, 40,  24,  0.00, "1S",  150, "[HEAT][SA]", "SACLOS misile", "Maljutka-2M");
+    MainArmory[1073] = new Weapon(     0, 2450,  1960,   40, 40,   0,  4.00, "6s",  160, "[AOE][FF]", "IR missile", "Igla-1"); //HELO
+    MainArmory[1074] = new Weapon(  2450,    0,     0,   40, 30,  17,  0.00, "1s",  150, "[HEAT][SA]", "SACLOS misile", "Maljutka-P1");
+    MainArmory[1075] = new Weapon(     0, 2100,  1680,   35, 35,   0,  4.00, "10s",  160, "[AOE][FF]", "IR missile", "Strela-2M/A");//helo
+    MainArmory[1076] = new Weapon(  1050, 2625,  2450,   50, 20,   0,  1.00, "949",  120, "[AOE][RAD]", "30mm", "M-86");
+    MainArmory[1077] = new Weapon( 11200,    0,     0, 5460,  0,   0,  5.00, "5",  235, "[AOE][CORR][STAT][SMK]", "105mm", "M2");
+    MainArmory[1078] = new Weapon(     0, 2800,  4550,   65,  0,   0,  9.00, "30S", 360, "[AOE][GUID]", "SACLOS missile", "V-600PT");
+    MainArmory[1079] = new Weapon(     0, 2800,  2275,   60, 60,   0,  6.00, "10S", 240, "[AOE][FF]", "IR missile", "9M333");
+    MainArmory[1080] = new Weapon(     0, 3325,  2625,   60,  0,   0,  6.00, "10S", 240, "[AOE][GUID]", "IR missile", "R-73A-S-24");
+    MainArmory[1081] = new Weapon(  1400, 1400,  1225,   15,  0,   0,  1.00, "545",  120, "[AOE][STAT]", "30m", "PLDvK vz.53/59");
+    MainArmory[1082] = new Weapon(  1400,    0,     0,   15,  0,   2,  0.00, "545",  120, "[AOE][STAT]", "30m", "PLDvK vz.53/59");
+    MainArmory[1083] = new Weapon( 12250,    0,     0, 2730,  0,   0,  8.00, "15",  312, "[AOE][CORR][STAT][SMK]", "128m rockets", "M-94 Plamen-S");
+    MainArmory[1084] = new Weapon(  2450,    0,     0,   50,  0,  24,  0.00, "20S",  150, "[HEAT][GUID]", "SACLOS misile", "Maljutka-2M");
+    MainArmory[1085] = new Weapon(  2450,    0,     0,   40,  0,  17,  0.00, "10s",  150, "[HEAT][GUID]", "SACLOS misile", "Maljutka-P1");
+    MainArmory[1086] = new Weapon(  1750, 1575,     0,   30, 20,   3,  1.00, "450",  60, "[KE][AOE]", "30mm", "M-86");
+    MainArmory[1087] = new Weapon(  2450,    0,     0,   40,  0,  26,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS misile", "Maljutka-2T");
+    MainArmory[1088] = new Weapon(  1750, 1575,     0,   30, 20,   4,  1.00, "562",  60, "[KE][AOE]", "30mm", "M-89");
+    MainArmory[1089] = new Weapon(  1575, 1575,     0,   30, 15,   2,  1.00, "749",  40, "[KE][AOE]", "20mm", "M-55");
+    MainArmory[1090] = new Weapon(  1400,    0,     0,   20,  5,   0,  2.00, "33",  161, "[AOE]", "70mm rocket", "FFAR");
+    MainArmory[1091] = new Weapon(  1400,    0,     0,   15,  5,   0,  1.00, "33",  132, "[AOE]", "57mm", "BR-1-57");
+    MainArmory[1092] = new Weapon(  1050, 2625,  1750,   45,  0,   0,  1.00, "949",  120, "[AOE][STAT]", "30mm", "M-86");
+    MainArmory[1093] = new Weapon(  1050, 2450,  1750,   35,  0,   0,  1.00, "850",  80, "[AOE][STAT]", "20mm", "M-55AB3");
+    MainArmory[1101] = new Weapon(   700,    0,     0,   50,  0,  24,  0.00, "20",  448, "[HEAT][STAT]", "112mm HEAT Rocket", "M-90 Stršljen");
+    MainArmory[1102] = new Weapon(  1050,    0,     0,   60,  0,  26,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "Bumbar");
+    MainArmory[1108] = new Weapon(  2450,    0,     0,   50,  0,  20,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "Drug");
+    MainArmory[1112] = new Weapon(   525,    0,     0,   50,  0,  14,  0.00, "10",  290, "[HEAT][STAT]", "83mm HEAT", "M-57A2");
+    MainArmory[1113] = new Weapon(     0, 2100,  1680,   35,  0,   0,  4.00, "6s",  160, "[AOE][FF][STAT]", "IR missile", "Strela-2M/A");//inf
+    MainArmory[1115] = new Weapon(  1400,    0,     0,   40,  0,  10,  0.00, "7",  190, "[HEAT][STAT]", "82mm HEAT", "BsT M-60A");//inf
+    MainArmory[1116] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "42",  150, "[NPLM]", "340kg iron bombs", "PLAB 350");
+    MainArmory[1117] = new Weapon(  3500,    0,     0,   60, 60,  30,  0.00, "2s",  150, "[HEAT][FF]", "TV guidance missile", "GROM-B");
+    MainArmory[1118] = new Weapon(  2450, 1575,  2100,   20, 20,   0,  2.00, "167", 161, "[AOE]", "70mm rocket", "FFAR");
+    MainArmory[1119] = new Weapon(  2100, 1575,  2275,   30, 30,   0,  1.00, "857",  90, "[AOE]", "23mm", "Twin Gsh-23L");
+    MainArmory[1120] = new Weapon(  2100, 1575,  1400,   20, 20,   0,  0.75, "521",  90, "", "12.7mm", "M2 BROWNING");
+    MainArmory[1121] = new Weapon(  2450,    0,     0,   30, 30,   0,  4.00, "299",  293, "[NPLM]", "130mm ROCKETS", "HVAR");
+    MainArmory[1123] = new Weapon(  1400,    0,     0,   40, 20,  10,  2.00, "13",  190, "[HEAT][STAT]", "82mm HEAT", "BsT M-60A");//veh
+    MainArmory[1124] = new Weapon( 23800,    0,     0, 3640,  0,   0,  7.00, "6",  357, "[AOE][CORR][STAT]", "155mm", "M-84");
+    MainArmory[1125] = new Weapon(  1575,    0,     0,   30,  5,   2,  2.00, "20",  84, "[KE][AOE]", "37mm", "M6");
+    MainArmory[1126] = new Weapon( 49000,    0,     0, 4550,  0,   7,  0.00, "4",  514, "[HEAT][CLUS][CORR]", "262mm rockets", "M-87 Orkan");
+    MainArmory[1127] = new Weapon( 24500,    0,     0, 4550,  0,   0,  1.00, "13",  0, "[NPLM][CORR][STAT]", "128mm rockets", "M-77 Oganj");
+    MainArmory[1128] = new Weapon(  2100,    0,     0,   40, 10,  12,  3.00, "7",  115, "[KE][AOE]", "105mm", "D-10T");
+    MainArmory[1129] = new Weapon(  2450,    0,     0,   40,  5,  17,  0.00, "10s",  150, "[HEAT][SA]", "SACLOS misile", "Maljutka-P1");
+    MainArmory[1130] = new Weapon(  2275,    0,     0,   60, 30,  13,  3.00, "7",  115, "[KE][AOE]", "105mm", "D-10T");
+    MainArmory[1131] = new Weapon(  2275,    0,     0,   60, 30,  15,  3.00, "7",  115, "[KE][AOE]", "105mm", "D-10T");
+    MainArmory[1132] = new Weapon(  2275,    0,     0,   70, 65,  20,  4.00, "10",  144, "[KE][AOE]", "125mm", "2A46M");
+    MainArmory[1133] = new Weapon(  1050,  875,     0,   15,  5,   0,  0.75, "652",   90, "", "12.7mm", "NSV");
+    MainArmory[1134] = new Weapon(  2275,    0,     0,   70, 65,  22,  4.00, "10",  144, "[KE][AOE]", "125mm", "2A46M");
+    MainArmory[1135] = new Weapon(  2275,    0,     0,   65, 60,  19,  4.00, "9",  144, "[KE][AOE]", "125mm", "2A46M");
+    MainArmory[1136] = new Weapon(  2275,    0,     0,   60, 55,  16,  4.00, "9",  144, "[KE][AOE]", "125mm", "2A46M");
+    MainArmory[1137] = new Weapon(  1750,    0,     0,   40,  0,   8,  3.00, "8",  104, "[KE][STAT][AOE]", "90mm", "M36");
+    MainArmory[1140] = new Weapon(   525,    0,     0,   50,  0,  18,  0.00, "10",  356, "[HEAT][STAT]", "89mm HEAT", "Raikka");
+    MainArmory[1141] = new Weapon(  1400,    0,     0,   40,  0,  16,  2.00, "7",  380, "[HEAT][STAT][AOE]", "95mm HEAT", "Musti");//inf
+    MainArmory[1151] = new Weapon(  1225,    0,     0,   40,  0,   2,  1.00, "19",  40, "[KE][STAT][AOE]", "20mm", "Lahti");//inf
+    MainArmory[1155] = new Weapon(     0, 2100,  3500,   30, 30,   0,  4.00, "2S",  160, "[AOE][FF]", "IR missile", "AIM-9E");
+    MainArmory[1156] = new Weapon(     0, 2100,  3850,   50, 50,   0,  4.00, "2S",  160, "[AOE][FF]", "IR missile", "AIM-9P 3");
+    MainArmory[1157] = new Weapon(     0,    0,  7000,   35, 35,   0,  5.00, "0S",  200, "[AOE][SA]", "SA Radar missile", "Rb 27 Falcon");
+    MainArmory[1158] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "33",  1500, "[NPLM]", "500kg Napalm", "PTA-Kanisteri 58");
+    MainArmory[1159] = new Weapon(  2800,    0,     0,   35, 35,  20,  0.00, "1s",  150, "[HEAT][SA]", "MCLOS missile", "AS-11");
+    MainArmory[1160] = new Weapon(  3500,    0,     0,   25,  0,   0, 24.00, "12",  600, "[AOE]", "1500kg iron bomb", "FAB1500M54");
+    MainArmory[1161] = new Weapon( 35000,    0,     0, 6370,  0,   0,  7.00, "4",  357, "[AOE][CORR][STAT][SMK]", "155mm", "155K70 How");
+    MainArmory[1162] = new Weapon(  1925,    0,     0,   45,  0,  14,  0.00, "8",  179, "[KE][STAT]", "155mm", "155K70 AP");
+    MainArmory[1163] = new Weapon( 17500,    0,     0, 4550,  0,   0,  1.00, "11",  0, "[NPLM][CORR][STAT]", "122mm rockets", "M-210F");
+    MainArmory[1164] = new Weapon(  1575, 1575,     0,   50, 25,   2,  1.00, "2499", 46, "[KE][AOE]", "23mm", "Gsh-23L");
+    MainArmory[1165] = new Weapon(  1050, 2625,  1750,   35,  0,   0,  1.00, "472",   92, "[AOE][STAT]", "23mm", "ZU-23-2");
+    MainArmory[1166] = new Weapon(  1400,    0,     0,   40,  0,  16,  2.00, "7",  380, "[HEAT][STAT][AOE]", "95mm HEAT", "Musti");//veh
+    MainArmory[1167] = new Weapon( 30100,    0,     0, 6370,  0,   0,  7.00, "7",  350, "[AOE][CORR][STAT][SMK]", "152mm", "2A36");
+    MainArmory[1168] = new Weapon(  1750,    0,     0,   40,  0,   6,  2.00, "8",   87, "[KE][STAT][AOE]", "75mm", "StuK 40L/48");
+    MainArmory[1170] = new Weapon(  1050, 2800,  2625,   60, 45,   0,  1.00, "717",  140, "[AOE][RAD]", "35mm", "TWIN KDA");
+    MainArmory[1171] = new Weapon(  1925,    0,     0,   30,  0,   8,  3.00, "8",   97, "[KE][STAT][AOE]", "84mm", "QF 20-PDR");
+    MainArmory[1172] = new Weapon(  2100,    0,     0,   35,  0,  20,  0.00, "20s", 150, "[HEAT][GUID]", "MCLOS misile", "Vigilant");
+    MainArmory[1173] = new Weapon(     0, 3325,  2625,   60,  0,   0,  6.00, "30s",  240, "[AOE][GUID]", "Saclos misile", "Crotale NG");
+    MainArmory[1174] = new Weapon(  1575,    0,     0,   35,  5,  12,  2.00, "10",   84, "[HEAT][AOE]", "73mm HEAT", "2A28 Grom");
+	  MainArmory[1175] = new Weapon(  2275,    0,     0,   70, 40,  23,  4.00, "9",  144, "[KE][AOE]", "125mm", "2A46M");
+    MainArmory[1176] = new Weapon(  2275,    0,     0,   70, 15,  17,  3.00, "7",  115, "[KE][AOE]", "100mm", "D-10T");
+
 
     //rationalisation
     MainArmory[610] = new Weapon(  1050, 1050,     0,   20, 10,   0,  1.00, "1052",  36, "[AOE]", "7.62mm", "GSHG-7.62");
@@ -938,6 +1018,9 @@ function WeaponDataLoad()
     MainArmory[456] = new Weapon(   525,  525,     0,   30, 15,   0,  1.00, "160",   40, "", "7.62mm", "Type 68");        //line
     MainArmory[285] = new Weapon(   525,  525,     0,   30, 15,   0,  1.00, "160",   40, "", "7.62mm", "Vz.58");          //line
     MainArmory[701] = new Weapon(   525,  525,     0,   30, 15,   0,  1.00, "160",   40, "", "5.56mm", "Howa 89 Shiki");  //line
+    MainArmory[1106] = new Weapon(  525,  525,     0,   30, 15,   0,  1.00, "160",   40, "", "7.62mm", "M-70B1");  //line
+    MainArmory[1107] = new Weapon(  525,  525,     0,   30, 15,   0,  1.00, "160",   40, "", "7.62mm", "M-80A");  //line
+    MainArmory[1152] = new Weapon(  525,  525,     0,   30, 15,   0,  1.00, "160",   40, "", "7.62mm", "Rk 62");  //line
     MainArmory[1023]= new Weapon(   525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "5.56mm", "Galil");          //shock
     MainArmory[476] = new Weapon(   525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "5.45mm", "AK-74");          //shock
     MainArmory[477] = new Weapon(   525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "5.56mm", "C7");             //shock
@@ -955,6 +1038,10 @@ function WeaponDataLoad()
     MainArmory[482] = new Weapon(   525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "7.62mm", "QBZ-56-I");       //shock
     MainArmory[936] = new Weapon(   525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "7.62mm", "Type 68");        //shock
     MainArmory[483] = new Weapon(   525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "7.62mm", "Vz.58");          //shock
+    MainArmory[1097] = new Weapon(  525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "7.62mm", "M-70AB2");        //shock
+    MainArmory[1098] = new Weapon(  525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "5.45mm", "M-80A");          //shock
+    MainArmory[1150] = new Weapon(  525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "7.62mm", "Rk 62");          //shock
+    MainArmory[1149] = new Weapon(  525,  525,     0,   45, 23,   0,  1.00, "232",   40, "", "7.62mm", "Rk 90 TP");          //shock
     MainArmory[529] = new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "7.62mm", "AK5");            //elite kustyagare90 only
     MainArmory[524] = new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "7.62mm", "AKM");            //Elite, navy seals only
     MainArmory[639] = new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "5.56mm", "C7");             //elite
@@ -972,22 +1059,27 @@ function WeaponDataLoad()
     MainArmory[555] = new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "7.62mm", "Vz.58");          //elite spec jednotki
     MainArmory[640] = new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "5.56mm", "Howa 89F Shiki"); //elite
     MainArmory[1045]= new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "5.56mm", "Gillon");         //elite
+    MainArmory[1145]= new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "7.62mm", "Rk 62/76 TP");         //elite
+    MainArmory[1146]= new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "7.62mm", "Rk 62");         //elite
 
 
     //SMGs
-    MainArmory[443] = new Weapon(   455,  455,     0,   15, 15,   0,  1.00, "150",   30, "", "9mm PB", "Hovea M/49");     //militia, hjer HJEMMEVAERNET
+    MainArmory[1094] = new Weapon(  455,  455,     0,   15, 15,   0,  1.00, "150",   30, "", "Cal .45", "Automat M1");     //militia, hjer HJEMMEVAERNET
+    MainArmory[443] = new Weapon(   455,  455,     0,   15, 15,   0,  1.00, "150",   30, "", "9mm PB", "Hovea M/49");     //militia, TO
     MainArmory[196] = new Weapon(   455,  455,     0,   15, 15,   0,  1.00, "150",   30, "", "7.62TT", "Type 49");        //militia, red guard only
     MainArmory[485] = new Weapon(   455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "9mm PB", "C1 SMG");         //line
     MainArmory[486] = new Weapon(   455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "9mm PB", "Kpist m/45B");    //line
     MainArmory[487] = new Weapon(   455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "9mm PB", "MAT 49");         //line
     MainArmory[811] = new Weapon(   455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "9mm PB", "MP2A1");          //line Deckungsgruppe
     MainArmory[945] = new Weapon(   455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "9mm PB", "Uzi");            //line
+    MainArmory[1111] = new Weapon(  455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "7,62mm", "Automat M-56");            //line
     MainArmory[676] = new Weapon(   525,  525,     0,   30, 30,   0,  1.00, "342",   40, "", "5.45mm", "AKS-74U");        //shock
     MainArmory[1018]= new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "Kpist m/45B");    //shock
     MainArmory[1017]= new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "Newnanbu M66");   //shock JSDF only
     MainArmory[298] = new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "Skorpion");       //shock, Wachregiment
     MainArmory[301] = new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "STERLING");       //shock
     MainArmory[539] = new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "vz.25");          //shock, lehka
+    MainArmory[1139] = new Weapon(  455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "Suomi KP");          //shock, sissi
     MainArmory[552] = new Weapon(   525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "5.45mm", "AKS-74U");        //elite
     MainArmory[297] = new Weapon(   525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "5.45mm", "LADA AKSU");      //elite
     MainArmory[551] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm SP6","AS VAL");         //elite, speznaz only
@@ -999,6 +1091,9 @@ function WeaponDataLoad()
     MainArmory[554] = new Weapon(   525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "7.62mm", "Type 64 SMG");    //elite, li jian only
     MainArmory[233] = new Weapon(   525,  525,     0,   45, 45,   0,  1.00, "533",   40, "", "7.62mm", "Type 85 SMG");    //elite li jian only
     MainArmory[946] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm PB", "Uzi");            //elite, KCT only
+    MainArmory[1095] = new Weapon(  525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "5.45mm", "Automat M-85");    //elite senke, padobranci
+    MainArmory[1105] = new Weapon(  455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "7,92mm", "AP M-44");            //elite,
+    MainArmory[1154] = new Weapon(  455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mmPB", "Jatimatic");            //elite,
 
     //carabine
 
@@ -1034,6 +1129,7 @@ function WeaponDataLoad()
     MainArmory[790] = new Weapon(   595,  595,     0,   40,  5,   0,  1.00,  "64",   55, "", "7.5mm", "MAS 49/56");       //militia
     MainArmory[490] = new Weapon(   595,  595,     0,   40,  5,   0,  1.00,  "64",   55, "", "7.5mm", "Mauser m/96");     //militia
     MainArmory[200] = new Weapon(   595,  595,     0,   40,  5,   0,  1.00,  "64",   55, "", "7.62mm", "vz.52");          //militia
+    MainArmory[1142] = new Weapon(  595,  595,     0,   40,  5,   0,  1.00,  "64",   55, "", "7.5mm", "M/39");          //regular?
 
     //MG
     MainArmory[708] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "400",   55, "[STAT]","7.62mm", "Kg m/37");     //militia
@@ -1055,6 +1151,9 @@ function WeaponDataLoad()
     MainArmory[935] = new Weapon(   980,  595,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","7.62mm", "TYPE 67");     //line
     MainArmory[941] = new Weapon(   770,  595,     0,   30,  0,   0,  0.50, "450",   55, "[STAT]","7.62mm", "Type 73 LMG"); //line
     MainArmory[514] = new Weapon(   875,  595,     0,   20,  0,   0,  0.50, "428",   55, "[STAT]","7.62mm", "UK vz.59");    //line
+    MainArmory[1110] = new Weapon(  875,  595,     0,   20,  0,   0,  0.50, "594",   55, "[STAT]","7.92mm", "M53 Šarac");    //line
+    MainArmory[1114] = new Weapon(  770,  595,     0,   30,  0,   0,  0.50, "499",   55, "[STAT]","7.62mm", "M-72AB"); //line
+    MainArmory[1153] = new Weapon(  770,  595,     0,   30,  0,   0,  0.50, "491",   40, "[STAT]","7.62mm", "Kk 62"); //line
     MainArmory[1024]= new Weapon(   770,  595,     0,   40, 20,   0,  0.50, "600",   40, "[CQC]", "5.56mm", "Galil ARM");   //shock
     MainArmory[496] = new Weapon(   875,  595,     0,   30, 15,   0,  0.50, "428",   55, "[CQC]", "7.62mm", "62L Shiki");   //shock
     MainArmory[962] = new Weapon(   875,  595,     0,   30, 15,   0,  0.50, "428",   55, "[CQC]", "7.5mm", "AA-52");        //*shock, legion, rima
@@ -1076,6 +1175,10 @@ function WeaponDataLoad()
     MainArmory[873] = new Weapon(   770,  595,     0,   40, 20,   0,  0.50, "519",   40, "[CQC]", "5.45mm", "RPK-74");      //shock
     MainArmory[1015]= new Weapon(   770,  595,     0,   30,  0,   0,  0.50, "450",   55, "[STAT]","7.62mm", "Type 73 LMG"); //shock
     MainArmory[943] = new Weapon(   770,  595,     0,   40, 20,   0,  0.50, "468",   40, "[CQC]", "7.62mm", "Type 81");     //shock
+    MainArmory[1100] = new Weapon(  770,  595,     0,   40, 20,   0,  0.50, "499",   40, "[CQC]", "7.62mm", "M-78AB");     //shock
+    MainArmory[1099] = new Weapon(  770,  595,     0,   40, 20,   0,  0.50, "519",   40, "[CQC]", "5.45mm", "M-82A");      //shock
+    MainArmory[1109] = new Weapon(  875,  595,     0,   30, 15,   0,  0.50, "428",   55, "[CQC]", "7.62mm", "M-84");     //shock
+    MainArmory[1148] = new Weapon(  770,  595,     0,   40, 20,   0,  0.50, "491",   40, "[CQC]", "7.62mm", "Kk 62");      //shock
     MainArmory[992] = new Weapon(   875,  595,     0,   40, 25,   0,  0.50, "428",   55, "[CQC]", "7.5mm", "AA-52");        //*elite, commando marine <<<same as shock
     MainArmory[530] = new Weapon(   980,  595,     0,   40, 25,   0,  0.50, "450",   55, "[CQC]", "7.7mm", "Bren L4");      //elite marines, , sbs<<same as shock
     MainArmory[491] = new Weapon(   770,  595,     0,   40, 20,   0,  0.50, "450",   55, "[CQC]", "7.62mm", "C2A1");        //elite
@@ -1086,13 +1189,17 @@ function WeaponDataLoad()
     MainArmory[667] = new Weapon(   875,  525,     0,   45, 25,   0,  0.50, "428",   55, "[CQC]", "7.62mm", "M60 Shorty");  //elite NZSAS, UDT
     MainArmory[641] = new Weapon(   875,  595,     0,   30, 15,   0,  0.50, "594",   55, "[CQC]", "7.62mm", "I.MG3");       //elite, JAEGERE, FSK
     MainArmory[441] = new Weapon(   770,  595,     0,   50, 30,   0,  0.50, "594",   40, "[CQC]", "5.56mm", "MINIMI");      //elite <<all same
-    MainArmory[1011]= new Weapon(   875,  595,     0,   30, 15,   0,  0.50, "428",   55, "[CQC]", "7.62mm", "RPD");         //elite
+    MainArmory[1011]= new Weapon(   875,  595,     0,   40, 20,   0,  0.50, "428",   55, "[CQC]", "7.62mm", "RPD");         //elite
     MainArmory[872] = new Weapon(   770,  595,     0,   50, 30,   0,  0.50, "499",   40, "[CQC]", "7.62mm", "RPK");         //elite
     MainArmory[1014]= new Weapon(   770,  595,     0,   50, 30,   0,  0.50, "519",   40, "[CQC]", "5.45mm", "RPK-74");      //elite
     MainArmory[902] = new Weapon(   770,  595,     0,   50, 30,   0,  0.50, "594",   40, "[CQC]", "5.56mm", "STONER 63");   //elite
     MainArmory[1016]= new Weapon(   770,  595,     0,   50, 30,   0,  0.50, "468",   40, "[CQC]", "7.62mm", "Type 81");     //elite
     MainArmory[1026]= new Weapon(   875,  595,     0,   40, 25,   0,  0.50, "428",   55, "[CQC]", "7.62mm", "PKM");         //elite
     MainArmory[1046]= new Weapon(   770,  595,     0,   50, 30,   0,  0.50, "594",   40, "[CQC]", "5.56mm", "Negev");       //elite
+    MainArmory[1103]= new Weapon(   875,  595,     0,   40, 25,   0,  0.50, "428",   55, "[CQC]", "7.62mm", "M-84");       //elite
+    MainArmory[1104]= new Weapon(   875,  595,     0,   40, 25,   0,  0.50, "428",   55, "[CQC]", "7.92mm", "M53 Šarac");       //elite
+    MainArmory[1143]= new Weapon(   770,  595,     0,   50, 30,   0,  0.50, "499",   40, "[CQC]", "7.62mm", "Valmet M78");       //elite
+    MainArmory[1144]= new Weapon(   770,  595,     0,   50, 30,   0,  0.50, "491",   40, "[CQC]", "7.62mm", "Kk 62");       //elite
 
     MainArmory[573] = new Weapon(   875,  525,     0,   20, 10,   0,  0.50, "652",   55, "", "7.62mm", "62 Shiki");         //veh
     MainArmory[519] = new Weapon(   875,  595,     0,   20,  5,   0,  0.50, "428",   45, "", "6.5mm", "Ksp m/58");          //veh, fallskarmsjagare (wtf?)
@@ -1110,6 +1217,8 @@ function WeaponDataLoad()
     MainArmory[606] = new Weapon(   875,  525,     0,   20,  5,   0,  0.50, "1035",  55, "", "7.62mm", "Twin M1919");       //veh
     MainArmory[607] = new Weapon(   875,  525,     0,   10,  5,   0,  0.50, "1034",  55, "", "7.62mm", "Twin Ksp m/36");    //veh
     MainArmory[608] = new Weapon(   875,  525,     0,   20,  5,   0,  0.50, "1034",  55, "", "7.62mm", "M240");             //veh
+    MainArmory[1122] = new Weapon(  875,  525,     0,   30, 20,   0,  0.50, "652",  55, "", "7.92mm", "M53 Šarac");             //veh
+    MainArmory[1169] = new Weapon(  875,  525,     0,   20, 10,   0,  0.50, "652",  55, "", "7.62mm", "DT 7.62");             //veh
 
     //snipers
     MainArmory[275] = new Weapon(  1050,  595,     0,   90,  0,   0,  1.00,  "15",   55, "[STAT]", "7.62mm", "Howa DMR");
@@ -1119,6 +1228,8 @@ function WeaponDataLoad()
     MainArmory[848] = new Weapon(  1050,  595,     0,   95,  0,   0,  1.00,  "15",   55, "[STAT]", "7.62mm", "H&K PSG1");
     MainArmory[283] = new Weapon(  1575,  595,     0,   95,  0,   1,  1.00, "15",   90, "[KE][STAT]", "12.7mm", "C15 LRSW");
     MainArmory[1043]= new Weapon(  1050,  595,     0,   95,  0,   0,  1.00,  "64",   55, "[STAT]", "7.62mm", "M14");            //line
+    MainArmory[1096]= new Weapon(  1750,    0,     0,   95,  0,   2,  1.00,  "15",   40, "[KE][STAT]", "20mm", "RT-20");            //elite
+    MainArmory[1138] = new Weapon(  1050,  595,     0,   95, 20,   0,  1.00,  "15",   55, "", "7.62mm", "Dragunov SVD");// sissi
 
 }
 
@@ -1302,12 +1413,11 @@ function SetTransports(){
     TransportArray[1062][0] = [1085];
     TransportArray[1074][0] = [1020,1022,1086,1064,1017,1057];
     TransportArray[1075][0] = [1020,1022,1086,1064,1017,1057];
-    TransportArray[1076][0] = [1044,1036,1087,1097];
+    TransportArray[1076][0] = [1036,1087,1097];
     TransportArray[1083][0] = [1044,1020,1088];
     TransportArray[1084][0] = [1044,1036,1087];
     TransportArray[1025][0] = [1044,1036,1069,1088];
     TransportArray[1053][0] = [1044,1036,1069,1087,1097];
-
 
     TransportArray[ 619][1] = [ 332, 424, 425, 644, 529, 706,   0,   0,   0,   0,   0,   0,   0];
     TransportArray[ 662][1] = [ 424, 425, 421, 422, 202, 203, 644, 529, 706,   0,   0,   0,   0];
@@ -1410,4 +1520,35 @@ function SetTransports(){
     TransportArray[ 270][1] = [ 389,  79,  80,  83,  85,  86, 464, 487, 489,   0,   0,   0,   0];
     TransportArray[ 392][1] = [  95,  96,  97, 506, 507, 486,  34,  33,  36,  37,   0,   0,   0];
     TransportArray[ 631][1] = [  95,  96,  97, 506, 507, 486,  34,  33,  36,  37,   0,   0,   0];
+    TransportArray[ 863][1] = [ 827, 829, 805, 810, 836, 843,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 864][1] = [ 829, 805, 810, 812, 802, 828, 836,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 865][1] = [ 829, 805, 810, 812, 802, 828, 836,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 866][1] = [ 812, 829, 805, 810, 836,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 867][1] = [ 812, 829, 805, 810, 836,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 868][1] = [ 808, 811, 836,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 869][1] = [ 827, 829, 805, 810, 812, 836, 843,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 870][1] = [ 812,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 871][1] = [ 829, 805, 810, 812, 802, 828,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 872][1] = [ 829, 805, 810, 812, 802, 828,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 873][1] = [ 829, 805, 810, 812, 802, 828, 836,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 874][1] = [ 829, 805, 810, 812, 802, 828, 836,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 875][1] = [ 829, 805, 810, 836, 843,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 876][1] = [ 829, 805, 810, 836, 843,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 877][1] = [ 829, 805, 810, 812, 802, 828, 836,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 878][1] = [ 827, 829, 805, 810, 836, 843,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 924][1] = [ 964, 971,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 925][1] = [ 953, 964, 942, 970,   0,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 926][1] = [ 953, 964, 907, 908, 970,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 927][1] = [ 964, 907, 908, 944, 945, 946,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 928][1] = [ 964, 907, 908, 944, 945, 946,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 929][1] = [ 964, 907, 908, 944, 945, 946,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 930][1] = [ 964, 907, 908, 971,   0,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 931][1] = [ 964, 907, 908, 944, 945, 946,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 932][1] = [ 964, 907, 908, 944, 945, 946,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 933][1] = [ 964, 971,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 934][1] = [ 964, 971,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 935][1] = [ 964, 907, 908, 944, 945, 946,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 936][1] = [ 964, 907, 908, 944, 945, 946,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 937][1] = [ 953, 942, 970,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
+    TransportArray[ 938][1] = [ 950,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
 }
