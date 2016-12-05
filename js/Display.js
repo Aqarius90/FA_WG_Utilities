@@ -3,38 +3,38 @@ function GUIDisplay() {
     Deck.deckpoints = 0;
     Deck.deckpoitstotal = 45;
     //nation
-    if (Deck.iNation == "000000001010") { displayUSA(); } else
-    if (Deck.iNation == "000000101010") { displayUK(); } else
-    if (Deck.iNation == "000001001010") { displayFRA(); } else
-    if (Deck.iNation == "000001101010") { displayBRD(); } else
-    if (Deck.iNation == "000010001010") { displayCAN(); } else
-    if (Deck.iNation == "000010101010") { displayDEN(); } else
-    if (Deck.iNation == "000011001010") { displaySWE(); } else
-    if (Deck.iNation == "000011101010") { displayNOR(); } else
-    if (Deck.iNation == "000100001010") { displayANZAC(); } else
-    if (Deck.iNation == "000100101010") { displayJAP(); } else
-    if (Deck.iNation == "000101001010") { displayROK(); } else
-    if (Deck.iNation == "000101101010") { displayNED(); } else
-    if (Deck.iNation == "000110001010") { displayISR(); } else
-    if (Deck.iNation == "000110100000") { displayEU(); } else
-    if (Deck.iNation == "000110100001") { displaySCA(); } else
-    if (Deck.iNation == "000110100010") { displayCOM(); } else
-    if (Deck.iNation == "000110100011") { displayBD(); } else
-    if (Deck.iNation == "000110100110") { displayLJ(); } else
-    if (Deck.iNation == "000110101000") { displayNORAD(); } else
-    if (Deck.iNation == "000110101001") { displayBDRNL(); } else
-    if (Deck.iNation == "000110101010") { displayNato(); } else
-    if (Deck.iNation == "010000001010") { displayDDR(); } else
-    if (Deck.iNation == "010000101010") { displayUSSR(); } else
-    if (Deck.iNation == "010001001010") { displayPOL(); } else
-    if (Deck.iNation == "010001101010") { displayCZS(); } else
-    if (Deck.iNation == "010010001010") { displayPRC(); } else
-    if (Deck.iNation == "010010101010") { displayDPRK(); } else
+    if (Deck.iNation == "000000001100") { displayUSA(); } else
+    if (Deck.iNation == "000000101100") { displayUK(); } else
+    if (Deck.iNation == "000001001100") { displayFRA(); } else
+    if (Deck.iNation == "000001101100") { displayBRD(); } else
+    if (Deck.iNation == "000010001100") { displayCAN(); } else
+    if (Deck.iNation == "000010101100") { displayDEN(); } else
+    if (Deck.iNation == "000011001100") { displaySWE(); } else
+    if (Deck.iNation == "000011101100") { displayNOR(); } else
+    if (Deck.iNation == "000100001100") { displayANZAC(); } else
+    if (Deck.iNation == "000100101100") { displayJAP(); } else
+    if (Deck.iNation == "000101001100") { displayROK(); } else
+    if (Deck.iNation == "000101101100") { displayNED(); } else
+    if (Deck.iNation == "000110001100") { displayISR(); } else
+    if (Deck.iNation == "000111100000") { displayEU(); } else
+    if (Deck.iNation == "000111100001") { displaySCA(); } else
+    if (Deck.iNation == "000111100010") { displayCOM(); } else
+    if (Deck.iNation == "000111100011") { displayBD(); } else
+    if (Deck.iNation == "000111100110") { displayLJ(); } else
+    if (Deck.iNation == "000111101000") { displayNORAD(); } else
+    if (Deck.iNation == "000111101001") { displayBDRNL(); } else
+    if (Deck.iNation == "000111101100") { displayNato(); } else
+    if (Deck.iNation == "010000001100") { displayDDR(); } else
+    if (Deck.iNation == "010000101100") { displayUSSR(); } else
+    if (Deck.iNation == "010001001100") { displayPOL(); } else
+    if (Deck.iNation == "010001101100") { displayCZS(); } else
+    if (Deck.iNation == "010010001100") { displayPRC(); } else
+    if (Deck.iNation == "010010101100") { displayDPRK(); } else
     if (Deck.iNation == "010011001100") { displayFIN(); } else
     if (Deck.iNation == "010011101100") { displayYU(); } else
-    if (Deck.iNation == "010011000100") { displayRD(); } else
-    if (Deck.iNation == "010011000101") { displayNSWP(); } else
-    if (Deck.iNation == "010011001010") { displayREDFOR(); } else
+    if (Deck.iNation == "010100100100") { displayRD(); } else
+    if (Deck.iNation == "010100100101") { displayNSWP(); } else
+    if (Deck.iNation == "010100101100") { displayREDFOR(); } else
     if (Deck.iNation == "010100101010") { displayFINPL(); } else
     if (Deck.iNation == "010100101011") { displayYUCZE(); } else
     { displayBLANK();}
@@ -646,6 +646,7 @@ function displayNSWP() {
 
 function displayREDFOR() {
     var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0];
+    console.log("test");
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "No bonus");
     Deck.availQ = 0;
@@ -656,7 +657,7 @@ function displayBLANK() {
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "");
     Deck.availQ = 10;
-    Deck.deckpoitstotal += 0;
+    Deck.deckpoitstotal += 15;
   }
 
 function displayFINPL() {
