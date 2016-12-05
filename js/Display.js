@@ -647,7 +647,7 @@ function displayNSWP() {
 function displayREDFOR() {
     var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "No bonus redfor");
+    ractiveHeader.set("lab.tnation", "No bonus");
     Deck.availQ = 0;
 }
 
@@ -656,39 +656,39 @@ function displayBLANK() {
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "");
     Deck.availQ = 10;
-    Deck.deckpoitstotal += 15;
+    Deck.deckpoitstotal += 0;
   }
 
 function displayFINPL() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+0%, +0AP");
-    Deck.availQ = 0;
-    Deck.deckpoitstotal += 0; //enable fix
+    ractiveHeader.set("lab.tnation", "+10%, +10AP");
+    Deck.availQ = 10;
+    Deck.deckpoitstotal += 10; //enable fix
 }
 
 function displayYUCZE() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+0%, +0AP");
-    Deck.availQ = 0;
-    Deck.deckpoitstotal += 0; //enable fix
+    ractiveHeader.set("lab.tnation", "+10%, +10AP");
+    Deck.availQ = 10;
+    Deck.deckpoitstotal += 10; //enable fix
 }
 
 function displayFIN() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+0%, +0AP");
-    Deck.availQ = 0;
-    Deck.deckpoitstotal += 0; //enable fix
+    ractiveHeader.set("lab.tnation", "+20%, +15AP");
+    Deck.availQ = 20;
+    Deck.deckpoitstotal += 15; //enable fix
 }
 
 function displayYU() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+0%, +0AP");
-    Deck.availQ = 0;
-    Deck.deckpoitstotal += 0; //enable fix
+    ractiveHeader.set("lab.tnation", "+20%, +15AP");
+    Deck.availQ = 20;
+    Deck.deckpoitstotal += 15; //enable fix
 }
 
 function displayCard(card, type, pos){
