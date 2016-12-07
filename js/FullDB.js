@@ -2,7 +2,7 @@ function initDB(){
     var DBstring;
     window.DBarr;
     ractiveDB.set({DBisNotLoaded: false});
-    jQuery.get('https://aqarius90.github.io/FA_WG_Ulilities/final_data.csv', function(data) {
+    jQuery.get('https://aqarius90.github.io/FA_WG_Utilities/final_data.csv', function(data) {
       DBstring = new String(data);
         //DBarr = CSVToArray(DBstring);
         DBarr = jQuery.csv.toArrays(data);
@@ -53,6 +53,12 @@ function ListData(){
         i=DBarr.length;
         }
     }
+    
+    $(document).ready(function()
+      {
+          $("#DBtable").tablesorter();
+      }
+    );
 }
 
 
@@ -64,45 +70,43 @@ function DisplayDB(tableData, type){
     head = '';
     var body = ractiveDB.get('DBbody');
     body = '';
-    var tmp = 0;
     //var table = document.getElementById('DBtable');
     //var tableBody = document.getElementById('DBbody');
     var tableArr = new Array();
     for (var j = 0; j < tableData.length; j++) {
         tableArr[j] = new Array();
-        //console.log(j);
     }
-    /*console.log(tableArr);*/
+    var tmp = 0;
     for (var i = 0; i < tableData[0].length; i++) {   
-        if((type == 1 && (tableData[0][i] == "Name" || tableData[0][i] == "Amphibious"))){   
-            console.log(tableData[0][i])  ;
+        if((type == 1 && (tableData[0][i] == "Name" 
+                        || tableData[0][i] == "Amphibious"
+                        || tableData[0][i] == "ArmorFront"
+                        || tableData[0][i] == "ArmorRear"
+                        || tableData[0][i] == "ArmorSides"
+                        || tableData[0][i] == "ArmorTop"
+                        ))){  
             for (var k = 0; k < tableData.length; k++) {
-                tableArr[k][tmp] = tableData[k][i]; 
-                tmp++;
+                tableArr[k][tmp] = tableData[k][i];
             }
+            tmp++; 
         }        
     }
-    console.log(tableArr)
     var table = document.getElementById('DBtable');
     var tableBody = document.getElementById('DBbody');
     
-    for (var i = 0; i < 2; i++) {   
+    for (var i = 0; i < tableArr.length; i++) {   
         var row = table.insertRow(i);
             for (var k = 0; k < tableArr[0].length; k++) {                
                 var cell = row.insertCell(k);
                 cell.innerHTML = tableArr[i][k];
             }
     }
-    
-    /*
-    for (var i = 0; i < tableArr[0].length; i++) {
-        body += "<tr>";
-            for (var j = 0; j < tableArr.length; j++) {
-                body += "<td>" + tableArr[i][j] + "</td>";
-            }
-        body += "</tr>";
-    }                
-    ractiveDB.update('DBbody');*/
+    $(document).ready(
+        function()
+        {
+        $("#DBtable").trigger("update");
+        }
+    );
 }
 
 function vehDB(){

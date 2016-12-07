@@ -25,6 +25,7 @@ function init() {
           $("#helTable").tablesorter();
           $("#airTable").tablesorter();
           $("#navTable").tablesorter();
+          $("#DBtable").tablesorter();
       }
     );
     //if (document.readyState === "complete") {ractiveHeader.set('unloaded', false); }
