@@ -671,8 +671,8 @@ function displayFINPL() {
 function displayYUCZE() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+10%, +10AP");
-    Deck.availQ = 10;
+    ractiveHeader.set("lab.tnation", "0%, +10AP");
+    Deck.availQ = 0;
     Deck.deckpoitstotal += 10; //enable fix
 }
 
@@ -687,8 +687,8 @@ function displayFIN() {
 function displayYU() {
     var flagstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0];
     showFlags(flagstr);
-    ractiveHeader.set("lab.tnation", "+20%, +15AP");
-    Deck.availQ = 20;
+    ractiveHeader.set("lab.tnation", "+15%, +15AP");
+    Deck.availQ = 15;
     Deck.deckpoitstotal += 15; //enable fix
 }
 

@@ -115,8 +115,8 @@ function UnitLookup(){
     else if (Deck.sSpec == "MOTO"){spec=4;}
     else if (Deck.sSpec == "SUP"){spec=5;}
     else if (Deck.sSpec == "NAV"){spec=6;}
-
-    var valid = true;
+ 
+	var valid = true;
     for (var i=0; i<1114;i++){
         card = CardsDB[i][Deck.iSide];
         if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
@@ -167,6 +167,7 @@ function toList(card){
     else if (card.UnitTypeData.charAt(6) == '1'){type = "helTable";}//hel
     else if (card.UnitTypeData.charAt(7) == '1'){type = "airTable";}//air
     else {type = "navTable";}//nav
+	
 
     var table = document.getElementById(type);
     var row = table.insertRow(table.rows.length);
