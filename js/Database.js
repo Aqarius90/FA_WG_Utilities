@@ -4659,7 +4659,7 @@ function Weaponize()
   CardsDB[ 156][0].W1 = new Arm(487,800); CardsDB[ 156][0].W2 = new Arm(207,4); CardsDB[ 156][0].W3 = new Arm(  0,   0);// "FRA", "Hussards");
   CardsDB[ 157][0].W1 = new Arm(  0,   0); CardsDB[ 157][0].W2 = new Arm( 44,3); CardsDB[ 157][0].W3 = new Arm(  0,   0);// "JAP", "Kairyou Hawk");
   CardsDB[ 158][0].W1 = new Arm( 70,20); CardsDB[ 158][0].W2 = new Arm(  0,   0); CardsDB[ 158][0].W3 = new Arm(  0,   0);// "SWE", "IKV 103");
-  CardsDB[ 159][0].W1 = new Arm(659,4000); CardsDB[ 159][0].W2 = new Arm(  0,   0); CardsDB[ 159][0].W3 = new Arm(519,40);// "SWE", "IKV 91");
+  CardsDB[ 159][0].W1 = new Arm(659,40); CardsDB[ 159][0].W2 = new Arm(  0,   0); CardsDB[ 159][0].W3 = new Arm(519,4000);// "SWE", "IKV 91");
   CardsDB[ 160][0].W1 = new Arm(  0,   0); CardsDB[ 160][0].W2 = new Arm(  0,   0); CardsDB[ 160][0].W3 = new Arm(  0,   0);// "BRD", "Iltis KdoW");
   CardsDB[ 161][0].W1 = new Arm(  0,   0); CardsDB[ 161][0].W2 = new Arm(250,4); CardsDB[ 161][0].W3 = new Arm(  0,   0);// "BRD", "Iltis MILAN 1");
   CardsDB[ 162][0].W1 = new Arm(  0,   0); CardsDB[ 162][0].W2 = new Arm(262,4); CardsDB[ 162][0].W3 = new Arm(  0,   0);// "BRD", "Iltis MILAN 2");
