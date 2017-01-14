@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src='js/ractive.js'></script>
+  <script src="js/ractive.js"></script>
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
     .flg {
@@ -18,6 +18,10 @@
         margin:0px;
         padding:0px;
       }
+      .tab-scroll{
+    height:935px;
+    overflow-y: auto;
+}
       #NATO{  background-position: 0px 0px;  }
       #REDFOR{background-position: -50px 0px;  }
       #BD{    background-position: -100px 0px;  }
@@ -2148,14 +2152,14 @@
 
 body {
     background-color: black;
-    background: url(https://i.imgur.com/SuzVQJs.jpg) no-repeat center center fixed; 
+    background: url(https://i.imgur.com/SuzVQJs.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
   </style>
-  <link REL="SHORTCUT ICON" HREF="favicon.ico">
+  <link rel="SHORTCUT ICON" href="favicon.ico">
 </head>
 <body>
   <div class="container">
@@ -2174,7 +2178,7 @@ body {
                 </button>
                 <button type="button" id="PicsButton" class="btn btn-default btn-block"  style="line-height: 3; background-color: #fff" onclick="btPICS()">PORTRAITS
                 </button>
-                <button type="button" id="PicsButton" class="btn btn-default btn-block"  style="line-height: 2; background-color: #fff" onclick="window.location.href='https://www.reddit.com/r/wargame/comments/56hoph/deckbuilder_bug_thread/'">REPORT A BUG
+                <button type="button" id="bugreport" class="btn btn-default btn-block"  style="line-height: 2; background-color: #fff" onclick="window.location.href='https://www.reddit.com/r/wargame/comments/56hoph/deckbuilder_bug_thread/'">REPORT A BUG
                 </button>
             </div>
         </div>
@@ -2195,7 +2199,7 @@ body {
           </div>
       </div>
 
-    <script id='templateDB' type='text/ractive'>
+    <script id="templateDB" type="text/ractive">
         {{#if DBisNotLoaded}}
             <div class="row">
                 <div class="col-sm-4">
@@ -2215,7 +2219,7 @@ body {
     </script>
 
 
-    <script id='templateHeader' type='text/ractive'>
+    <script id="templateHeader" type="text/ractive">
       <div class="row">
           <div class="col-sm-10">
             <input id="sDeckString" type="text" class="form-control">
@@ -2501,7 +2505,7 @@ body {
           </div>
         </div>
     </script>
-    <script id='templateDeck' type='text/ractive'>
+    <script id="templateDeck" type="text/ractive">
       <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
       {{#with headers}}
           <li class="active"><a href="#Deck" data-toggle="tab">Deck</a></li>
@@ -3339,23 +3343,25 @@ body {
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                    <table id="logTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                      <tbody id="logBody">
-                      </tbody>
-                    </table>
+                    <div class="tab-scroll">
+                      <table id="logTable" class="sortable table-hover" style="width:100%">
+                          <thead>
+                              <tr>
+                                  <th>Nation ⇳</th>
+                                  <th></th>
+                                  <th>Unit ⇳</th>
+                                  <th>Points ⇳</th>
+                                  <th>Cards ⇳</th>
+                                  <th></th>
+                                  <th>Transport ⇳</th>
+                                  <th>Points ⇳</th>
+                                  <th>Cards ⇳</th>
+                              </tr>
+                          </thead>
+                          <tbody id="logBody" >
+                          </tbody>
+                      </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       {{#with ranks}}
@@ -3535,23 +3541,25 @@ body {
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="infTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                    <tbody id="infBody">
-                    </tbody>
-                    </table>
+                    <div class="tab-scroll">
+                        <table id="infTable" class="sortable table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nation ⇳</th>
+                                    <th></th>
+                                    <th>Unit ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                    <th></th>
+                                    <th>Transport ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                </tr>
+                            </thead>
+                            <tbody id="infBody">
+                            </tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       {{#with ranks}}
@@ -3731,23 +3739,25 @@ body {
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="supTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                    <tbody id="supBody">
-                    </tbody>
-                    </table>
+                    <div class="tab-scroll">
+                        <table id="supTable" class="sortable table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nation ⇳</th>
+                                    <th></th>
+                                    <th>Unit ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                    <th></th>
+                                    <th>Transport ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                </tr>
+                            </thead>
+                            <tbody id="supBody">
+                            </tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       {{#with ranks}}
@@ -3925,23 +3935,25 @@ body {
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="tnkTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                    <tbody id="tnkBody">
-                    </tbody>
-                    </table>
+                    <div class="tab-scroll">
+                        <table id="tnkTable" class="sortable table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nation ⇳</th>
+                                    <th></th>
+                                    <th>Unit ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                    <th></th>
+                                    <th>Transport ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tnkBody">
+                            </tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       {{#with ranks}}
@@ -4121,23 +4133,25 @@ body {
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="recTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                    <tbody id="recBody">
-                    </tbody>
-                  </table>
+                    <div class="tab-scroll">
+                        <table id="recTable" class="sortable table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nation ⇳</th>
+                                    <th></th>
+                                    <th>Unit ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                    <th></th>
+                                    <th>Transport ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recBody">
+                            </tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       {{#with ranks}}
@@ -4317,23 +4331,25 @@ body {
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="vehTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                    <tbody id="vehBody">
-                    </tbody>
-                    </table>
+                    <div class="tab-scroll">
+                        <table id="vehTable" class="sortable table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nation ⇳</th>
+                                    <th></th>
+                                    <th>Unit ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                    <th></th>
+                                    <th>Transport ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vehBody">
+                            </tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       {{#with ranks}}
@@ -4513,23 +4529,25 @@ body {
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="helTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                    <tbody id="helBody">
-                    </tbody>
-                    </table>
+                    <div class="tab-scroll">
+                        <table id="helTable" class="sortable table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nation ⇳</th>
+                                    <th></th>
+                                    <th>Unit ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                    <th></th>
+                                    <th>Transport ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                </tr>
+                            </thead>
+                        <tbody id="helBody">
+                        </tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       {{#with ranks}}
@@ -4709,23 +4727,25 @@ body {
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
-                  <table id="airTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                    <tbody id="airBody">
-                    </tbody>
-                    </table>
+                    <div class="tab-scroll">
+                        <table id="airTable" class="sortable table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nation ⇳</th>
+                                    <th></th>
+                                    <th>Unit ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                    <th></th>
+                                    <th>Transport ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                </tr>
+                            </thead>
+                            <tbody id="airBody">
+                            </tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       <div class="row">
@@ -4899,24 +4919,26 @@ body {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-8">
-                  <table id="navTable" class="sortable table-hover" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nation ⇳</th>
-                                <th></th>
-                                <th>Unit ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                                <th></th>
-                                <th>Transport ⇳</th>
-                                <th>Points ⇳</th>
-                                <th>Cards ⇳</th>
-                            </tr>
-                        </thead>
-                      <tbody id="navBody">
-                      </tbody>
-                    </table>
+                  <div class="col-sm-8">                  
+                    <div class="tab-scroll">
+                        <table id="navTable" class="sortable table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nation ⇳</th>
+                                    <th></th>
+                                    <th>Unit ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                    <th></th>
+                                    <th>Transport ⇳</th>
+                                    <th>Points ⇳</th>
+                                    <th>Cards ⇳</th>
+                                </tr>
+                            </thead>
+                            <tbody id="navBody">
+                            </tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="col-sm-4">
                       {{#with ranks}}
