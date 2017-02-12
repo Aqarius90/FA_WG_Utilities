@@ -176,7 +176,7 @@ function WeaponDataLoad()
     MainArmory[139] = new Weapon(     0, 2275,  1820,   50, 50,   0,  5.00, "6S",  200, "[AOE][FF]", "IR missiles", "FIM-92A STINGER");
     MainArmory[140] = new Weapon(     0, 2275,  1820,   70, 70,   0,  5.00, "6S",  200, "[AOE][FF]", "IR missiles", "FIM-92C STINGER");
     MainArmory[141] = new Weapon(     0, 2450,  1960,   55, 55,   0,  4.00, "20S",  160, "[AOE][FF]", "IR missiles", "Igla");
-    MainArmory[142] = new Weapon(     0, 2450,  1960,   70, 70,   0,  5.00, "20S",  200, "[AOE][FF]", "IR missiles", "Type 91");
+    MainArmory[142] = new Weapon(     0, 2450,  1960,   70, 70,   0,  5.00, "20S",  200, "[AOE][FF]", "IR missiles", "Type 91"); //deprecated
     MainArmory[143] = new Weapon(     0, 2625,  2100,   60, 60,   0,  5.00, "20S",  200, "[AOE][FF]", "IR missiles", "Mistral");
     MainArmory[144] = new Weapon( 17500,    0,     0, 4550,  0,   3,  0.00, "9",  285, "[HEAT][CLUS][CORR][STAT]", "122mm rockets", "9M217");
     MainArmory[145] = new Weapon(  2100,    0,     0,   40,  5,   9,  3.00, "9",  121, "[KE][AOE]", "105mm", "F1");
@@ -298,7 +298,7 @@ function WeaponDataLoad()
     MainArmory[266] = new Weapon(  1750,    0,     0,   30,  5,   8,  3.00, "13",  104, "[HEAT][AOE]", "90mm", "F3");
     MainArmory[267] = new Weapon(  1750,    0,     0,   30,  0,  15,  3.00, "13",  122, "[HEAT][STAT][STAT]", "106mm HEAT rounds", "M40A1C RR");
     MainArmory[268] = new Weapon(     0, 2275,  1820,   70, 70,   0,  5.00, "20S",  200, "[AOE][FF]", "IR missiles", "FIM-92C STINGER");
-    MainArmory[269] = new Weapon(     0, 2275,  1820,   70, 70,   0,  5.00, "20S",  200, "[AOE][FF]", "IR missiles", "Type 91");
+    MainArmory[269] = new Weapon(     0, 2450,  1960,   70, 70,   0,  5.00, "20S",  200, "[AOE][FF]", "IR missiles", "Type 91");
     MainArmory[270] = new Weapon(     0, 2275,  1820,   50,  0,   0,  3.00, "4S",  120, "[AOE][FF][STAT]", "IR missiles", "Strela-3");
     MainArmory[271] = new Weapon(     0, 2800,  2240,   55,  0,   0,  4.00, "8S",  160, "[AOE][GUID]", "SACLOS missile", "Twin RBS 90");
     MainArmory[272] = new Weapon(  2450,    0,     0,   40,  0,  15,  0.00, "20S",  150, "[HEAT][GUID]", "SACLOS misile", "Malyutka-P");
