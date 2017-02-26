@@ -1,38 +1,5 @@
-//var Dicts = new Dictionaries();
-function init() {
-    window.Deck = new DeckAssembly();
-    window.CardsDB = new Array(1500);
-    window.TransportArray = new Array(1500);
-    window.Matrix = new matrix();
-    for (var i = 0; i < 1500; i++) {
-      CardsDB[i]=Array(2);
-      TransportArray[i]=Array(2);
-    }
-    initMainDB();
-    window.selectedCards = [0,0,0,0,0,0,0,0,0];
-    window.IDlist = [];
-    window.tDebug = [];
-    window.DataDisplay = 1;
-    ractiveDeck.set("debug", tDebug);
-    $(document).ready(function()
-      {
-          $("#logTable").tablesorter();
-          $("#infTable").tablesorter();
-          $("#supTable").tablesorter();
-          $("#tnkTable").tablesorter();
-          $("#recTable").tablesorter();
-          $("#vehTable").tablesorter();
-          $("#helTable").tablesorter();
-          $("#airTable").tablesorter();
-          $("#navTable").tablesorter();
-      }
-    );
-    //if (document.readyState === "complete") {ractiveHeader.set('unloaded', false); }
-    ractiveHeader.set('unloaded', false);
-}
-
 function listUnits() //get units for display
-{
+{/*
     var tables = ["log", "inf", "sup", "tnk", "rec", "veh", "hel", "air", "nav"]
     for(var i=0; i<9; i++){
         var body = document.getElementById(tables[i] + "Body");
@@ -51,9 +18,13 @@ function listUnits() //get units for display
         var trans = row.insertCell(6);
         var costT = row.insertCell(7);
         var cardsT = row.insertCell(8);
-    }
+    }*/
+
+
 
     UnitLookup();
+
+    /*
     $(document).ready(
         function()
         {
@@ -67,7 +38,7 @@ function listUnits() //get units for display
         $("#airTable").trigger("update");
         $("#navTable").trigger("update");
         }
-    );
+    );*/
 }
 
 function checkNation(card){
@@ -88,10 +59,10 @@ function checkNation(card){
 
   else if(card.sNation == "CZS" && (Deck.sNation != "CZS" && Deck.sNation != "NSWP" && Deck.sNation != "YUCZE" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "DDR" && (Deck.sNation != "DDR" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
-  else if(card.sNation == "DPRK" && (Deck.sNation != "DPRK" && Deck.sNation != "RD" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "DPRK" && (Deck.sNation != "DPRK" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "POL" && (Deck.sNation != "POL" && Deck.sNation != "NSWP" && Deck.sNation != "FINPL" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "PRC" && (Deck.sNation != "PRC" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
-  else if(card.sNation == "USSR" && (Deck.sNation != "USSR" && Deck.sNation != "SOVKOR" && Deck.sNation != "REDFOR")){ return false; }
+  else if(card.sNation == "USSR" && (Deck.sNation != "USSR" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "FIN" && (Deck.sNation != "FIN" && Deck.sNation != "FINPL" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "YU" && (Deck.sNation != "YU" && Deck.sNation != "YUCZE" && Deck.sNation != "REDFOR")){ return false; }
   else if(card.sNation == "REDFOR" && Deck.iSide != 1){ return false; }
@@ -100,119 +71,17 @@ function checkNation(card){
   else if(card.sNation != ""){ return true; }
 }
 
-function UnitLookup(){
-    var card;
-    var naval;
-    var dry;
-    var year = 3000;
-    if(Deck.sEra == "B"){ year = 1985;}
-    else if(Deck.sEra == "C"){ year = 1980;}
-    var spec = -1;
-    if(Deck.sSpec == "MAR"){spec=0;}
-    else if (Deck.sSpec == "AIR"){spec=1;}
-    else if (Deck.sSpec == "MECH"){spec=2;}
-    else if (Deck.sSpec == "ARM"){spec=3;}
-    else if (Deck.sSpec == "MOTO"){spec=4;}
-    else if (Deck.sSpec == "SUP"){spec=5;}
-    else if (Deck.sSpec == "NAV"){spec=6;}
-
-    var valid = true;
-    for (var i=0; i<1114;i++){
-        card = CardsDB[i][Deck.iSide];
-        if(card.sUnitData.charAt(4) != '1'){ //transports don't get their own card
-            valid = checkNation(card);
-            if (card.iYear <= year && valid == true){
-                if (card.sUnitData.charAt(7) == '1'){//if is inf
-                    for (var j=0; j < TransportArray[card.iUnitID][Deck.iSide].length; j++){
-                        if(TransportArray[card.iUnitID][Deck.iSide][j] != 0){
-                            var veh = CardsDB[TransportArray[card.iUnitID][Deck.iSide][j]][Deck.iSide];
-                            if (veh.iYear <= year) {
-                                if (Deck.sSpec == "GEN" || veh.sSpecDeck.charAt(spec) == '1'){
-                                    if (Deck.sSpec == "GEN" || card.sSpecDeck.charAt(spec) == '1'){
-                                        dry = new VehicleCard("000", card, veh, 0)
-                                        toList(dry);
-                                    }
-                                }
-                                if(veh.sUnitData.charAt(27) == '1'){
-                                    send = new VehicleCard("000", card, veh, 1);
-                                    toList(send);
-                                }
-                            }
-                        }
-                    }
-                }
-                else{//is veh
-                    if (Deck.sSpec == "GEN" || card.sSpecDeck.charAt(spec) == '1'){
-                        dry = new VehicleCard("000", card, 0, 0);
-                        toList(dry);
-                    }
-                    if(card.sUnitData.charAt(27) == '1'){
-                        send = new VehicleCard("000", card, 1, 0)
-                        toList(send);
-                    }
-                }
-            }
-        }
-    }
-}
-
-function toList(card){
-    var type;
-    if (card.UnitTypeData.charAt(0) == '1'){ type = "logTable";}//logi
-    else if (card.UnitTypeData.charAt(1) == '1'){type = "infTable";}//inf
-    else if (card.UnitTypeData.charAt(2) == '1'){type = "supTable";}//sup
-    else if (card.UnitTypeData.charAt(3) == '1'){type = "tnkTable";}//tnk
-    else if (card.UnitTypeData.charAt(4) == '1'){type = "recTable";}//rec
-    else if (card.UnitTypeData.charAt(5)== '1'){type = "vehTable";}//veh
-    else if (card.UnitTypeData.charAt(6) == '1'){type = "helTable";}//hel
-    else if (card.UnitTypeData.charAt(7) == '1'){type = "airTable";}//air
-    else {type = "navTable";}//nav
-
-    var table = document.getElementById(type);
-    var row = table.insertRow(table.rows.length);
-    var nation = row.insertCell(0);
-    var picU = row.insertCell(1);
-    var unit = row.insertCell(2);
-    var costU = row.insertCell(3);
-    var cardsU = row.insertCell(4);
-    var picT = row.insertCell(5);
-    var trans = row.insertCell(6);
-    var costT = row.insertCell(7);
-    var cardsT = row.insertCell(8);
-    nation.innerHTML = card.Unit.sNation;
-    unit.innerHTML = card.Unit.sNameU;
-    cardsU.innerHTML = card.Unit.iCards;
-    costU.innerHTML = card.Unit.iCost;
-
-    var iData = document.createElement("img");
-    iData.setAttribute("class", "img-responsive sprite sprite-" + Deck.iSide + card.Unit.iUnitID );
-    iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
-    picU.appendChild(iData);
-
-    if(card.Transport !=0){
-        var iData = document.createElement("img");
-        iData.setAttribute("class", "img-responsive sprite sprite-" + Deck.iSide + card.Transport.iUnitID );
-        iData.setAttribute("style", "position: relative; top: 0; left: 0; height: 30px;");
-        picT.appendChild(iData);
-        trans.innerHTML = card.Transport.sNameU;
-        cardsT.innerHTML = card.Transport.iCards;
-        costT.innerHTML = card.Transport.iCost;
-    }
-
-    row.onclick =  function(){ShowCard( new VehicleCard ("000", card.Unit, card.Transport, card.Craft));};
-}
-
 function isError(Card) {
     var isUnavailable = false;
     isUnavailable = !checkNation(Card);
     if (Deck.sEra == "B" && Card.iYear > 1985){ isUnavailable = true; }
     else if (Deck.sEra == "C" && Card.iYear > 1980){ isUnavailable = true; }
-    if (Deck.sSpec == "MAR" && Card.sSpec.charAt(0) != '1') { isUnavailable = true; }
-    else if (Deck.sSpec == "AIR" && Card.sSpec.charAt(1) != '1') { isUnavailable = true; }
-    else if (Deck.sSpec == "MECH" && Card.sSpec.charAt(2) != '1') { isUnavailable = true; }
-    else if (Deck.sSpec == "ARM" && Card.sSpec.charAt(3) != '1') { isUnavailable = true; }
-    else if (Deck.sSpec == "MOTO" && Card.sSpec.charAt(4) != '1') { isUnavailable = true; }
-    else if (Deck.sSpec == "SUP" && Card.sSpec.charAt(5) != '1') { isUnavailable = true; }
+    if (Deck.sSpec == "Marine" && Card.sSpec.charAt(0) != '1') { isUnavailable = true; }
+    else if (Deck.sSpec == "Airborne" && Card.sSpec.charAt(1) != '1') { isUnavailable = true; }
+    else if (Deck.sSpec == "Mechanized" && Card.sSpec.charAt(2) != '1') { isUnavailable = true; }
+    else if (Deck.sSpec == "Armored" && Card.sSpec.charAt(3) != '1') { isUnavailable = true; }
+    else if (Deck.sSpec == "Motorized" && Card.sSpec.charAt(4) != '1') { isUnavailable = true; }
+    else if (Deck.sSpec == "Support" && Card.sSpec.charAt(5) != '1') { isUnavailable = true; }
     return isUnavailable;
 }
 
@@ -281,15 +150,15 @@ function ShowCard(Card)
     selectedCards[btn] = Card;
 
     var avails = ractiveDeck.get('ranks.' + type);
-    avails.A0 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[0])/100);
+    avails.A0 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[0])/100);
     if(Card.iaAvailability[0] == 0){ avails.B0 = "disabled"} else { avails.B0 = "" }
-    avails.A1 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[1])/100);
+    avails.A1 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[1])/100);
     if(Card.iaAvailability[1] == 0){ avails.B1 = "disabled"} else { avails.B1 = "" }
-    avails.A2 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[2])/100);
+    avails.A2 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[2])/100);
     if(Card.iaAvailability[2] == 0){ avails.B2 = "disabled"} else { avails.B2 = "" }
-    avails.A3 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[3])/100);
+    avails.A3 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[3])/100);
     if(Card.iaAvailability[3] == 0){ avails.B3 = "disabled"} else { avails.B3 = "" }
-    avails.A4 = Math.round(((100 + Deck.availQ) * Card.iaAvailability[4])/100);
+    avails.A4 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[4])/100);
     if(Card.iaAvailability[4] == 0){ avails.B4 = "disabled"} else { avails.B4 = "" }
     ractiveDeck.update('ranks.' + type);
 
@@ -535,16 +404,16 @@ function add(type, veterancy){
         veterancy = veterancy.toString(2);
         if (selectedCards[type].Craft != 0){
             var newcard = new VehicleCard(veterancy, selectedCards[type].Unit, selectedCards[type].Transport, 1)
-            Deck.Cards2T[Deck.i3Cards] = newcard;
-            Deck.i3Cards++;
+            Deck.Cards3T[Deck.Cards3Count] = newcard;
+            Deck.Cards3Count++;
         } else if (selectedCards[type].Transport != 0){
             var newcard = new VehicleCard(veterancy, selectedCards[type].Unit, selectedCards[type].Transport, 0)
-            Deck.Cards1T[Deck.i2Cards] = newcard;
-            Deck.i2Cards++;
+            Deck.Cards2T[Deck.Cards2Count] = newcard;
+            Deck.Cards2Count++;
         } else if (selectedCards[type].Unit != 0){
             var newcard = new VehicleCard(veterancy, selectedCards[type].Unit, 0,0)
-            Deck.Cards0T[Deck.i1Cards] = newcard;
-            Deck.i1Cards++;
+            Deck.Cards1T[Deck.Cards1Count] = newcard;
+            Deck.Cards1Count++;
         }
     }
     GUIDisplay();
@@ -554,31 +423,31 @@ function add(type, veterancy){
 function toGen(Card)
 {
     var sData = Card.Unit.sUnitData;
-    if (sData.charAt(18) == '1' && (Deck.sSpec == "MOTO" || Deck.sSpec == "MECH" || Deck.sSpec == "MAR" || Deck.sSpec == "AIR")) // INF
+    if (sData.charAt(18) == '1' && (Deck.sSpec == "Motorized" || Deck.sSpec == "Mechanized" || Deck.sSpec == "Marine" || Deck.sSpec == "Airborne")) // INF
     {
         Card.iVet0 = Card.iVet -1;
     }
-    else if (sData.charAt(19) == '1' && (Deck.sSpec == "SUP")) // support
+    else if (sData.charAt(19) == '1' && (Deck.sSpec == "Support")) // support
     {
          Card.iVet0 = Card.iVet -1;
     }
-    else if (sData.charAt(20) == '1' && (Deck.sSpec == "ARM")) // tanks
+    else if (sData.charAt(20) == '1' && (Deck.sSpec == "Armored")) // tanks
     {
         Card.iVet0 = Card.iVet -2;
     }
-    else if (sData.charAt(21) == '1' && (Deck.sSpec == "MOTO"))  //recon
+    else if (sData.charAt(21) == '1' && (Deck.sSpec == "Motorized"))  //recon
     {
         Card.iVet0 = Card.iVet -1;
     }
-    else if (sData.charAt(22) == '1' && (Deck.sSpec == "MECH" || Deck.sSpec == "MOTO")) // vehicles
+    else if (sData.charAt(22) == '1' && (Deck.sSpec == "Mechanized" || Deck.sSpec == "Motorized")) // vehicles
     {
         Card.iVet0 = Card.iVet -1;
     }
-    else if (sData.charAt(23) == '1' && (Deck.sSpec == "AIR"))
+    else if (sData.charAt(23) == '1' && (Deck.sSpec == "Airborne"))
     {
         Card.iVet0 = Card.iVet -1;
     }
-    else if (sData.charAt(24) == '1' && (Deck.sSpec == "MAR" || Deck.sSpec == "AIR"))
+    else if (sData.charAt(24) == '1' && (Deck.sSpec == "Marine" || Deck.sSpec == "Airborne"))
     {
         Card.iVet0 = Card.iVet -1;
     }
@@ -591,31 +460,31 @@ function toGen(Card)
 function toSpec(Card)
 {
     var sData = Card.Unit.sUnitData;
-    if (sData.charAt(18) == '1' && (Deck.sSpec == "MOTO" || Deck.sSpec == "MECH" || Deck.sSpec == "MAR" || Deck.sSpec == "AIR")) // INF
+    if (sData.charAt(18) == '1' && (Deck.sSpec == "Motorized" || Deck.sSpec == "Mechanized" || Deck.sSpec == "Marine" || Deck.sSpec == "Airborne")) // INF
     {
         Card.iVet = Card.iVet0 + 1;
     }
-    else if (sData.charAt(19) == '1' && (Deck.sSpec == "SUP")) // support
+    else if (sData.charAt(19) == '1' && (Deck.sSpec == "Support")) // support
     {
         Card.iVet = Card.iVet0 + 1;
     }
-    else if (sData.charAt(20) == '1' && (Deck.sSpec == "ARM")) // tanks
+    else if (sData.charAt(20) == '1' && (Deck.sSpec == "Armored")) // tanks
     {
         Card.iVet = Card.iVet0 + 2;
     }
-    else if (sData.charAt(21) == '1' && (Deck.sSpec == "MOTO"))  //recon
+    else if (sData.charAt(21) == '1' && (Deck.sSpec == "Motorized"))  //recon
     {
         Card.iVet = Card.iVet0 + 1;
     }
-    else if (sData.charAt(22) == '1' && (Deck.sSpec == "MECH" || Deck.sSpec == "MOTO")) // vehicles
+    else if (sData.charAt(22) == '1' && (Deck.sSpec == "Mechanized" || Deck.sSpec == "Motorized")) // vehicles
     {
         Card.iVet = Card.iVet0 + 1;
     }
-    else if (sData.charAt(23) == '1' && (Deck.sSpec == "AIR"))
+    else if (sData.charAt(23) == '1' && (Deck.sSpec == "Airborne"))
     {
         Card.iVet = Card.iVet0 + 1;
     }
-    else if (sData.charAt(24) == '1' && (Deck.sSpec == "MAR" || Deck.sSpec == "AIR"))
+    else if (sData.charAt(24) == '1' && (Deck.sSpec == "Marine" || Deck.sSpec == "Airborne"))
     {
         Card.iVet = Card.iVet0 + 1;
     }
