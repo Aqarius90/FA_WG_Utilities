@@ -1,33 +1,34 @@
+/* jshint shadow:true */
 function initDB(){
     //called by the load DB button
     //load Database from csv on server
     //might take a while, hence the button
     var DBstring;
-    window.DBarr;
+    window.DBarr = [];
     window.IDpairs = new IDpairInit();
     jQuery.get('https://aqarius90.github.io/FA_WG_Utilities/final_data.csv', function(data) {
         DBstring = new String(data);
         DBarr = jQuery.csv.toArrays(data);
-        DataToObjects();
-        AssignDeckCode();
-        //display actual page
-        ractiveHeader.set({DBisLoaded: true});
-        ractiveHeader.set({DBisNotLoaded:  false});
-        ractiveUnit.set({DBisLoaded:true});
-        ractiveUnit.set({DBisNotLoaded:false});
-        ractiveDeck.set({DBisLoaded: true});
     });
+    DataToObjects();
+    AssignDeckCode();
+    //display actual page
+    ractiveHeader.set({DBisLoaded: true});
+    ractiveHeader.set({DBisNotLoaded:  false});
+    ractiveUnit.set({DBisLoaded:true});
+    ractiveUnit.set({DBisNotLoaded:false});
+    ractiveDeck.set({DBisLoaded: true});
 }
 
 function DataToObjects(){
     //go from XxY array to unit objects
-    window.UnitParser = new Array(DBarr.length);   
-    
+    window.UnitParser = new Array(DBarr.length);
+
     //make array of empty units. 2000 for no particular reason
     for (var i = 1;i <=DBarr.length-1; i++ ){
-        UnitParser[i] = new Unit;
-    }    
-    
+        UnitParser[i] = new Unit();
+    }
+
     //fill instances with data.
     for (var i = 0; i < DBarr[0].length; i++) {
             if(DBarr[0][i] == "AirplaneMinimalAltitude"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].AirplaneMinimalAltitude = DBarr[j][i]; }}
@@ -106,7 +107,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Transporters"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Transporters = DBarr[j][i]; 
+                    UnitParser[j].Transporters = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -121,7 +122,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Decks"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Decks = DBarr[j][i]; 
+                    UnitParser[j].Decks = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -171,10 +172,10 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon1RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon1RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon1ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon1ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon1SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon1SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon1Tags"){  
+        else if(DBarr[0][i] == "Weapon1Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon1Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon1Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -227,10 +228,10 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon2RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon2RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon2ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon2ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon2SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon2SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon2Tags"){ 
+        else if(DBarr[0][i] == "Weapon2Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon2Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon2Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -257,7 +258,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon3FireTriggeringProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3FireTriggeringProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3HE"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3HE = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3HitProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3HitProbability = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon3HitProbabilityWhileMoving"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3HitProbabilityWhileMoving = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon3HitProbabilityWhileMoving"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3HitProbabilityWhileMoving = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3MinimalCritProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3MinimalCritProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3MinimalHitProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3MinimalHitProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3MissileMaxAcceleration"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3MissileMaxAcceleration = DBarr[j][i]; }}
@@ -270,7 +271,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon3ProjectilesPerShot"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3ProjectilesPerShot = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3RadiusSplashPhysicalDamage"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3RadiusSplashPhysicalDamage = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3RadiusSplashSuppressDamage"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3RadiusSplashSuppressDamage = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon3RangeGround"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3RangeGround = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon3RangeGround"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3RangeGround = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3RangeGroundMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3RangeGroundMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3RangeHelicopters"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3RangeHelicopters = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3RangeHelicoptersMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3RangeHelicoptersMinimum = DBarr[j][i]; }}
@@ -283,10 +284,10 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon3RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon3SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon3SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon3Tags"){ 
+        else if(DBarr[0][i] == "Weapon3Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon3Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon3Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -310,7 +311,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon4DispersionAtMaxRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4DispersionAtMaxRange = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4DispersionAtMinRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4DispersionAtMinRange = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4DisplayedAmmunition"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4DisplayedAmmunition = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon4FireTriggeringProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4FireTriggeringProbability = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon4FireTriggeringProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4FireTriggeringProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4HE"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4HE = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4HitProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4HitProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4HitProbabilityWhileMoving"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4HitProbabilityWhileMoving = DBarr[j][i]; }}
@@ -323,7 +324,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon4Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4Noise = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4NumberOfSalvos"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4NumberOfSalvos = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4PositionOnCard"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4PositionOnCard = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon4ProjectilesPerShot"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4ProjectilesPerShot = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon4ProjectilesPerShot"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4ProjectilesPerShot = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4RadiusSplashPhysicalDamage"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4RadiusSplashPhysicalDamage = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4RadiusSplashSuppressDamage"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4RadiusSplashSuppressDamage = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4RangeGround"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4RangeGround = DBarr[j][i]; }}
@@ -336,13 +337,13 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon4RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4RangePlanesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4RangeShip"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4RangeShip = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4RangeShipMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4RangeShipMinimum = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon4RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4RayonPinned = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon4RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon4SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon4SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon4Tags"){  
+        else if(DBarr[0][i] == "Weapon4Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon4Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon4Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -363,7 +364,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon5Caliber"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5Caliber = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5CanSmoke"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5CanSmoke = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5CorrectedShotDispersionMultiplier"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5CorrectedShotDispersionMultiplier = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon5DispersionAtMaxRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5DispersionAtMaxRange = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon5DispersionAtMaxRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5DispersionAtMaxRange = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5DispersionAtMinRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5DispersionAtMinRange = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5DisplayedAmmunition"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5DisplayedAmmunition = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5FireTriggeringProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5FireTriggeringProbability = DBarr[j][i]; }}
@@ -376,7 +377,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon5MissileMaxSpeed"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5MissileMaxSpeed = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5MissileTimeBetweenCorrections"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5MissileTimeBetweenCorrections = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5Name"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5Name = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon5Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5Noise = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon5Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5Noise = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5NumberOfSalvos"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5NumberOfSalvos = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5PositionOnCard"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5PositionOnCard = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5ProjectilesPerShot"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5ProjectilesPerShot = DBarr[j][i]; }}
@@ -389,16 +390,16 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon5RangeMissiles"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5RangeMissiles = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5RangeMissilesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5RangeMissilesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5RangePlanes"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5RangePlanes = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon5RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5RangePlanesMinimum = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon5RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5RangePlanesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5RangeShip"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5RangeShip = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5RangeShipMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5RangeShipMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon5SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon5SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon5Tags"){ 
+        else if(DBarr[0][i] == "Weapon5Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon5Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon5Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -416,7 +417,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon6AP"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6AP = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6AimTime"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6AimTime = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6AngleDispersion"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6AngleDispersion = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon6Caliber"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6Caliber = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon6Caliber"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6Caliber = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6CanSmoke"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6CanSmoke = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6CorrectedShotDispersionMultiplier"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6CorrectedShotDispersionMultiplier = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6DispersionAtMaxRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6DispersionAtMaxRange = DBarr[j][i]; }}
@@ -429,7 +430,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon6MinimalCritProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6MinimalCritProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6MinimalHitProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6MinimalHitProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6MissileMaxAcceleration"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6MissileMaxAcceleration = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon6MissileMaxSpeed"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6MissileMaxSpeed = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon6MissileMaxSpeed"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6MissileMaxSpeed = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6MissileTimeBetweenCorrections"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6MissileTimeBetweenCorrections = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6Name"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6Name = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6Noise = DBarr[j][i]; }}
@@ -442,7 +443,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon6RangeGroundMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RangeGroundMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6RangeHelicopters"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RangeHelicopters = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6RangeHelicoptersMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RangeHelicoptersMinimum = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon6RangeMissiles"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RangeMissiles = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon6RangeMissiles"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RangeMissiles = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6RangeMissilesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RangeMissilesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6RangePlanes"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RangePlanes = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RangePlanesMinimum = DBarr[j][i]; }}
@@ -451,10 +452,10 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon6RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon6Tags"){ 
+        else if(DBarr[0][i] == "Weapon6Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon6Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon6Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -469,7 +470,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon6TimeBetweenSalvos"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6TimeBetweenSalvos = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6TimeBetweenShots"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6TimeBetweenShots = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon6Type"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon6Type = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon7AP"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7AP = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon7AP"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7AP = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7AimTime"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7AimTime = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7AngleDispersion"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7AngleDispersion = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7Caliber"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7Caliber = DBarr[j][i]; }}
@@ -486,7 +487,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon7MinimalHitProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7MinimalHitProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7MissileTimeBetweenCorrections"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7MissileTimeBetweenCorrections = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7Name"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7Name = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon7Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7Noise = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon7Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7Noise = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7NumberOfSalvos"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7NumberOfSalvos = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7PositionOnCard"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7PositionOnCard = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7ProjectilesPerShot"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7ProjectilesPerShot = DBarr[j][i]; }}
@@ -499,16 +500,16 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon7RangeMissiles"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7RangeMissiles = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7RangeMissilesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7RangeMissilesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7RangePlanes"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7RangePlanes = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon7RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7RangePlanesMinimum = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon7RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7RangePlanesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7RangeShip"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7RangeShip = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7RangeShipMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7RangeShipMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon7SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon7SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon7Tags"){ 
+        else if(DBarr[0][i] == "Weapon7Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon7Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon7Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -526,7 +527,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon8AP"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8AP = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8AimTime"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8AimTime = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8AngleDispersion"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8AngleDispersion = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon8Caliber"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8Caliber = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon8Caliber"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8Caliber = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8CanSmoke"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8CanSmoke = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8CorrectedShotDispersionMultiplier"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8CorrectedShotDispersionMultiplier = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8DispersionAtMaxRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8DispersionAtMaxRange = DBarr[j][i]; }}
@@ -539,7 +540,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon8MinimalCritProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8MinimalCritProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8MinimalHitProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8MinimalHitProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8MissileMaxAcceleration"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8MissileMaxAcceleration = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon8MissileMaxSpeed"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8MissileMaxSpeed = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon8MissileMaxSpeed"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8MissileMaxSpeed = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8MissileTimeBetweenCorrections"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8MissileTimeBetweenCorrections = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8Name"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8Name = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8Noise = DBarr[j][i]; }}
@@ -552,19 +553,19 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon8RangeGroundMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeGroundMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8RangeHelicopters"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeHelicopters = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8RangeHelicoptersMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeHelicoptersMinimum = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon8RangeMissiles"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeMissiles = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon8RangeMissiles"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeMissiles = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8RangeMissilesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeMissilesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8RangePlanes"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangePlanes = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangePlanesMinimum = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon8RangeShip"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeShip = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon8RangeShip"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeShip = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8RangeShipMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RangeShipMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon8SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon8SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon8Tags"){ 
+        else if(DBarr[0][i] == "Weapon8Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon8Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon8Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -583,7 +584,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon9AimTime"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9AimTime = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9AngleDispersion"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9AngleDispersion = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9Caliber"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9Caliber = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon9CanSmoke"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9CanSmoke = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon9CanSmoke"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9CanSmoke = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9CorrectedShotDispersionMultiplier"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9CorrectedShotDispersionMultiplier = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9DispersionAtMaxRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9DispersionAtMaxRange = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9DispersionAtMinRange"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9DispersionAtMinRange = DBarr[j][i]; }}
@@ -596,7 +597,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon9MinimalHitProbability"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9MinimalHitProbability = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9MissileTimeBetweenCorrections"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9MissileTimeBetweenCorrections = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9Name"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9Name = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon9Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9Noise = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon9Noise"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9Noise = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9NumberOfSalvos"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9NumberOfSalvos = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9PositionOnCard"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9PositionOnCard = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9ProjectilesPerShot"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9ProjectilesPerShot = DBarr[j][i]; }}
@@ -609,16 +610,16 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon9RangeMissiles"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9RangeMissiles = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9RangeMissilesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9RangeMissilesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9RangePlanes"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9RangePlanes = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon9RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9RangePlanesMinimum = DBarr[j][i]; }}  
+        else if(DBarr[0][i] == "Weapon9RangePlanesMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9RangePlanesMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9RangeShip"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9RangeShip = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9RangeShipMinimum"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9RangeShipMinimum = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9RayonPinned"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9RayonPinned = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9ShotsPerSalvo"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9ShotsPerSalvo = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon9SupplyCost"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon9SupplyCost = DBarr[j][i]; }}
-        else if(DBarr[0][i] == "Weapon9Tags"){ 
+        else if(DBarr[0][i] == "Weapon9Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon9Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon9Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -672,7 +673,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon10Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon10Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon10Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -729,7 +730,7 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon11Type"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon11Tags = DBarr[j][i]; 
+                    UnitParser[j].Weapon11Tags = DBarr[j][i];
                     var k = 0;
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
@@ -740,12 +741,12 @@ function DataToObjects(){
                         }
                     }
                 }
-            } 
+            }
     }
 }
 
 function AssignDeckCode(){
-    window.UnitDatabase = new Array();
+    window.UnitDatabase = [];
     window.UnitIdMin = 30000;
     window.UnitIdMax = 0;
     for (var i = 1;i < UnitParser.length; i++ ){
@@ -765,27 +766,27 @@ function DisplayDB(tableData, type){
     var tmp = 0;
     //var table = document.getElementById('DBtable');
     //var tableBody = document.getElementById('DBbody');
-    var tableArr = new Array();
+    var tableArr = [];
     for (var j = 0; j < tableData.length; j++) {
-        tableArr[j] = new Array();
+        tableArr[j] = [];
     }
     /*console.log(tableArr);*/
-    for (var i = 0; i < tableData[0].length; i++) {   
-        if((type == 1 && (tableData[0][i] == "Name" || tableData[0][i] == "Amphibious"))){   
+    for (var i = 0; i < tableData[0].length; i++) {
+        if((type == 1 && (tableData[0][i] == "Name" || tableData[0][i] == "Amphibious"))){
             console.log(tableData[0][i])  ;
             for (var k = 0; k < tableData.length; k++) {
-                tableArr[k][tmp] = tableData[k][i]; 
+                tableArr[k][tmp] = tableData[k][i];
                 tmp++;
             }
-        }        
+        }
     }
-    console.log(tableArr)
+    console.log(tableArr);
     var table = document.getElementById('DBtable');
     var tableBody = document.getElementById('DBbody');
-    
-    for (var i = 0; i < 2; i++) {   
+
+    for (var i = 0; i < 2; i++) {
         var row = table.insertRow(i);
-            for (var k = 0; k < tableArr[0].length; k++) {                
+            for (var k = 0; k < tableArr[0].length; k++) {
                 var cell = row.insertCell(k);
                 cell.innerHTML = tableArr[i][k];
             }

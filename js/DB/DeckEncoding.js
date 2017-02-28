@@ -1,5 +1,6 @@
+/* jshint shadow:true */
 
-function deckImport(){
+function deckImport() {
 /* deck string is an encoded binary, consisting of:
     0-11 bits = nation (0th bit is side)
     12-14 bits = specification (from 000 as motorised to 111 as general)
@@ -14,7 +15,7 @@ function deckImport(){
 
     var DeckCode = sDeckString.value;
     //code below 4 is invalid.
-    if (deckCode.length < 4 ) { return; }
+    if (DeckCode.length < 4) { return; }
 
     var deckBinary = "";
     //blank current deck
@@ -157,7 +158,7 @@ function deckImport(){
         Deck.sSpec += deckBinary.charAt(i); // temporarily using s(tring)Spec as binary
     }
     Deck.iSpec = parseInt(Deck.sSpec, 2);
-    if (Deck.iSpec == 0) { Deck.sSpec = "Motorized"; } else
+    if (Deck.iSpec === 0) { Deck.sSpec = "Motorized"; } else
     if (Deck.iSpec == 1) { Deck.sSpec = "Armored"; } else
     if (Deck.iSpec == 2) { Deck.sSpec = "Support"; } else
     if (Deck.iSpec == 3) { Deck.sSpec = "Marine"; } else
@@ -170,7 +171,7 @@ function deckImport(){
         Deck.sEra +=  deckBinary.charAt(i); // same
     }
     Deck.iEra = parseInt(Deck.sEra, 2);
-    if (Deck.iEra == 0) { Deck.sEra = "C"; } else
+    if (Deck.iEra === 0) { Deck.sEra = "C"; } else
     if (Deck.iEra == 1) { Deck.sEra = "B"; } else
     if (Deck.iEra == 2) { Deck.sEra = "A"; }
 
@@ -190,6 +191,10 @@ function deckImport(){
 
     //unit decoding
     var iPC = 26; //pos counter
+    var getUnit = function(e){ return (e.DeckCode.Card == iUnit && e.DeckCode.Side == Deck.iSide);};
+    var getIfv = function(e){ return (e.DeckCode.Card == iIFV && e.DeckCode.Side == Deck.iSide);};
+    var getCraft = function(e){ return (e.DeckCode.Card == iCraft && e.DeckCode.Side == Deck.iSide);};
+
     for (var i = 0; i < Deck.Cards3Count; i++) //for each unit
     {
         var sVet = "", sUnit = "", sIFV = "", sCraft = "";
@@ -217,9 +222,9 @@ function deckImport(){
         var iIFV = parseInt(sIFV, 2);
         var iCraft = parseInt(sCraft, 2); //useful DEADBEEF: LCs are either 573/NATO or 458/PACT
 
-        var Unit = $.grep(UnitDatabase, function(e){ return (e.DeckCode.Card == iUnit && e.DeckCode.Side == Deck.iSide; });
-        var Ifv = $.grep(UnitDatabase, function(e){ return (e.DeckCode.Card == iIFV && e.DeckCode.Side == Deck.iSide; });
-        var Craft = $.grep(UnitDatabase, function(e){ return (e.DeckCode.Card == iCraft && e.DeckCode.Side == Deck.iSide; });
+        var Unit = $.grep(UnitDatabase, getUnit);
+        var Ifv = $.grep(UnitDatabase, getIFV);
+        var Craft = $.grep(UnitDatabase, getCraft);
         Deck.Cards3T[i] = new DeckCard(sVet, Unit, Ifv, Craft);
         Deck.Cards3T[i] = toGen(Deck.Cards3T[i]); // normalization. internally, the deck is stored as "general".
 
@@ -243,8 +248,8 @@ function deckImport(){
             iPC += 11;
             var iUnit = parseInt(sUnit, 2);
             var iIFV = parseInt(sIFV, 2);
-            var Unit = $.grep(UnitDatabase, function(e){ return (e.DeckCode.Card == iUnit && e.DeckCode.Side == Deck.iSide; });
-            var Ifv = $.grep(UnitDatabase, function(e){ return (e.DeckCode.Card == iIFV && e.DeckCode.Side == Deck.iSide; });
+            var Unit = $.grep(UnitDatabase, getUnit);
+            var Ifv = $.grep(UnitDatabase, getIFV);
             Deck.Cards2T[i] = new DeckCard(sVet, Unit, Ifv, 0); //LC is 0, IE, doesn't exist.
             Deck.Cards2T[i] = toGen(Deck.Cards2T[i]);// normalization. internally, the deck is stored as "general".
         }
@@ -266,7 +271,7 @@ function deckImport(){
             iLength = deckBinary.length - iPC;
 
             var iUnit = parseInt(sUnit, 2);
-            var Unit = $.grep(UnitDatabase, function(e){ return (e.DeckCode.Card == iUnit && e.DeckCode.Side == Deck.iSide; });
+            var Unit = $.grep(UnitDatabase, getUnit);
             Deck.Cards1T[Deck.Cards1Count] = new DeckCard(sVet, Unit, 0, 0);
             Deck.Cards1T[Deck.Cards1Count] = toGen(Deck.Cards1T[Deck.Cards1Count]);
             Deck.Cards1Count++;
@@ -278,7 +283,7 @@ function deckImport(){
 }
 
 function deckExport(){
-    var BinaryOut = ""
+    var BinaryOut = "";
     BinaryOut += Deck.iNation;
 
     var sUtil = Deck.iSpec.toString(2);
@@ -304,7 +309,7 @@ function deckExport(){
     for (var i = 0; i < Deck.Cards3T.length; i++)
     {
 
-        sUtil = Deck.Cards3T[i].sVet
+        sUtil = Deck.Cards3T[i].sVet;
         BinaryOut += sUtil;
 
         sUtil = Deck.Cards3T[i].Unit.DeckCode.Card.toString(2);
@@ -422,7 +427,7 @@ function deckExport(){
       if (charArray[i] == "111111") { CharOut +="/" ; }
 
         padCounter--;
-        if(padCounter == 0){padCounter = 4;}
+        if(padCounter === 0){padCounter = 4;}
     }
     //game won't accept the code without the padding.
     if(padCounter == 1){

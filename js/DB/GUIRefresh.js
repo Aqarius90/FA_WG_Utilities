@@ -7,48 +7,46 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
     deckExport();
 
     //spec
-    switch (Deck.iSpec)
-    {
-        case 0://moto
-            var Buttons = ractiveHeader.get('Buttons');
-            Buttons.bMarine = '#fff';
-            Buttons.bAirborne = '#fff';
-            Buttons.bMechanized = '#fff';
-            Buttons.bArmoured = '#fff';
-            Buttons.bMotorized = '#0f0';
-            Buttons.bSupport = '#fff';
-            Buttons.bNaval = '#fff';
-            Buttons.bGeneral = '#fff';
-            ractiveHeader.update('Buttons');
-            //ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
-            var headers = ractiveDeck.get('headers');
-            headers.logi = 'Logistics';
-            headers.infa = 'Infantry (+1)';
-            headers.supo = "Support";
-            headers.tank = "Tank";
-            headers.reco = "Recon (+1)";
-            headers.vehi = "Vehicle (+1)"
-            headers.helo = "Helicopter";
-            headers.airp = "Air";
-            headers.nava = "Naval";
-            ractiveDeck.update('headers')
-            var ranks = ractiveDeck.get('ranks');/*
-            ranks.inf.R0 = 'r001';
-            ranks.inf.R1 = 'r010';
-            ranks.inf.R2 = 'r011';
-            ranks.inf.R3 = 'r100';
-            ranks.rec.R0 = 'r001';
-            ranks.rec.R1 = 'r010';
-            ranks.rec.R2 = 'r011';
-            ranks.rec.R3 = 'r100';
-            ranks.veh.R0 = 'r001';
-            ranks.veh.R1 = 'r010';
-            ranks.veh.R2 = 'r011';
-            ranks.veh.R3 = 'r100';*/
-            ractiveDeck.update('ranks');
-            break;
-        case 1://arm
-            var Buttons = ractiveHeader.get('Buttons');
+    var Buttons = ractiveHeader.get('Buttons');
+    var headers = ractiveDeck.get('headers');
+    var ranks = ractiveDeck.get('ranks');
+    switch (Deck.iSpec) {
+    case 0://moto
+        Buttons.bMarine = '#fff';
+        Buttons.bAirborne = '#fff';
+        Buttons.bMechanized = '#fff';
+        Buttons.bArmoured = '#fff';
+        Buttons.bMotorized = '#0f0';
+        Buttons.bSupport = '#fff';
+        Buttons.bNaval = '#fff';
+        Buttons.bGeneral = '#fff';
+        ractiveHeader.update('Buttons');
+        //ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Recon, Vehicle");
+        headers.logi = 'Logistics';
+        headers.infa = 'Infantry (+1)';
+        headers.supo = "Support";
+        headers.tank = "Tank";
+        headers.reco = "Recon (+1)";
+        headers.vehi = "Vehicle (+1)";
+        headers.helo = "Helicopter";
+        headers.airp = "Air";
+        headers.nava = "Naval";
+        ractiveDeck.update('headers');/*
+        ranks.inf.R0 = 'r001';
+        ranks.inf.R1 = 'r010';
+        ranks.inf.R2 = 'r011';
+        ranks.inf.R3 = 'r100';
+        ranks.rec.R0 = 'r001';
+        ranks.rec.R1 = 'r010';
+        ranks.rec.R2 = 'r011';
+        ranks.rec.R3 = 'r100';
+        ranks.veh.R0 = 'r001';
+        ranks.veh.R1 = 'r010';
+        ranks.veh.R2 = 'r011';
+        ranks.veh.R3 = 'r100';*/
+        ractiveDeck.update('ranks');
+        break;
+    case 1://arm
             Buttons.bMarine = '#fff';
             Buttons.bAirborne = '#fff';
             Buttons.bMechanized = '#fff';
@@ -59,18 +57,16 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
             //ractiveHeader.set("lab.tspec", "+4 cards, +2XP, -1 cost: Tank");
-            var headers = ractiveDeck.get('headers');
             headers.logi = 'Logistics';
             headers.infa = 'Infantry';
             headers.supo = "Support";
             headers.tank = "Tank (+2)";
             headers.reco = "Recon";
-            headers.vehi = "Vehicle"
+            headers.vehi = "Vehicle";
             headers.helo = "Helicopter";
             headers.airp = "Air";
             headers.nava = "Naval";
-            ractiveDeck.update('headers')
-            var ranks = ractiveDeck.get('ranks');/*
+            ractiveDeck.update('headers');/*
             ranks.tnk.R0 = 'r010';
             ranks.tnk.R1 = 'r011';
             ranks.tnk.R2 = 'r100';
@@ -78,7 +74,6 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             ractiveDeck.update('ranks');
             break;
         case 2://sup
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bMarine = '#fff';
             Buttons.bAirborne = '#fff';
             Buttons.bMechanized = '#fff';
@@ -89,18 +84,16 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
             //ractiveHeader.set("lab.tspec", "+4 cards,-1 cost: Logistics, Support;  +1XP: Support");
-            var headers = ractiveDeck.get('headers');
             headers.logi = 'Logistics (+1)';
             headers.infa = 'Infantry';
             headers.supo = "Support (+1)";
             headers.tank = "Tank";
             headers.reco = "Recon";
-            headers.vehi = "Vehicle"
+            headers.vehi = "Vehicle";
             headers.helo = "Helicopter";
             headers.airp = "Air";
             headers.nava = "Naval";
-            ractiveDeck.update('headers')
-            var ranks = ractiveDeck.get('ranks');/*
+            ractiveDeck.update('headers');/*
             ranks.sup.R0 = 'r001';
             ranks.sup.R1 = 'r010';
             ranks.sup.R2 = 'r011';
@@ -108,7 +101,6 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             ractiveDeck.update('ranks');
             break;
         case 3://mar
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bMarine = '#0f0';
             Buttons.bAirborne = '#fff';
             Buttons.bMechanized = '#fff';
@@ -119,18 +111,16 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
             //ractiveHeader.set("lab.tspec", "+2 cards, +1XP, -1 cost: Infantry, Plane; +3 cards Naval");  //DEBUG +xp naval?
-            var headers = ractiveDeck.get('headers');
             headers.logi = 'Logistics';
             headers.infa = 'Infantry (+1)';
             headers.supo = "Support";
             headers.tank = "Tank";
             headers.reco = "Recon";
-            headers.vehi = "Vehicle"
+            headers.vehi = "Vehicle";
             headers.helo = "Helicopter";
             headers.airp = "Air (+1)";
             headers.nava = "Naval";
-            ractiveDeck.update('headers')
-            var ranks = ractiveDeck.get('ranks');/*
+            ractiveDeck.update('headers');/*
             ranks.inf.R0 = 'r001';
             ranks.inf.R1 = 'r010';
             ranks.inf.R2 = 'r011';
@@ -142,7 +132,6 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             ractiveDeck.update('ranks');
             break;
         case 4://mec
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bMarine = '#fff';
             Buttons.bAirborne = '#fff';
             Buttons.bMechanized = '#0f0';
@@ -153,18 +142,16 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
             //ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Vehicle");
-            var headers = ractiveDeck.get('headers');
             headers.logi = 'Logistics';
             headers.infa = 'Infantry (+1)';
             headers.supo = "Support";
             headers.tank = "Tank";
             headers.reco = "Recon";
-            headers.vehi = "Vehicle (+1)"
+            headers.vehi = "Vehicle (+1)";
             headers.helo = "Helicopter";
             headers.airp = "Air";
             headers.nava = "Naval";
-            ractiveDeck.update('headers')
-            var ranks = ractiveDeck.get('ranks');/*
+            ractiveDeck.update('headers');/*
             ranks.inf.R0 = 'r001';
             ranks.inf.R1 = 'r010';
             ranks.inf.R2 = 'r011';
@@ -176,7 +163,6 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             ractiveDeck.update('ranks');
             break;
         case 5://air
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bMarine = '#fff';
             Buttons.bAirborne = '#0f0';
             Buttons.bMechanized = '#fff';
@@ -187,18 +173,16 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
             //ractiveHeader.set("lab.tspec", "+4 cards, +1XP, -1 cost: Infantry, Helicopter, Airplane");
-            var headers = ractiveDeck.get('headers');
             headers.logi = 'Logistics';
             headers.infa = 'Infantry (+1)';
             headers.supo = "Support";
             headers.tank = "Tank";
             headers.reco = "Recon";
-            headers.vehi = "Vehicle"
+            headers.vehi = "Vehicle";
             headers.helo = "Helicopter (+1)";
             headers.airp = "Air (+1)";
             headers.nava = "Naval";
-            ractiveDeck.update('headers')
-            var ranks = ractiveDeck.get('ranks');/*
+            ractiveDeck.update('headers');/*
             ranks.inf.R0 = 'r001';
             ranks.inf.R1 = 'r010';
             ranks.inf.R2 = 'r011';
@@ -214,7 +198,6 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             ractiveDeck.update('ranks');
             break;
         case 6://nav
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bMarine = '#fff';
             Buttons.bAirborne = '#fff';
             Buttons.bMechanized = '#fff';
@@ -225,20 +208,18 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Buttons.bGeneral = '#fff';
             ractiveHeader.update('Buttons');
             //ractiveHeader.set("lab.tspec", "ಠ_ಠ");
-            var headers = ractiveDeck.get('headers');
             headers.logi = 'Logistics';
             headers.infa = 'Infantry';
             headers.supo = "Support";
             headers.tank = "Tank";
             headers.reco = "Recon";
-            headers.vehi = "Vehicle"
+            headers.vehi = "Vehicle";
             headers.helo = "Helicopter";
             headers.airp = "Air";
             headers.nava = "Naval";
-            ractiveDeck.update('headers')
+            ractiveDeck.update('headers');
             break;
         case 7://gen
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bMarine = '#fff';
             Buttons.bAirborne = '#fff';
             Buttons.bMechanized = '#fff';
@@ -249,18 +230,16 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Buttons.bGeneral = '#0f0';
             ractiveHeader.update('Buttons');
             //ractiveHeader.set("lab.tspec", "no bonus");
-            var headers = ractiveDeck.get('headers');
             headers.logi = 'Logistics';
             headers.infa = 'Infantry';
             headers.supo = "Support";
             headers.tank = "Tank";
             headers.reco = "Recon";
-            headers.vehi = "Vehicle"
+            headers.vehi = "Vehicle";
             headers.helo = "Helicopter";
             headers.airp = "Air";
             headers.nava = "Naval";
-            ractiveDeck.update('headers')
-            var ranks = ractiveUnit.get('ranks');/*
+            ractiveDeck.update('headers');/*
             ranks.R0 = 'r000';
             ranks.R1 = 'r001';
             ranks.R2 = 'r010';
@@ -273,7 +252,6 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
     switch (Deck.iEra)
     {
         case 0://C
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bC = '#0f0';
             Buttons.bB = '#fff';
             Buttons.bA = '#fff';
@@ -282,7 +260,6 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Deck.deckpoitstotal += 10;
             break;
         case 1://B
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bC = '#fff';
             Buttons.bB = '#0f0';
             Buttons.bA = '#fff';
@@ -291,7 +268,6 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             Deck.deckpoitstotal += 5;
             break;
         case 2://A
-            var Buttons = ractiveHeader.get('Buttons');
             Buttons.bC = '#fff';
             Buttons.bB = '#fff';
             Buttons.bA = '#0f0';
