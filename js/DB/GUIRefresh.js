@@ -1,5 +1,5 @@
 function GUIDisplay() { // sets header, displays deck data, encodes deck.
-
+console.log("start GUI refresh");
     Deck.deckpoints = 0;
     Deck.deckpoitstotal = 45;
     //nation
@@ -275,8 +275,9 @@ function GUIDisplay() { // sets header, displays deck data, encodes deck.
             ractiveHeader.set("lab.tera", "+0AP");
             break;
     }
-    displayUnits();
+    //displayUnits();
     ractiveHeader.set("lab.pointstally", Deck.deckpoints + "/" + Deck.deckpoitstotal);
+    console.log("end GUI refresh");
 }
 
 function refreshFlags(){

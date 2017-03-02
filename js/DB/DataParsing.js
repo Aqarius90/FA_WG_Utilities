@@ -7,17 +7,20 @@ function initDB(){
     window.DBarr = [];
     window.IDpairs = new IDpairInit();
     jQuery.get('https://aqarius90.github.io/FA_WG_Utilities/final_data.csv', function(data) {
+      console.log("start data parsing");
         DBstring = new String(data);
         DBarr = jQuery.csv.toArrays(data);
+        DataToObjects();
+        AssignDeckCode();
+        console.log("end data parsing");
     });
-    DataToObjects();
-    AssignDeckCode();
     //display actual page
     ractiveHeader.set({DBisLoaded: true});
     ractiveHeader.set({DBisNotLoaded:  false});
     ractiveUnit.set({DBisLoaded:true});
     ractiveUnit.set({DBisNotLoaded:false});
     ractiveDeck.set({DBisLoaded: true});
+
 }
 
 function DataToObjects(){

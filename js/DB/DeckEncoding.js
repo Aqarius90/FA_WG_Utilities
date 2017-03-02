@@ -283,6 +283,7 @@ function deckImport() {
 }
 
 function deckExport(){
+  console.log("start deck export");
     var BinaryOut = "";
     BinaryOut += Deck.iNation;
 
@@ -439,4 +440,5 @@ function deckExport(){
     }
     var sDeckString = document.getElementById("sDeckString");
     sDeckString.value = CharOut;
+    console.log("end deck export");
 }
