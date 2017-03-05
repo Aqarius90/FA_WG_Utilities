@@ -125,14 +125,17 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Decks"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Decks = DBarr[j][i];
+                    //UnitParser[j].Decks = DBarr[j][i];
                     var k = 0;
+                    var summation = "";
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
+                            UnitParser[j].Decks[k] = summation;
+                            summation = "";
                             k++;
                         }
                         else{
-                            UnitParser[j].Decks[k] += DBarr[j][i].charAt(l);
+                            summation += DBarr[j][i].charAt(l);
                         }
                     }
                 }

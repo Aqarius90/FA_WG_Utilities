@@ -111,7 +111,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon10RayonPinned = "";
     this.Weapon10ShotsPerSalvo = "";
     this.Weapon10SupplyCost = "";
-    this.Weapon10Tags = new Array();
+    this.Weapon10Tags = [];
         this.Weapon10Tags[0] = "";
     this.Weapon10TimeBetweenSalvos = "";
     this.Weapon10TimeBetweenShots = "";
@@ -152,7 +152,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon11RayonPinned = "";
     this.Weapon11ShotsPerSalvo = "";
     this.Weapon11SupplyCost = "";
-    this.Weapon11Tags = new Array();
+    this.Weapon11Tags = [];
         this.Weapon11Tags[0] = "";
     this.Weapon11TimeBetweenSalvos = "";
     this.Weapon11TimeBetweenShots = "";
@@ -195,7 +195,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon1RayonPinned = "";
     this.Weapon1ShotsPerSalvo = "";
     this.Weapon1SupplyCost = "";
-    this.Weapon1Tags = new Array();
+    this.Weapon1Tags = [];
         this.Weapon1Tags[0] = "";
     this.Weapon1TimeBetweenSalvos = "";
     this.Weapon1TimeBetweenShots = "";
@@ -238,7 +238,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon2RayonPinned = "";
     this.Weapon2ShotsPerSalvo = "";
     this.Weapon2SupplyCost = "";
-    this.Weapon2Tags = new Array();
+    this.Weapon2Tags = [];
         this.Weapon2Tags[0] = "";
     this.Weapon2TimeBetweenSalvos = "";
     this.Weapon2TimeBetweenShots = "";
@@ -281,7 +281,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon3RayonPinned = "";
     this.Weapon3ShotsPerSalvo = "";
     this.Weapon3SupplyCost = "";
-    this.Weapon3Tags = new Array();
+    this.Weapon3Tags = [];
         this.Weapon3Tags[0] = "";
     this.Weapon3TimeBetweenSalvos = "";
     this.Weapon3TimeBetweenShots = "";
@@ -324,7 +324,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon4RayonPinned = "";
     this.Weapon4ShotsPerSalvo = "";
     this.Weapon4SupplyCost = "";
-    this.Weapon4Tags = new Array();
+    this.Weapon4Tags = [];
         this.Weapon4Tags[0] = "";
     this.Weapon4TimeBetweenSalvos = "";
     this.Weapon4TimeBetweenShots = "";
@@ -367,7 +367,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon5RayonPinned = "";
     this.Weapon5ShotsPerSalvo = "";
     this.Weapon5SupplyCost = "";
-    this.Weapon5Tags = new Array();
+    this.Weapon5Tags = [];
         this.Weapon5Tags[0] = "";
     this.Weapon5TimeBetweenSalvos = "";
     this.Weapon5TimeBetweenShots = "";
@@ -410,7 +410,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon6RayonPinned = "";
     this.Weapon6ShotsPerSalvo = "";
     this.Weapon6SupplyCost = "";
-    this.Weapon6Tags = new Array();
+    this.Weapon6Tags = [];
         this.Weapon6Tags[0] = "";
     this.Weapon6TimeBetweenSalvos = "";
     this.Weapon6TimeBetweenShots = "";
@@ -451,7 +451,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon7RayonPinned = "";
     this.Weapon7ShotsPerSalvo = "";
     this.Weapon7SupplyCost = "";
-    this.Weapon7Tags = new Array();
+    this.Weapon7Tags = [];
         this.Weapon7Tags[0] = "";
     this.Weapon7TimeBetweenSalvos = "";
     this.Weapon7TimeBetweenShots = "";
@@ -494,7 +494,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon8RayonPinned = "";
     this.Weapon8ShotsPerSalvo = "";
     this.Weapon8SupplyCost = "";
-    this.Weapon8Tags = new Array();
+    this.Weapon8Tags = [];
         this.Weapon8Tags[0] = "";
     this.Weapon8TimeBetweenSalvos = "";
     this.Weapon8TimeBetweenShots = "";
@@ -535,14 +535,14 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon9RayonPinned = "";
     this.Weapon9ShotsPerSalvo = "";
     this.Weapon9SupplyCost = "";
-    this.Weapon9Tags = new Array();
+    this.Weapon9Tags = [];
         this.Weapon9Tags[0] = "";
     this.Weapon9TimeBetweenSalvos = "";
     this.Weapon9TimeBetweenShots = "";
     this.Weapon9Type = "";
     this.Transporters = "";
         this.Transporters[0] = "";
-    this.Decks = "";
+    this.Decks = [];
         this.Decks[0] = "";
 
 }
@@ -1221,7 +1221,7 @@ function Makelink( x, y){
 }
 
 function IDpairInit(){
-    var PairArray = new Array;
+    var PairArray = [];
      PairArray[16554] = new Makelink(1,1);
      PairArray[16555] = new Makelink(2,1);
      PairArray[16556] = new Makelink(3,1);

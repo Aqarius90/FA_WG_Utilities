@@ -398,6 +398,7 @@ function refreshFlags(){
         Deck.deckpoitstotal += 15;
     }
     else if (Deck.sNation == "France"){
+    console.log(Deck.sNation);
         Flags.FRA = "FRA";
         ractiveHeader.set("lab.tnation", "+20%, +15AP");
         Deck.availQotient = 20;
