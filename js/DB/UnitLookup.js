@@ -5,33 +5,33 @@ function listUnits(){ //get units for display
 
 function checkNation(card){
     //if Nation, check deck nation
-    if(card.sNation == "ANZAC" && (Deck.sNation != "ANZAC" && Deck.sNation != "CW" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "West Germany" && (Deck.sNation != "West Germany" && Deck.sNation != "EU" && Deck.sNation != "LJUT" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "Canada" && (Deck.sNation != "Canada" && Deck.sNation != "CW" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "Denmark" && (Deck.sNation != "Denmark" && Deck.sNation != "LJUT" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "France" && (Deck.sNation != "France" && Deck.sNation != "EU" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "Japan" && (Deck.sNation != "Japan" && Deck.sNation != "BD" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "The Netherlands" && (Deck.sNation != "The Netherlands" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "Norway" && (Deck.sNation != "Norway" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "South Korea" && (Deck.sNation != "South Korea" && Deck.sNation != "BD" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "Sweden" && (Deck.sNation != "Sweden" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "United Kingdom" && (Deck.sNation !== "United Kingdom" && Deck.sNation != "CW" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "United States" && (Deck.sNation !== "United States" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "Israel" && (Deck.sNation !== "Israel" && Deck.sNation != "NATO")){ return false; }
-    else if(card.MotherCountry == "NATO" && Deck.iSide !== 0){ return false; }
+    if(card[1].MotherCountry == "ANZAC" && (Deck.sNation != "ANZAC" && Deck.sNation != "CW" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "West Germany" && (Deck.sNation != "West Germany" && Deck.sNation != "EU" && Deck.sNation != "LJUT" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "Canada" && (Deck.sNation != "Canada" && Deck.sNation != "CW" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "Denmark" && (Deck.sNation != "Denmark" && Deck.sNation != "LJUT" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "France" && (Deck.sNation != "France" && Deck.sNation != "EU" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "Japan" && (Deck.sNation != "Japan" && Deck.sNation != "BD" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "The Netherlands" && (Deck.sNation != "The Netherlands" && Deck.sNation != "BDRNL" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "Norway" && (Deck.sNation != "Norway" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "South Korea" && (Deck.sNation != "South Korea" && Deck.sNation != "BD" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "Sweden" && (Deck.sNation != "Sweden" && Deck.sNation != "SCA" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "United Kingdom" && (Deck.sNation !== "United Kingdom" && Deck.sNation != "CW" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "United States" && (Deck.sNation !== "United States" && Deck.sNation != "NORAD" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "Israel" && (Deck.sNation !== "Israel" && Deck.sNation != "NATO")){ return false; }
+    else if(card[1].MotherCountry == "NATO" && Deck.iSide !== 0){ return false; }
 
-    else if(card.MotherCountry == "Czechoslavakia" && (Deck.sNation != "Czechoslavakia" && Deck.sNation != "NSWP" && Deck.sNation != "YUCZE" && Deck.sNation != "REDFOR")){ return false; }
+    else if(card[1].MotherCountry == "Czechoslavakia" && (Deck.sNation != "Czechoslavakia" && Deck.sNation != "NSWP" && Deck.sNation != "YUCZE" && Deck.sNation != "REDFOR")){ return false; }
     //lol typo in dataset
-    else if(card.MotherCountry == "East Germany" && (Deck.sNation != "East Germany" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
-    else if(card.MotherCountry == "North Korea" && (Deck.sNation != "North Korea" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
-    else if(card.MotherCountry == "Poland" && (Deck.sNation != "Poland" && Deck.sNation != "NSWP" && Deck.sNation != "FINPL" && Deck.sNation != "REDFOR")){ return false; }
-    else if(card.MotherCountry == "China" && (Deck.sNation != "China" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
-    else if(card.MotherCountry == "Soviet Union" && (Deck.sNation != "Soviet Union" && Deck.sNation != "REDFOR")){ return false; }
-    else if(card.MotherCountry == "Finland" && (Deck.sNation != "Finland" && Deck.sNation != "FINPL" && Deck.sNation != "REDFOR")){ return false; }
-    else if(card.MotherCountry == "Yugoslavia" && (Deck.sNation != "Yugoslavia" && Deck.sNation != "YUCZE" && Deck.sNation != "REDFOR")){ return false; }
-    else if(card.MotherCountry == "REDFOR" && Deck.iSide != 1){ return false; }
+    else if(card[1].MotherCountry == "East Germany" && (Deck.sNation != "East Germany" && Deck.sNation != "NSWP" && Deck.sNation != "REDFOR")){ return false; }
+    else if(card[1].MotherCountry == "North Korea" && (Deck.sNation != "North Korea" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
+    else if(card[1].MotherCountry == "Poland" && (Deck.sNation != "Poland" && Deck.sNation != "NSWP" && Deck.sNation != "FINPL" && Deck.sNation != "REDFOR")){ return false; }
+    else if(card[1].MotherCountry == "China" && (Deck.sNation != "China" && Deck.sNation != "RD" && Deck.sNation != "REDFOR")){ return false; }
+    else if(card[1].MotherCountry == "Soviet Union" && (Deck.sNation != "Soviet Union" && Deck.sNation != "REDFOR")){ return false; }
+    else if(card[1].MotherCountry == "Finland" && (Deck.sNation != "Finland" && Deck.sNation != "FINPL" && Deck.sNation != "REDFOR")){ return false; }
+    else if(card[1].MotherCountry == "Yugoslavia" && (Deck.sNation != "Yugoslavia" && Deck.sNation != "YUCZE" && Deck.sNation != "REDFOR")){ return false; }
+    else if(card[1].MotherCountry == "REDFOR" && Deck.iSide != 1){ return false; }
 
-    else if(card.IsPrototype == "True" && (Deck.sNation === "REDFOR" || Deck.sNation === "NATO")){ return false; }
+    else if(card[1].IsPrototype == "True" && (Deck.sNation === "REDFOR" || Deck.sNation === "NATO")){ return false; }
     else { return true; }
 }
 
