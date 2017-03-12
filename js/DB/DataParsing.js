@@ -32,7 +32,7 @@ function DataToObjects(){
         UnitParser[i] = new Unit();
     }
 
-    //fill instances with data.
+    //fill instances with data. go value-by-value, assign all units
     for (var i = 0; i < DBarr[0].length; i++) {
             if(DBarr[0][i] == "AirplaneMinimalAltitude"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].AirplaneMinimalAltitude = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Amphibious"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Amphibious = DBarr[j][i]; }}
@@ -109,15 +109,19 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Optics"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Optics = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Transporters"){
             //separate tags (tag|tag|tag) into an array
-                for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Transporters = DBarr[j][i];
-                    var k = 0;
-                    for (var l = 0; l< DBarr[j][i].length; l++){
-                        if(DBarr[j][i].charAt(l) == "|"){
-                            k++;
-                        }
-                        else{
-                            UnitParser[j].Transporters[k] += DBarr[j][i].charAt(l);
+                for (var j = 1; j < DBarr.length; j++) { // for given unit
+                    if(DBarr[j][i] !== ""){
+                        var k = 0;
+                        var summation = "";
+                        for (var l = 0; l< DBarr[j][i].length; l++){ //loop through string
+                            if(DBarr[j][i].charAt(l) == "|"){ //if separator, separate
+                                UnitParser[j].Transporters[k] = summation; //must be inited as array in objects.js
+                                summation = "";
+                                k++;
+                            }
+                            else{
+                                summation += DBarr[j][i].charAt(l);
+                            }
                         }
                     }
                 }

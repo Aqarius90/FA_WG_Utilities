@@ -540,7 +540,7 @@ function Unit() { //DB initially filled with empty units. data filled in later
     this.Weapon9TimeBetweenSalvos = "";
     this.Weapon9TimeBetweenShots = "";
     this.Weapon9Type = "";
-    this.Transporters = "";
+    this.Transporters = [];
         this.Transporters[0] = "";
     this.Decks = [];
         this.Decks[0] = "";
