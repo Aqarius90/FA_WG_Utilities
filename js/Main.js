@@ -31,6 +31,7 @@ function init() {
 
     //autoload deck, syntax: FA_WG_Utilities/?=@CODE
     var startercode = window.location.search.split("@");
+    console.log(startercode[1]);
     if(startercode[1].length >1){
         decodeDeck(startercode[1]);
         GUIDisplay();
