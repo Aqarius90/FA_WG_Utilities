@@ -32,7 +32,7 @@ function VehicleCard(VET, UNIT, TRANSPORT, CRAFT) {
     this.iVet = parseInt(VET, 2);
     this.iVet0 = this.iVet; //normalized
     this.sNation = UNIT.sNation; //trusting the database here
-    this.UnitTypeData = UNIT.sUnitData.slice(17); 
+    this.UnitTypeData = UNIT.sUnitData.slice(17);
     if (TRANSPORT == 0){ //unit
       this.iYear = UNIT.iYear;
       this.sSpec = UNIT.sSpecDeck;
@@ -115,6 +115,7 @@ function initMainDB()
     Create();
     Mobilize();
     Weaponize();
+    autoLoad();
 }
 
 function Create()

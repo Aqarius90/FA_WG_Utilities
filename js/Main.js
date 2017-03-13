@@ -8,7 +8,6 @@ function init() {
       CardsDB[i]=Array(2);
       TransportArray[i]=Array(2);
     }
-    initMainDB();
     window.selectedCards = [0,0,0,0,0,0,0,0,0];
     window.IDlist = [];
     window.tDebug = [];
@@ -28,7 +27,10 @@ function init() {
       }
     );
     ractiveHeader.set('unloaded', false);
+    initMainDB();
+}
 
+function autoLoad(){
     //autoload deck, syntax: FA_WG_Utilities/?=@CODE
     console.log("autoload test");
     var startercode = window.location.search.split("@");
