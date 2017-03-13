@@ -30,10 +30,11 @@ function init() {
     ractiveHeader.set('unloaded', false);
 
     //autoload deck, syntax: FA_WG_Utilities/?=@CODE
+    console.log("autoload test");
     var startercode = window.location.search.split("@");
     console.log(startercode[1]);
     if(startercode[1].length >1){
-        decodeDeck(startercode[1]);
+        decodeDeck("@" + startercode[1]);
         GUIDisplay();
     }
 }
