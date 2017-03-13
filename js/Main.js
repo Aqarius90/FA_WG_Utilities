@@ -27,8 +27,14 @@ function init() {
           $("#navTable").tablesorter();
       }
     );
-    //if (document.readyState === "complete") {ractiveHeader.set('unloaded', false); }
     ractiveHeader.set('unloaded', false);
+
+    //autoload deck, syntax: FA_WG_Utilities/?=@CODE
+    var startercode = window.location.search.split("@");
+    if(startercode[1].length >1){
+        decodeDeck(startercode[1]);
+        GUIDisplay();
+    }
 }
 
 function listUnits() //get units for display
