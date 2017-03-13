@@ -32,16 +32,26 @@ function checkNation(unit){
     else if(unit.MotherCountry == "REDFOR" && Deck.iSide != 1){ return false; }
 
     else if(unit.IsPrototype == "True" && (Deck.sNation === "REDFOR" || Deck.sNation === "NATO")){ return false; }
-    else { console.log(1); return true; }
+    else { return true; }
 }
 
 function UnitLookup(){
+    //navRow = [];
     var card;
     var naval;
     var dry;
     var year = 3000;
     if(Deck.sEra == "B"){ year = 1985;}
     else if(Deck.sEra == "C"){ year = 1980;}
+    logRow.length = 0;// <<perfectly legal, oddly enough
+    infRow.length = 0;// = []; <<this doesn't work, oddly enough
+    supRow.length = 0;// = [];
+    tnkRow.length = 0;// = [];
+    recRow.length = 0;// = [];
+    vehRow.length = 0;// = [];
+    helRow.length = 0;// = [];
+    airRow.length = 0;// = [];
+    navRow.length = 0;
 
     var validNation = true;
     var validSpec = true;
@@ -49,7 +59,7 @@ function UnitLookup(){
     for (var i=UnitIdMin; i<=UnitIdMax;i++){
         if (typeof UnitDatabase[i] != 'undefined'){//get unit
             card = ["000", UnitDatabase[i], 0, 0];
-            if(card[1].IsTransporter == "False"){ //transports don't get their own card
+            if(card[1].IsTransporter == "False"){ //transports don't get their own card. also, deprecated units
                 validNation = checkNation(card[1]);
                 if (validNation){
                     validSpec = checkDeckSpecialisation(card[1]); //pass individual units, not cards
@@ -60,11 +70,11 @@ function UnitLookup(){
                             toList(send);
                         }*/
                         if (card[1].MovementType == "Foot"){//if is inf, add transport.
-                            for (var j=0; j <= card[1].Transporters.length; j++){
+                            for (var j=0; j < card[1].Transporters.length; j++){
                                 var transportID = card[1].Transporters[j]; // get transport
                                 card[2] = UnitDatabase[transportID];
                                 validNation = checkNation(card[2]);
-                                validSpec = checkDeckSpecialisation(unit[2]); //pass individual units, not cards
+                                validSpec = checkDeckSpecialisation(card[2]); //pass individual units, not cards
                                 if (card[2].Year <= year && validSpec && validNation) {
                                     toList(card);
                                 }
@@ -81,9 +91,9 @@ function UnitLookup(){
 }
 
 function checkDeckSpecialisation(unit){
-    for( var i = 0; i <= unit.Decks.length; i++){ //run through an array, if there's a match, true.
+    for( var i = 0; i < unit.Decks.length; i++){ //run through an array, if there's a match, true.
         if(unit.Decks[i] == Deck.sSpec){
-            return true;
+            return true;  //TODO test this
         }
     }
     if ( Deck.sSpec == "GEN"){

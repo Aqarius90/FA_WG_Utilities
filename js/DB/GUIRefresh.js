@@ -1,5 +1,5 @@
 function GUIDisplay() { // sets header, displays deck data, encodes deck.
-console.log("start GUI refresh");
+console.log(Deck);
     Deck.deckpoints = 0;
     Deck.deckpoitstotal = 45;
     //nation

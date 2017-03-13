@@ -108,7 +108,7 @@ var ractiveDeck = new Ractive({
                 });
             },
 
-              myMethod: function() {
+              myMethod: function() { //TODO showCard doesn't work without it.
                 console.log('Hello World!');
             },
             //For unit overview. D for data, L for label. 11-19 for logi, 21-29 for inf etc.
@@ -237,7 +237,6 @@ ractiveDeck.on( 'activate', function ( event, card ) {
       Deck.iSide = 0;
       Deck.sNation = "BD";
       Deck.iNation = "000111100011";
-      console.log(Deck);
       GUIDisplay();
       listUnits();
   }
@@ -316,7 +315,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btBRD_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "BRD";
+      Deck.sNation = "West Germany";
       Deck.iNation = "000001101100";
       GUIDisplay();
       listUnits();
@@ -324,7 +323,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btCAN_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "CAN";
+      Deck.sNation = "Canada";
       Deck.iNation = "000010001100";
       GUIDisplay();
       listUnits();
@@ -332,7 +331,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btDEN_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "DEN";
+      Deck.sNation = "Denmark";
       Deck.iNation = "000010101100";
       GUIDisplay();
       listUnits();
@@ -348,7 +347,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btJAP_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "Jaoan";
+      Deck.sNation = "Japan";
       Deck.iNation = "000001001100";
       GUIDisplay();
       listUnits();
@@ -356,7 +355,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btNED_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "NED";
+      Deck.sNation = "The Netherlands";
       Deck.iNation = "000101101100";
       GUIDisplay();
       listUnits();
@@ -364,7 +363,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btNOR_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "NOR";
+      Deck.sNation = "Norway";
       Deck.iNation = "000011101100";
       GUIDisplay();
       listUnits();
@@ -372,7 +371,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btROK_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "ROK";
+      Deck.sNation = "South Korea";
       Deck.iNation = "000101001100";
       GUIDisplay();
       listUnits();
@@ -380,7 +379,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btSWE_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "SWE";
+      Deck.sNation = "Sweden";
       Deck.iNation = "000011001100";
       GUIDisplay();
       listUnits();
@@ -388,7 +387,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btUK_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "UK";
+      Deck.sNation = "United Kingdom";
       Deck.iNation = "000000101100";
       GUIDisplay();
       listUnits();
@@ -396,7 +395,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btUSA_Click() {
       Deck.sSide = "BLU";
       Deck.iSide = 0;
-      Deck.sNation = "USA";
+      Deck.sNation = "United States";
       Deck.iNation = "000000001100";
       GUIDisplay();
       listUnits();
@@ -404,7 +403,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btCZS_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "CZS";
+      Deck.sNation = "Czechoslavakia";
       Deck.iNation = "010001101100";
       GUIDisplay();
       listUnits();
@@ -412,7 +411,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btDDR_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "DDR";
+      Deck.sNation = "East Germany";
       Deck.iNation = "010000001100";
       GUIDisplay();
       listUnits();
@@ -420,7 +419,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btDPRK_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "DPRK";
+      Deck.sNation = "North Korea";
       Deck.iNation = "010010101100";
       GUIDisplay();
       listUnits();
@@ -428,7 +427,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btPOL_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "POL";
+      Deck.sNation = "Poland";
       Deck.iNation = "010001001100";
       GUIDisplay();
       listUnits();
@@ -436,7 +435,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btPRC_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "PRC";
+      Deck.sNation = "China";
       Deck.iNation = "010010001100";
       GUIDisplay();
       listUnits();
@@ -444,7 +443,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btUSSR_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "USSR";
+      Deck.sNation = "Soviet Union";
       Deck.iNation = "010000101100";
       GUIDisplay();
       listUnits();
@@ -489,7 +488,7 @@ ractiveDeck.on( 'activate', function ( event, card ) {
   function btYU_Click() {
       Deck.sSide = "RED";
       Deck.iSide = 1;
-      Deck.sNation = "YU";
+      Deck.sNation = "Yugoslavia";
       Deck.iNation = "010011101100";
       GUIDisplay();
       listUnits();

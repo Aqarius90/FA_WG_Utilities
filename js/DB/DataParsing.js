@@ -7,12 +7,10 @@ function initDB(){
     window.DBarr = [];
     window.IDpairs = new IDpairInit();
     jQuery.get('https://aqarius90.github.io/FA_WG_Utilities/final_data.csv', function(data) {
-      console.log("start data parsing");
         DBstring = new String(data);
         DBarr = jQuery.csv.toArrays(data);
         DataToObjects();
         AssignDeckCode();
-        console.log("end data parsing");
     });
     //display actual page
     ractiveHeader.set({DBisLoaded: true});
@@ -123,6 +121,7 @@ function DataToObjects(){
                                 summation += DBarr[j][i].charAt(l);
                             }
                         }
+                        UnitParser[j].Transporters[k] = summation;//last one
                     }
                 }
             }
@@ -142,6 +141,7 @@ function DataToObjects(){
                             summation += DBarr[j][i].charAt(l);
                         }
                     }
+                    UnitParser[j].Decks[k] = summation;//last one
                 }
             }
         else if(DBarr[0][i] == "Weapon1AP"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon1AP = DBarr[j][i]; }}
@@ -185,18 +185,22 @@ function DataToObjects(){
         else if(DBarr[0][i] == "Weapon1Tags"){
             //separate tags (tag|tag|tag) into an array
                 for (var j = 1; j < DBarr.length; j++) {
-                    UnitParser[j].Weapon1Tags = DBarr[j][i];
+                    //UnitParser[j].Decks = DBarr[j][i];
                     var k = 0;
+                    var summation = "";
                     for (var l = 0; l< DBarr[j][i].length; l++){
                         if(DBarr[j][i].charAt(l) == "|"){
+                            UnitParser[j].Weapon1Tags[k] = summation;
+                            summation = "";
                             k++;
                         }
                         else{
-                            UnitParser[j].Weapon1Tags[k] += DBarr[j][i].charAt(l);
+                            summation += DBarr[j][i].charAt(l);
                         }
                     }
+                    UnitParser[j].Weapon1Tags[k] = summation;//last one
                 }
-            }
+            }// rest of tags are wrong, TODO
         else if(DBarr[0][i] == "Weapon1TimeBetweenSalvos"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon1TimeBetweenSalvos = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon1TimeBetweenShots"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon1TimeBetweenShots = DBarr[j][i]; }}
         else if(DBarr[0][i] == "Weapon1Type"){ for (var j = 1; j < DBarr.length; j++) { UnitParser[j].Weapon1Type = DBarr[j][i]; }}
@@ -764,7 +768,12 @@ function AssignDeckCode(){
         if (UnitIdMin > UnitParser[i].ID){ UnitIdMin = UnitParser[i].ID;}
         UnitParser[i].DeckCode = IDpairs[UnitParser[i].ID];
         UnitDatabase[UnitParser[i].ID] = new UnitCopy(UnitParser[i]);
+        if (IDpairs[UnitParser[i].ID].Card === 0){
+            UnitDatabase[UnitParser[i].ID].IsTransporter = "True"; // deprecated units
+        }
     }
+    console.log("UnitIDMin:" + UnitIdMin);
+    console.log("UnitIDMax:" + UnitIdMax);
 }
 
 
