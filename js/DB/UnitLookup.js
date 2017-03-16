@@ -145,276 +145,156 @@ function addRow(card, table){
 
 function showCard(card){
     //set decktype avail indicators
-    var deckType = ractiveUnit.get('deckType');
-    deckType.MAR = '#f00';
-    deckType.AIR = '#f00';
-    deckType.MEC = '#f00';
-    deckType.ARM = '#f00';
-    deckType.MOT = '#f00';
-    deckType.SUP = '#f00';
+    var Unit = ractiveUnit.get('Unit');
+    Unit.deckType.MAR = '#f00';
+    Unit.deckType.AIR = '#f00';
+    Unit.deckType.MEC = '#f00';
+    Unit.deckType.ARM = '#f00';
+    Unit.deckType.MOT = '#f00';
+    Unit.deckType.SUP = '#f00';
     for (var i = 0; i< card[1].Decks.length; i++){
         if (card[1].Decks[i] == "Marine"){
-            deckType.MAR = "#0f0";
+            Unit.deckType.MAR = "#0f0";
         }
         else if (card[1].Decks[i] == "Airborne"){
-            deckType.AIR = "#0f0";
+            Unit.deckType.AIR = "#0f0";
         }
         else if (card[1].Decks[i] == "Mechanized"){
-            deckType.MEC = "#0f0";
+            Unit.deckType.MEC = "#0f0";
         }
         else if (card[1].Decks[i] == "Armored"){
-            deckType.ARM = "#0f0";
+            Unit.deckType.ARM = "#0f0";
         }
         else if (card[1].Decks[i] == "Motorized"){
-            deckType.MOT = "#0f0";
+            Unit.deckType.MOT = "#0f0";
         }
         else if (card[1].Decks[i] == "Support"){
-            deckType.SUP = "#0f0";
+            Unit.deckType.SUP = "#0f0";
         }
     }
-    ractiveUnit.update('deckType');
 
-    ractiveUnit.set({
-        UnitCode : "" + card[1].DeckCode.Side + card[1].DeckCode.Card,
-        UnitName : "" + card[1].Name,
-        Price : card[1].Price,
-        isCommand: "#f00",
-        isProto: "#f00"
-    })
+    Unit.UnitCode = "" + card[1].DeckCode.Side + card[1].DeckCode.Card;
+    Unit.UnitName = "" + card[1].Name;
+    Unit.Nation = card[1].MotherCountry;
+    Unit.Price = card[1].Price;
+    Unit.isCommand = "#f00";
+    Unit.isProto = "#f00";
 
     if (card[1].IsPrototype == "True"){
-        ractiveUnit.set({ isProto: "#0f0"});
+        Unit.isProto = "#0f0";
     }
     if (card[1].IsCommandUnit == "True"){
-        ractiveUnit.set({ isCommand: "#0f0"});
+        Unit.isCommand = "#0f0";
     }
+//TODO optics
+//TODO availability
+    Unit.isAir = false;
+    Unit.isHelo = false;
+    Unit.isShip = false;
+    Unit.isLand = false;
+
+    //so, AV is AV, except if splash is "True" (not true, "True"), then AV is splash type. lol.
+    Unit.Armor.FAVtype = 0;
+    Unit.Armor.SAVtype = 0;
+    Unit.Armor.RAVtype = 0;
+    Unit.Armor.TAVtype = 0;
+    Unit.Armor.FAV = card[1].ArmorFront;
+    Unit.Armor.SAV = card[1].ArmorSides;
+    Unit.Armor.RAV = card[1].ArmorRear;
+    Unit.Armor.TAV = card[1].ArmorTop;
+    if (card[1].ArmorFrontSplashResistant == "True"){
+        Unit.Armor.FAV = 0;
+        Unit.Armor.FAVtype = card[1].ArmorFront;
+    }
+    if (card[1].ArmorSidesSplashResistant == "True"){
+        Unit.Armor.SAV = 0;
+        Unit.Armor.SAVtype = card[1].ArmorSides;
+    }
+    if (card[1].ArmorRearSplashResistant == "True"){
+        Unit.Armor.RAV = 0;
+        Unit.Armor.RAVtype = card[1].ArmorRear;
+    }
+    if (card[1].ArmorTopSplashResistant == "True"){
+        Unit.Armor.TAV = 0;
+        Unit.Armor.TAVtype = card[1].ArmorTop;
+    }
+
+    //full data
+    Unit.Universal.IdentifyBaseProbability = card[1].IdentifyBaseProbability;
+    if (card[1].Size === ""){ Unit.Universal.Size = 1;} else { Unit.Universal.Size = card[1].Size;} //"size" is recorded as an offset, "medium" is acutally "null"
+    Unit.Universal.Stealth = card[1].Stealth;
+    Unit.Universal.Strength = card[1].Strength;
+    Unit.Universal.StunDamageRegen = card[1].StunDamageRegen;
+    Unit.Universal.StunDamageToGetStunned = card[1].StunDamageToGetStunned;
+    Unit.Universal.SupressionCeiling = card[1].SupressionCeiling;
+
+    Unit.Universal.Year = card[1].Year;
+    Unit.Universal.MAXpacks = card[1].MAXpacks;
+    Unit.Universal.MAXspeed = card[1].MAXspeed;
+    Unit.Universal.TimeBetweenEachIdentifyRoll = card[1].TimeBetweenEachIdentifyRoll;
+    Unit.Universal.FuelCapacity = card[1].FuelCapacity;
+    Unit.Universal.Autonomy = card[1].Autonomy;
+    Unit.Universal.helidetectionradius = card[1].HelicopterDetectionRadius;
+
+    Unit.Universal.MovementType = card[1].MovementType;
+    Unit.Universal.PorteeVision = card[1].PorteeVision;
+    Unit.Universal.OpticalStrengthAir = card[1].OpticalStrengthAir;
+    Unit.Universal.OpticalStrengthGround = card[1].OpticalStrengthGround;
+    Unit.Universal.opticsantiradar = card[1].OpticalStrengthAntiradar;
+    Unit.Universal.SupplyCapacity = card[1].SupplyCapacity; //logi  = card.
+    Unit.Universal.SupplyPriority = card[1].SupplyPriority; //logi on = card.
 
 
     //get unit type for data switching
     if (card[1].MovementType == "Air" && card[1].LateralSpeed > 0){
         //^is flying, is helo
-        ractiveUnit.set({ isAir: false, isHelo: true, isShip: false, isLand: false,});
+        Unit.isHelo = true;
+
+        Unit.Helo.mass = card[1].mass;
+        Unit.Helo.CyclicManoeuvrability = card[1].CyclicManoeuvrability;
+        Unit.Helo.HelicopterManoeuverability = card[1].HelicopterManoeuverability;
+        Unit.Helo.HelicopterHoverAltitude = card[1].HelicopterHoverAltitude;
+        Unit.Helo.MaxInclination = card[1].MaxInclination;
+        Unit.Helo.RotorArea = card[1].RotorArea;
+        Unit.Helo.UpwardSpeed = card[1].UpwardSpeed;
+        Unit.Helo.LateralSpeed = card[1].LateralSpeed;
+        Unit.Helo.GFactorLimit = card[1].GFactorLimit;
+        Unit.Helo.TimeHalfTurn = card[1].TimeHalfTurn;
+        Unit.Helo.AirToAirHelicopterDetectionRadius = card[1].AirToAirHelicopterDetectionRadius;
+        Unit.Helo.TorqueManoeuvrability = card[1].TorqueManoeuvrability;
+        Unit.Helo.MAXacell = card[1].MAXacell;
+        Unit.Helo.MAXdcell = card[1].MAXdcell;
     }
     else if (card[1].MovementType == "Air" && card[1].LateralSpeed === null){
         //^is flying, is not helo
-        ractiveUnit.set({ isAir: true, isHelo: false, isShip: false, isLand: false,});
+        Unit.isAir = true;
+
+        Unit.Air.ECM = card[1].ECM;
+        Unit.Air.AirToAirHelicopterDetectionRadius = card[1].AirToAirHelicopterDetectionRadius;
+        Unit.Air.AirplaneMinimalAltitude = card[1].AirplaneMinimalAltitude;
+        Unit.Air.AirplaneFlyingAltitude = card[1].AirplaneFlyingAltitude;
     }
     else if (card[1].MovementType == "Wheeled" || card[1].MovementType == "Tracked" || card[1].MovementType == "Foot"){
-        ractiveUnit.set({ isAir: false, isHelo: false, isShip: false, isLand: true,});
+        Unit.isLand = true;
+
+        Unit.Land.SuppressDamageRatioIfTransporterKilled = card[1].SuppressDamageRatioIfTransporterKilled;
+        Unit.Land.amphib = card[1].Amphibious;
+        Unit.Land.Training = card[1].Training;
+        Unit.Land.MAXacell = card[1].MAXacell;
+        Unit.Land.MAXdcell = card[1].MAXdcell;
     }
     else if (card[1].MovementType == "Water"){
-        //^is flying, is not helo
-        ractiveUnit.set({ isAir: false, isHelo: false, isShip: true, isLand: false,});
-    }
+        Unit.isShip = true;
 
-    //armor
-    var Armor = ractiveUnit.get('Armor');
-    //so, AV is AV, except if splash is "True" (not true, "True"), then AV is splash type. lol.
-    Armor.FAVtype = 0;
-    Armor.SAVtype = 0;
-    Armor.RAVtype = 0;
-    Armor.TAVtype = 0;
-    Armor.FAV = card[1].ArmorFront;
-    Armor.SAV = card[1].ArmorSides;
-    Armor.RAV = card[1].ArmorRear;
-    Armor.TAV = card[1].ArmorTop;
-    if (card[1].ArmorFrontSplashResistant == "True"){
-        Armor.FAV = 0;
-        Armor.FAVtype = card[1].ArmorFront;
+        Unit.Shpi.MAXacell = card[1].MAXacell;
+        Unit.Shpi.MAXdcell = card[1].MAXdcell;
+        Unit.Shpi.CIWS = card[1].CIWS;
+        Unit.Shpi.TimeHalfTurn = card[1].TimeHalfTurn;
+        Unit.Shpi.ECM = card[1].ECM;
     }
-    if (card[1].ArmorSidesSplashResistant == "True"){
-        Armor.SAV = 0;
-        Armor.SAVtype = card[1].ArmorSides;
-    }
-    if (card[1].ArmorRearSplashResistant == "True"){
-        Armor.RAV = 0;
-        Armor.RAVtype = card[1].ArmorRear;
-    }
-    if (card[1].ArmorTopSplashResistant == "True"){
-        Armor.TAV = 0;
-        Armor.TAVtype = card[1].ArmorTop;
-    }
-    ractiveUnit.update('Armor');
-
-    //full data
-    var Universal = ractiveUnit.get('Universal');
-    Universal.IdentifyBaseProbability = card[1].IdentifyBaseProbability;
-    if (card[1].Size === ""){ Universal.Size = 1;} else { Universal.Size = card[1].Size;}
-    Universal.Stealth = card[1].Stealth;
-    Universal.StunDamageRegen = card[1].StunDamageRegen;
-    Universal.StunDamageToGetStunned = card[1].StunDamageToGetStunned;
-    Universal.TimeBetweenEachIdentifyRoll = card[1].TimeBetweenEachIdentifyRoll;
-    Universal.Year = card[1].Year;
-    Universal.MAXpacks = card[1].MAXpacks;
-    Universal.MAXspeed = card[1].MAXspeed;
-    Universal.SupressionCeiling = card[1].SupressionCeiling;
-    Universal.FuelCapacity = card[1].FuelCapacity;
-    Universal.Autonomy = card[1].Autonomy;
-    Universal.helidetectionradius = card[1].HelicopterDetectionRadius;
-    Universal.MovementType = card[1].MovementType;
-    Universal.PorteeVision = card[1].PorteeVision;
-    Universal.OpticalStrengthAir = card[1].OpticalStrengthAir;
-    Universal.OpticalStrengthGround = card[1].OpticalStrengthGround;
-    Universal.opticsantiradar = card[1].OpticalStrengthAntiradar;
-    Universal.SupplyCapacity = card[1].SupplyCapacity; //logi  = card.
-    Universal.SupplyPriority = card[1].SupplyPriority; //logi on = card.
-    ractiveUnit.update('Universal');
+    ractiveUnit.update('Unit');
 
     ractiveUnit.set({UnitIsLoaded: true});
-/*
-      iData = document.createElement("img");
-      iData.src = "picsb/" + Deck.iSide + Card.Unit.iUnitID + ".png";
-      iData.setAttribute("class", "img-responsive");
-      iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-      document.getElementById(type + "UP").innerHTML = "";
-      document.getElementById(type + "UP").appendChild(iData);
-
-      selectedCards[btn] = Card;
-
-      var avails = ractiveDeck.get('ranks.' + type);
-      avails.A0 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[0])/100);
-      if(Card.iaAvailability[0] == 0){ avails.B0 = "disabled"} else { avails.B0 = "" }
-      avails.A1 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[1])/100);
-      if(Card.iaAvailability[1] == 0){ avails.B1 = "disabled"} else { avails.B1 = "" }
-      avails.A2 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[2])/100);
-      if(Card.iaAvailability[2] == 0){ avails.B2 = "disabled"} else { avails.B2 = "" }
-      avails.A3 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[3])/100);
-      if(Card.iaAvailability[3] == 0){ avails.B3 = "disabled"} else { avails.B3 = "" }
-      avails.A4 = Math.round(((100 + Deck.availQotient) * Card.iaAvailability[4])/100);
-      if(Card.iaAvailability[4] == 0){ avails.B4 = "disabled"} else { avails.B4 = "" }
-      ractiveDeck.update('ranks.' + type);
-
-      document.getElementById("D" + type).innerHTML = "";
-      var uText = document.createElement("p");
-      uText.innerHTML = Card.Unit.sNameU + "   (" + Card.Unit.iUnitID + ")";
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = "HP:" + Card.Unit.iHP;
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = InterpretSize(Card.Unit);
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = InterpretOptics(Card.Unit);
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = InterpretStealth(Card.Unit);
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = "Ground Speed:" + Card.Unit.iSpeed + "km/h";
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = "Amphibious Speed:" + Card.Unit.iASpeed + "km/h";
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = InterpretTraining(Card);
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = "Autonomy" + Card.Unit.iAutonomy;
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = Card.Unit.iYear;
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = "Road Speed:" + Card.Unit.iRSpeed + "km/h";
-      document.getElementById("D" + type).appendChild(uText);
-      uText = document.createElement("p");
-      uText.innerHTML = "Armor: F-"+ Card.Unit.iaArmor[0] + ", B-" + Card.Unit.iaArmor[1] + ", S-" + Card.Unit.iaArmor[2] + ", T-" + Card.Unit.iaArmor[3];
-      document.getElementById("D" + type).appendChild(uText);
-
-      showWeapon(Card.Unit.W1, type, 1);
-      showWeapon(Card.Unit.W2, type, 2);
-      showWeapon(Card.Unit.W3, type, 3);
-
-      if(Card.Transport != 0){
-          type += "V";
-
-          document.getElementById(type + "UD").innerHTML = "";
-          var iData = document.createElement("img");
-          iData.src = "png/blankb.png";
-          iData.setAttribute("class", "img-responsive");
-          iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-          document.getElementById(type + "UD").appendChild(iData);
-
-          if (Card.Transport.sUnitData.charAt(0)== '1') { ShowData(type, "antiair"); }
-          if (Card.Transport.sUnitData.charAt(1)== '1') { ShowData(type, "AAM"); }
-          if (Card.Transport.sUnitData.charAt(2)== '1') { ShowData(type, "armour"); }
-          if (Card.Transport.sUnitData.charAt(3)== '1') { ShowData(type, "atgm"); }
-          if (Card.Transport.sUnitData.charAt(4)== '1') { ShowData(type, "carrier"); }
-          if (Card.Transport.sUnitData.charAt(5)== '1') { ShowData(type, "CMD"); }
-          if (Card.Transport.sUnitData.charAt(6)== '1') { ShowData(type, "helo"); }
-          if (Card.Transport.sUnitData.charAt(7)== '1' && Card.Unit.sUnitData.charAt(14) == '2') { ShowData(type, "rinf"); }
-          if (Card.Transport.sUnitData.charAt(7)== '1' && Card.Unit.sUnitData.charAt(14) != '2') { ShowData(type, "inf"); }
-          if (Card.Transport.sUnitData.charAt(8)== '1') { ShowData(type, "log"); }
-          if (Card.Transport.sUnitData.charAt(9)== '1') { ShowData(type, "eng"); }
-          if (Card.Transport.sUnitData.charAt(10) == '1') { ShowData(type, "plane"); }
-          if (Card.Transport.sUnitData.charAt(11) == '1') { ShowData(type, "rad"); }
-          if (Card.Transport.sUnitData.charAt(12) == '1') { ShowData(type, "rocket"); }
-          if (Card.Transport.sUnitData.charAt(13) == '1') { ShowData(type, "mtr"); }
-          if (Card.Transport.sUnitData.charAt(14) == '1') { ShowData(type, "rec"); }
-          if (Card.Transport.sUnitData.charAt(14) == '2') { ShowData(type, "rec2"); }
-          if (Card.Transport.sUnitData.charAt(14) == '3') { ShowData(type, "rec3"); }
-          if (Card.Transport.sUnitData.charAt(15) == '1') { ShowData(type, "tube"); }
-          if (Card.Transport.sUnitData.charAt(16) == '1') { ShowData(type, "rad"); }
-          if (Card.Transport.sUnitData.charAt(26) == '1') { ShowData(type, "amph"); }
-          if (Card.Transport.sUnitData.charAt(28) == '1') { ShowData(type, "nav1"); }
-          if (Card.Transport.sUnitData.charAt(28) == '2') { ShowData(type, "nav2"); }
-          if (Card.Transport.sUnitData.charAt(28) == '3') { ShowData(type, "nav2"); }
-          if (Card.Transport.sUnitData.charAt(29) == '1') { ShowData(type, "moto"); }
-
-          iData = document.createElement("img");
-          iData.src = "picsb/" + Deck.iSide + Card.Transport.iUnitID + ".png";
-          iData.setAttribute("class", "img-responsive");
-          iData.setAttribute("style", "position: relative; top: 0; left: 0;");
-          document.getElementById(type + "UP").innerHTML = "";
-          document.getElementById(type + "UP").appendChild(iData);
-
-          document.getElementById("D" + type).innerHTML = "";
-          uText = document.createElement("p");
-          uText.innerHTML = Card.Transport.sNameU  + "   (" + Card.Transport.iUnitID + ")";
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = "HP:" + Card.Transport.iHP;
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = InterpretSize(Card.Transport);
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = InterpretOptics(Card.Transport);
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = InterpretStealth(Card.Transport);
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = "Ground Speed:" + Card.Transport.iSpeed + "km/h";
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = "Amphibious Speed:" + Card.Transport.iASpeed + "km/h";
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = InterpretTraining(Card);
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = "Autonomy" + Card.Transport.iAutonomy;
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = Card.Unit.iYear;
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = "Road Speed:" + Card.Transport.iRSpeed + "km/h";
-          document.getElementById("D" + type).appendChild(uText);
-          uText = document.createElement("p");
-          uText.innerHTML = "Armor: F-"+ Card.Transport.iaArmor[0] + ", B-" + Card.Transport.iaArmor[1] + ", S-" + Card.Transport.iaArmor[2] + ", T-" + Card.Transport.iaArmor[3];
-          document.getElementById("D" + type).appendChild(uText);
-
-          showWeapon(Card.Transport.W1, type, 1);
-          showWeapon(Card.Transport.W2, type, 2);
-          showWeapon(Card.Transport.W3, type, 3);
-      }*/
+    //TODO weapons
+    //TODO transport
 }

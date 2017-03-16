@@ -2195,78 +2195,6 @@
 		{{#if UnitIsLoaded}}
 		<div class="panel">
 			<div class="row">
-				<div class="col-sm-6">
-					<div class="col-sm-2">
-						<button class="btn btn-default btn-block" style="background-color: #fff">MAR</button>
-					</div>
-					<div class="col-sm-2">
-						<button class="btn btn-default btn-block" style="background-color: #fff">AIR</button>
-					</div>
-					<div class="col-sm-2">
-						<button class="btn btn-default btn-block" style="background-color: #fff">MECH</button>
-					</div>
-					<div class="col-sm-2">
-						<button class="btn btn-default btn-block" style="background-color: #fff">ARM</button>
-					</div>
-					<div class="col-sm-2">
-						<button class="btn btn-default btn-block" style="background-color: #fff">MOTO</button>
-					</div>
-					<div class="col-sm-2">
-						<button class="btn btn-default btn-block" style="background-color: #fff">SUP</button>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					{{#with ranks}}
-					<div class="col-sm-2">
-						<div class="col-sm-6">
-							<img id="{{R0}}" class="ranks">
-						</div>
-						<div class="col-sm-6">
-							<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="col-sm-6">
-							<img id="{{R0}}" class="ranks">
-						</div>
-						<div class="col-sm-6">
-							<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="col-sm-6">
-							<img id="{{R0}}" class="ranks">
-						</div>
-						<div class="col-sm-6">
-							<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="col-sm-6">
-							<img id="{{R0}}" class="ranks">
-						</div>
-						<div class="col-sm-6">
-							<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="col-sm-6">
-							<img id="{{R0}}" class="ranks">
-						</div>
-						<div class="col-sm-6">
-							<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="col-sm-6">
-							<img id="{{R0}}" class="ranks">
-						</div>
-						<div class="col-sm-6">
-							<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
-						</div>
-					</div>
-					{{/with}}
-				</div>
 			</div>
       		<ul id="tabsl" class="nav nav-tabs" data-tabs="tabs">
         		<li class="active"><a href="#UnitL" data-toggle="tab">Unit</a></li>
@@ -2274,13 +2202,14 @@
         	</ul>
         	<div class="tab-content panel">
         		<div class="tab-pane active" id="UnitL">
+					{{#with Unit}}
 					<div class="row">
 						<div class="col-sm-6">
-							<div class="col-sm-2 col-sm-offset-1">
-								<h3>{{Price}}</h3>
+							<div class="col-sm-1 col-sm-offset-1">
+								<h4>{{Price}}</h4>
 							</div>
 							<div class="col-sm-4">
-								<h3>{{UnitName}}</h3>
+								<h4>{{UnitName}}</h4>
 							</div>
 							<div class="col-sm-2">
 								<div style="background-color: {{isCommand}}; margin: 0; line-height: 2.85">Command</div>
@@ -2291,6 +2220,58 @@
 								<img src="png/optics-{{Optics}}.png" class="img-responsive" style="position: absolute; top: 1; left: 1;">
 								{{/if}}
 							</div>
+						</div>
+						<div class="col-sm-6">
+							{{#with ranks}}
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R0}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R0}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R0}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R0}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R0}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R0}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							{{/with}}
 						</div>
 					</div>
           			<div class="row">
@@ -2365,54 +2346,54 @@
 								<div style="background-color: #fff; margin: 0; line-height: 0.85">Supply cargo: {{SupplyCapacity}}</div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85">Supply priority: {{SupplyPriority}}</div>
 							</div>
-						<div class="col-sm-2" style="padding:1">
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{mass}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{CyclicManoeuvrability}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{HelicopterFlyingAltitude}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{HelicopterHoverAltitude}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MaxInclination}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{RotorArea}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{UpwardSpeed}}</div>
-						</div>
-						<div class="col-sm-2" style="padding:1">
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{LateralSpeed}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{GFactorLimit}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TimeHalfTurn}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirToAirHelicopterDetectionRadius}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TorqueManoeuvrability}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
-							<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
-						</div>
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{mass}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{CyclicManoeuvrability}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{HelicopterFlyingAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{HelicopterHoverAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MaxInclination}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{RotorArea}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{UpwardSpeed}}</div>
+							</div>
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{LateralSpeed}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{GFactorLimit}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TimeHalfTurn}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirToAirHelicopterDetectionRadius}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TorqueManoeuvrability}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
+							</div>
 							{{/with}}
 						{{/if}}
-							{{#if isLand}}
-								{{#with Land}}
-								<div class="col-sm-3" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{SuppressDamageRatioIfTransporterKilled}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{amphib}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{Training}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
-								</div>
-								{{/with}}
-							{{/if}}
-							{{#if isShip}}
-								{{#with Ship}}
-								<div class="col-sm-2" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{CIWS}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TimeHalfTurn}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">{{ECM}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
-								</div>
-								{{/with}}
-							{{/if}}
-							{{#if isAir}}
-								{{#with Air}}
+						{{#if isLand}}
+							{{#with Land}}
+							<div class="col-sm-3" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{SuppressDamageRatioIfTransporterKilled}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{amphib}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{Training}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+							</div>
+							{{/with}}
+						{{/if}}
+						{{#if isShip}}
+							{{#with Ship}}
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{CIWS}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TimeHalfTurn}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{ECM}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+							</div>
+							{{/with}}
+						{{/if}}
+						{{#if isAir}}
+							{{#with Air}}
 							<div class="col-sm-2" style="padding:1">
 								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{ECM}}</div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirToAirHelicopterDetectionRadius}}</div>
@@ -2422,46 +2403,37 @@
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
 							</div>
-								{{/with}}
-							{{/if}}
+							{{/with}}
+						{{/if}}
 								<!-- //production time -->
 								<!-- //autoorient - useless -->
 								<!-- //classnames -->
 								<!-- //sailing -  empty -->
-							<div class="col-sm-3" style="padding:1">
-								<div style="background-color: #fff; margin: 0; line-height: 1.42">ISproto</div>
-								<div style="background-color: #fff; margin: 0; line-height: 1.42">IScommand</div>
-								<div style="background-color: #fff; margin: 0; line-height: 1.42">ISscout</div>
-							</div>
 						</div>
             		</div>
+					{{/with}}
+					{{#with Transport}}
 					<div class="row">
-						<div class="col-sm-8">
-							<div class="col-sm-1">
-								<div class="col-sm-6">
-									<img id="{{R0}}" class="ranks">
-								</div>
-								<div class="col-sm-6">
-									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">15</button>
-								</div>
+						<div class="col-sm-6">
+							<div class="col-sm-1 col-sm-offset-1">
+								<h4>{{Price}}</h4>
+							</div>
+							<div class="col-sm-4">
+								<h4>{{UnitName}}</h4>
+							</div>
+							<div class="col-sm-2">
+								<div style="background-color: {{isCommand}}; margin: 0; line-height: 2.85">Command</div>
+								<div style="background-color: {{isProto}}; margin: 0; line-height: 2.85">Prototype</div>
 							</div>
 							<div class="col-sm-1">
-								<div class="col-sm-6">
-									<img id="{{R0}}" class="ranks">
-								</div>
-								<div class="col-sm-6">
-									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
-								</div>
+								{{#if isRecon}}
+								<img src="png/optics-{{Optics}}.png" class="img-responsive" style="position: absolute; top: 1; left: 1;">
+								{{/if}}
 							</div>
-							<div class="col-sm-1">
-								<div class="col-sm-6">
-									<img id="{{R0}}" class="ranks">
-								</div>
-								<div class="col-sm-6">
-									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
-								</div>
-							</div>
-							<div class="col-sm-1">
+						</div>
+						<div class="col-sm-6">
+							{{#with ranks}}
+							<div class="col-sm-2">
 								<div class="col-sm-6">
 									<img id="{{R0}}" class="ranks">
 								</div>
@@ -2469,20 +2441,172 @@
 									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
 								</div>
 							</div>
-							<div class="col-sm-1">
+							<div class="col-sm-2">
 								<div class="col-sm-6">
-									<img id="{{R0}}" class="ranks">
+									<img id="{{R1}}" class="ranks">
 								</div>
 								<div class="col-sm-6">
-									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">8</button>
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
 								</div>
 							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R2}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R3}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-6">
+									<img id="{{R4}}" class="ranks">
+								</div>
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+								</div>
+							</div>
+							<div class="col-sm-2">
+							</div>
+							{{/with}}
 						</div>
 					</div>
-            	</div>
-            	<div class="tab-pane" id="VehL">
-            		<div class="row">
+          			<div class="row">
+						<div class="col-sm-2">
+							<img src="picsb/{{UnitCode}}.png" class="img-responsive" style="position: absolute; top: 1; left: 1;">
+							<img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;">
+						</div>
+						<div class="col-sm-8">
+							{{#with deckType}}
+							<div class="col-sm-1" style="padding:1">
+								<div style="background-color: {{MAR}}; margin: 0; line-height: 0.95">MAR</div>
+								<div style="background-color: {{AIR}}; margin: 0; line-height: 0.95">AIR</div>
+								<div style="background-color: {{MEC}}; margin: 0; line-height: 0.95">MEC</div>
+								<div style="background-color: {{ARM}}; margin: 0; line-height: 0.95">ARM</div>
+								<div style="background-color: {{MOT}}; margin: 0; line-height: 0.95">MOT</div>
+								<div style="background-color: {{SUP}}; margin: 0; line-height: 0.95">SUP</div>
+							</div>
+							{{/with}}
+							{{#with Armor}}
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 1.42">Armor front:{{FAV}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 1.42">Armor side :{{SAV}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 1.42">Armor rear :{{RAV}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 1.42">Armor top  :{{TAV}}</div>
+							</div>
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 1.42">Splash type:{{FAVtype}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 1.42">Splash type:{{SAVtype}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 1.42">Splash type:{{RAVtype}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 1.42">Splash type:{{TAVtype}}</div>
+							</div>
+							{{/with}}
+							{{#with Universal}}
+							<div class="col-sm-3" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Unit ID odds: {{IdentifyBaseProbability}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Size: {{Size}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Stealth: {{Stealth}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">HP: {{Strength}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Morale Regen:{{StunDamageRegen}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Morale to stun:{{StunDamageToGetStunned}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Morale Floor:{{SupressionCeiling}}</div>
+							</div>
+							<div class="col-sm-3" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Year: {{Year}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Cards: {{MAXpacks}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Speed: {{MAXspeed}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Time Between ID rolls: {{TimeBetweenEachIdentifyRoll}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Fuel: {{FuelCapacity}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Autonomy: {{Autonomy}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Helicopter detection:{{helidetectionradius}}</div>
+							</div>
+							<div class="col-sm-3" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Movement type: {{MovementType}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">PorteeVision(?): {{PorteeVision}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Air detection: {{OpticalStrengthAir}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Ground detection: {{OpticalStrengthGround}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Radar detection: {{opticsantiradar}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Supply cargo: {{SupplyCapacity}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Supply priority: {{SupplyPriority}}</div>
+							</div>
+							{{/with}}
+						</div>
+						<div class="col-sm-4">
+						{{#if isHelo}}
+							{{#with Helo}}
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{mass}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{CyclicManoeuvrability}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{HelicopterFlyingAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{HelicopterHoverAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MaxInclination}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{RotorArea}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{UpwardSpeed}}</div>
+							</div>
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{LateralSpeed}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{GFactorLimit}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TimeHalfTurn}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirToAirHelicopterDetectionRadius}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TorqueManoeuvrability}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
+							</div>
+							{{/with}}
+						{{/if}}
+						{{#if isLand}}
+							{{#with Land}}
+							<div class="col-sm-3" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{SuppressDamageRatioIfTransporterKilled}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{amphib}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{Training}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+							</div>
+							{{/with}}
+						{{/if}}
+						{{#if isShip}}
+							{{#with Ship}}
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{CIWS}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TimeHalfTurn}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{ECM}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+							</div>
+							{{/with}}
+						{{/if}}
+						{{#if isAir}}
+							{{#with Air}}
+							<div class="col-sm-2" style="padding:1">
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{ECM}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirToAirHelicopterDetectionRadius}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirplaneMinimalAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirplaneFlyingAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
+							</div>
+							{{/with}}
+						{{/if}}
+								<!-- //production time -->
+								<!-- //autoorient - useless -->
+								<!-- //classnames -->
+								<!-- //sailing -  empty -->
+						</div>
             		</div>
+					{{/with}}
             	</div>
             </div>
 		</div>
@@ -3452,7 +3576,7 @@
 							</tr>
 							{{#each sort( logunits, sortColumn ) }}
 							<tr on-click='activate:{{sentCard}}'>
-								<td>{{Nation}}</td>
+								<td><img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;"></td>
 								<td><img class="img-responsive sprite sprite-{{Upicture}}"  style="position: relative; top: 0; left: 0; height: 30px;"></td>
 								<td>{{Unit}}</td>
 								<td>{{Points}}</td>
@@ -3547,7 +3671,7 @@
 							</tr>
 							{{#each sort( infunits, sortColumn )}}
 							<tr on-click='activate:{{sentCard}}'>
-								<td>{{Nation}}</td>
+								<td><img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;"></td>
 								<td><img class="img-responsive sprite sprite-{{Upicture}}"  style="position: relative; top: 0; left: 0; height: 30px;"></td>
 								<td>{{Unit}}</td>
 								<td>{{Points}}</td>
@@ -3642,7 +3766,7 @@
 							</tr>
 							{{#each sort( supunits, sortColumn )}}
 							<tr on-click='activate:{{sentCard}}'>
-								<td>{{Nation}}</td>
+								<td><img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;"></td>
 								<td><img class="img-responsive sprite sprite-{{Upicture}}"  style="position: relative; top: 0; left: 0; height: 30px;"></td>
 								<td>{{Unit}}</td>
 								<td>{{Points}}</td>
@@ -3737,7 +3861,7 @@
 							</tr>
 							{{#each sort( tnkunits, sortColumn ) }}
 							<tr on-click='activate:{{sentCard}}'>
-								<td>{{Nation}}</td>
+								<td><img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;"></td>
 								<td><img class="img-responsive sprite sprite-{{Upicture}}"  style="position: relative; top: 0; left: 0; height: 30px;"></td>
 								<td>{{Unit}}</td>
 								<td>{{Points}}</td>
@@ -3832,7 +3956,7 @@
 							</tr>
 							{{#each sort( recunits, sortColumn )}}
 							<tr on-click='activate:{{sentCard}}'>
-								<td>{{Nation}}</td>
+								<td><img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;"></td>
 								<td><img class="img-responsive sprite sprite-{{Upicture}}"  style="position: relative; top: 0; left: 0; height: 30px;"></td>
 								<td>{{Unit}}</td>
 								<td>{{Points}}</td>
@@ -3927,7 +4051,7 @@
 							</tr>
 							{{#each sort( vehunits, sortColumn ) }}
 							<tr on-click='activate:{{sentCard}}'>
-								<td>{{Nation}}</td>
+								<td><img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;"></td>
 								<td><img class="img-responsive sprite sprite-{{Upicture}}"  style="position: relative; top: 0; left: 0; height: 30px;"></td>
 								<td>{{Unit}}</td>
 								<td>{{Points}}</td>
@@ -4022,7 +4146,7 @@
 							</tr>
 							{{#each sort( helunits, sortColumn )}}
 							<tr on-click='activate:{{sentCard}}'>
-								<td>{{Nation}}</td>
+								<td><img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;"></td>
 								<td><img class="img-responsive sprite sprite-{{Upicture}}"  style="position: relative; top: 0; left: 0; height: 30px;"></td>
 								<td>{{Unit}}</td>
 								<td>{{Points}}</td>
@@ -4117,7 +4241,7 @@
 							</tr>
 							{{#each  sort( airunits, sortColumn )}}
 							<tr on-click='activate:{{sentCard}}'>
-								<td>{{Nation}}</td>
+								<td><img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;"></td>
 								<td><img class="img-responsive sprite sprite-{{Upicture}}"  style="position: relative; top: 0; left: 0; height: 30px;"></td>
 								<td>{{Unit}}</td>
 								<td>{{Points}}</td>
