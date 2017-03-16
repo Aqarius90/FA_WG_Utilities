@@ -123,6 +123,15 @@ var ractiveUnit = new Ractive({
    el:'ankerUnit',
   template: '#templateUnit',
   data: {
+        UnitCode : "",
+        Nation: "",
+        Price:"",
+        UnitName: "",
+        isCommand: "f00",
+        isRecon: "f00",
+        Optics: 0,
+        isProto: false,
+
         UnitIsLoaded: true, //debug
         isAir: false,
         isHelo: false,

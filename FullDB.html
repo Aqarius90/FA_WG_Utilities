@@ -2277,17 +2277,26 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="col-sm-2 col-sm-offset-1">
-								<h3>140</h3>
+								<h3>{{Price}}</h3>
 							</div>
 							<div class="col-sm-4">
-								<h3>Unit name</h3>
+								<h3>{{UnitName}}</h3>
+							</div>
+							<div class="col-sm-2">
+								<div style="background-color: {{isCommand}}; margin: 0; line-height: 2.85">Command</div>
+								<div style="background-color: {{isProto}}; margin: 0; line-height: 2.85">Prototype</div>
+							</div>
+							<div class="col-sm-1">
+								{{#if isRecon}}
+								<img src="png/optics-{{Optics}}.png" class="img-responsive" style="position: absolute; top: 1; left: 1;">
+								{{/if}}
 							</div>
 						</div>
 					</div>
           			<div class="row">
 						<div class="col-sm-2">
-							<img src="picsb/01027.png" class="img-responsive" style="position: absolute; top: 1; left: 1;">
-							<img src="flags/ANZAC.png" class="img-responsive" style="position: relative; top: 0; left: 0;">
+							<img src="picsb/{{UnitCode}}.png" class="img-responsive" style="position: absolute; top: 1; left: 1;">
+							<img src="flags/{{Nation}}.png" class="img-responsive" style="position: relative; top: 0; left: 0;">
 						</div>
 						<div class="col-sm-8">
 							{{#with deckType}}

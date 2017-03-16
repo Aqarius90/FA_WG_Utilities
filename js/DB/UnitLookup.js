@@ -138,7 +138,8 @@ function addRow(card, table){
                           Vpicture : "" + card[2].DeckCode.Side + "" + card[2].DeckCode.Card,
                           Transport : card[2].Name,
                           TPoints : card[2].Price,
-                          TCards : card[2].MaxPack});
+                          TCards : card[2].MaxPack,
+                          sentCard: card});
       }
 }
 
@@ -172,6 +173,22 @@ function showCard(card){
         }
     }
     ractiveUnit.update('deckType');
+
+    ractiveUnit.set({
+        UnitCode : "" + card[1].DeckCode.Side + card[1].DeckCode.Card,
+        UnitName : "" + card[1].Name,
+        Price : card[1].Price,
+        isCommand: "#f00",
+        isProto: "#f00"
+    })
+
+    if (card[1].IsPrototype == "True"){
+        ractiveUnit.set({ isProto: "#0f0"});
+    }
+    if (card[1].IsCommandUnit == "True"){
+        ractiveUnit.set({ isCommand: "#0f0"});
+    }
+
 
     //get unit type for data switching
     if (card[1].MovementType == "Air" && card[1].LateralSpeed > 0){
