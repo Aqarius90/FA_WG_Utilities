@@ -2335,33 +2335,33 @@
 						{{#if isHelo}}
 							{{#with Helo}}
 							<div class="col-sm-2" style="padding:1">
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{mass}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{CyclicManoeuvrability}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{HelicopterFlyingAltitude}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{HelicopterHoverAltitude}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MaxInclination}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{RotorArea}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{UpwardSpeed}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Mass:{{mass}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Cyclic manoeuvrability:{{CyclicManoeuvrability}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Flying height:{{HelicopterFlyingAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Hover height:{{HelicopterHoverAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Max tilt:{{MaxInclination}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Rotor area:{{RotorArea}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Climb speed:{{UpwardSpeed}}</div>
 							</div>
 							<div class="col-sm-2" style="padding:1">
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{LateralSpeed}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{GFactorLimit}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TimeHalfTurn}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirToAirHelicopterDetectionRadius}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TorqueManoeuvrability}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Lateral speed:{{LateralSpeed}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Max G-Factor:{{GFactorLimit}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">180-turn time:{{TimeHalfTurn}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Helo detection: {{AirToAirHelicopterDetectionRadius}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Torque:{{TorqueManoeuvrability}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Max accel.:{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Max decell.:{{MAXdcell}}</div>
 							</div>
 							{{/with}}
 						{{/if}}
 						{{#if isLand}}
 							{{#with Land}}
 							<div class="col-sm-3" style="padding:1">
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{SuppressDamageRatioIfTransporterKilled}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{amphib}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{Training}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Suppression on transport death:{{SuppressDamageRatioIfTransporterKilled}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">is Amphibious: {{amphib}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Training: {{Training}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Max accel.:{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Max decell.:{{MAXdcell}}</div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
 							</div>
@@ -2370,11 +2370,11 @@
 						{{#if isShip}}
 							{{#with Ship}}
 							<div class="col-sm-2" style="padding:1">
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXacell}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{MAXdcell}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{CIWS}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{TimeHalfTurn}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{ECM}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Max accel.:{{MAXacell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Max decell.:{{MAXdcell}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">CIWS: {{CIWS}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">180-turn time:{{TimeHalfTurn}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">ECM: {{ECM}}</div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
 							</div>
@@ -2383,10 +2383,10 @@
 						{{#if isAir}}
 							{{#with Air}}
 							<div class="col-sm-2" style="padding:1">
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{ECM}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirToAirHelicopterDetectionRadius}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirplaneMinimalAltitude}}</div>
-								<div style="background-color: #fff; margin: 0; line-height: 0.85">{{AirplaneFlyingAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">ECM: {{ECM}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Helo detection:{{AirToAirHelicopterDetectionRadius}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Min. altitude:{{AirplaneMinimalAltitude}}</div>
+								<div style="background-color: #fff; margin: 0; line-height: 0.85">Flying altitude:{{AirplaneFlyingAltitude}}</div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
 								<div style="background-color: #fff; margin: 0; line-height: 0.85"></div>
@@ -2399,6 +2399,106 @@
 								<!-- //sailing -  empty -->
 						</div>
             		</div>
+					<div class="row">
+						{{#with wepTable}}
+	                    <div class="tab-scroll">
+							<table class="table-hover wepTableUnit" style="width:100%">
+								<tr>
+									<th>Name</th>
+								    <th>Type</th>
+								    <th>Caliber</th>
+								    <th>Tags</th>
+								    <th>RangeGround</th>
+								    <th>RangeGroundMinimum</th>
+								    <th>RangeHelicopters</th>
+								    <th>RangeHelicoptersMinimum</th>
+								    <th>RangePlanes</th>
+								    <th>RangePlanesMinimum</th>
+								    <th>RangeShip</th>
+								    <th>RangeShipMinimum</th>
+								    <th>RangeMissiles</th>
+								    <th>RangeMissilesMinimum</th>
+								    <th>AimTime</th>
+								    <th>HitProbability</th>
+								    <th>HitProbabilityWhileMoving</th>
+								    <th>AP</th>
+								    <th>HE</th>
+								    <th>AngleDispersion</th>
+								    <th>DispersionAtMaxRange</th>
+								    <th>DispersionAtMinRange</th>
+								    <th>CorrectedShotDispersionMultiplier</th>
+								    <th>RadiusSplashPhysicalDamage</th>
+								    <th>RadiusSplashSuppressDamage</th>
+								    <th>NumberOfSalvos</th>
+								    <th>ShotsPerSalvo</th>
+								    <th>ProjectilesPerShot</th>
+								    <th>TimeBetweenSalvos</th>
+								    <th>TimeBetweenShots</th>
+								    <th>DisplayedAmmunition</th>
+								    <th>SupplyCost</th>
+								    <th>CanSmoke</th>
+								    <th>FireTriggeringProbability</th>
+								    <th>MinimalCritProbability</th>
+								    <th>MinimalHitProbability</th>
+								    <th>MissileMaxAcceleration</th>
+								    <th>MissileMaxSpeed</th>
+								    <th>MissileTimeBetweenCorrections</th>
+								    <th>Noise</th>
+								    <th>PositionOnCard</th>
+								    <th>RayonPinned</th>
+								</tr>
+								{{#each wepTable}}
+								<tr>
+									<td>{{Unit}}</td>
+									<td>{{Name}}</td>
+									<td>{{Type}}</td>
+									<td>{{Caliber}}</td>
+									<td>{{Tags}}</td>
+									<td>{{RangeGround}}</td>
+									<td>{{RangeGroundMinimum}}</td>
+									<td>{{RangeHelicopters}}</td>
+									<td>{{RangeHelicoptersMinimum}}</td>
+									<td>{{RangePlanes}}</td>
+									<td>{{RangePlanesMinimum}}</td>
+									<td>{{RangeShip}}</td>
+									<td>{{RangeShipMinimum}}</td>
+									<td>{{RangeMissiles}}</td>
+									<td>{{RangeMissilesMinimum}}</td>
+									<td>{{AimTime}}</td>
+									<td>{{HitProbability}}</td>
+									<td>{{HitProbabilityWhileMoving}}</td>
+									<td>{{AP}}</td>
+									<td>{{HE}}</td>
+									<td>{{AngleDispersion}}</td>
+									<td>{{DispersionAtMaxRange}}</td>
+									<td>{{DispersionAtMinRange}}</td>
+									<td>{{CorrectedShotDispersionMultiplier}}</td>
+									<td>{{RadiusSplashPhysicalDamage}}</td>
+									<td>{{RadiusSplashSuppressDamage}}</td>
+									<td>{{NumberOfSalvos}}</td>
+									<td>{{ShotsPerSalvo}}</td>
+									<td>{{ProjectilesPerShot}}</td>
+									<td>{{TimeBetweenSalvos}}</td>
+									<td>{{TimeBetweenShots}}</td>
+									<td>{{DisplayedAmmunition}}</td>
+									<td>{{SupplyCost}}</td>
+									<td>{{CanSmoke}}</td>
+									<td>{{FireTriggeringProbability}}</td>
+									<td>{{MinimalCritProbability}}</td>
+									<td>{{MinimalHitProbability}}</td>
+									<td>{{MissileMaxAcceleration}}</td>
+									<td>{{MissileMaxSpeed}}</td>
+									<td>{{MissileTimeBetweenCorrections}}</td>
+									<td>{{Noise}}</td>
+									<td>{{PositionOnCard}}</td>
+									<td>{{RayonPinned}}</td>
+								</tr>
+								{{/each}}
+							</table>
+	                    </div>
+
+						{{/with}}
+					</div>
 					{{/with}}
 					{{#if hasTransport}}
 					{{#with Transport}}

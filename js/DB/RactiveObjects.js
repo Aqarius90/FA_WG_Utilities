@@ -8,6 +8,7 @@ var vehRow = []; // [{ Nation: "", Upicture: "", Unit: "", Points: "", Cards: ""
 var helRow = []; // [{ Nation: "", Upicture: "", Unit: "", Points: "", Cards: "", Vpicture: "", Transport: "", TPoints: "", TCards: ""}];
 var airRow = []; // [{ Nation: "", Upicture: "", Unit: "", Points: "", Cards: "", Vpicture: "", Transport: "", TPoints: "", TCards: ""}];
 var navRow = []; // [{ Nation: "", Upicture: "", Unit: "", Points: "", Cards: "", Vpicture: "", Transport: "", TPoints: "", TCards: ""}];
+var wepRow = [];
 
 var ractiveHeader = new Ractive({
     el: 'ankerHeader',
@@ -133,6 +134,7 @@ var ractiveUnit = new Ractive({
             //isRecon: "f00",
             Optics: 0,
             isProto: false,
+            wepTable: wepRow,
 
             UnitIsLoaded: true, //debug
             isAir: false,
