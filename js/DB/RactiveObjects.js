@@ -130,7 +130,7 @@ var ractiveUnit = new Ractive({
             Price:"",
             UnitName: "",
             isCommand: "f00",
-            isRecon: "f00",
+            //isRecon: "f00",
             Optics: 0,
             isProto: false,
 
@@ -209,7 +209,7 @@ var ractiveUnit = new Ractive({
             Price:"",
             UnitName: "",
             isCommand: "f00",
-            isRecon: "f00",
+            //isRecon: "f00",
             Optics: 0,
             isProto: false,
 
