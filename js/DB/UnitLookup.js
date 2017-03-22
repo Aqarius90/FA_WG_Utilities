@@ -221,16 +221,16 @@ function showCard(card){
 
     //full data
     Unit.Universal.IdentifyBaseProbability = card[1].IdentifyBaseProbability;
-    if (card[1].Size === ""){ Unit.Universal.Size = 1;} else { Unit.Universal.Size = card[1].Size;} //"size" is recorded as an offset, "medium" is acutally "null"
+    if (card[1].SizeModifier === ""){ Unit.Universal.Size = 1;} else { Unit.Universal.Size = card[1].SizeModifier;} //"size" is recorded as an offset, "medium" is acutally "null"
     Unit.Universal.Stealth = card[1].Stealth;
     Unit.Universal.Strength = card[1].Strength;
     Unit.Universal.StunDamageRegen = card[1].StunDamageRegen;
     Unit.Universal.StunDamageToGetStunned = card[1].StunDamageToGetStunned;
-    Unit.Universal.SupressionCeiling = card[1].SupressionCeiling;
+    Unit.Universal.SupressionCeiling = card[1].SuppressionCeiling;
 
     Unit.Universal.Year = card[1].Year;
-    Unit.Universal.MAXpacks = card[1].MAXpacks;
-    Unit.Universal.MAXspeed = card[1].MAXspeed;
+    Unit.Universal.MaxPacks = card[1].MaxPacks;
+    Unit.Universal.MaxSpeed = card[1].MaxSpeed;
     Unit.Universal.TimeBetweenEachIdentifyRoll = card[1].TimeBetweenEachIdentifyRoll;
     Unit.Universal.FuelCapacity = card[1].FuelCapacity;
     Unit.Universal.Autonomy = card[1].Autonomy;
@@ -250,10 +250,11 @@ function showCard(card){
         //^is flying, is helo
         Unit.isHelo = true;
 
-        Unit.Helo.mass = card[1].mass;
+        Unit.Helo.mass = card[1].Mass;
         Unit.Helo.CyclicManoeuvrability = card[1].CyclicManoeuvrability;
         Unit.Helo.HelicopterManoeuverability = card[1].HelicopterManoeuverability;
         Unit.Helo.HelicopterHoverAltitude = card[1].HelicopterHoverAltitude;
+        Unit.Helo.HelicopterFlyingAltitude = card[1].HelicopterFlyingAltitude;
         Unit.Helo.MaxInclination = card[1].MaxInclination;
         Unit.Helo.RotorArea = card[1].RotorArea;
         Unit.Helo.UpwardSpeed = card[1].UpwardSpeed;
@@ -262,14 +263,13 @@ function showCard(card){
         Unit.Helo.TimeHalfTurn = card[1].TimeHalfTurn;
         Unit.Helo.AirToAirHelicopterDetectionRadius = card[1].AirToAirHelicopterDetectionRadius;
         Unit.Helo.TorqueManoeuvrability = card[1].TorqueManoeuvrability;
-        Unit.Helo.MAXacell = card[1].MAXacell;
-        Unit.Helo.MAXdcell = card[1].MAXdcell;
+        Unit.Helo.MAXacell = card[1].MaxAcceleration;
+        Unit.Helo.MAXdcell = card[1].MaxAcceleration;
     }
-    else if (card[1].MovementType == "Air" && card[1].LateralSpeed === null){
+    else if (card[1].MovementType == "Air" && card[1].LateralSpeed === ""){
         //^is flying, is not helo
         Unit.isAir = true;
-
-        Unit.Air.ECM = card[1].ECM;
+        if (card[1].ECM === ""){ Unit.Air.ECM = 0;} else { Unit.Air.ECM = card[1].ECM;} 
         Unit.Air.AirToAirHelicopterDetectionRadius = card[1].AirToAirHelicopterDetectionRadius;
         Unit.Air.AirplaneMinimalAltitude = card[1].AirplaneMinimalAltitude;
         Unit.Air.AirplaneFlyingAltitude = card[1].AirplaneFlyingAltitude;
@@ -280,14 +280,14 @@ function showCard(card){
         Unit.Land.SuppressDamageRatioIfTransporterKilled = card[1].SuppressDamageRatioIfTransporterKilled;
         Unit.Land.amphib = card[1].Amphibious;
         Unit.Land.Training = card[1].Training;
-        Unit.Land.MAXacell = card[1].MAXacell;
-        Unit.Land.MAXdcell = card[1].MAXdcell;
+        Unit.Land.MAXacell = card[1].MaxAcceleration;
+        Unit.Land.MAXdcell = card[1].MaxAcceleration;
     }
     else if (card[1].MovementType == "Water"){
         Unit.isShip = true;
 
-        Unit.Shpi.MAXacell = card[1].MAXacell;
-        Unit.Shpi.MAXdcell = card[1].MAXdcell;
+        Unit.Shpi.MAXacell = card[1].MaxAcceleration;
+        Unit.Shpi.MAXdcell = card[1].MaxAcceleration;
         Unit.Shpi.CIWS = card[1].CIWS;
         Unit.Shpi.TimeHalfTurn = card[1].TimeHalfTurn;
         Unit.Shpi.ECM = card[1].ECM;

@@ -10,6 +10,56 @@ var airRow = []; // [{ Nation: "", Upicture: "", Unit: "", Points: "", Cards: ""
 var navRow = []; // [{ Nation: "", Upicture: "", Unit: "", Points: "", Cards: "", Vpicture: "", Transport: "", TPoints: "", TCards: ""}];
 var wepRow = [];
 
+var ractiveWeapon = new Ractive({
+    el: 'ankerWeapon',
+    template: '#templateWeapon',
+    data:{
+        Unit : "",
+        Name : "",
+        Type : "",
+        Caliber: "",
+        Tags: "",
+        RangeGround: "",
+        RangeGroundMinimum: "",
+        RangeHelicopters: "",
+        RangeHelicoptersMinimum: "",
+        RangePlanes: "",
+        RangePlanesMinimum: "",
+        RangeShip: "",
+        RangeShipMinimum: "",
+        RangeMissiles: "",
+        RangeMissilesMinimum: "",
+        AimTime: "",
+        HitProbability: "",
+        HitProbabilityWhileMoving: "",
+        AP: "",
+        HE: "",
+        AngleDispersion: "",
+        DispersionAtMaxRange: "",
+        DispersionAtMinRange: "",
+        CorrectedShotDispersionMultiplier: "",
+        RadiusSplashPhysicalDamage: "",
+        RadiusSplashSuppressDamage: "",
+        NumberOfSalvos: "",
+        ShotsPerSalvo: "",
+        ProjectilesPerShot: "",
+        TimeBetweenSalvos: "",
+        TimeBetweenShots: "",
+        DisplayedAmmunition: "",
+        SupplyCost: "",
+        CanSmoke: "",
+        FireTriggeringProbability: "",
+        MinimalCritProbability: "",
+        MinimalHitProbability: "",
+        MissileMaxAcceleration: "",
+        MissileMaxSpeed: "",
+        MissileTimeBetweenCorrections: "",
+        Noise: "",
+        PositionOnCard: "",
+        RayonPinned:  ""
+    }
+});
+
 var ractiveHeader = new Ractive({
     el: 'ankerHeader',
     template: '#templateHeader',
@@ -203,85 +253,7 @@ var ractiveUnit = new Ractive({
                 MAXdcell:"",
             }
         },
-        hasTransport: false,
-        Transport:{
-            ranks:{ R0:"r000", R1:"r001", R2:"r010", R3:"r011", R4:"r100", A0:"0", A1:'0', A2:'0', A3:'0', A4:'0', B0:"", B1:'', B2:'', B3:'', B4:'',},
-            UnitCode : "",
-            Nation: "",
-            Price:"",
-            UnitName: "",
-            isCommand: "f00",
-            //isRecon: "f00",
-            Optics: 0,
-            isProto: false,
-
-            UnitIsLoaded: true, //debug
-            isAir: false,
-            isHelo: false,
-            isShip: false,
-            isLand: false,
-            deckType: { MAR: "#f00", AIR: "#f00", MEC: "#f00", ARM: "#f00", MOT: "#f00", SUP: "#f00",},
-            Armor: {FAV:"", SAV:"", RAV:"", TAV:"", FAVtype:"", SAVtype:"", RAVtype:"", TAVtype:"",},
-            Universal:{
-                IdentifyBaseProbability:"",
-                Size:"",  //slightly bugged
-                Stealth:"",
-                Strength:"",
-                StunDamageRegen:"",
-                StunDamageToGetStunned:"",
-                TimeBetweenEachIdentifyRoll:"",
-                Year:"",
-                MAXpacks:"",
-                MAXspeed:"",
-                SupressionCeiling:"",
-                FuelCapacity:"",
-                Autonomy:"",
-                helidetectionradius:"",
-                MovementType:"",
-                PorteeVision:"",
-                OpticalStrengthAir:"",
-                OpticalStrengthGround:"",
-                opticsantiradar:"",
-                SupplyCapacity:"", //logi only
-                SupplyPriority:"", //logi only
-            },
-            Helo:{
-                mass:"",
-                CyclicManoeuvrability:"",
-                HelicopterFlyingAltitude:"",
-                HelicopterHoverAltitude:"",
-                MaxInclination:"",
-                RotorArea:"",
-                UpwardSpeed:"",
-                LateralSpeed:"",
-                GFactorLimit:"",
-                TimeHalfTurn:"",
-                AirToAirHelicopterDetectionRadius:"",
-                TorqueManoeuvrability:"",
-                MAXacell:"",
-                MAXdcell:"",
-            },
-            Air:{
-                ECM:"",
-                AirToAirHelicopterDetectionRadius:"",
-                AirplaneMinimalAltitude:"",
-                AirplaneFlyingAltitude:"",
-            },
-            Ship:{
-                MAXacell:"",
-                MAXdcell:"",
-                CIWS:"",
-                TimeHalfTurn:"",
-                ECM:"",
-            },
-            Land:{
-                SuppressDamageRatioIfTransporterKilled:"",
-                amphib:"",
-                Training:"",
-                MAXacell:"",
-                MAXdcell:"",
-            }
-        }
+        hasTransport: false
     }
 });
 
