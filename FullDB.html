@@ -2199,58 +2199,119 @@
         </div>
     </div>
 	<script id='templateWeapon' type='text/ractive'>
-		<div class="row">
-			<div class="col-sm-3">
-				<div class="line085">Name {{Name}}</div>
-				<div class="line085">Type {{Type}}</div>
-				<div class="line085">Caliber {{Caliber}}</div>
-				<div class="line085">Tags {{Tags}}</div>
-				<div class="line085">PositionOnCard {{PositionOnCard}}</div>
-				<div class="line085">AP {{AP}}</div>
-				<div class="line085">HE {{HE}}</div>
-				<div class="line085">AimTime {{AimTime}}</div>
-				<div class="line085">HitProbability {{HitProbability}}</div>
-				<div class="line085">HitProbabilityWhileMoving {{HitProbabilityWhileMoving}}</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="line085">RangeGround {{RangeGround}}</div>
-				<div class="line085">RangeGroundMinimum {{RangeGroundMinimum}}</div>
-				<div class="line085">RangeHelicopters {{RangeHelicopters}}</div>
-				<div class="line085">RangeHelicoptersMinimum {{RangeHelicoptersMinimum}}</div>
-				<div class="line085">RangePlanes {{RangePlanes}}</div>
-				<div class="line085">RangePlanesMinimum {{RangePlanesMinimum}}</div>
-				<div class="line085">RangeShip {{RangeShip}}</div>
-				<div class="line085">RangeShipMinimum {{RangeShipMinimum}}</div>
-				<div class="line085">RangeMissiles {{RangeMissiles}}</div>
-				<div class="line085">RangeMissilesMinimum {{RangeMissilesMinimum}}</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="line085">RadiusSplashPhysicalDamage {{RadiusSplashPhysicalDamage}}</div>
-				<div class="line085">RadiusSplashSuppressDamage {{RadiusSplashSuppressDamage}}</div>
-				<div class="line085">MinimalCritProbability {{MinimalCritProbability}}</div>
-				<div class="line085">MinimalHitProbability {{MinimalHitProbability}}</div>
-				<div class="line085">FireTriggeringProbability {{FireTriggeringProbability}}</div>
-				<div class="line085">NumberOfSalvos {{NumberOfSalvos}}</div>
-				<div class="line085">ShotsPerSalvo {{ShotsPerSalvo}}</div>
-				<div class="line085">ProjectilesPerShot {{ProjectilesPerShot}}</div>
-				<div class="line085">TimeBetweenSalvos {{TimeBetweenSalvos}}</div>
-				<div class="line085">TimeBetweenShots {{TimeBetweenShots}}</div>
-				<div class="line085">DisplayedAmmunition {{DisplayedAmmunition}}</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="line085">AngleDispersion {{AngleDispersion}}</div>
-				<div class="line085">DispersionAtMaxRange {{DispersionAtMaxRange}}</div>
-				<div class="line085">DispersionAtMinRange {{DispersionAtMinRange}}</div>
-				<div class="line085">CorrectedShotDispersionMultiplier {{CorrectedShotDispersionMultiplier}}</div>
-				<div class="line085">CanSmoke {{CanSmoke}}</div>
-				<div class="line085">SupplyCost {{SupplyCost}}</div>
-				<div class="line085">MissileMaxAcceleration {{MissileMaxAcceleration}}</div>
-				<div class="line085">MissileMaxSpeed {{MissileMaxSpeed}}</div>
-				<div class="line085">MissileTimeBetweenCorrections {{MissileTimeBetweenCorrections}}</div>
-				<div class="line085">Noise {{Noise}}</div>
-				<div class="line085">RayonPinned {{RayonPinned}}</div>
-			</div>
+		{{#each Weapons:i}}
+		<div>
+		{{i}}
 		</div>
+			<div class="col-sm-3">
+				<div class="col-sm-4">
+					<div class="line085">Name</div>
+					<div class="line085">Type</div>
+					<div class="line085">Caliber</div>
+					<div class="line085">Tags</div>
+					<div class="line085">OnCard</div>
+					<div class="line085">AP</div>
+					<div class="line085">HE</div>
+					<div class="line085">AimTime</div>
+					<div class="line085">Accuracy</div>
+					<div class="line085">Stabilisers</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="line085">:{{Weapons[i].Name}}</div>
+					<div class="line085">:{{Type}}</div>
+					<div class="line085">:{{Caliber}}</div>
+					<div class="line085">:{{Tags}}</div>
+					<div class="line085">:{{PositionOnCard}}</div>
+					<div class="line085">:{{AP}}</div>
+					<div class="line085">:{{HE}}</div>
+					<div class="line085">:{{AimTime}}</div>
+					<div class="line085">:{{HitProbability}}</div>
+					<div class="line085">:{{HitProbabilityWhileMoving}}</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="col-sm-7">
+					<div class="line085">Ground Range</div>
+					<div class="line085">Min Ground Range</div>
+					<div class="line085">Helo Range</div>
+					<div class="line085">Min Helo Range</div>
+					<div class="line085">Planes Range</div>
+					<div class="line085">Min Planes Range</div>
+					<div class="line085">Ship Range</div>
+					<div class="line085">Min Ship Range</div>
+					<div class="line085">Missile Range</div>
+					<div class="line085">Min Missile Range</div>
+				</div>
+				<div class="col-sm-5">
+					<div class="line085">:{{RangeGround}}</div>
+					<div class="line085">:{{RangeGroundMinimum}}</div>
+					<div class="line085">:{{RangeHelicopters}}</div>
+					<div class="line085">:{{RangeHelicoptersMinimum}}</div>
+					<div class="line085">:{{RangePlanes}}</div>
+					<div class="line085">:{{RangePlanesMinimum}}</div>
+					<div class="line085">:{{RangeShip}}</div>
+					<div class="line085">:{{RangeShipMinimum}}</div>
+					<div class="line085">:{{RangeMissiles}}</div>
+					<div class="line085">:{{RangeMissilesMinimum}}</div>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="col-sm-9">
+					<div class="line085">Splash Radius</div>
+					<div class="line085">Suppress Radius</div>
+					<div class="line085">Min. Crit Odds</div>
+					<div class="line085">Min. Hit Odds</div>
+					<div class="line085">Fire Start Odds</div>
+					<div class="line085">Salvos</div>
+					<div class="line085">Shots/Salvo</div>
+					<div class="line085">Projectiles/Shot</div>
+					<div class="line085">Salvo interval</div>
+					<div class="line085">Shots interval</div>
+					<div class="line085">Displayed Ammo</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="line085">:{{RadiusSplashPhysicalDamage}}</div>
+					<div class="line085">:{{RadiusSplashSuppressDamage}}</div>
+					<div class="line085">:{{MinimalCritProbability}}</div>
+					<div class="line085">:{{MinimalHitProbability}}</div>
+					<div class="line085">:{{FireTriggeringProbability}}</div>
+					<div class="line085">:{{NumberOfSalvos}}</div>
+					<div class="line085">:{{ShotsPerSalvo}}</div>
+					<div class="line085">:{{ProjectilesPerShot}}</div>
+					<div class="line085">:{{TimeBetweenSalvos}}</div>
+					<div class="line085">:{{TimeBetweenShots}}</div>
+					<div class="line085">:{{DisplayedAmmunition}}</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="col-sm-8">
+					<div class="line085">Angle Dispersion</div>
+					<div class="line085">MaxRange Dispersion</div>
+					<div class="line085">MinRange Dispersion</div>
+					<div class="line085">Corrected aim coeff.</div>
+					<div class="line085">Can Smoke</div>
+					<div class="line085">Supply Cost</div>
+					<div class="line085">Missile Max Acceleration</div>
+					<div class="line085">Missile Max Speed</div>
+					<div class="line085">Guidance rolls interval</div>
+					<div class="line085">Noise</div>
+					<div class="line085">RayonPinned</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="line085">:{{AngleDispersion}}</div>
+					<div class="line085">:{{DispersionAtMaxRange}}</div>
+					<div class="line085">:{{DispersionAtMinRange}}</div>
+					<div class="line085">:{{CorrectedShotDispersionMultiplier}}</div>
+					<div class="line085">:{{CanSmoke}}</div>
+					<div class="line085">:{{SupplyCost}}</div>
+					<div class="line085">:{{MissileMaxAcceleration}}</div>
+					<div class="line085">:{{MissileMaxSpeed}}</div>
+					<div class="line085">:{{MissileTimeBetweenCorrections}}</div>
+					<div class="line085">:{{Noise}}</div>
+					<div class="line085">:{{RayonPinned}}</div>
+				</div>
+			</div>
+	    {{/each}}
 	</script>
 
     <script id='templateUnit' type="text/ractive">
@@ -2260,7 +2321,7 @@
         		<li class="active"><a href="#UnitL" data-toggle="tab">Unit</a></li>
          		<li><a href="#VehL" data-toggle="tab">Transport</a></li>
         	</ul>
-        	<div class="tab-content panel">
+        	<div class="tab-content">
         		<div class="tab-pane active" id="UnitL">
 					{{#with Unit}}
 					<div class="row">
@@ -2305,7 +2366,7 @@
 									<img id="{{R1}}" class="ranks">
 								</div>
 								<div class="col-sm-6">
-									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+									<button type="button" class="btn btn-default btn-block {{B1}}" onclick="add(0,0)">{{A1}}</button>
 								</div>
 							</div>
 							<div class="col-sm-2">
@@ -2313,7 +2374,7 @@
 									<img id="{{R2}}" class="ranks">
 								</div>
 								<div class="col-sm-6">
-									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+									<button type="button" class="btn btn-default btn-block {{B2}}" onclick="add(0,0)">{{A2}}</button>
 								</div>
 							</div>
 							<div class="col-sm-2">
@@ -2321,7 +2382,7 @@
 									<img id="{{R3}}" class="ranks">
 								</div>
 								<div class="col-sm-6">
-									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+									<button type="button" class="btn btn-default btn-block {{B3}}" onclick="add(0,0)">{{A3}}</button>
 								</div>
 							</div>
 							<div class="col-sm-2">
@@ -2329,7 +2390,7 @@
 									<img id="{{R4}}" class="ranks">
 								</div>
 								<div class="col-sm-6">
-									<button type="button" class="btn btn-default btn-block {{B0}}" onclick="add(0,0)">{{A0}}</button>
+									<button type="button" class="btn btn-default btn-block {{B4}}" onclick="add(0,0)">{{A4}}</button>
 								</div>
 							</div>
 							{{/with}}
@@ -2342,49 +2403,49 @@
 						</div>
 						<div class="col-sm-10">
 							{{#with Armor}}
-							<div class="col-sm-2" style="padding:1">
+							<div class="col-sm-2">
 								<div class="row">
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">F</div>
+										<div style="margin: 0; line-height: 0.8">F</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">S</div>
+										<div style="margin: 0; line-height: 0.8">S</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">R</div>
+										<div style="margin: 0; line-height: 0.8">R</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">T</div>
+										<div style="margin: 0; line-height: 0.8">T</div>
 									</div>
 									<div class="col-sm-12">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">ARMOR</div>
+										<div style="margin: 0; line-height: 0.8">ARMOR</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">{{FAV}}</div>
+										<div style="margin: 0; line-height: 0.8">{{FAV}}</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">{{SAV}}</div>
+										<div style="margin: 0; line-height: 0.8">{{SAV}}</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">{{RAV}}</div>
+										<div style="margin: 0; line-height: 0.8">{{RAV}}</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">{{TAV}}</div>
+										<div style="margin: 0; line-height: 0.8">{{TAV}}</div>
 									</div>
 									<div class="col-sm-12">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">SPLASH TYPE</div>
+										<div style="margin: 0; line-height: 0.8">SPLASH TYPE</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">{{FAVtype}}</div>
+										<div style="margin: 0; line-height: 0.8">{{FAVtype}}</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">{{SAVtype}}</div>
+										<div style="margin: 0; line-height: 0.8">{{SAVtype}}</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">{{RAVtype}}</div>
+										<div style="margin: 0; line-height: 0.8">{{RAVtype}}</div>
 									</div>
 									<div class="col-sm-3">
-										<div style="background-color: #fff; margin: 0; line-height: 0.8">{{TAVtype}}</div>
+										<div style="margin: 0; line-height: 0.8">{{TAVtype}}</div>
 									</div>
 								</div>
 							</div>
@@ -2392,422 +2453,317 @@
 							{{#with Universal}}
 							<div class="col-sm-2" style="padding:1">
 								<div class="col-sm-6">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Size</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Stealth</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">HP</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Year</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Cards</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Speed</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Fuel</div>
+									<div style="margin: 0; line-height: 0.85">Size</div>
+									<div style="margin: 0; line-height: 0.85">Stealth</div>
+									<div style="margin: 0; line-height: 0.85">HP</div>
+									<div style="margin: 0; line-height: 0.85">Year</div>
+									<div style="margin: 0; line-height: 0.85">Cards</div>
+									<div style="margin: 0; line-height: 0.85">Speed</div>
+									<div style="margin: 0; line-height: 0.85">Fuel</div>
 								</div>
 								<div class="col-sm-6">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{Size}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{Stealth}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{Strength}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{Year}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MaxPacks}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MaxSpeed}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{FuelCapacity}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{Size}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{Stealth}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{Strength}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{Year}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{MaxPacks}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{MaxSpeed}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{FuelCapacity}}</div>
 								</div>
 							</div>
 							<div class="col-sm-4" style="padding:1">
 								<div class="col-sm-6">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Movement type</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Autonomy</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Morale Regen</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Morale to stun</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Morale Floor</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">ID roll interval</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Unit ID odds</div>
+									<div style="margin: 0; line-height: 0.85">Movement type</div>
+									<div style="margin: 0; line-height: 0.85">Autonomy</div>
+									<div style="margin: 0; line-height: 0.85">Morale Regen</div>
+									<div style="margin: 0; line-height: 0.85">Morale to stun</div>
+									<div style="margin: 0; line-height: 0.85">Morale Floor</div>
+									<div style="margin: 0; line-height: 0.85">ID roll interval</div>
+									<div style="margin: 0; line-height: 0.85">Unit ID odds</div>
 								</div>
 								<div class="col-sm-3">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MovementType}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{Autonomy}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{StunDamageRegen}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{StunDamageToGetStunned}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{SupressionCeiling}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{TimeBetweenEachIdentifyRoll}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{IdentifyBaseProbability}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{MovementType}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{Autonomy}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{StunDamageRegen}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{StunDamageToGetStunned}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{SupressionCeiling}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{TimeBetweenEachIdentifyRoll}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{IdentifyBaseProbability}}</div>
 								</div>
 							</div>
 							<div class="col-sm-4" style="padding:1">
 								<div class="col-sm-6">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">PorteeVision(?)</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Ground detection</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Helo detection</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Air detection</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Radar detection</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Supply cargo</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Supply priority</div>
+									<div style="margin: 0; line-height: 0.85">PorteeVision(?)</div>
+									<div style="margin: 0; line-height: 0.85">Ground detection</div>
+									<div style="margin: 0; line-height: 0.85">Helo detection</div>
+									<div style="margin: 0; line-height: 0.85">Air detection</div>
+									<div style="margin: 0; line-height: 0.85">Radar detection</div>
+									<div style="margin: 0; line-height: 0.85">Supply cargo</div>
+									<div style="margin: 0; line-height: 0.85">Supply priority</div>
 								</div>
 								<div class="col-sm-6">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{PorteeVision}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{OpticalStrengthGround}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{OpticalStrengthAir}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{helidetectionradius}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{opticsantiradar}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{SupplyCapacity}}</div>
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{SupplyPriority}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{PorteeVision}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{OpticalStrengthGround}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{OpticalStrengthAir}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{helidetectionradius}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{opticsantiradar}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{SupplyCapacity}}</div>
+									<div style="margin: 0; line-height: 0.85">:{{SupplyPriority}}</div>
 								</div>
 							</div>
 							{{/with}}
 						</div>
 					<div>
-					<div class="row">
-						{{#if isHelo}}
-							{{#with Helo}}
-							<div class="col-sm-2" style="padding:1">
+					<div class="panel">
+						<div class="row">
+							{{#if isHelo}}
+								{{#with Helo}}
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-5" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Mass</div>
+									</div>
+									<div class="col-sm-7" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{mass}}</div>
+									</div>
+								</div>
+								<div class="col-sm-4" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Cyclic manoeuvrability</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{CyclicManoeuvrability}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Flying height</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{HelicopterFlyingAltitude}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Hover height</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{HelicopterHoverAltitude}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Max tilt</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{MaxInclination}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Rotor area</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{RotorArea}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Climb speed</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{UpwardSpeed}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Lateral speed</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{LateralSpeed}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Max G-Factor</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{GFactorLimit}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">180-turn time</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{TimeHalfTurn}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Torque</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{TorqueManoeuvrability}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Max accel.</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{MAXacell}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Max decell</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{MAXdcell}}</div>
+									</div>
+								</div>
+								<div class="col-sm-8" style="padding:1">
+									<div class="col-sm-8" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Helo detection while flying</div>
+									</div>
+									<div class="col-sm-4" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{AirToAirHelicopterDetectionRadius}}</div>
+									</div>
+								</div>
+								{{/with}}
+							{{/if}}
+							{{#if isLand}}
+								{{#with Land}}
+									<div class="col-sm-4" style="padding:1">
+										<div class="col-sm-8" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">Suppression on transport death</div>
+										</div>
+										<div class="col-sm-4" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">:{{SuppressDamageRatioIfTransporterKilled}}</div>
+										</div>
+									</div>
+									<div class="col-sm-2" style="padding:1">
+										<div class="col-sm-8" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">Amphibious</div>
+										</div>
+										<div class="col-sm-4" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">:{{amphib}}</div>
+										</div>
+									</div>
+									<div class="col-sm-2" style="padding:1">
+										<div class="col-sm-6" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">Training</div>
+										</div>
+										<div class="col-sm-6" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">:{{Training}}</div>
+										</div>
+									</div>
+									<div class="col-sm-2" style="padding:1">
+										<div class="col-sm-8" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">Max accel.</div>
+										</div>
+										<div class="col-sm-4" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">:{{MAXacell}}</div>
+										</div>
+									</div>
+									<div class="col-sm-2" style="padding:1">
+										<div class="col-sm-8" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">Max decell.</div>
+										</div>
+										<div class="col-sm-4" style="padding:1">
+											<div style="margin: 0; line-height: 0.85">:{{MAXdcell}}</div>
+										</div>
+									</div>
+								{{/with}}
+							{{/if}}
+							{{#if isShip}}
+								{{#with Ship}}
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Max accel.</div>
+									</div>
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{MAXacell}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Max decell.</div>
+									</div>
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{MAXdcell}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">CIWS</div>
+									</div>
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{CIWS}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">180-turn time</div>
+									</div>
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{TimeHalfTurn}}</div>
+									</div>
+								</div>
+								<div class="col-sm-2" style="padding:1">
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">ECM</div>
+									</div>
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{ECM}}</div>
+									</div>
+								</div>
+								{{/with}}
+							{{/if}}
+							{{#if isAir}}
+								{{#with Air}}
+								<div class="col-sm-1" style="padding:1">
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">ECM</div>
+									</div>
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{ECM}}</div>
+									</div>
+								</div>
 								<div class="col-sm-5" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Mass</div>
-								</div>
-								<div class="col-sm-7" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{mass}}</div>
-								</div>
-							</div>
-							<div class="col-sm-4" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Cyclic manoeuvrability</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{CyclicManoeuvrability}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Flying height</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{HelicopterFlyingAltitude}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Hover height</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{HelicopterHoverAltitude}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Max tilt</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MaxInclination}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Rotor area</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{RotorArea}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Climb speed</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{UpwardSpeed}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Lateral speed</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{LateralSpeed}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Max G-Factor</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{GFactorLimit}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">180-turn time</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{TimeHalfTurn}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Torque</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{TorqueManoeuvrability}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Max accel.</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MAXacell}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Max decell</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MAXdcell}}</div>
-								</div>
-							</div>
-							<div class="col-sm-8" style="padding:1">
-								<div class="col-sm-8" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Helo detection while flying</div>
-								</div>
-								<div class="col-sm-4" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{AirToAirHelicopterDetectionRadius}}</div>
-								</div>
-							</div>
-							{{/with}}
-						{{/if}}
-						{{#if isLand}}
-							{{#with Land}}
-								<div class="col-sm-4" style="padding:1">
-									<div class="col-sm-8" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">Suppression on transport death</div>
-									</div>
-									<div class="col-sm-4" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{SuppressDamageRatioIfTransporterKilled}}</div>
-									</div>
-								</div>
-								<div class="col-sm-2" style="padding:1">
-									<div class="col-sm-8" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">Amphibious</div>
-									</div>
-									<div class="col-sm-4" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{amphib}}</div>
-									</div>
-								</div>
-								<div class="col-sm-2" style="padding:1">
 									<div class="col-sm-6" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">Training</div>
+										<div style="margin: 0; line-height: 0.85">Helo detection while flying</div>
 									</div>
 									<div class="col-sm-6" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{Training}}</div>
+										<div style="margin: 0; line-height: 0.85">:{{AirToAirHelicopterDetectionRadius}}</div>
 									</div>
 								</div>
-								<div class="col-sm-2" style="padding:1">
-									<div class="col-sm-8" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">Max accel.</div>
+								<div class="col-sm-3" style="padding:1">
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Min. altitude</div>
 									</div>
-									<div class="col-sm-4" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MAXacell}}</div>
-									</div>
-								</div>
-								<div class="col-sm-2" style="padding:1">
-									<div class="col-sm-8" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">Max decell.</div>
-									</div>
-									<div class="col-sm-4" style="padding:1">
-										<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MAXdcell}}</div>
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{AirplaneMinimalAltitude}}</div>
 									</div>
 								</div>
-							{{/with}}
-						{{/if}}
-						{{#if isShip}}
-							{{#with Ship}}
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Max accel.</div>
+								<div class="col-sm-3" style="padding:1">
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">Flying altitude</div>
+									</div>
+									<div class="col-sm-6" style="padding:1">
+										<div style="margin: 0; line-height: 0.85">:{{AirplaneFlyingAltitude}}</div>
+									</div>
 								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MAXacell}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Max decell.</div>
-								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{MAXdcell}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">CIWS</div>
-								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{CIWS}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">180-turn time</div>
-								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{TimeHalfTurn}}</div>
-								</div>
-							</div>
-							<div class="col-sm-2" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">ECM</div>
-								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{ECM}}</div>
-								</div>
-							</div>
-							{{/with}}
-						{{/if}}
-						{{#if isAir}}
-							{{#with Air}}
-							<div class="col-sm-1" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">ECM</div>
-								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{ECM}}</div>
-								</div>
-							</div>
-							<div class="col-sm-5" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Helo detection while flying</div>
-								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{AirToAirHelicopterDetectionRadius}}</div>
-								</div>
-							</div>
-							<div class="col-sm-3" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Min. altitude</div>
-								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{AirplaneMinimalAltitude}}</div>
-								</div>
-							</div>
-							<div class="col-sm-3" style="padding:1">
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">Flying altitude</div>
-								</div>
-								<div class="col-sm-6" style="padding:1">
-									<div style="background-color: #fff; margin: 0; line-height: 0.85">:{{AirplaneFlyingAltitude}}</div>
-								</div>
-							</div>
-							{{/with}}
-						{{/if}}
-								<!-- //production time -->
-								<!-- //autoorient - useless -->
-								<!-- //classnames -->
-								<!-- //sailing -  empty -->
-            		</div>
-					<div class="row">
-			      		<ul id="tabsl" class="nav nav-tabs" data-tabs="tabs">
-			        		<li class="active"><a href="#Wep1" data-toggle="tab">Unit</a></li>
-			         		<li><a href="#Wep2" data-toggle="tab">Transport</a></li>
-			        	</ul>
-						{{#with wepTable}}
-	                    <div class="tab-scroll">
-							<table class="table-hover wepTableUnit" style="width:100%">
-								<tr>
-									<th>Name</th>
-								    <th>Type</th>
-								    <th>Caliber</th>
-								    <th>Tags</th>
-								    <th>RangeGround</th>
-								    <th>RangeGroundMinimum</th>
-								    <th>RangeHelicopters</th>
-								    <th>RangeHelicoptersMinimum</th>
-								    <th>RangePlanes</th>
-								    <th>RangePlanesMinimum</th>
-								    <th>RangeShip</th>
-								    <th>RangeShipMinimum</th>
-								    <th>RangeMissiles</th>
-								    <th>RangeMissilesMinimum</th>
-								    <th>AimTime</th>
-								    <th>HitProbability</th>
-								    <th>HitProbabilityWhileMoving</th>
-								    <th>AP</th>
-								    <th>HE</th>
-								    <th>AngleDispersion</th>
-								    <th>DispersionAtMaxRange</th>
-								    <th>DispersionAtMinRange</th>
-								    <th>CorrectedShotDispersionMultiplier</th>
-								    <th>RadiusSplashPhysicalDamage</th>
-								    <th>RadiusSplashSuppressDamage</th>
-								    <th>NumberOfSalvos</th>
-								    <th>ShotsPerSalvo</th>
-								    <th>ProjectilesPerShot</th>
-								    <th>TimeBetweenSalvos</th>
-								    <th>TimeBetweenShots</th>
-								    <th>DisplayedAmmunition</th>
-								    <th>SupplyCost</th>
-								    <th>CanSmoke</th>
-								    <th>FireTriggeringProbability</th>
-								    <th>MinimalCritProbability</th>
-								    <th>MinimalHitProbability</th>
-								    <th>MissileMaxAcceleration</th>
-								    <th>MissileMaxSpeed</th>
-								    <th>MissileTimeBetweenCorrections</th>
-								    <th>Noise</th>
-								    <th>PositionOnCard</th>
-								    <th>RayonPinned</th>
-								</tr>
-								{{#each wepTable}}
-								<tr>
-									<td>{{Unit}}</td>
-									<td>{{Name}}</td>
-									<td>{{Type}}</td>
-									<td>{{Caliber}}</td>
-									<td>{{Tags}}</td>
-									<td>{{RangeGround}}</td>
-									<td>{{RangeGroundMinimum}}</td>
-									<td>{{RangeHelicopters}}</td>
-									<td>{{RangeHelicoptersMinimum}}</td>
-									<td>{{RangePlanes}}</td>
-									<td>{{RangePlanesMinimum}}</td>
-									<td>{{RangeShip}}</td>
-									<td>{{RangeShipMinimum}}</td>
-									<td>{{RangeMissiles}}</td>
-									<td>{{RangeMissilesMinimum}}</td>
-									<td>{{AimTime}}</td>
-									<td>{{HitProbability}}</td>
-									<td>{{HitProbabilityWhileMoving}}</td>
-									<td>{{AP}}</td>
-									<td>{{HE}}</td>
-									<td>{{AngleDispersion}}</td>
-									<td>{{DispersionAtMaxRange}}</td>
-									<td>{{DispersionAtMinRange}}</td>
-									<td>{{CorrectedShotDispersionMultiplier}}</td>
-									<td>{{RadiusSplashPhysicalDamage}}</td>
-									<td>{{RadiusSplashSuppressDamage}}</td>
-									<td>{{NumberOfSalvos}}</td>
-									<td>{{ShotsPerSalvo}}</td>
-									<td>{{ProjectilesPerShot}}</td>
-									<td>{{TimeBetweenSalvos}}</td>
-									<td>{{TimeBetweenShots}}</td>
-									<td>{{DisplayedAmmunition}}</td>
-									<td>{{SupplyCost}}</td>
-									<td>{{CanSmoke}}</td>
-									<td>{{FireTriggeringProbability}}</td>
-									<td>{{MinimalCritProbability}}</td>
-									<td>{{MinimalHitProbability}}</td>
-									<td>{{MissileMaxAcceleration}}</td>
-									<td>{{MissileMaxSpeed}}</td>
-									<td>{{MissileTimeBetweenCorrections}}</td>
-									<td>{{Noise}}</td>
-									<td>{{PositionOnCard}}</td>
-									<td>{{RayonPinned}}</td>
-								</tr>
-								{{/each}}
-							</table>
-	                    </div>
-						{{/with}}
+								{{/with}}
+							{{/if}}
+									<!-- //production time -->
+									<!-- //autoorient - useless -->
+									<!-- //classnames -->
+									<!-- //sailing -  empty -->
+            			</div>
+
 					</div>
 					{{/with}}
-
-					{{#if hasTransport}}
-					{{#with Transport}}
-					{{/with}}
-					{{/if}}
             	</div>
             </div>
 		</div>

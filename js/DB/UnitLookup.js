@@ -269,7 +269,7 @@ function showCard(card){
     else if (card[1].MovementType == "Air" && card[1].LateralSpeed === ""){
         //^is flying, is not helo
         Unit.isAir = true;
-        if (card[1].ECM === ""){ Unit.Air.ECM = 0;} else { Unit.Air.ECM = card[1].ECM;} 
+        if (card[1].ECM === ""){ Unit.Air.ECM = 0;} else { Unit.Air.ECM = card[1].ECM;}
         Unit.Air.AirToAirHelicopterDetectionRadius = card[1].AirToAirHelicopterDetectionRadius;
         Unit.Air.AirplaneMinimalAltitude = card[1].AirplaneMinimalAltitude;
         Unit.Air.AirplaneFlyingAltitude = card[1].AirplaneFlyingAltitude;
@@ -293,8 +293,106 @@ function showCard(card){
         Unit.Shpi.ECM = card[1].ECM;
     }
     ractiveUnit.update('Unit');
-
-    ractiveUnit.set({UnitIsLoaded: true});
+    var Weapons = ractiveWeapon.get('Weapons');
+    Weapons = [];
+    for (var i=0; i<=10; i++){
+        Weapons[i] = {
+                    Unit : card[1].Weapons[i].Unit,
+                    Name : card[1].Weapons[i].Name,
+                    Type : card[1].Weapons[i].Type,
+                    Caliber : card[1].Weapons[i].Caliber,
+                    Tags : card[1].Weapons[i].Tags,
+                    RangeGround : card[1].Weapons[i].RangeGround,
+                    RangeGroundMinimum : card[1].Weapons[i].RangeGroundMinimum,
+                    RangeHelicopters : card[1].Weapons[i].RangeHelicopters,
+                    RangeHelicoptersMinimum : card[1].Weapons[i].RangeHelicoptersMinimum,
+                    RangePlanes : card[1].Weapons[i].RangePlanes,
+                    RangePlanesMinimum : card[1].Weapons[i].RangePlanesMinimum,
+                    RangeShip : card[1].Weapons[i].RangeShip,
+                    RangeShipMinimum : card[1].Weapons[i].RangeShipMinimum,
+                    RangeMissiles : card[1].Weapons[i].RangeMissiles,
+                    RangeMissilesMinimum : card[1].Weapons[i].RangeMissilesMinimum,
+                    AimTime : card[1].Weapons[i].AimTime,
+                    HitProbability : card[1].Weapons[i].HitProbability,
+                    HitProbabilityWhileMoving : card[1].Weapons[i].HitProbabilityWhileMoving,
+                    AP : card[1].Weapons[i].AP,
+                    HE : card[1].Weapons[i].HE,
+                    AngleDispersion : card[1].Weapons[i].AngleDispersion,
+                    DispersionAtMaxRange : card[1].Weapons[i].DispersionAtMaxRange,
+                    DispersionAtMinRange : card[1].Weapons[i].DispersionAtMinRange,
+                    CorrectedShotDispersionMultiplier : card[1].Weapons[i].CorrectedShotDispersionMultiplier,
+                    RadiusSplashPhysicalDamage : card[1].Weapons[i].RadiusSplashPhysicalDamage,
+                    RadiusSplashSuppressDamage : card[1].Weapons[i].RadiusSplashSuppressDamage,
+                    NumberOfSalvos : card[1].Weapons[i].NumberOfSalvos,
+                    ShotsPerSalvo : card[1].Weapons[i].ShotsPerSalvo,
+                    ProjectilesPerShot : card[1].Weapons[i].ProjectilesPerShot,
+                    TimeBetweenSalvos : card[1].Weapons[i].TimeBetweenSalvos,
+                    TimeBetweenShots : card[1].Weapons[i].TimeBetweenShots,
+                    DisplayedAmmunition : card[1].Weapons[i].DisplayedAmmunition,
+                    SupplyCost : card[1].Weapons[i].SupplyCost,
+                    CanSmoke : card[1].Weapons[i].CanSmoke,
+                    FireTriggeringProbability : card[1].Weapons[i].FireTriggeringProbability,
+                    MinimalCritProbability : card[1].Weapons[i].MinimalCritProbability,
+                    MinimalHitProbability : card[1].Weapons[i].MinimalHitProbability,
+                    MissileMaxAcceleration : card[1].Weapons[i].MissileMaxAcceleration,
+                    MissileMaxSpeed : card[1].Weapons[i].MissileMaxSpeed,
+                    MissileTimeBetweenCorrections : card[1].Weapons[i].MissileTimeBetweenCorrections,
+                    Noise : card[1].Weapons[i].Noise,
+                    PositionOnCard : card[1].Weapons[i].PositionOnCard,
+                    RayonPinned : card[1].Weapons[i].RayonPinned
+        };
+    }
+    ractiveWeapon.update('Weapons');
+    console.log(ractiveWeapon.get('Weapons'));
+    /*
+        var Weapon = ractiveWeapon.get();
+        Weapon.Unit  = card[1].Weapons[i].Unit;
+        Weapon.Name  = card[1].Weapons[i].Name;
+        Weapon.Type  = card[1].Weapons[i].Type;
+        Weapon.Caliber = card[1].Weapons[i].Caliber;
+        Weapon.Tags = card[1].Weapons[i].Tags;
+        Weapon.RangeGround = card[1].Weapons[i].RangeGround;
+        Weapon.RangeGroundMinimum = card[1].Weapons[i].RangeGroundMinimum;
+        Weapon.RangeHelicopters = card[1].Weapons[i].RangeHelicopters;
+        Weapon.RangeHelicoptersMinimum = card[1].Weapons[i].RangeHelicoptersMinimum;
+        Weapon.RangePlanes = card[1].Weapons[i].RangePlanes;
+        Weapon.RangePlanesMinimum = card[1].Weapons[i].RangePlanesMinimum;
+        Weapon.RangeShip = card[1].Weapons[i].RangeShip;
+        Weapon.RangeShipMinimum = card[1].Weapons[i].RangeShipMinimum;
+        Weapon.RangeMissiles = card[1].Weapons[i].RangeMissiles;
+        Weapon.RangeMissilesMinimum = card[1].Weapons[i].RangeMissilesMinimum;
+        Weapon.AimTime = card[1].Weapons[i].AimTime;
+        Weapon.HitProbability = card[1].Weapons[i].HitProbability;
+        Weapon.HitProbabilityWhileMoving = card[1].Weapons[i].HitProbabilityWhileMoving;
+        Weapon.AP = card[1].Weapons[i].AP;
+        Weapon.HE = card[1].Weapons[i].HE;
+        Weapon.AngleDispersion = card[1].Weapons[i].AngleDispersion;
+        Weapon.DispersionAtMaxRange = card[1].Weapons[i].DispersionAtMaxRange;
+        Weapon.DispersionAtMinRange = card[1].Weapons[i].DispersionAtMinRange;
+        Weapon.CorrectedShotDispersionMultiplier = card[1].Weapons[i].CorrectedShotDispersionMultiplier;
+        Weapon.RadiusSplashPhysicalDamage = card[1].Weapons[i].RadiusSplashPhysicalDamage;
+        Weapon.RadiusSplashSuppressDamage = card[1].Weapons[i].RadiusSplashSuppressDamage;
+        Weapon.NumberOfSalvos = card[1].Weapons[i].NumberOfSalvos;
+        Weapon.ShotsPerSalvo = card[1].Weapons[i].ShotsPerSalvo;
+        Weapon.ProjectilesPerShot = card[1].Weapons[i].ProjectilesPerShot;
+        Weapon.TimeBetweenSalvos = card[1].Weapons[i].TimeBetweenSalvos;
+        Weapon.TimeBetweenShots = card[1].Weapons[i].TimeBetweenShots;
+        Weapon.DisplayedAmmunition = card[1].Weapons[i].DisplayedAmmunition;
+        Weapon.SupplyCost = card[1].Weapons[i].SupplyCost;
+        Weapon.CanSmoke = card[1].Weapons[i].CanSmoke;
+        Weapon.FireTriggeringProbability = card[1].Weapons[i].FireTriggeringProbability;
+        Weapon.MinimalCritProbability = card[1].Weapons[i].MinimalCritProbability;
+        Weapon.MinimalHitProbability = card[1].Weapons[i].MinimalHitProbability;
+        Weapon.MissileMaxAcceleration = card[1].Weapons[i].MissileMaxAcceleration;
+        Weapon.MissileMaxSpeed = card[1].Weapons[i].MissileMaxSpeed;
+        Weapon.MissileTimeBetweenCorrections = card[1].Weapons[i].MissileTimeBetweenCorrections;
+        Weapon.Noise = card[1].Weapons[i].Noise;
+        Weapon.PositionOnCard = card[1].Weapons[i].PositionOnCard;
+        Weapon.RayonPinned = card[1].Weapons[i].RayonPinned;
+    ractiveWeapon.update();
+        */
     //TODO weapons
     //TODO transport
+
+    ractiveUnit.set({UnitIsLoaded: true});
 }

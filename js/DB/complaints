@@ -1,10 +1,123 @@
+CSV problems:
 -czechoslavakia
 -all units are commands
 -splash resistance is false for Armor
 -armor is also splash type
+-rayonpinned?
 
 
 
-bug:
-ships not displaying
-planes not displaying properly
+To fix:
+-ships not displaying
+-check deck decoding
+-check deck exporting
+-check card adding and deleting
+
+//TODO weapons
+//TODO transport
+
+//weapons table snippet
+/*
+<div class="row">
+    <ul id="tabsl" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#Wep1" data-toggle="tab">Unit</a></li>
+        <li><a href="#Wep2" data-toggle="tab">Transport</a></li>
+    </ul>
+    {{#with wepTable}}
+    <div class="tab-scroll">
+        <table class="table-hover wepTableUnit" style="width:100%">
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Caliber</th>
+                <th>Tags</th>
+                <th>RangeGround</th>
+                <th>RangeGroundMinimum</th>
+                <th>RangeHelicopters</th>
+                <th>RangeHelicoptersMinimum</th>
+                <th>RangePlanes</th>
+                <th>RangePlanesMinimum</th>
+                <th>RangeShip</th>
+                <th>RangeShipMinimum</th>
+                <th>RangeMissiles</th>
+                <th>RangeMissilesMinimum</th>
+                <th>AimTime</th>
+                <th>HitProbability</th>
+                <th>HitProbabilityWhileMoving</th>
+                <th>AP</th>
+                <th>HE</th>
+                <th>AngleDispersion</th>
+                <th>DispersionAtMaxRange</th>
+                <th>DispersionAtMinRange</th>
+                <th>CorrectedShotDispersionMultiplier</th>
+                <th>RadiusSplashPhysicalDamage</th>
+                <th>RadiusSplashSuppressDamage</th>
+                <th>NumberOfSalvos</th>
+                <th>ShotsPerSalvo</th>
+                <th>ProjectilesPerShot</th>
+                <th>TimeBetweenSalvos</th>
+                <th>TimeBetweenShots</th>
+                <th>DisplayedAmmunition</th>
+                <th>SupplyCost</th>
+                <th>CanSmoke</th>
+                <th>FireTriggeringProbability</th>
+                <th>MinimalCritProbability</th>
+                <th>MinimalHitProbability</th>
+                <th>MissileMaxAcceleration</th>
+                <th>MissileMaxSpeed</th>
+                <th>MissileTimeBetweenCorrections</th>
+                <th>Noise</th>
+                <th>PositionOnCard</th>
+                <th>RayonPinned</th>
+            </tr>
+            {{#each wepTable}}
+            <tr>
+                <td>{{Unit}}</td>
+                <td>{{Name}}</td>
+                <td>{{Type}}</td>
+                <td>{{Caliber}}</td>
+                <td>{{Tags}}</td>
+                <td>{{RangeGround}}</td>
+                <td>{{RangeGroundMinimum}}</td>
+                <td>{{RangeHelicopters}}</td>
+                <td>{{RangeHelicoptersMinimum}}</td>
+                <td>{{RangePlanes}}</td>
+                <td>{{RangePlanesMinimum}}</td>
+                <td>{{RangeShip}}</td>
+                <td>{{RangeShipMinimum}}</td>
+                <td>{{RangeMissiles}}</td>
+                <td>{{RangeMissilesMinimum}}</td>
+                <td>{{AimTime}}</td>
+                <td>{{HitProbability}}</td>
+                <td>{{HitProbabilityWhileMoving}}</td>
+                <td>{{AP}}</td>
+                <td>{{HE}}</td>
+                <td>{{AngleDispersion}}</td>
+                <td>{{DispersionAtMaxRange}}</td>
+                <td>{{DispersionAtMinRange}}</td>
+                <td>{{CorrectedShotDispersionMultiplier}}</td>
+                <td>{{RadiusSplashPhysicalDamage}}</td>
+                <td>{{RadiusSplashSuppressDamage}}</td>
+                <td>{{NumberOfSalvos}}</td>
+                <td>{{ShotsPerSalvo}}</td>
+                <td>{{ProjectilesPerShot}}</td>
+                <td>{{TimeBetweenSalvos}}</td>
+                <td>{{TimeBetweenShots}}</td>
+                <td>{{DisplayedAmmunition}}</td>
+                <td>{{SupplyCost}}</td>
+                <td>{{CanSmoke}}</td>
+                <td>{{FireTriggeringProbability}}</td>
+                <td>{{MinimalCritProbability}}</td>
+                <td>{{MinimalHitProbability}}</td>
+                <td>{{MissileMaxAcceleration}}</td>
+                <td>{{MissileMaxSpeed}}</td>
+                <td>{{MissileTimeBetweenCorrections}}</td>
+                <td>{{Noise}}</td>
+                <td>{{PositionOnCard}}</td>
+                <td>{{RayonPinned}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    {{/with}}
+</div>*/
