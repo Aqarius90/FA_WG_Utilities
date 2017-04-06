@@ -5232,7 +5232,7 @@ function Weaponize()
   CardsDB[ 728][0].W1 = new Arm(928,200); CardsDB[ 728][0].W2 = new Arm(366,2); CardsDB[ 728][0].W3 = new Arm(328,4);// "DEN", "F 35 Draken");
   CardsDB[ 729][0].W1 = new Arm(  0,   0); CardsDB[ 729][0].W2 = new Arm(435,25); CardsDB[ 729][0].W3 = new Arm(  0,   0);// "ROK", "F-4D Peace Pheasant I");
   CardsDB[ 730][0].W1 = new Arm(633,940); CardsDB[ 730][0].W2 = new Arm(510,4); CardsDB[ 730][0].W3 = new Arm(327,4);// "JAP", "F-4EJ");
-  CardsDB[ 731][0].W1 = new Arm(633,940); CardsDB[ 731][0].W2 = new Arm(511,4); CardsDB[ 731][0].W3 = new Arm(327,8);// "JAP", "F-4EJ KAI");
+  CardsDB[ 731][0].W1 = new Arm(633,940); CardsDB[ 731][0].W2 = new Arm(511,4); CardsDB[ 731][0].W3 = new Arm(1182,8);// "JAP", "F-4EJ KAI");
   CardsDB[ 732][0].W1 = new Arm(633,940); CardsDB[ 732][0].W2 = new Arm(511,4); CardsDB[ 732][0].W3 = new Arm(326,4);// "ANZAC", "F-4E Phantom II");
   CardsDB[ 733][0].W1 = new Arm(633,940); CardsDB[ 733][0].W2 = new Arm(350,4); CardsDB[ 733][0].W3 = new Arm(  0,   0);// "ROK", "F-4E Peace PHESANT II");
   CardsDB[ 734][0].W1 = new Arm(512,564); CardsDB[ 734][0].W2 = new Arm(351,2); CardsDB[ 734][0].W3 = new Arm(330,4);// "BRD", "F-4F Peace RHINE");

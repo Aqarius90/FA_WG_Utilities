@@ -5,14 +5,14 @@ function GUIDisplay() {
     //nation
     if (Deck.iNation == "000000001100") { displayUSA(); } else
     if (Deck.iNation == "000000101100") { displayUK(); } else
-    if (Deck.iNation == "000001001100") { displayFRA(); } else
+    if (Deck.iNation == "000001001010") { displayFRA(); } else
     if (Deck.iNation == "000001101100") { displayBRD(); } else
     if (Deck.iNation == "000010001100") { displayCAN(); } else
     if (Deck.iNation == "000010101100") { displayDEN(); } else
     if (Deck.iNation == "000011001100") { displaySWE(); } else
     if (Deck.iNation == "000011101100") { displayNOR(); } else
     if (Deck.iNation == "000100001100") { displayANZAC(); } else
-    if (Deck.iNation == "000100101100") { displayJAP(); } else
+    if (Deck.iNation == "000001001100") { displayJAP(); } else
     if (Deck.iNation == "000101001100") { displayROK(); } else
     if (Deck.iNation == "000101101100") { displayNED(); } else
     if (Deck.iNation == "000110001100") { displayISR(); } else
@@ -645,7 +645,7 @@ function displayNSWP() {
 }
 
 function displayREDFOR() {
-    var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0];
+    var flagstr = [0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,1,1,0,1,1];
     console.log("test");
     showFlags(flagstr);
     ractiveHeader.set("lab.tnation", "No bonus");

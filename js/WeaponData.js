@@ -666,7 +666,7 @@ function WeaponDataLoad()
     MainArmory[763] = new Weapon(     0, 2800,  3500,   40, 40,   0,  6.00, "8s", 240, "[AOE][FF][RAD][DEF]", "Radar missile", "9K33M OSA-M");
     MainArmory[764] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
     MainArmory[765] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "000000",    0, "", "000000", "AK630 CIWS");
-    MainArmory[766] = new Weapon(     0, 2450,  1960,   55, 55,   0,  4.00, "10S",  160, "[AOE][FF]", "IR missiles", "Igla"); 
+    MainArmory[766] = new Weapon(     0, 2450,  1960,   55, 55,   0,  4.00, "10S",  160, "[AOE][FF]", "IR missiles", "Igla");
     MainArmory[767] = new Weapon(  2625,    0,     0,   45,  0,  20,  0.00, "20S",  150, "[HEAT][GUID]", "SACLOS missile", "Konkurs");
     MainArmory[768] = new Weapon(  1400, 1050,     0,   20,  5,   1,  1.00, "342",   40, "[KE]", "14.5mm", "KPVT");
     MainArmory[769] = new Weapon( 28000,    0,     0, 4550,  0,   0,  8.00, "7",  312, "[AOE][CORR]", "140mm rocket", "M-14-0F");
@@ -802,7 +802,7 @@ function WeaponDataLoad()
     MainArmory[917] = new Weapon(  7700,    0,     0, 4550,  0,   0,  1.00, "8",    0, "[NPLM][CORR][STAT]", "130mm rockets", "T63");
     MainArmory[918] = new Weapon(  7700,    0,     0, 3640,  0,   0,  5.00, "9",  276, "[AOE][CORR][STAT][SMK]", "120mm", "T64");
     MainArmory[919] = new Weapon(  4900,    0,     0, 2730,  0,   0,  3.00, "18",  189, "[AOE][CORR][STAT][SMK]", "82mm", "T67");
-    MainArmory[920] = new Weapon(  1925,    0,     0,   40, 10,  15,  3.00, "8",  115, "[KE][AOE]", "100mm", "T69-II"); 
+    MainArmory[920] = new Weapon(  1925,    0,     0,   40, 10,  15,  3.00, "8",  115, "[KE][AOE]", "100mm", "T69-II");
     MainArmory[921] = new Weapon(  1925,    0,     0,   40, 10,  15,  3.00, "8",  115, "[KE][AOE]", "100mm", "T69-II");//deprecated
     MainArmory[922] = new Weapon( 14000,    0,     0, 1820,  0,   0,  7.00, "7",  291, "[AOE][CORR][STAT]", "130mm rockets", "T75");
     MainArmory[923] = new Weapon(  2100,    0,     0,   50, 25,  16,  3.00, "7",  121, "[KE][AOE]", "105mm", "T83");
@@ -990,10 +990,11 @@ function WeaponDataLoad()
     MainArmory[1173] = new Weapon(     0, 3325,  2625,   65,  0,   0,  6.00, "30s",  240, "[AOE][GUID]", "Saclos misile", "Crotale NG");
     MainArmory[1174] = new Weapon(  1575,    0,     0,   35,  5,  12,  2.00, "10",   84, "[HEAT][AOE]", "73mm HEAT", "2A28 Grom");
 	MainArmory[1175] = new Weapon(  2275,    0,     0,   70, 40,  23,  4.00, "9",  144, "[KE][AOE]", "125mm", "2A46M");
-    MainArmory[1176] = new Weapon(  2275,    0,     0,   60, 15,  17,  3.00, "8",  115, "[KE][AOE]", "100mm", "D-10T");	
+    MainArmory[1176] = new Weapon(  2275,    0,     0,   60, 15,  17,  3.00, "8",  115, "[KE][AOE]", "100mm", "D-10T");
     MainArmory[1178] = new Weapon(  1575, 1575,     0,   15, 10,   2,  1.00, "749", 40, "[KE][AOE]", "20mm", "HS.820"); //keiler only
     MainArmory[1180] = new Weapon(  3500,    0,     0,   55, 55,  16,  0.00, "2s", 150, "[HEAT][FF][SEAD]", "Antiradar missile", "AGM-122 Sidearm"); //supercobra
     MainArmory[1181] = new Weapon(     0, 2450,  1960,   55,  0,   0,  4.00, "10s",  160, "[AOE][FF][STAT]", "IR missiles", "Igla");
+    MainArmory[1182] = new Weapon(  3500,    0,     0,   15,  0,   0, 12.00, "75",  600, "[AOE]", "340KG Iron BOMB", "M117"); 
 
 
     //rationalisation
@@ -1042,7 +1043,7 @@ function WeaponDataLoad()
     MainArmory[937] = new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "7.62mm", "Type 68");        //elite
     MainArmory[555] = new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "7.62mm", "Vz.58");          //elite spec jednotki
     MainArmory[1146]= new Weapon(   525,  525,     0,   60, 30,   0,  1.00, "355",   40, "", "7.62mm", "Rk 62");          //elite
-	
+
 	//carbines
     MainArmory[447] = new Weapon(   525,  525,     0,   30, 20,   0,  1.00, "160",   40, "", "5.56mm", "F88 Austeyr");    //line
     MainArmory[449] = new Weapon(   525,  525,     0,   30, 20,   0,  1.00, "160",   40, "", "5.56mm", "FAMAS");          //line
@@ -1066,8 +1067,8 @@ function WeaponDataLoad()
     MainArmory[640] = new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "355",   40, "", "5.56mm", "Howa 89F Shiki"); //elite
     MainArmory[1045]= new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "396",   40, "", "5.56mm", "Gillon");         //elite
     MainArmory[1145]= new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "355",   40, "", "7.62mm", "Rk 62/76 TP");    //elite
-	
-	
+
+
 
 
     //SMGs
