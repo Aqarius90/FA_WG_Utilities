@@ -1241,6 +1241,9 @@ function WeaponDataLoad()
     MainArmory[1096]= new Weapon(  1750,    0,     0,   95,  0,   2,  1.00,  "15",   40, "[KE][STAT]", "20mm", "RT-20");            //elite
     MainArmory[1138] = new Weapon(  1050,  595,    0,   95,  0,   0,  1.00,  "15",   55, "[STAT]", "7.62mm", "Dragunov SVD");// sissi
 
+    MainArmory[1183] = new Weapon(  1575,    0,     0,   35,  0,  10,  2.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 DRAGON");
+    MainArmory[1184] = new Weapon(  1925,    0,     0,   50,  0,  15,  2.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 SUPER DRAGON");
+
 }
 
 function SetTransports(){
