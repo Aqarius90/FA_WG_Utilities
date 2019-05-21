@@ -1243,6 +1243,7 @@ function WeaponDataLoad()
 
     MainArmory[1183] = new Weapon(  1575,    0,     0,   35,  0,  10,  2.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 DRAGON");
     MainArmory[1184] = new Weapon(  1925,    0,     0,   50,  0,  15,  2.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 SUPER DRAGON");
+    MainArmory[1185] = new Weapon(  3500,    0,     0, 4550,  0,   0,  0.00, "2",  0, "[AOE][SMK][CORR]", "130mm rounds", "Type 68");
 
 }
 

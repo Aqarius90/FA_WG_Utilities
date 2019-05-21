@@ -776,17 +776,25 @@ function displayCard(card, type, pos){
       if (card.Transport == 0){
         if (type !=9){
           IDlist.push(card.Unit.iUnitID)
-        };
-        var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
+          var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
+        } else {
+		  IDlist.push(card.Unit.iUnitID * 2000); //naval counts separately
+          var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID * 2000}).length;
+		};
         if(cardnr>card.Unit.iCards){color = "red"}
         innerString = '<h6 style="color:' + color + '">' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + "<br>" + '</h6>';
       } else {
         if (type !=9){
           IDlist.push(card.Unit.iUnitID);
           IDlist.push(card.Transport.iUnitID);
+          var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
+          var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
+        } else {
+		  IDlist.push(card.Unit.iUnitID * 2000); //naval counts separately
+          IDlist.push(card.Transport.iUnitID * 2000);
+          var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID * 2000}).length;
+          var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID * 2000}).length;
         };
-        var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
-        var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
         if(cardnr>card.Unit.iCards){color = "red"}
         if(cardnrT>card.Transport.iCards){color = "red"}
         innerString = '<h6 style="color:' + color + '">' + card.Unit.sNameU + " " + cardnr + "/" + card.Unit.iCards + "<br>" + card.Transport.sNameU + " " + cardnrT + "/"+ card.Transport.iCards + "<br>" + '</h6>';
@@ -796,13 +804,17 @@ function displayCard(card, type, pos){
           IDlist.push(card.Unit.iUnitID);
           IDlist.push(card.Transport.iUnitID);
           IDlist.push(card.Craft.iUnitID);
+          var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
+          var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
+          var cardnrC = IDlist.filter(function(x){return x==card.Craft.iUnitID}).length;
+        } else {
+		  IDlist.push(card.Unit.iUnitID * 2000); //naval counts separately
+          IDlist.push(card.Transport.iUnitID * 2000);
+          IDlist.push(card.Craft.iUnitID * 2000);
+          var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID * 2000}).length;
+          var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID * 2000}).length;
+          var cardnrC = IDlist.filter(function(x){return x==card.Craft.iUnitID * 2000}).length;
         };
-        if(cardnr>card.Unit.iCards){color = "red"}
-        if(cardnrT>card.Transport.iCards){color = "red"}
-        if(cardnrC>card.Unit.iCards){color = "red"}
-        var cardnr = IDlist.filter(function(x){return x==card.Unit.iUnitID}).length;
-        var cardnrT = IDlist.filter(function(x){return x==card.Transport.iUnitID}).length;
-        var cardnrC = IDlist.filter(function(x){return x==card.Craft.iUnitID}).length;
         if(cardnr>card.Unit.iCards){color = "red"}
         if(cardnrT>card.Transport.iCards){color = "red"}
         if(cardnrC>card.Craft.iCards){color = "red"}

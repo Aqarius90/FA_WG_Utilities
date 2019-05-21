@@ -696,7 +696,7 @@ function Create()
     CardsDB[ 570][0] = new Datacard( 570, "110101000000000100000000010030", [ 0,  2,  0,  0,  1], "1111111", 1982, 250, 1, 0, "NATO", "⍟ Hatsuyuki"); //初雪
     CardsDB[ 571][0] = new Datacard( 571, "000000000000000100000000010010", [ 8,  7,  6,  5,  4], "1111111", 1959,  50, 2, 0, "NATO", "Monitor 105");
     CardsDB[ 572][0] = new Datacard( 572, "110101000000000100000000010030", [ 0,  0,  1,  0,  0], "1111111", 1991, 420, 1, 0, "NATO", "⍟ Kongo");
-    CardsDB[ 573][0] = new Datacard( 573, "000010000000000000000000000010", [50, 50, 50, 50, 50], "1111111",    0,   5, 9, 0, "NATO", "Landing craft");
+    CardsDB[ 573][0] = new Datacard( 573, "000010000000000000000000000010", [50, 50, 50, 50, 50], "1111111", 1960,   5, 9, 0, "NATO", "LCM 8");
     CardsDB[ 574][0] = new Datacard( 574, "000000001000000000000000010010", [ 0,  4,  0,  0,  0], "1111111", 1982,  75, 2, 0, "NATO", "LCU 1610");  //DEBUG year
     CardsDB[ 575][0] = new Datacard( 575, "110101000000000100000000010030", [ 3,  0,  2,  0,  1], "1111111", 1992, 200, 2, 0, "NATO", "⍟ La Fayette");
     CardsDB[ 576][0] = new Datacard( 576, "110101000000000100000000010030", [ 3,  0,  2,  0,  1], "1111111", 1980, 165, 2, 0, "NATO", "⍟ Oliver Hazard Perry");
@@ -1696,12 +1696,12 @@ function Create()
     CardsDB[ 455][1] = new Datacard( 455, "110101000000000010000000010020", [ 4,  0,  3,  0,  2], "1111111", 1991, 110, 2, 0, "RED", "Hujian");
     CardsDB[ 456][1] = new Datacard( 456, "100101000000000010000000010030", [ 3,  0,  2,  0,  1], "1111111", 1976, 150, 2, 0, "RED", "⍟ LUDA");
     CardsDB[ 457][1] = new Datacard( 457, "110101000000000010000000010030", [ 3,  0,  2,  0,  1], "1111111", 1986, 160, 2, 0, "RED", "⍟ JIANGHU-III");
-    CardsDB[ 458][1] = new Datacard( 458, "000010000000000000000000000010", [50, 50, 50, 50, 50], "1111111",    0,  10, 9, 0, "RED", "Landing Craft");
+    CardsDB[ 458][1] = new Datacard( 458, "000010000000000000000000000010", [50, 50, 50, 50, 50], "1111111", 1970,  10, 9, 0, "RED", "Yuqing");
     CardsDB[ 459][1] = new Datacard( 459, "100000000000000010000000010010", [12, 10,  8,  7,  6], "1111111", 1973,  30, 2, 0, "RED", "SHANGAI");
     CardsDB[ 460][1] = new Datacard( 460, "110101000000000010000000010030", [ 0,  0,  1,  0,  0], "1111111", 1991, 500, 1, 0, "RED", "⍟ UDALOY II");
     CardsDB[ 461][1] = new Datacard( 461, "000000000000000000000000000000", [ 0,  0,  0,  0,  0], "0000000",    0,   0, 0, 0, "", "");
     CardsDB[ 462][1] = new Datacard( 462, "000100100000000000000001000000", [ 0, 10,  7,  0,  0], "0111110", 1967,  45, 2, 0, "DDR", "KHS Mi-8TB");
-    CardsDB[ 463][1] = new Datacard( 463, "000000100000000000000000010000", [ 0,  0,  0,  0,  0], "0000000",    0,   0, 0, 0, "RED", "Ka-27PL-P");
+    CardsDB[ 463][1] = new Datacard( 463, "000000100000000000000000010000", [ 0,  6,  4,  0,  0], "1000001", 1994,  70, 1, 0, "RED", "Ka-27PL-P");
     CardsDB[ 464][1] = new Datacard( 464, "000010100000000000000001000000", [16, 12,  8,  6,  4], "1100000", 1980,  40, 2, 0, "USSR", "Ka-29TB");
     CardsDB[ 465][1] = new Datacard( 465, "011100100000000000000001000000", [ 0,  2,  0,  1,  0], "0100100", 1987, 150, 1, 1, "USSR", "Ka-50 Akula");
     CardsDB[ 466][1] = new Datacard( 466, "010000100001003010000100000000", [ 0,  3,  2,  0,  0], "0100100", 1995, 130, 1, 1, "USSR", "[|⚯|] Ka-52");
@@ -2091,7 +2091,8 @@ function Create()
     CardsDB[ 850][1] = new Datacard( 850, "001000000000000100010000000000", [ 0,  3,  2,  0,  0], "0000010", 1984, 110, 1, 1, "FIN", "TELAK 84");
     CardsDB[ 851][1] = new Datacard( 851, "000000000000010000010000001000", [ 0,  6,  4,  0,  0], "0011110", 1984,  40, 2, 0, "FIN", "TELAKHR 84");
     CardsDB[ 852][1] = new Datacard( 852, "000100000000000000000010000101", [ 0, 16, 12,  0,  0], "1110110", 1982,  15, 2, 0, "FIN", "UAZ PstOhj");
-    CardsDB[ 853][1] = new Datacard( 853, "100000000010000000000000100100", [ 0,  2,  0,  0,  0], "1111110", 1960, 110, 1, 0, "FIN", "Avia 28");
+    //data: AA, AA missile, armor, atgm, transport, CMD, helo, inf, logi, NPLM, plane, SEAD, MLRS, MTR, recon, tube, radar|LOG INF SUP TNK REC VEH HEL AIR NAV|amphib, naval, ship, moto
+    CardsDB[ 853][1] = new Datacard( 853, "100000000010000000000000100000", [ 0,  2,  0,  0,  0], "1111110", 1960, 110, 1, 0, "FIN", "Avia 28");
     CardsDB[ 854][1] = new Datacard( 854, "000100000010000000000000100000", [ 4,  0,  3,  0,  2], "0111110", 1960,  60, 1, 0, "FIN", "CM.170");
     CardsDB[ 855][1] = new Datacard( 855, "010000000010000000000000100000", [ 2,  0,  0,  0,  1], "0111110", 1980, 170, 1, 1, "FIN", "F-18C");
     CardsDB[ 856][1] = new Datacard( 856, "110000000010000000000000100000", [ 0,  3,  0,  0,  0], "0111110", 1980,  60, 1, 0, "FIN", "Hawk 51");
@@ -2930,7 +2931,8 @@ function Mobilize()
     Traits(CardsDB[ 570][0], 200,  3, 3,   24,   0,  0, 0, 1,    0, [ 4, 4, 2, 4]);// "NATO", "HATSUYUKI");
     Traits(CardsDB[ 571][0],  40,  3, 3,   14,   0,  0, 0, 1,    0, [ 2, 2, 2, 2]);// "NATO", "MONITOR 105");
     Traits(CardsDB[ 572][0], 250, 40, 3,   30,   0,  0, 0, 1,    0, [ 4, 4, 2, 4]);// "NATO", "KONGO");
-    Traits(CardsDB[ 573][0],   0,  0, 0,    0,   0,  0, 0, 0,    0, [ 0, 0, 0, 0]);// "", "");
+    //                     hp,  size,  optics,  speed,  rspeed,  aspeed,  training,  stealth,  auton,  AV, name)
+    Traits(CardsDB[ 573][0],  40,  3, 1,   32,   0,  0, 0, 1,    0, [ 2, 2, 0, 2]);// "", "LCM 8");
     Traits(CardsDB[ 574][0],  60,  3, 1,   22,   0,  0, 0, 1,10000, [ 4, 4, 2, 4]);// "NATO", "LCU 1610");
     Traits(CardsDB[ 575][0], 150, 60, 3,   20,   0,  0, 0, 3,    0, [ 4, 4, 2, 4]);// "NATO", "LA FAYETTE");
     Traits(CardsDB[ 576][0], 175, 30, 3,   24,   0,  0, 0, 1,    0, [ 4, 4, 2, 4]);// "NATO", "Oliver Hazard Perry");
@@ -3930,7 +3932,8 @@ function Mobilize()
      Traits(CardsDB[ 455][1], 100, 30, 5,   27,   0,  0, 0, 1,    0, [ 4, 4, 2, 4]);// "RED", "hujian");
      Traits(CardsDB[ 456][1],   0,  0, 0,    0,   0,  0, 0, 0,    0, [ 0, 0, 0, 0]);// "RED", "⍟ LUDA");
      Traits(CardsDB[ 457][1],   0,  0, 0,    0,   0,  0, 0, 0,    0, [ 0, 0, 0, 0]);// "RED", "⍟ JIANGHU-III");
-     Traits(CardsDB[ 458][1],   0,  0, 0,    0,   0,  0, 0, 0,    0, [ 0, 0, 0, 0]);// "", "");
+    //                     hp,  size,  optics,  speed,  rspeed,  aspeed,  training,  stealth,  auton,  AV, name)
+     Traits(CardsDB[ 458][1],  60,  3, 1,   20,   0,  0, 0, 1,    0, [ 2, 2, 0, 2]);// "", "");
      Traits(CardsDB[ 459][1],  50,  3, 4,   24,   0,  0, 0, 1,    0, [ 2, 2, 2, 2]);// "RED", "SHANGAI");
      Traits(CardsDB[ 460][1],   0,  0, 0,    0,   0,  0, 0, 0,    0, [ 0, 0, 0, 0]);// "RED", "⍟ UDALOY II");
      Traits(CardsDB[ 461][1],   0,  0, 0,    0,   0,  0, 0, 0,    0, [ 0, 0, 0, 0]);// "", "");
@@ -5074,7 +5077,7 @@ function Weaponize()
   CardsDB[ 570][0].W1 = new Arm(628,640); CardsDB[ 570][0].W2 = new Arm(859,8); CardsDB[ 570][0].W3 = new Arm(818,32);// "NATO", "HATSUYUKI");
   CardsDB[ 571][0].W1 = new Arm(320,200); CardsDB[ 571][0].W2 = new Arm(702,300); CardsDB[ 571][0].W3 = new Arm(702,300);// "NATO", "MONITOR 105");
   CardsDB[ 572][0].W1 = new Arm(816,300); CardsDB[ 572][0].W2 = new Arm(859,8); CardsDB[ 572][0].W3 = new Arm(818,96);// "NATO", "KONGO");
-  CardsDB[ 573][0].W1 = new Arm(  0,   0); CardsDB[ 573][0].W2 = new Arm(  0,   0); CardsDB[ 573][0].W3 = new Arm(  0,   0);// "", "");
+  CardsDB[ 573][0].W1 = new Arm(981,4000); CardsDB[ 573][0].W2 = new Arm(  0,   0); CardsDB[ 573][0].W3 = new Arm(  0,   0);// "", "");
   CardsDB[ 574][0].W1 = new Arm(  0,   0); CardsDB[ 574][0].W2 = new Arm(  0,   0); CardsDB[ 574][0].W3 = new Arm(  0,   0);// "NATO", "LCU 1610");
   CardsDB[ 575][0].W1 = new Arm(347,240); CardsDB[ 575][0].W2 = new Arm(128,8); CardsDB[ 575][0].W3 = new Arm(976,24);// "NATO", "LA FAYETTE");
   CardsDB[ 576][0].W1 = new Arm(628,480); CardsDB[ 576][0].W2 = new Arm(859,16); CardsDB[ 576][0].W3 = new Arm(894,16);// "NATO", "Oliver Hazard Perry");
@@ -6074,7 +6077,7 @@ function Weaponize()
   CardsDB[ 455][1].W1 = new Arm(506,800); CardsDB[ 455][1].W2 = new Arm(939,6000); CardsDB[ 455][1].W3 = new Arm(952,6);// "RED", "hujian");
   CardsDB[ 456][1].W1 = new Arm(1005,160); CardsDB[ 456][1].W2 = new Arm(1006,6); CardsDB[ 456][1].W3 = new Arm(506,800);// "RED", "⍟ LUDA");
   CardsDB[ 457][1].W1 = new Arm(1007,120); CardsDB[ 457][1].W2 = new Arm(952,8); CardsDB[ 457][1].W3 = new Arm(1008,32);// "RED", "⍟ JIANGHU-III");
-  CardsDB[ 458][1].W1 = new Arm(  0,   0); CardsDB[ 458][1].W2 = new Arm(  0,   0); CardsDB[ 458][1].W3 = new Arm(  0,   0);// "", "");
+  CardsDB[ 458][1].W1 = new Arm(996,1000); CardsDB[ 458][1].W2 = new Arm(1185,  12); CardsDB[ 458][1].W3 = new Arm(  0,   0);// "", "");
   CardsDB[ 459][1].W1 = new Arm(  0,   0); CardsDB[ 459][1].W2 = new Arm(996,2000); CardsDB[ 459][1].W3 = new Arm(488,800);// "RED", "SHANGAI");
   CardsDB[ 460][1].W1 = new Arm(1003,240); CardsDB[ 460][1].W2 = new Arm(363,8); CardsDB[ 460][1].W3 = new Arm(1009,64);// "RED", "⍟ UDALOY II");
   CardsDB[ 461][1].W1 = new Arm(  0,   0); CardsDB[ 461][1].W2 = new Arm(  0,   0); CardsDB[ 461][1].W3 = new Arm(  0,   0);// "", "");
@@ -6653,7 +6656,7 @@ function matrix(){
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,2,2,3,3,"X","X","X","X"],
         ["X",1,2,3,4,5,"X","X","X","X"],
-        ["X",0,0,0,0,0,  0,  0,  0,  0]
+        ["X",0,0,0,0,0,"X","X","X","X"]
     ];
     this.support = [
         [0],
@@ -6665,7 +6668,7 @@ function matrix(){
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,2,2,3,3,"X","X","X","X"],
         ["X",1,2,3,4,5,"X","X","X","X"],
-        ["X",0,0,0,0,0,  0,  0,  0,  0]
+        ["X",0,0,0,0,0,"X","X","X","X"]
     ];
     this.moto = [
         [0],
@@ -6677,7 +6680,7 @@ function matrix(){
         ["X",1,1,1,1,2,  1,  1,"X","X"],
         ["X",1,2,2,3,3,"X","X","X","X"],
         ["X",1,2,3,4,5,"X","X","X","X"],
-        ["X",0,0,0,0,0,  0,  0,  0,  0]
+        ["X",0,0,0,0,0,"X","X","X","X"]
     ];
 
     this.armoured = [
@@ -6690,7 +6693,7 @@ function matrix(){
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,2,2,3,3,"X","X","X","X"],
         ["X",1,2,3,4,5,"X","X","X","X"],
-        ["X",0,0,0,0,0,  0,  0,  0,  0]
+        ["X",0,0,0,0,0,"X","X","X","X"]
     ];
 
     this.mech = [
@@ -6703,7 +6706,7 @@ function matrix(){
         ["X",1,1,1,1,2,  1,  1,  1,  1],
         ["X",1,2,2,3,3,"X","X","X","X"],
         ["X",1,2,3,4,5,"X","X","X","X"],
-        ["X",0,0,0,0,0,  0,  0,  0,  0]
+        ["X",0,0,0,0,0,"X","X","X","X"]
     ];
 
     this.airborne = [
@@ -6716,7 +6719,7 @@ function matrix(){
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,1,1,2,2,  1,  1,  1,  1],
         ["X",1,1,2,3,4,  1,  1,  1,  1],
-        ["X",0,0,0,0,0,  0,  0,  0,  0]
+        ["X",0,0,0,0,0,"X","X","X","X"]
     ];
 
     this.marine = [
@@ -6729,7 +6732,7 @@ function matrix(){
         ["X",1,2,2,2,3,"X","X","X","X"],
         ["X",1,2,2,3,3,"X","X","X","X"],
         ["X",1,1,2,3,4,  1,  1,"X","X"],
-        ["X",0,0,0,0,0,  0,  0,  0,  0]
+        ["X",0,0,0,0,0,  0,  0,  0,"X"]
     ];
 
     this.naval = [
