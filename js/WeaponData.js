@@ -637,7 +637,7 @@ function WeaponDataLoad()
     MainArmory[725] = new Weapon(  2100,    0,     0,   60, 25,  13,  3.00, "8",  121, "[KE][AOE]", "105mm", "L7");
     MainArmory[726] = new Weapon(  2275,    0,     0,   70, 40,  16,  3.00, "8",  121, "[KE][AOE]", "105mm", "L7");
     MainArmory[727] = new Weapon(  2100,    0,     0,   35, 15,  11,  3.00, "8",  121, "[KE][AOE]", "105mm", "L7");
-    MainArmory[729] = new Weapon(  2100,    0,     0,   60, 45,  13,  3.00, "10",  121, "[KE][AOE]", "105mm", "L7A3");
+    MainArmory[729] = new Weapon(  2100,    0,     0,   60, 45,  13,  3.00, "10",  121, "[KE][AOE]", "105mm", "L7A3"); //cmd leo c1
     MainArmory[730] = new Weapon(  2275,    0,     0,   65, 50,  15,  3.00, "10",  121, "[KE][AOE]", "105mm", "L7A3");
     MainArmory[733] = new Weapon(   700,    0,     0,   60,  0,  22,  0.00, "20",  336, "[HEAT][STAT]", "94mm HEAT ROCKETS", "LAW 80");
     MainArmory[735] = new Weapon(  2275,    0,     0,   20,  0,  11,  0.00, "6",  141, "[HEAT][STAT]", "122mm HEAT", "M-46");

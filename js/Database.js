@@ -4757,7 +4757,7 @@ function Weaponize()
   CardsDB[ 250][0].W1 = new Arm(199,37); CardsDB[ 250][0].W2 = new Arm(  0,   0); CardsDB[ 250][0].W3 = new Arm(579,2600);// "ANZAC", "Leopard AS1");
   CardsDB[ 251][0].W1 = new Arm(199,37); CardsDB[ 251][0].W2 = new Arm(  0,   0); CardsDB[ 251][0].W3 = new Arm(576,2600);// "ANZAC", "CMD Leopard AS1");
   CardsDB[ 252][0].W1 = new Arm(213,37); CardsDB[ 252][0].W2 = new Arm(  0,   0); CardsDB[ 252][0].W3 = new Arm(579,2600);// "ANZAC", "Leopard AS1+");
-  CardsDB[ 253][0].W1 = new Arm(577,34); CardsDB[ 253][0].W2 = new Arm(  0,   0); CardsDB[ 253][0].W3 = new Arm(729,3000);// "CAN", "Leopard C1");
+  CardsDB[ 253][0].W1 = new Arm(203,34); CardsDB[ 253][0].W2 = new Arm(  0,   0); CardsDB[ 253][0].W3 = new Arm(577,3000);// "CAN", "Leopard C1");
   CardsDB[ 254][0].W1 = new Arm(847,2400); CardsDB[ 254][0].W2 = new Arm(218,2000); CardsDB[ 254][0].W3 = new Arm(703,6);// "DEN", "Livgarden");
   CardsDB[ 255][0].W1 = new Arm(500,330); CardsDB[ 255][0].W2 = new Arm(  0,   0); CardsDB[ 255][0].W3 = new Arm(  0,   0);// "SWE", "LVKV fm/43");
   CardsDB[ 256][0].W1 = new Arm(519,900); CardsDB[ 256][0].W2 = new Arm(238,12); CardsDB[ 256][0].W3 = new Arm(  0,   0);// "SWE", "LVRBV 701");
