@@ -2484,7 +2484,7 @@ function Mobilize()
     Traits(CardsDB[ 123][0],  10,  3, 2,   45, 110, 23, 0, 1,  650, [ 2, 1, 1, 1]);// "UK", "FV434 Falcon");
     Traits(CardsDB[ 124][0],  10,  3, 2,   75, 110,  0, 0, 1,  650, [ 3, 1, 3, 1]);// "UK", "FV510 Warrior");
     Traits(CardsDB[ 125][0],  10,  3, 1,   65, 110,  0, 0, 1,  480, [ 6, 2, 5, 2]);// "UK", "FV510 WARRROR 90");
-    Traits(CardsDB[ 126][0],  10,  3, 2,   65, 110,  0, 0, 1,  480, [ 6, 2, 5, 2]);// "UK", "FV511 Warrior CV");
+    Traits(CardsDB[ 126][0],  10,  3, 2,   65, 110,  0, 0, 1,  480, [ 3, 1, 3, 1]);// "UK", "FV511 Warrior CV");
     Traits(CardsDB[ 127][0],  10,  2, 1,   70, 150,  0, 0, 1,  400, [ 2, 1, 1, 1]);// "UK", "FV601 Saladin");
     Traits(CardsDB[ 128][0],  10,  2, 3,   70, 150,  0, 0, 3,  400, [ 2, 1, 1, 1]);// "BRD", "SONDERWAGEN III");
     Traits(CardsDB[ 129][0],  10,  2, 1,   70, 150,  0, 0, 1,  400, [ 1, 1, 1, 1]);// "UK", "FV603 Saracen");
@@ -3222,7 +3222,7 @@ function Mobilize()
     Traits(CardsDB[ 860][0],  10,  3, 1,   65, 150,  0, 0, 1,  600, [ 0, 0, 0, 0]);// "NATO", "Sea BUSTER");
     Traits(CardsDB[ 861][0],   5,  2, 2,   80,   0,  0, 0, 1, 1000, [ 0, 0, 0, 0]);// "JAP", "HAYATE");
     Traits(CardsDB[ 862][0],  10, 30, 5, 1000,   0,  0, 0, 1,  195, [ 0, 0, 0, 0]);// "USA", "F-14 TOMCAT");
-    Traits(CardsDB[ 863][0],  10,  3, 1,   75, 110,  0, 0, 1,  650, [ 2, 1, 2, 1]);// "UK", "FV510 Warrior MILAN");
+    Traits(CardsDB[ 863][0],  10,  3, 1,   75, 110,  0, 0, 1,  650, [ 6, 2, 5, 2]);// "UK", "FV510 Warrior MILAN");
     Traits(CardsDB[ 864][0],  10,  4, 1,   65, 110,  0, 0, 1,  480, [ 3, 2, 3, 2]);// "ROK", "K9 THUNDER");
     Traits(CardsDB[ 865][0],  10,  3, 1,   65, 110, 33, 0, 1,  480, [ 1, 1, 1, 1]);// "ANZAC", "M113 MILAN");
     Traits(CardsDB[ 866][0],  10,  3, 2,   65, 110,  0, 0, 1,  500, [ 7, 3, 5, 2]);// "BRD", "Marder 2");
