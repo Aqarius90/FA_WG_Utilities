@@ -437,7 +437,7 @@ function WeaponDataLoad()
     MainArmory[417] = new Weapon(     0, 1575,  2100,   20, 20,   0,  2.00, "88",  132, "[AOE]", "57mm rocket", "ARS-57");
     MainArmory[418] = new Weapon(  1750, 1575,     0,   35,  0,   2,  1.00, "94",   69, "[KE][STAT][AOE]", "30mm", "L21A1 RARDEN");
     MainArmory[419] = new Weapon(  1750, 1575,     0,   50,  0,   3,  1.00, "94",   69, "[KE][STAT][AOE]", "30mm", "L21A1 RARDEN");
-    MainArmory[420] = new Weapon(  1225,  525,     0,   15,  5,   0,  1.00, "97",   80, "[AOE]", "40mm FRAG", "K4");
+    MainArmory[420] = new Weapon(  1225,  525,     0,   15,  5,   0,  2.00, "97",   80, "[AOE]", "40mm FRAG", "K4");
     MainArmory[421] = new Weapon(  3500,    0,     0,   40,  0,   0, 10.00, "23",  600, "[AOE]", "227KG Iron BOMB", "Mk82 Snakeyex2");
     MainArmory[422] = new Weapon(  3500,    0,     0,   15,  0,   0, 12.00, "100",  600, "[AOE]", "340KG Iron BOMB", "M117");
     MainArmory[423] = new Weapon(  3500,    0,     0,   10,  0,   6,  0.00, "100",  300, "[HEAT][CLUS]", "245KG CLUSTER BOMB", "MK 20 ROCKEYE II");
@@ -450,14 +450,14 @@ function WeaponDataLoad()
     MainArmory[437] = new Weapon(  1575, 1575,     0,   20, 10,   2,  1.00, "1153",   46, "[KE][AOE]", "20mm", "M197 VULCAN");
     MainArmory[438] = new Weapon(  2100,    0,     0,   30, 20,   0,  2.00, "132",  157, "[AOE]", "68mm", "SNEB");
     MainArmory[439] = new Weapon(  2100,    0,     0,   20, 10,   0,  2.00, "136",  184, "[AOE]", "80mm ROCKETS", "S-80FP");
-    MainArmory[440] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "137",   80, "[AOE]", "40mm FRAG", "Mk19");
-    MainArmory[442] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
+    MainArmory[440] = new Weapon(  1225,    0,     0,   15, 10,   0,  2.00, "137",   80, "[AOE]", "40mm FRAG", "Mk19");
+    MainArmory[442] = new Weapon(  1225,    0,     0,   15, 10,   0,  2.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
     MainArmory[444] = new Weapon(  2100,    0,     0,   10,  5,   0,  2.00, "149",  161, "[AOE]", "70mm ROCKETS", "FFAR");
     MainArmory[450] = new Weapon(     0, 2450,  1960,   70,  0,   0,  5.00, "6S",  200, "[AOE][FF][STAT]", "IR missiles", "Type 91");
     MainArmory[458] = new Weapon(  3500,    0,     0,    5,  0,   0, 11.00, "166",  600, "[AOE]", "250kg Iron bombs", "FAB 250");
     MainArmory[464] = new Weapon(  1575, 1575,  1400,   15,  0,   0,  2.00, "171",  228, "[AOE][STAT]", "57mm", "S-68A");
     MainArmory[465] = new Weapon(  1050, 2800,  1750,   15,  0,   0,  2.00, "171",  228, "[AOE][STAT]", "57mm", "T69");
-    MainArmory[466] = new Weapon(  1750,    0,     0,   15,  5,   0,  1.00, "172",   80, "[AOE]", "40mm FRAG", "Twin Mk19");
+    MainArmory[466] = new Weapon(  1750,    0,     0,   15, 10,   0,  2.00, "172",   80, "[AOE]", "40mm FRAG", "Twin Mk19"); //only US littlebird
     MainArmory[467] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "60",   150, "[NPLM]", "340KG BOMB", "“Bidons speciaoux”");
     MainArmory[468] = new Weapon(  1750, 1575,     0,   50, 25,   2,  1.00, "204",   58, "[KE][AOE]", "25mm", "BUSHMASTER");
     MainArmory[469] = new Weapon(  1750, 1575,     0,   60, 30,   3,  1.00, "204",   58, "[KE][AOE]", "25mm", "BUSHMASTER");
@@ -664,7 +664,7 @@ function WeaponDataLoad()
     MainArmory[758] = new Weapon( 49000,    0,     0, 2275,  0,   0, 20.00, "0", 1340, "[AOE][CORR][STAT]", "570mm rocket", "M52 Tactical missile");
     MainArmory[759] = new Weapon(  1575,    0,     0,   40,  0,   4,  2.00, "6",   87, "[KE][STAT][AOE]", "75mm", "M6");
     MainArmory[763] = new Weapon(     0, 2800,  3500,   40, 40,   0,  6.00, "8s", 240, "[AOE][FF][RAD][DEF]", "Radar missile", "9K33M OSA-M");
-    MainArmory[764] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
+    //MainArmory[764] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
     MainArmory[765] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "000000",    0, "", "000000", "AK630 CIWS");
     MainArmory[766] = new Weapon(     0, 2450,  1960,   55, 55,   0,  4.00, "10S",  160, "[AOE][FF]", "IR missiles", "Igla");
     MainArmory[767] = new Weapon(  2625,    0,     0,   45,  0,  20,  0.00, "20S",  150, "[HEAT][GUID]", "SACLOS missile", "Konkurs");
@@ -684,7 +684,7 @@ function WeaponDataLoad()
     MainArmory[782] = new Weapon(  2100,    0,     0,   65, 50,  13,  3.00, "9",  121, "[KE][AOE]", "105mm", "M68A1");
     MainArmory[783] = new Weapon(  2100,    0,     0,   65, 50,  15,  3.00, "9",  121, "[KE][AOE]", "105mm", "M68A1");
     MainArmory[784] = new Weapon(   525,    0,     0,   40,  0,  16,  0.00, "20",  264, "[HEAT][STAT]", "66mm HEAT Rocket", "M72A4 LAW");
-    MainArmory[785] = new Weapon(  1750,  525,     0,   10,  5,   0,  1.00, "63",   80, "[AOE]", "40mm FRAG", "M75");
+    MainArmory[785] = new Weapon(  1750,  525,     0,   10,  5,   0,  2.00, "63",   80, "[AOE]", "40mm FRAG", "M75");
     MainArmory[786] = new Weapon(  1925,    0,     0,   40, 20,  11,  5.00, "8",  175, "[HEAT][AOE]", "152mm HEAT", "M81");
     MainArmory[787] = new Weapon(  1925,    0,     0,   45, 15,  11,  5.00, "8",  175, "[HEAT][AOE]", "152mm HEAT", "M81E1");
     MainArmory[789] = new Weapon(  2450,    0,     0,   35,  0,  13,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS misile", "Malyutka");
@@ -811,7 +811,7 @@ function WeaponDataLoad()
     MainArmory[926] = new Weapon(  7700,    0,     0, 3640,  0,   0,  5.00, "9",  276, "[AOE][CORR][STAT][SMK]", "120mm", "Tampella");
     MainArmory[927] = new Weapon(  1050, 2800,  2625,   50, 35,   0,  1.00, "2777",  120, "[AOE][RAD]", "30mm radar", "Twin 2A38M");
     MainArmory[928] = new Weapon(  2100, 1575,  2275,   30, 30,   0,  1.00, "1071",   60, "[AOE]", "30mm", "Twin ADEN 30");
-    MainArmory[929] = new Weapon(  1750,    0,     0,   15,  5,   0,  1.00, "173",   70, "[AOE]", "30mm FRAG", "Twin AGS-17");
+    MainArmory[929] = new Weapon(  1750,    0,     0,   15, 10,   0,  2.00, "173",   70, "[AOE]", "30mm FRAG", "Twin AGS-17");
     MainArmory[930] = new Weapon(  2100, 1575,  2100,   20, 20,   0,  1.00, "1071",   40, "[AOE]", "20mm", "TWIN COLT MK12");
     MainArmory[931] = new Weapon(  2100, 1575,  2800,   40, 40,   0,  1.00, "1071",   60, "[AOE]", "30mm", "Twin DEFA 550");
     MainArmory[932] = new Weapon(  1050, 2800,  2625,   65,  0,   0,  1.00, "793",  140, "[AOE][RAD][STAT]", "35mm", "Twin GDF-001");

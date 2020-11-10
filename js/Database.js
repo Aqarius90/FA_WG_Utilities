@@ -5658,7 +5658,7 @@ function Weaponize()
   CardsDB[  36][1].W1 = new Arm(561,510); CardsDB[  36][1].W2 = new Arm(254,4); CardsDB[  36][1].W3 = new Arm(  0,   0);// "USSR", "BMD-2");
   CardsDB[  37][1].W1 = new Arm(562,510); CardsDB[  37][1].W2 = new Arm(260,4); CardsDB[  37][1].W3 = new Arm(  0,   0);// "USSR", "BMD-3");
   CardsDB[  38][1].W1 = new Arm(147,40); CardsDB[  38][1].W2 = new Arm(789,4); CardsDB[  38][1].W3 = new Arm(  0,   0);// "USSR", "BMP-1");
-  CardsDB[  39][1].W1 = new Arm(147,40); CardsDB[  39][1].W2 = new Arm(764,240); CardsDB[  39][1].W3 = new Arm(  0,   0);// "USSR", "BMP-1D");
+  CardsDB[  39][1].W1 = new Arm(147,40); CardsDB[  39][1].W2 = new Arm(442,240); CardsDB[  39][1].W3 = new Arm(  0,   0);// "USSR", "BMP-1D");
   CardsDB[  40][1].W1 = new Arm(147,40); CardsDB[  40][1].W2 = new Arm(254,4); CardsDB[  40][1].W3 = new Arm(  0,   0);// "USSR", "BMP-1P");
   CardsDB[  41][1].W1 = new Arm(147,40); CardsDB[  41][1].W2 = new Arm(  0,   0); CardsDB[  41][1].W3 = new Arm(  0,   0);// "DDR", "SPz BMP-1 SP-1");
   CardsDB[  42][1].W1 = new Arm(147,40); CardsDB[  42][1].W2 = new Arm(272,4); CardsDB[  42][1].W3 = new Arm(  0,   0);// "DDR", "SPz BMP-1 SP-2");
@@ -6430,7 +6430,7 @@ function Weaponize()
   CardsDB[ 808][1].W1 = new Arm(1166, 20); CardsDB[ 808][1].W2 = new Arm(  0,   0); CardsDB[ 808][1].W3 = new Arm(1133,1000);// "FIN", "XA-180 Musti");
   CardsDB[ 809][1].W1 = new Arm(  0,   0); CardsDB[ 809][1].W2 = new Arm(652,  12); CardsDB[ 809][1].W3 = new Arm(  0,   0);// "FIN", "XA-185 Pstpsajon");
   CardsDB[ 810][1].W1 = new Arm(533, 180); CardsDB[ 810][1].W2 = new Arm(  0,   0); CardsDB[ 810][1].W3 = new Arm(1133,1000);// "FIN", "XA-185KT");
-  CardsDB[ 811][1].W1 = new Arm(764, 300); CardsDB[ 811][1].W2 = new Arm(  0,   0); CardsDB[ 811][1].W3 = new Arm(  0,   0);// "FIN", "XA-185 KRKK");
+  CardsDB[ 811][1].W1 = new Arm(442, 300); CardsDB[ 811][1].W2 = new Arm(  0,   0); CardsDB[ 811][1].W3 = new Arm(  0,   0);// "FIN", "XA-185 KRKK");
   CardsDB[ 812][1].W1 = new Arm(568,1000); CardsDB[ 812][1].W2 = new Arm(  0,   0); CardsDB[ 812][1].W3 = new Arm(  0,   0);// "FIN", "BTR-50");
   CardsDB[ 813][1].W1 = new Arm(1133,1000); CardsDB[ 813][1].W2 = new Arm(  0,   0); CardsDB[ 813][1].W3 = new Arm(  0,   0);// "FIN", "BTR-50YVI");
   CardsDB[ 814][1].W1 = new Arm(  0,   0); CardsDB[ 814][1].W2 = new Arm(1172,  6); CardsDB[ 814][1].W3 = new Arm(  0,   0);// "FIN", "BTR-50 Vigilant");
