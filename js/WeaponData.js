@@ -741,7 +741,7 @@ function WeaponDataLoad()
     MainArmory[851] = new Weapon(     0, 2100,  3850,   50, 50,   0,  4.00, "2S",  160, "[AOE][FF]", "IR missiles", "Rb 74");
     MainArmory[852] = new Weapon(  3500,    0,     0,   20,  0,   6,  0.00, "60",  300, "[HEAT][CLUS]", "500kg cluster", "RBK-500");
     MainArmory[853] = new Weapon(  3500,    0,     0,   25,  0,   6,  0.00, "42",  300, "[HEAT][CLUS]", "500kg cluster", "RBK-500");
-    MainArmory[854] = new Weapon(     0, 2625,  2100,   45,  0,   0,  4.00, "5S",  160, "[AOE][GUID]", "SACLOS missile", "RBS 70 Mk.2");
+    MainArmory[854] = new Weapon(     0, 2800,  2100,   45,  0,   0,  4.00, "5S",  160, "[AOE][GUID]", "SACLOS missile", "RBS 70 Mk.2");
     MainArmory[855] = new Weapon(     0, 2800,  2240,   55,  0,   0,  4.00, "5S",  160, "[AOE][GUID]", "SACLOS missile", "RBS 90");
     MainArmory[856] = new Weapon(  1925,    0,     0,   30, 15,  12,  3.00, "10",   90, "[HEAT]", "81mm HEAT", "Recoilless gun");
     MainArmory[857] = new Weapon(  2800,    0,     0,   50, 40,  40,  0.00, "6s",  150, "[HEAT][SA]", "SALH missile", "Refleks");
