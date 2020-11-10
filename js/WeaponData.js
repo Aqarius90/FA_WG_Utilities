@@ -664,7 +664,7 @@ function WeaponDataLoad()
     MainArmory[758] = new Weapon( 49000,    0,     0, 2275,  0,   0, 20.00, "0", 1340, "[AOE][CORR][STAT]", "570mm rocket", "M52 Tactical missile");
     MainArmory[759] = new Weapon(  1575,    0,     0,   40,  0,   4,  2.00, "6",   87, "[KE][STAT][AOE]", "75mm", "M6");
     MainArmory[763] = new Weapon(     0, 2800,  3500,   40, 40,   0,  6.00, "8s", 240, "[AOE][FF][RAD][DEF]", "Radar missile", "9K33M OSA-M");
-    //MainArmory[764] = new Weapon(  1225,    0,     0,   15, 10,   0,  1.00, "142",   70, "[AOE]", "30mm FRAG", "AGS-17");
+	MainArmory[764] = new Weapon(  2625,    0,     0,   40,  0,  22,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS missile", "HJ-8");
     MainArmory[765] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "000000",    0, "", "000000", "AK630 CIWS");
     MainArmory[766] = new Weapon(     0, 2450,  1960,   55, 55,   0,  4.00, "10S",  160, "[AOE][FF]", "IR missiles", "Igla");
     MainArmory[767] = new Weapon(  2625,    0,     0,   45,  0,  20,  0.00, "20S",  150, "[HEAT][GUID]", "SACLOS missile", "Konkurs");
@@ -803,7 +803,7 @@ function WeaponDataLoad()
     MainArmory[918] = new Weapon(  7700,    0,     0, 3640,  0,   0,  5.00, "9",  276, "[AOE][CORR][STAT][SMK]", "120mm", "T64");
     MainArmory[919] = new Weapon(  4900,    0,     0, 2730,  0,   0,  3.00, "18",  189, "[AOE][CORR][STAT][SMK]", "82mm", "T67");
     MainArmory[920] = new Weapon(  1925,    0,     0,   40, 10,  15,  3.00, "8",  115, "[KE][AOE]", "100mm", "T69-II");
-    MainArmory[921] = new Weapon(  1925,    0,     0,   40, 10,  15,  3.00, "8",  115, "[KE][AOE]", "100mm", "T69-II");//deprecated
+    MainArmory[921] = new Weapon(  1925,    0,     0,   40, 15,  10,  3.00, "8",  115, "[KE][AOE]", "100mm", "T69-II");
     MainArmory[922] = new Weapon( 14000,    0,     0, 1820,  0,   0,  7.00, "7",  291, "[AOE][CORR][STAT]", "130mm rockets", "T75");
     MainArmory[923] = new Weapon(  2100,    0,     0,   50, 25,  16,  3.00, "7",  121, "[KE][AOE]", "105mm", "T83");
     MainArmory[924] = new Weapon(  2100,    0,     0,   55, 30,  15,  3.00, "9",  121, "[KE][AOE]", "105mm", "T83");
