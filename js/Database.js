@@ -4985,7 +4985,7 @@ function Weaponize()
   CardsDB[ 478][0].W1 = new Arm(860,630); CardsDB[ 478][0].W2 = new Arm(  0,   0); CardsDB[ 478][0].W3 = new Arm(579,1000);// "BRD", "SpPz Luchs A1");
   CardsDB[ 479][0].W1 = new Arm(589,840); CardsDB[ 479][0].W2 = new Arm(  0,   0); CardsDB[ 479][0].W3 = new Arm(  0,   0);// "BRD", "Spz 11-2 Kurz");
   CardsDB[ 480][0].W1 = new Arm(  0,   0); CardsDB[ 480][0].W2 = new Arm(  0,   0); CardsDB[ 480][0].W3 = new Arm(  0,   0);// "SWE", "StabsTGB 1313");
-  CardsDB[ 481][0].W1 = new Arm(425,2400); CardsDB[ 481][0].W2 = new Arm(218,6); CardsDB[ 481][0].W3 = new Arm(703,2000);// "NOR", "Stormer");
+  CardsDB[ 481][0].W1 = new Arm(459,2400); CardsDB[ 481][0].W2 = new Arm(218,6); CardsDB[ 481][0].W3 = new Arm(703,2000);// "NOR", "Stormer");
   CardsDB[ 482][0].W1 = new Arm(  0,   0); CardsDB[ 482][0].W2 = new Arm(900,16); CardsDB[ 482][0].W3 = new Arm(577,1000);// "UK", "Stormer HVM");
   CardsDB[ 483][0].W1 = new Arm(502,360); CardsDB[ 483][0].W2 = new Arm(  0,   0); CardsDB[ 483][0].W3 = new Arm(  0,   0);// "SWE", "STRF 9040");
   CardsDB[ 484][0].W1 = new Arm(718,25); CardsDB[ 484][0].W2 = new Arm(  0,   0); CardsDB[ 484][0].W3 = new Arm(519,9000);// "SWE", "Strv 103B");
