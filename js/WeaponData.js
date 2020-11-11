@@ -135,7 +135,7 @@ function WeaponDataLoad()
     MainArmory[ 97] = new Weapon(  2275,    0,     0,   50,  5,  16,  3.00, "9",  121, "[KE][AOE]", "105mm", "MECA L/48");
     MainArmory[ 98] = new Weapon(  2275,    0,     0,   60, 40,  16,  4.00, "7",  138, "[KE][AOE]", "120mm", "L11A5");
     MainArmory[ 99] = new Weapon(  2275,    0,     0,   60, 45,  17,  4.00, "7",  138, "[KE][AOE]", "120mm", "L11A5");
-    MainArmory[100] = new Weapon(  2275,    0,     0,   40, 30,  15,  3.00, "8",  121, "[KE][AOE]", "105mm", "D-10T");
+    MainArmory[100] = new Weapon(  2100,    0,     0,   50, 15,  15,  3.00, "8",  115, "[KE][AOE]", "100mm", "D-10T");
     MainArmory[101] = new Weapon(  2275,    0,     0,   50, 15,  18,  3.00, "6",  138, "[KE][AOE]", "120mm", "BWK120");
     MainArmory[102] = new Weapon(  2275,    0,     0,   60, 40,  19,  4.00, "7",  138, "[KE][AOE]", "120mm", "L11A5");
     MainArmory[103] = new Weapon(  2275,    0,     0,   65, 50,  19,  4.00, "7",  138, "[KE][AOE]", "120mm", "L11A5");
@@ -255,7 +255,7 @@ function WeaponDataLoad()
     MainArmory[222] = new Weapon(   875,    0,     0,   60,  0,  20,  0.00, "10",  336, "[HEAT][STAT]", "84mm HEAT", "Carl Gustav M3");
     MainArmory[223] = new Weapon(  2625,    0,     0,   60,  0,  20,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "I-TOW");
     MainArmory[224] = new Weapon(  2275,    0,     0,   55,  0,  21,  3.00, "10",  138, "[KE][STAT][AOE]", "120mm", "BWK120");
-    MainArmory[225] = new Weapon(  2100,    0,     0,   50, 15,  15,  3.00, "8",  115, "[KE][AOE]", "100mm", "D-10T");
+    MainArmory[225] = new Weapon(  2100,    0,     0,   50, 15,  15,  3.00, "8",  115, "[KE][AOE]", "100mm", "D-10T");//DEPRECATED
     MainArmory[226] = new Weapon(  2625,    0,     0,   40, 10,  22,  1.00, "6s",  150, "[HEAT][GUID]", "SACLOS missile", "HOT 1");
     MainArmory[227] = new Weapon(  2625,    0,     0,   70,  0,  25,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS missile", "TOW 2");
     MainArmory[228] = new Weapon( 17500,    0,     0, 4550,  0,   0,  7.00, "14",  285, "[AOE][CORR][STAT][SMK]", "122mm rockets", "M-210F");

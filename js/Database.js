@@ -6310,7 +6310,7 @@ function Weaponize()
   CardsDB[ 688][1].W1 = new Arm(958,1200); CardsDB[ 688][1].W2 = new Arm(188,8); CardsDB[ 688][1].W3 = new Arm(  0,   0);// "POL", "SOPEL");
   CardsDB[ 689][1].W1 = new Arm(484,2400); CardsDB[ 689][1].W2 = new Arm(871,6); CardsDB[ 689][1].W3 = new Arm(873,700);// "POL", "SPADOCHRONIARZE 90");
   CardsDB[ 690][1].W1 = new Arm(297,1600); CardsDB[ 690][1].W2 = new Arm(312,8); CardsDB[ 690][1].W3 = new Arm(732,1000);// "CZS", "Speciální Jednotky 90");
-  CardsDB[ 691][1].W1 = new Arm(225,27); CardsDB[ 691][1].W2 = new Arm(679,4); CardsDB[ 691][1].W3 = new Arm(567,1000);// "CZS", "T-55AM2 DYNA-1");
+  CardsDB[ 691][1].W1 = new Arm(100,27); CardsDB[ 691][1].W2 = new Arm(679,4); CardsDB[ 691][1].W3 = new Arm(567,1000);// "CZS", "T-55AM2 DYNA-1");
   CardsDB[ 692][1].W1 = new Arm(122,28); CardsDB[ 692][1].W2 = new Arm(  0,   0); CardsDB[ 692][1].W3 = new Arm(568,300);// "CZS", "T-72M1K");
   CardsDB[ 693][1].W1 = new Arm(168,28); CardsDB[ 693][1].W2 = new Arm(  0,   0); CardsDB[ 693][1].W3 = new Arm(568,1000);// "POL", "T-72M2 WILK");
   CardsDB[ 694][1].W1 = new Arm(130,28); CardsDB[ 694][1].W2 = new Arm(  0,   0); CardsDB[ 694][1].W3 = new Arm(568,1000);// "DDR", "KPz T-72S1");
