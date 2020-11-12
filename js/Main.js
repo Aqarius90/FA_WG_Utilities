@@ -447,6 +447,11 @@ function ShowCard(Card)
          case 2: return "Training: Line";
          case 3: return "Training: Shock";
          case 4: return "Training: Elite";
+         case -1: return "CIWS: Bad";
+         case -2: return "CIWS: Medium";
+         case -3: return "CIWS: Good";
+         case -4: return "CIWS: Very good";
+         case -5: return "CIWS: Excellent";
          default: return "";
      }
  }
