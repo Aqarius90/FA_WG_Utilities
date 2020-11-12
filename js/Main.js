@@ -467,14 +467,35 @@ function ShowCard(Card)
  function InterpretOptics( Card)
  {
      var optika;
-     if (Card.sUnitData.charAt(24) == '1') { optika = "Air Detection"; } else { optika = "Optics"; }
+ if ((Card.sUnitData.charAt(24) == '1') || (Card.iOptics < 0)){
      switch (Card.iOptics)
      {
-         case 1: return optika + ": Poor";
-         case 2:  return optika + ": Medium";
-         case 3:  return optika + ": Good";
-         case 4:  return optika + ": Very good";
-         case 5:  return optika + ": Exceptional";
+         case 1: return "Air Detection: Poor";
+         case 2:  return "Air Detection: Medium";
+         case 3:  return "Air Detection: Good";
+         case 4:  return "Air Detection: Very good";
+         case 5:  return "Air Detection: Exceptional";
+         default: "Steevie Wonder";
+     }
+	 
+ }
+     switch (Card.iOptics)
+     {
+         case 1: return "Optics: Poor";
+         case 2:  return "Optics: Medium";
+         case 3:  return "Optics: Good";
+         case 4:  return "Optics: Very good";
+         case 5:  return "Optics: Exceptional";
+         case -1: return "Air Detection: Poor";
+         case -2:  return "Air Detection: Medium";
+         case -3:  return "Air Detection: Good";
+         case -4:  return "Air Detection: Very good";
+         case -5:  return "Air Detection: Exceptional";
+         case 10: return "Naval optics: Poor";
+         case 20:  return "Naval optics: Medium";
+         case 30:  return "Naval optics: Good";
+         case 40:  return "Naval optics: Very good";
+         case 50:  return "Naval optics: Exceptional";
          default: "Steevie Wonder";
      }
  }
