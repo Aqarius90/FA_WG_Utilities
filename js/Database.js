@@ -4670,7 +4670,7 @@ function Weaponize()
   CardsDB[ 163][0].W1 = new Arm(  0,   0); CardsDB[ 163][0].W2 = new Arm(  0,   0); CardsDB[ 163][0].W3 = new Arm(573,1000);// "JAP", "HMV");
   CardsDB[ 164][0].W1 = new Arm(638,800); CardsDB[ 164][0].W2 = new Arm(  0,   0); CardsDB[ 164][0].W3 = new Arm(497,1000);// "JAP", "Honbu-Han");
   CardsDB[ 165][0].W1 = new Arm(701,320); CardsDB[ 165][0].W2 = new Arm(257,6); CardsDB[ 165][0].W3 = new Arm(  0,   0);// "JAP", "CHU-MAT");
-  CardsDB[ 166][0].W1 = new Arm(  0,  0); CardsDB[ 166][0].W2 = new Arm(142,8); CardsDB[ 166][0].W3 = new Arm(  0,   0);// "JAP", "KIN-SAM CLOSED ARROW");
+  CardsDB[ 166][0].W1 = new Arm(  0,  0); CardsDB[ 166][0].W2 = new Arm(450,8); CardsDB[ 166][0].W3 = new Arm(  0,   0);// "JAP", "KIN-SAM CLOSED ARROW");
   CardsDB[ 167][0].W1 = new Arm(688,2400); CardsDB[ 167][0].W2 = new Arm(430,9); CardsDB[ 167][0].W3 = new Arm(496,3000);// "JAP", "HUDOU-REN");
   CardsDB[ 168][0].W1 = new Arm(638, 800); CardsDB[ 168][0].W2 = new Arm(430,10); CardsDB[ 168][0].W3 = new Arm(0,0);// "JAP", "M67-HAN");
   CardsDB[ 169][0].W1 = new Arm(813,3200); CardsDB[ 169][0].W2 = new Arm(221,10); CardsDB[ 169][0].W3 = new Arm(496,2000);// "JAP", "KUTEI");
