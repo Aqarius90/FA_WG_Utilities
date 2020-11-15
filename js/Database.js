@@ -3594,7 +3594,7 @@ function Mobilize()
     Traits(CardsDB[ 117][1],   5,  1, 2,   20,   0,  0, 2, 3,    0, [ 0, 0, 0, 0]);// "PRC", "TA'NKE' SHASHOU");
     Traits(CardsDB[ 118][1],  10,  3, 2,   65, 110, 33, 0, 1,  500, [ 2, 1, 2, 1]);// "DPRK", "YW701");
     Traits(CardsDB[ 119][1],   5,  2, 2,   70, 150,  0, 0, 1,  750, [ 0, 0, 0, 0]);// "PRC", "BJ212");
-    Traits(CardsDB[ 120][1],  10,  3, 2,   50,   0,  0, 0, 1,  550, [ 6, 2, 4, 2]);// "DPRK", "CH'ONMA-HO CV");
+    Traits(CardsDB[ 120][1],  10,  3, 2,   50,   0,  0, 0, 1,  550, [ 6, 2, 4, 1]);// "DPRK", "CH'ONMA-HO CV");
     Traits(CardsDB[ 121][1],  10,  3, 2,   50, 110,  0, 0, 1,  500, [ 7, 2, 3, 2]);// "POL", "T-55AD-1");
     Traits(CardsDB[ 122][1],  10,  3, 2,   60, 110,  0, 0, 1,  700, [11, 3, 6, 3]);// "USSR", "T-72K1");
     Traits(CardsDB[ 123][1],  10,  3, 2,   60, 110,  0, 0, 1,  700, [11, 3, 6, 3]);// "DDR", "FuePz T-72(K1)");
@@ -3603,8 +3603,8 @@ function Mobilize()
     Traits(CardsDB[ 126][1],   5,  2, 2,   70, 150,  0, 0, 1,  750, [ 0, 0, 0, 0]);// "DPRK", "UAZ-469B");
     Traits(CardsDB[ 127][1],  10,  3, 2,   50, 110,  0, 0, 1,  500, [ 7, 2, 3, 2]);// "CZS", "T-55K1");
     Traits(CardsDB[ 128][1],  10,  3, 2,   55, 110,  0, 0, 1,  550, [16, 3, 8, 2]);// "DPRK", "CH'ONMA-HO V");
-    Traits(CardsDB[ 129][1],  10,  3, 1,   50,   0,  0, 0, 1,  550, [ 8, 2, 5, 2]);// "DPRK", "CH'ONMA-HO II");
-    Traits(CardsDB[ 130][1],  10,  3, 1,   50,   0,  0, 0, 1,  550, [ 6, 2, 4, 2]);// "DPRK", "CH'ONMA-HO");
+    Traits(CardsDB[ 129][1],  10,  3, 1,   50,   0,  0, 0, 1,  550, [ 8, 2, 5, 1]);// "DPRK", "CH'ONMA-HO II");
+    Traits(CardsDB[ 130][1],  10,  3, 1,   50,   0,  0, 0, 1,  550, [ 6, 2, 4, 1]);// "DPRK", "CH'ONMA-HO");
     Traits(CardsDB[ 131][1],  10,  1, 2,   25,   0,  0, 3, 3,    0, [ 0, 0, 0, 0]);// "POL", "SPADOCHRONIARZE");
     Traits(CardsDB[ 132][1],  10,  1, 2,   25,   0,  0, 3, 3,    0, [ 0, 0, 0, 0]);// "POL", "Saperzy Szturmowi");
     Traits(CardsDB[ 133][1],  10,  1, 4,   25,   0,  0, 3, 4,    0, [ 0, 0, 0, 0]);// "POL", "ZWIADOWCY");
@@ -4453,7 +4453,7 @@ function Mobilize()
      Traits(CardsDB[ 975][1],  10,  2, 1,  100, 110,  0, 0, 0,  200, [ 1, 1, 1, 0]);// "YU", "SO-76 Helket");
      Traits(CardsDB[ 976][1],  20,  5, 1,    0,   0,  0, 0, 1,16000, [ 0, 0, 0, 0]);// "FIN", "FOB");
      Traits(CardsDB[ 977][1],  20,  5, 1,    0,   0,  0, 0, 1,16000, [ 0, 0, 0, 0]);// "YU", "FOB");
-     Traits(CardsDB[ 978][1],  10,  3, 2,   50, 110,  0, 0, 1,  550, [12, 2, 7, 2]);// "DPRK", "Ch'onma-Ho IV");
+     Traits(CardsDB[ 978][1],  10,  3, 2,   50, 110,  0, 0, 1,  550, [12, 2, 7, 2]);// "DPRK", "Ch'ŏnma-ho IV");
      Traits(CardsDB[ 979][1],  10,  3, 2,   50, 110,  0, 0, 1,  500, [ 7, 2, 3, 2]);// "DPRK", "Type 59-IB");
      Traits(CardsDB[ 980][1],  10,  3, 2,   60, 110,  0, 0, 1,  600, [12, 2, 6, 2]);//ZTZ-88A// "PRC", "ZTZ-88A");
      Traits(CardsDB[ 981][1],  10, 20, 3,  750,   0,  0, 0, 1,  105, [ 0, 0, 0, 0]);// "CZS", "Su-7B");
