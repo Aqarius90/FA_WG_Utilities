@@ -4819,8 +4819,8 @@ function Weaponize()
   CardsDB[ 312][0].W1 = new Arm(597,1100); CardsDB[ 312][0].W2 = new Arm(  0,   0); CardsDB[ 312][0].W3 = new Arm(  0,   0);// "USA", "M163 Pivads");
   CardsDB[ 313][0].W1 = new Arm(112,27); CardsDB[ 313][0].W2 = new Arm(  0,   0); CardsDB[ 313][0].W3 = new Arm(582,900);// "ROK", "M18");
   CardsDB[ 314][0].W1 = new Arm(746,29); CardsDB[ 314][0].W2 = new Arm(578,2200); CardsDB[ 314][0].W3 = new Arm(582,900);// "USA", "M1A1(HA) Abrams");
-  CardsDB[ 315][0].W1 = new Arm(169,29); CardsDB[ 315][0].W2 = new Arm(578,2200); CardsDB[ 315][0].W3 = new Arm(582,900);// "USA", "M1A1(HC) Abrams");
-  CardsDB[ 316][0].W1 = new Arm(746,29); CardsDB[ 316][0].W2 = new Arm(578,2200); CardsDB[ 316][0].W3 = new Arm(582,900);// "USA", "M1A1 Abrams");
+  CardsDB[ 315][0].W1 = new Arm(225,29); CardsDB[ 315][0].W2 = new Arm(578,2200); CardsDB[ 315][0].W3 = new Arm(582,900);// "USA", "M1A1(HC) Abrams");
+  CardsDB[ 316][0].W1 = new Arm(169,29); CardsDB[ 316][0].W2 = new Arm(578,2200); CardsDB[ 316][0].W3 = new Arm(582,900);// "USA", "M1A1 Abrams");
   CardsDB[ 317][0].W1 = new Arm(747,30); CardsDB[ 317][0].W2 = new Arm(578,2200); CardsDB[ 317][0].W3 = new Arm(582,900);// "USA", "M1A2 Abrams");
   CardsDB[ 318][0].W1 = new Arm(783,40); CardsDB[ 318][0].W2 = new Arm(578,2200); CardsDB[ 318][0].W3 = new Arm(582,900);// "USA", "M1IP Abrams");
   CardsDB[ 319][0].W1 = new Arm(782,40); CardsDB[ 319][0].W2 = new Arm(578,2200); CardsDB[ 319][0].W3 = new Arm(582,900);// "USA", "M1 Abrams");
@@ -5348,7 +5348,7 @@ function Weaponize()
   CardsDB[ 841][0].W1 = new Arm(  0,   0); CardsDB[ 841][0].W2 = new Arm( 43,3); CardsDB[ 841][0].W3 = new Arm(  0,   0);// "SWE", "RBS 67 Hawk");
   CardsDB[ 842][0].W1 = new Arm(  0,   0); CardsDB[ 842][0].W2 = new Arm(289,8); CardsDB[ 842][0].W3 = new Arm(  0,   0);// "UK", "Tracked Rapier FSA (UK)");
   CardsDB[ 843][0].W1 = new Arm(  0,   0); CardsDB[ 843][0].W2 = new Arm(  0,   0); CardsDB[ 843][0].W3 = new Arm(582,2000);// "FRA", "AMX-13 VTT");
-  CardsDB[ 844][0].W1 = new Arm(748,29); CardsDB[ 844][0].W2 = new Arm(578,2200); CardsDB[ 844][0].W3 = new Arm(582,900);// "ROK", "K1A1");
+  CardsDB[ 844][0].W1 = new Arm(225,29); CardsDB[ 844][0].W2 = new Arm(578,2200); CardsDB[ 844][0].W3 = new Arm(582,900);// "ROK", "K1A1");
   CardsDB[ 845][0].W1 = new Arm(316,1200); CardsDB[ 845][0].W2 = new Arm(566,16); CardsDB[ 845][0].W3 = new Arm(  0,   0);// "USA", "AH-64D LONGBOW");
   CardsDB[ 846][0].W1 = new Arm(  0,   0); CardsDB[ 846][0].W2 = new Arm(  0,   0); CardsDB[ 846][0].W3 = new Arm(579,1200);// "DEN", "Lynx");
   CardsDB[ 847][0].W1 = new Arm(  0,   0); CardsDB[ 847][0].W2 = new Arm(  0,   0); CardsDB[ 847][0].W3 = new Arm(  0,   0);// "UK", "STALWART");
