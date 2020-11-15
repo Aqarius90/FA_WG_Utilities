@@ -409,7 +409,7 @@ function WeaponDataLoad()
     MainArmory[385] = new Weapon(  4550,    0,     0,   60, 60,  60,  3.00, "1s",    0, "[HEAT][FF][SHIP]", "Radar missiles", "Penguin");
     MainArmory[386] = new Weapon(  3500,    0,     0,   70, 70,  30,  0.00, "3s",  150, "[HEAT][SA]", "SALH missile", "AS30L");
     MainArmory[387] = new Weapon(  6125,    0,     0,   70, 70,  60,  3.00, "1s",    0, "[HEAT][FF][SHIP]", "Radar missiles", "AM-39 Exocet");
-MainArmory[388] = new Weapon(  3850,    0,     0,   80, 80,  40,  2.00, "1s",  0, "[HEAT][SA][SHIP]", "SemAct radar missiles", "AS.15TT");
+	MainArmory[388] = new Weapon(  3850,    0,     0,   80, 80,  40,  2.00, "1s",  0, "[HEAT][SA][SHIP]", "SemAct radar missiles", "AS.15TT");
     MainArmory[389] = new Weapon(  2625,    0,     0,   60, 45,  20,  0.00, "1S",  150, "[HEAT][SA]", "SACLOS missile", "I-TOW");
     MainArmory[390] = new Weapon(  2800,    0,     0,   55, 40,  20,  0.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "Kokon");
     MainArmory[391] = new Weapon(  2625,    0,     0,   50, 35,  22,  0.00, "1S",  150, "[HEAT][SA]", "SACLOS missile", "HOT 1");
@@ -1244,6 +1244,9 @@ MainArmory[388] = new Weapon(  3850,    0,     0,   80, 80,  40,  2.00, "1s",  0
     MainArmory[1183] = new Weapon(  1575,    0,     0,   35,  0,  10,  2.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 DRAGON");
     MainArmory[1184] = new Weapon(  1925,    0,     0,   50,  0,  15,  2.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 SUPER DRAGON");
     MainArmory[1185] = new Weapon(  3500,    0,     0, 4550,  0,   0,  0.00, "2",  0, "[AOE][SMK][CORR]", "130mm rounds", "Type 68");
+	
+	
+		//free  idx:1147, last idx 1185
 
 }
 
