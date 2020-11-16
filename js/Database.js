@@ -1339,7 +1339,7 @@ function Create()
     CardsDB[  98][1] = new Datacard(  98, "001110000000000000000010001100", [30, 30, 30, 30, 30], "0011000", 1969,  15, 3, 0, "CZS", "BVP-1");
     CardsDB[  99][1] = new Datacard(  99, "001101000000000001000000001100", [ 0,  4,  0,  0,  0], "0011000", 1974, 130, 1, 0, "CZS", "⍟ BVP-1K");
     CardsDB[ 100][1] = new Datacard( 100, "001110000000000000000010001100", [20, 16, 12,  8,  6], "0011000", 1980,  20, 3, 0, "CZS", "BVP-1P");
-    CardsDB[ 101][1] = new Datacard( 101, "001110000000000000000010001100", [20, 16, 12,  8,  6], "0011000", 1982,  22, 3, 0, "CZS", "BVP-2");
+    CardsDB[ 101][1] = new Datacard( 101, "001110000000000000000010001100", [20, 16, 12,  8,  6], "0011000", 1982,  25, 3, 0, "CZS", "BVP-2");
     CardsDB[ 102][1] = new Datacard( 102, "001110000000000000000010001100", [30, 30, 30, 30, 30], "0011000", 1973,  15, 3, 0, "POL", "BWP-1");
     CardsDB[ 103][1] = new Datacard( 103, "001110000000000000000010001100", [20, 16, 12,  8,  6], "0011000", 1988,  25, 3, 0, "POL", "BWP-2");
     CardsDB[ 104][1] = new Datacard( 104, "001110000000000000000010000000", [20, 16, 12,  8,  6], "0011000", 1988,  25, 3, 0, "POL", "BWP-2D");
@@ -3972,7 +3972,7 @@ function Mobilize()
      Traits(CardsDB[ 494][1],  10,  4, 1,  330,   0,  0, 0, 1,  450, [ 1, 0, 1, 0]);// "DPRK", "Mi-25");
      Traits(CardsDB[ 495][1],  10,  4, 5,  330,   0,  0, 0, 1,  450, [ 1, 0, 1, 0]);// "USSR", "MI-24K");
      Traits(CardsDB[ 496][1],  10,  4, 1,  330,   0,  0, 0, 1,  450, [ 1, 0, 1, 0]);// "CZS", "Mi-25");
-     Traits(CardsDB[ 497][1],   4,  4, 1,  330,   0,  0, 0, 1,  450, [ 1, 0, 1, 0]);// "CZS", "Mi-35");
+     Traits(CardsDB[ 497][1],  10,  4, 1,  330,   0,  0, 0, 1,  450, [ 1, 0, 1, 0]);// "CZS", "Mi-35");
      Traits(CardsDB[ 498][1],   6,  3, 1,  180,   0,  0, 0, 1,  550, [ 0, 0, 0, 0]);// "CZS", "Mi-4");
      Traits(CardsDB[ 499][1],   6,  3, 1,  180,   0,  0, 0, 1,  550, [ 0, 0, 0, 0]);// "USSR", "Mi-4A");
      Traits(CardsDB[ 500][1],   6,  3, 1,  180,   0,  0, 0, 1,  550, [ 0, 0, 0, 0]);// "USSR", "Mi-4AV");
@@ -6051,7 +6051,7 @@ function Weaponize()
   CardsDB[ 429][1].W1 = new Arm( 94,28); CardsDB[ 429][1].W2 = new Arm(  0,   0); CardsDB[ 429][1].W3 = new Arm(568,1000);// "CZS", "T-72M");
   CardsDB[ 430][1].W1 = new Arm(684,21); CardsDB[ 430][1].W2 = new Arm(355,100); CardsDB[ 430][1].W3 = new Arm(  0,   0);// "CZS", "TO-55");
   CardsDB[ 431][1].W1 = new Arm(  0,   0); CardsDB[ 431][1].W2 = new Arm(  0,   0); CardsDB[ 431][1].W3 = new Arm(  0,   0);// "CZS", "VELITELSKE UAZ");
-  CardsDB[ 432][1].W1 = new Arm(  0,   0); CardsDB[ 432][1].W2 = new Arm(  0,   0); CardsDB[ 432][1].W3 = new Arm(  0,   0);// "", "");
+  CardsDB[ 432][1].W1 = new Arm(136,  40); CardsDB[ 432][1].W2 = new Arm(  0,   0); CardsDB[ 432][1].W3 = new Arm(  0,   0);// "POL", "BM-21 Grad");
   CardsDB[ 433][1].W1 = new Arm(  0,   0); CardsDB[ 433][1].W2 = new Arm(  0,   0); CardsDB[ 433][1].W3 = new Arm(656,400);// "POL", "BRDM-2");
   CardsDB[ 434][1].W1 = new Arm(  0,   0); CardsDB[ 434][1].W2 = new Arm(767,10); CardsDB[ 434][1].W3 = new Arm(  0,   0);// "POL", "BRDM-2 Konkurs");
   CardsDB[ 435][1].W1 = new Arm( 87,28); CardsDB[ 435][1].W2 = new Arm(  0,   0); CardsDB[ 435][1].W3 = new Arm(568,1000);// "POL", "T-72");
