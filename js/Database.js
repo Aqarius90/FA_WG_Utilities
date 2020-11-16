@@ -4847,7 +4847,7 @@ function Weaponize()
   CardsDB[ 340][0].W1 = new Arm(753,38); CardsDB[ 340][0].W2 = new Arm(  0,   0); CardsDB[ 340][0].W3 = new Arm(582,900);// "ANZAC", "M41A1");
   CardsDB[ 341][0].W1 = new Arm(754,38); CardsDB[ 341][0].W2 = new Arm(  0,   0); CardsDB[ 341][0].W3 = new Arm(582,900);// "DEN", "M41 DK1");
   CardsDB[ 342][0].W1 = new Arm(753,38); CardsDB[ 342][0].W2 = new Arm(  0,   0); CardsDB[ 342][0].W3 = new Arm(582,900);// "JAP", "M41A1");
-  CardsDB[ 343][0].W1 = new Arm(499,240); CardsDB[ 343][0].W2 = new Arm(  0,90); CardsDB[ 343][0].W3 = new Arm(  0,   0);// "BRD", "FlaKPz. M42A1");
+  CardsDB[ 343][0].W1 = new Arm(499,240); CardsDB[ 343][0].W2 = new Arm(1185,90); CardsDB[ 343][0].W3 = new Arm(  0,   0);// "BRD", "FlaKPz. M42A1");
   CardsDB[ 344][0].W1 = new Arm(501,330); CardsDB[ 344][0].W2 = new Arm(  0,   0); CardsDB[ 344][0].W3 = new Arm(  0,   0);// "JAP", "M42 AAG");
   CardsDB[ 345][0].W1 = new Arm(755,40); CardsDB[ 345][0].W2 = new Arm(  0,   0); CardsDB[ 345][0].W3 = new Arm(582,900);// "NOR", "M48A1");
   CardsDB[ 346][0].W1 = new Arm(773,42); CardsDB[ 346][0].W2 = new Arm(  0,   0); CardsDB[ 346][0].W3 = new Arm(582,900);// "ROK", "M48A3K");
@@ -5947,7 +5947,7 @@ function Weaponize()
   CardsDB[ 325][1].W1 = new Arm(655,24); CardsDB[ 325][1].W2 = new Arm(908,4); CardsDB[ 325][1].W3 = new Arm(568,1000);// "USSR", "T-72BU");
   CardsDB[ 326][1].W1 = new Arm(684,21); CardsDB[ 326][1].W2 = new Arm(355,100); CardsDB[ 326][1].W3 = new Arm(  0,   0);// "USSR", "TO-55");
   CardsDB[ 327][1].W1 = new Arm(684,21); CardsDB[ 327][1].W2 = new Arm(355,100); CardsDB[ 327][1].W3 = new Arm(  0,   0);// "DPRK", "TO-55");
-  CardsDB[ 328][1].W1 = new Arm( 52,28); CardsDB[ 328][1].W2 = new Arm(355,100); CardsDB[ 328][1].W3 = new Arm(  0,   0);// "USSR", "TO-62");
+  CardsDB[ 328][1].W1 = new Arm(1147,28); CardsDB[ 328][1].W2 = new Arm(355,100); CardsDB[ 328][1].W3 = new Arm(  0,   0);// "USSR", "TO-62");
   CardsDB[ 329][1].W1 = new Arm(909,8); CardsDB[ 329][1].W2 = new Arm(  0,   0); CardsDB[ 329][1].W3 = new Arm(574,1200);// "POL", "TOPAS R-2M");
   CardsDB[ 330][1].W1 = new Arm( 65,30); CardsDB[ 330][1].W2 = new Arm(  0,   0); CardsDB[ 330][1].W3 = new Arm(  0,   0);// "USSR", "TOS-1 BURATINO");
   CardsDB[ 331][1].W1 = new Arm(878,38); CardsDB[ 331][1].W2 = new Arm(  0,   0); CardsDB[ 331][1].W3 = new Arm(567,1000);// "DPRK", "T-34/85");
@@ -6411,9 +6411,9 @@ function Weaponize()
   CardsDB[ 789][1].W1 = new Arm(  0,   0); CardsDB[ 789][1].W2 = new Arm(  0,   0); CardsDB[ 789][1].W3 = new Arm(  0,   0);
   CardsDB[ 790][1].W1 = new Arm(  0,   0); CardsDB[ 790][1].W2 = new Arm(  0,   0); CardsDB[ 790][1].W3 = new Arm(  0,   0);
   CardsDB[ 791][1].W1 = new Arm(  0,   0); CardsDB[ 791][1].W2 = new Arm(  0,   0); CardsDB[ 791][1].W3 = new Arm(  0,   0);
-  CardsDB[ 792][1].W1 = new Arm(122,  28); CardsDB[ 792][1].W2 = new Arm(  0,   0); CardsDB[ 792][1].W3 = new Arm(1133,1000);// "FIN", "T-72 KOPA");
+  CardsDB[ 792][1].W1 = new Arm(  0,   0); CardsDB[ 792][1].W2 = new Arm(  0,   0); CardsDB[ 792][1].W3 = new Arm(  0,   0);
   CardsDB[ 793][1].W1 = new Arm(  0,   0); CardsDB[ 793][1].W2 = new Arm(  0,   0); CardsDB[ 793][1].W3 = new Arm(  0,   0);
-  CardsDB[ 794][1].W1 = new Arm(  0,   0); CardsDB[ 794][1].W2 = new Arm(  0,   0); CardsDB[ 794][1].W3 = new Arm(  0,   0);
+  CardsDB[ 794][1].W1 = new Arm(122,  28); CardsDB[ 794][1].W2 = new Arm(  0,   0); CardsDB[ 794][1].W3 = new Arm(1133,1000);// "FIN", "T-72 KOPA");
   CardsDB[ 795][1].W1 = new Arm(  0,   0); CardsDB[ 795][1].W2 = new Arm(  0,   0); CardsDB[ 795][1].W3 = new Arm(  0,   0);
   CardsDB[ 796][1].W1 = new Arm(  0,   0); CardsDB[ 796][1].W2 = new Arm(  0,   0); CardsDB[ 796][1].W3 = new Arm(  0,   0);
   CardsDB[ 797][1].W1 = new Arm(122,  28); CardsDB[ 797][1].W2 = new Arm(  0,   0); CardsDB[ 797][1].W3 = new Arm(1133,1000);// "FIN", "T-72M1");

@@ -1245,9 +1245,9 @@ function WeaponDataLoad()
     MainArmory[1184] = new Weapon(  1925,    0,     0,   50,  0,  15,  2.00, "5S",  150, "[HEAT][GUID]", "SACLOS missile", "M47 SUPER DRAGON");
     MainArmory[1185] = new Weapon(  3500,    0,     0, 4550,  0,   0,  0.00, "2",  0, "[AOE][SMK][CORR]", "130mm rounds", "Type 68");
 	
-	
-		//free  idx:1147, last idx 1185
-
+    MainArmory[1147] = new Weapon(  1925,    0,     0,   40, 10,  11,  0.00, "6",  133, "[KE][AOE]", "115mm", "2A20");
+    MainArmory[1185] = new Weapon(  1400,    0,     0,   20,  0,   2,  0.00, "271", 80, "[KE][STAT]", "40mm rounds", "M2A1");
+	//last idx 1185
 }
 
 function SetTransports(){
