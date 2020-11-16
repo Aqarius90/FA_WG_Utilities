@@ -136,18 +136,20 @@ function UnitLookup(){
                     for (var j=0; j < TransportArray[card.iUnitID][Deck.iSide].length; j++){
                         if(TransportArray[card.iUnitID][Deck.iSide][j] != 0){
                             var veh = CardsDB[TransportArray[card.iUnitID][Deck.iSide][j]][Deck.iSide];
-                            if (veh.iYear <= year) {
-                                if (Deck.sSpec == "GEN" || veh.sSpecDeck.charAt(spec) == '1'){
-                                    if (Deck.sSpec == "GEN" || card.sSpecDeck.charAt(spec) == '1'){
-                                        dry = new VehicleCard("000", card, veh, 0)
-                                        toList(dry);
-                                    }
-                                }
-                                if(veh.sUnitData.charAt(27) == '1'){
-                                    send = new VehicleCard("000", card, veh, 1);
-                                    toList(send);
-                                }
-                            }
+							if (veh.iIsProto != 1 || (Deck.sNation != "REDFOR" && Deck.sNation != "NATO")){
+								if (veh.iYear <= year) {
+									if (Deck.sSpec == "GEN" || veh.sSpecDeck.charAt(spec) == '1'){
+										if (Deck.sSpec == "GEN" || card.sSpecDeck.charAt(spec) == '1'){
+											dry = new VehicleCard("000", card, veh, 0)
+											toList(dry);
+										}
+									}
+									if(veh.sUnitData.charAt(27) == '1'){
+										send = new VehicleCard("000", card, veh, 1);
+										toList(send);
+									}
+								}
+							}
                         }
                     }
                 }
