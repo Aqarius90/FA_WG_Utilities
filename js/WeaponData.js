@@ -316,7 +316,7 @@ function WeaponDataLoad()
     MainArmory[289] = new Weapon(     0, 2100,  3850,   60,  0,   0,  5.00, "20S",  200, "[AOE][GUID]", "SACLOS missile", "RAPIER");
     MainArmory[290] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "000000",    0, "", "000000", "Kh-31A");
     MainArmory[291] = new Weapon(  2800, 3325,  2625,   70,  0,  25,  7.00, "20S",  150, "[HEAT][GUID][AOE]", "SALH missile", "ADATS");
-    MainArmory[292] = new Weapon(  4900,    0,     0, 2730,  0,   0,  9.00, "18",  189, "[AOE][CORR][STAT][SMK]", "82mm", "M37");
+    MainArmory[292] = new Weapon(  4900,    0,     0, 2730,  0,   0,  3.00, "18",  189, "[AOE][CORR][STAT][SMK]", "82mm", "M37");
     MainArmory[293] = new Weapon(  2800,    0,     0,   50,  0,  24,  0.00, "10S",  150, "[HEAT][GUID]", "SACLOS missile", "HJ-8A");
     MainArmory[294] = new Weapon(  2975,    0,     0,   70,  0,  26,  0.00, "10S",  150, "[HEAT][GUID]", "SALH missile", "HJ-9");
     MainArmory[295] = new Weapon(  4900,    0,     0, 2730,  0,   0,  3.00, "20",  189, "[AOE][CORR][STAT][SMK]", "82mm", "2B9 Vasilek");

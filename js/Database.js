@@ -4299,7 +4299,7 @@ function Mobilize()
      Traits(CardsDB[ 821][1],  10,  2, 1,   40, 110,  0, 0, 1,  200, [ 3, 1, 2, 1]);// "FIN", "Sturmi");
      Traits(CardsDB[ 822][1],  10,  4, 1,   65, 110,  0, 0, 1,  500, [ 1, 1, 1, 0]);// "FIN", "TELAK 91");
      Traits(CardsDB[ 823][1],  10,  4, 1,   40, 110,  0, 0, 1,  550, [ 0, 0, 0, 0]);// "FIN", "TELAKRH 66");
-     Traits(CardsDB[ 824][1],  10,  3, 1,   50, 150,  0, 0, 1,  430, [ 0, 0, 0, 0]);// "FIN", "TELAKRH 71");
+     Traits(CardsDB[ 824][1],  10,  3, 1,   50, 150, 25, 0, 1,  430, [ 0, 0, 0, 0]);// "FIN", "TELAKRH 71");
      Traits(CardsDB[ 825][1],   5,  3, 1,   50, 150,  0, 0, 1,  500, [ 0, 0, 0, 0]);// "FIN", "Terra 865BM KPI");
      Traits(CardsDB[ 826][1],  10,  3, 1,   50, 150,  0, 0, 1,  430, [ 0, 0, 0, 0]);// "FIN", "Terra Musti");
      Traits(CardsDB[ 827][1],   5,  3, 1,   50, 150,  0, 0, 1,  650, [ 0, 0, 0, 0]);// "FIN", "ZIL-157");
@@ -6299,7 +6299,7 @@ function Weaponize()
   CardsDB[ 677][1].W1 = new Arm(171,39); CardsDB[ 677][1].W2 = new Arm(  0,   0); CardsDB[ 677][1].W3 = new Arm(568,1000);// "POL", "PT-91 TWARDY");
   CardsDB[ 678][1].W1 = new Arm(  0,   0); CardsDB[ 678][1].W2 = new Arm(239,6); CardsDB[ 678][1].W3 = new Arm(  0,   0);// "DDR", "Fla-Kom Osa-AK");
   CardsDB[ 679][1].W1 = new Arm(  0,   0); CardsDB[ 679][1].W2 = new Arm(240,6); CardsDB[ 679][1].W3 = new Arm(  0,   0);// "DDR", "Fla-Kom Osa-AKM");
-  CardsDB[ 680][1].W1 = new Arm(  0,   0); CardsDB[ 680][1].W2 = new Arm(232,80); CardsDB[ 680][1].W3 = new Arm(574,600);// "POL", "RM-70");
+  CardsDB[ 680][1].W1 = new Arm(228,80); CardsDB[ 680][1].W2 = new Arm(0,0); CardsDB[ 680][1].W3 = new Arm(574,600);// "POL", "RM-70");
   CardsDB[ 681][1].W1 = new Arm(  0,   0); CardsDB[ 681][1].W2 = new Arm( 10,1); CardsDB[ 681][1].W3 = new Arm(  0,   0);// "RED", "REDUT");
   CardsDB[ 682][1].W1 = new Arm(  0,   0); CardsDB[ 682][1].W2 = new Arm( 39,2); CardsDB[ 682][1].W3 = new Arm(  0,   0);// "RED", "KRK RUBEZH");
   CardsDB[ 683][1].W1 = new Arm(  0,   0); CardsDB[ 683][1].W2 = new Arm(  0,   0); CardsDB[ 683][1].W3 = new Arm(522,400);// "POL", "SKOT-2AP");
