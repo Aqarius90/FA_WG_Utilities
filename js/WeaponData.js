@@ -708,7 +708,7 @@ function WeaponDataLoad()
     MainArmory[810] = new Weapon(  3500,    0,     0,   20,  0,   0, 15.00, "42",  600, "[AOE]", "500KG Iron bombs", "Mk83x4");
     MainArmory[812] = new Weapon(  2100, 1575,  1750,   20, 20,   0,  1.00, "428",   74, "[AOE]", "37mm", "N-37");
     MainArmory[814] = new Weapon(  3500,    0,     0,   10,  0,   0,  0.00, "33",  150, "[NPLM]", "340KG BOMB", "Northic II");
-    MainArmory[815] = new Weapon(  3500,    0,     0,   15,  0,   0, 15.00, "42",  600, "[NPLM]", "500kg FAB", "ODAB-500");
+    MainArmory[815] = new Weapon(  3500,    0,     0,   15,  0,   0, 12.00, "42",  600, "[NPLM]", "500kg FAB", "ODAB-500");
     MainArmory[816] = new Weapon(  6125, 2100,  1400,   40, 40,   0,  8.00, "30",   72, "[AOE][DAF]", "127mm", "Otobreda Compact");
     MainArmory[817] = new Weapon(  9450,    0,     0,   70, 70, 120,  6.00, "10s",  0, "[HEAT][FF][RAD][SHIP]", "Radar missile", "P-270 MOSKIT");
     MainArmory[818] = new Weapon(     0,    0,     0,    0,  0,   0,  0.00, "000000",    0, "", "000000", "phalanx");
