@@ -5210,7 +5210,7 @@ function Weaponize()
   CardsDB[ 703][0].W1 = new Arm(  0,   0); CardsDB[ 703][0].W2 = new Arm(315,2); CardsDB[ 703][0].W3 = new Arm(  0,   0);// "USA", "EA-6B PROWLER");
   CardsDB[ 704][0].W1 = new Arm(  0,   0); CardsDB[ 704][0].W2 = new Arm(319,2); CardsDB[ 704][0].W3 = new Arm(  0,   0);// "USA", "EF-111A RAVEN");
   CardsDB[ 705][0].W1 = new Arm(  0,   0); CardsDB[ 705][0].W2 = new Arm(318,2); CardsDB[ 705][0].W3 = new Arm(  0,   0);// "CAN", "EF-101B Electric Voodo");
-  CardsDB[ 706][0].W1 = new Arm(303,150); CardsDB[ 706][0].W2 = new Arm(307,2); CardsDB[ 706][0].W3 = new Arm(  0,   0);// "FRA", "Etendard IVM");
+  CardsDB[ 706][0].W1 = new Arm(303,150); CardsDB[ 706][0].W2 = new Arm(1186,2); CardsDB[ 706][0].W3 = new Arm(  0,   0);// "FRA", "Etendard IVM");
   CardsDB[ 707][0].W1 = new Arm(791,180); CardsDB[ 707][0].W2 = new Arm(335,4); CardsDB[ 707][0].W3 = new Arm(334,4);// "UK", "EUROFighter TYPHOON");
   CardsDB[ 708][0].W1 = new Arm(633,940); CardsDB[ 708][0].W2 = new Arm(311,2); CardsDB[ 708][0].W3 = new Arm(328,2);// "NOR", "F-104G Starfighter");
   CardsDB[ 709][0].W1 = new Arm(633,940); CardsDB[ 709][0].W2 = new Arm(325,4); CardsDB[ 709][0].W3 = new Arm(  0,   0);// "JAP", "F-104J RYU");

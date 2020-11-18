@@ -172,7 +172,7 @@ function WeaponDataLoad()
     MainArmory[135] = new Weapon(  7700,    0,     0, 3640,  0,   0,  5.00, "9",  276, "[AOE][CORR][STAT][SMK]", "120mm", "2S11");
     MainArmory[136] = new Weapon( 17500,    0,     0, 1820,  0,   0,  7.00, "9",  285, "[AOE][CORR][STAT]", "122mm rockets", "M-210F");
     MainArmory[137] = new Weapon( 17500,    0,     0, 4550,  0,   0,  6.00, "9",  266, "[AOE][CORR][STAT]", "110mm rockets", "SF2");
-    MainArmory[138] = new Weapon( 17500,    0,     0, 4550,  0,   0, 14.00, "9",  266, "[AOE][CORR][STAT][SMK]", "110mm rockets", "SF2");
+    MainArmory[138] = new Weapon( 17500,    0,     0, 4550,  0,   0, 7.00, "14",  266, "[AOE][CORR][STAT][SMK]", "110mm rockets", "SF2");
     MainArmory[139] = new Weapon(     0, 2275,  1820,   50, 50,   0,  5.00, "6S",  200, "[AOE][FF]", "IR missiles", "FIM-92A STINGER");
     MainArmory[140] = new Weapon(     0, 2275,  1820,   70, 70,   0,  5.00, "6S",  200, "[AOE][FF]", "IR missiles", "FIM-92C STINGER");
     MainArmory[141] = new Weapon(     0, 2450,  1960,   55, 55,   0,  4.00, "20S",  160, "[AOE][FF]", "IR missiles", "Igla");
@@ -328,7 +328,7 @@ function WeaponDataLoad()
     MainArmory[304] = new Weapon(  3850,    0,     0, 2275,  0,   0,  2.00, "22",  138, "[AOE][CORR][STAT][SMK]", "60mm", "HB 60");
     MainArmory[305] = new Weapon(  3500,    0,     0,   25,  0,   0, 15.00, "23",  600, "[AOE]", "500kg bombs", "FAB 500");
     MainArmory[306] = new Weapon(  3500,    0,     0,   25,  0,   0, 15.00, "23",  600, "[AOE]", "500KG Iron bombs", "MC/GP Mk.10");
-    MainArmory[307] = new Weapon(  3500,    0,     0,   15,  0,   0, 16.00, "75",  600, "[AOE]", "400kg Iron bombs", "SAMP T200");
+    MainArmory[307] = new Weapon(  3500,    0,     0,   15,  0,   0, 13.00, "75",  600, "[AOE]", "400kg Iron bombs", "SAMP T200");
     MainArmory[308] = new Weapon(  3500,    0,     0,   20,  0,   0, 20.00, "23",  600, "[AOE]", "1000KG Iron OMBS", "FAB 1000");
     MainArmory[309] = new Weapon(  3500,    0,     0,   30,  0,   0, 11.00, "23",  600, "[AOE]", "250kg Iron bombs", "FAB 250");
     MainArmory[310] = new Weapon(  3500,    0,     0,   30,  0,   6,  0.00, "23",  300, "[HEAT][CLUS]", "500kg cluster", "RBK-500");
@@ -788,7 +788,7 @@ function WeaponDataLoad()
     MainArmory[903] = new Weapon(     0, 2100,  1680,   30, 30,   0,  3.00, "10S",  120, "[AOE][FF]", "IR missiles", "Strela-2M");
     MainArmory[904] = new Weapon(     0, 2100,  1680,   30,  0,   0,  3.00, "6s",  120, "[AOE][FF][STAT]", "IR missiles", "Strela-3");
     MainArmory[905] = new Weapon(     0, 2275,  1820,   50, 50,   0,  3.00, "10S",  120, "[AOE][FF]", "IR missiles", "Strela-3");
-    MainArmory[906] = new Weapon(     0,    0,   700,   60, 60,   0,  5.00, "0S",  200, "[AOE][SA]", "SA Radar missile", "Super 530 D");
+    MainArmory[906] = new Weapon(     0,    0,  7000,   60, 60,   0,  5.00, "0S",  200, "[AOE][SA]", "SA Radar missile", "Super 530 D");
     MainArmory[907] = new Weapon(     0,    0,  6300,   50, 50,   0,  5.00, "0S",  200, "[AOE][SA]", "SA Radar missile", "Super 530 F");
     MainArmory[908] = new Weapon(  2625,    0,     0,   50,  0,  22,  0.00, "6s",  150, "[HEAT][GUID]", "SALH missile", "Svir");
     MainArmory[909] = new Weapon(  1400,    0,     0,   20,  0,  12,  2.00, "7",   95, "[HEAT][STAT][AOE]", "82mm HEAT", "T21 Tarasnice");
@@ -1246,8 +1246,8 @@ function WeaponDataLoad()
     MainArmory[1185] = new Weapon(  3500,    0,     0, 4550,  0,   0,  0.00, "2",  0, "[AOE][SMK][CORR]", "130mm rounds", "Type 68");
 	
     MainArmory[1147] = new Weapon(  1925,    0,     0,   40, 10,  11,  0.00, "6",  133, "[KE][AOE]", "115mm", "2A20");
-    MainArmory[1185] = new Weapon(  1400,    0,     0,   20,  0,   2,  0.00, "271", 80, "[KE][STAT]", "40mm rounds", "M2A1");
-	//last idx 1185
+    MainArmory[1185] = new Weapon(  1400,    0,     0,   20,  0,   2,  0.00, "271", 80, "[KE][STAT]", "40mm rounds", "M2A1");MainArmory[1186] = new Weapon(  3500,    0,     0,   25,  0,   0, 13.00, "23",  600, "[AOE]", "400kg Iron bombs", "SAMP T200");
+	//last idx 1186
 }
 
 function SetTransports(){
