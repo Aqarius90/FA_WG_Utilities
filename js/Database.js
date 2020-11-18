@@ -3144,7 +3144,7 @@ function Mobilize()
     Traits(CardsDB[ 782][0],  10, 20, 4, 1000,   0,  0, 0, 1,   90, [ 0, 0, 0, 0]);// "DEN", "F-16A Block 5");
     Traits(CardsDB[ 783][0],  10, 20, 4, 1000,   0,  0, 0, 1,  150, [ 0, 0, 0, 0]);// "NOR", "F-16A Fighting Falcon");
     Traits(CardsDB[ 784][0],  10, 40, 4, 1000,   0,  0, 0, 1,  150, [ 0, 0, 0, 0]);// "NATO", "F-16A Block 15");
-    Traits(CardsDB[ 785][0],  10, 50, 5, 1000,   0,  0, 0, 3,   60, [ 0, 0, 0, 0]);// "BRD", "Tornado ECR");
+    Traits(CardsDB[ 785][0],  10, 50, 5, 1000,   0,  0, 0, 2,  165, [ 0, 0, 0, 0]);// "BRD", "Tornado ECR");
     Traits(CardsDB[ 786][0],  10, 30, 5, 1000,   0,  0, 0, 1,   75, [ 0, 0, 0, 0]);// "BRD", "Tornado IDS");
     Traits(CardsDB[ 787][0],  20,  4, 1,    0,   0,  0, 0, 1,16000, [ 0, 0, 0, 0]);// "CAN", "FOB (CAN)");
     Traits(CardsDB[ 788][0],  20,  4, 1,    0,   0,  0, 0, 1,16000, [ 0, 0, 0, 0]);// "DEN", "FOB (DEN)");
@@ -5608,7 +5608,7 @@ function Weaponize()
   CardsDB[1101][0].W1 = new Arm(521, 940); CardsDB[1101][0].W2 = new Arm(1060,  6); CardsDB[1101][0].W3 = new Arm(328,   2);//"ISR", "Netz");
   CardsDB[1102][0].W1 = new Arm(521, 940); CardsDB[1102][0].W2 = new Arm(351,   4); CardsDB[1102][0].W3 = new Arm(1058,  2);//"ISR", "Barak");
   CardsDB[1103][0].W1 = new Arm(521, 940); CardsDB[1103][0].W2 = new Arm(1053,  2); CardsDB[1103][0].W3 = new Arm(1054,  2);//"ISR", "Barak II");
-  CardsDB[1104][0].W1 = new Arm(521, 940); CardsDB[1104][0].W2 = new Arm(1055,  2); CardsDB[1104][0].W3 = new Arm(510,   0);//"ISR", "Kurnass");
+  CardsDB[1104][0].W1 = new Arm(521, 940); CardsDB[1104][0].W2 = new Arm(1055,  2); CardsDB[1104][0].W3 = new Arm(510,   4);//"ISR", "Kurnass");
   CardsDB[1105][0].W1 = new Arm(521, 940); CardsDB[1105][0].W2 = new Arm(315,   2); CardsDB[1105][0].W3 = new Arm(511,   4);//"ISR", "Kurnass 2000");
   CardsDB[1106][0].W1 = new Arm(931, 150); CardsDB[1106][0].W2 = new Arm(1062,  5); CardsDB[1106][0].W3 = new Arm(  0,   0);//"ISR", "Kfir C.2");
   CardsDB[1107][0].W1 = new Arm(931, 150); CardsDB[1107][0].W2 = new Arm(1063,  1); CardsDB[1107][0].W3 = new Arm(  0,   0);//"ISR", "Kfir C.7");
