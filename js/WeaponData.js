@@ -114,7 +114,7 @@ function WeaponDataLoad()
     MainArmory[ 76] = new Weapon(  1925,    0,     0,   50,  5,  11,  3.00, "10",  104, "[KE][AOE]", "90mm", "F4");
     MainArmory[ 77] = new Weapon(  1925,    0,     0,   30,  5,  11,  3.00, "8",  115, "[KE][STAT][AOE]", "100mm", "D-10T");
     MainArmory[ 78] = new Weapon(  1925,    0,     0,   30, 10,  11,  3.00, "8",  115, "[KE][STAT][AOE]", "100mm", "D-10T");
-    MainArmory[ 79] = new Weapon(  1225,    0,     0,   45,  5,  12,  1.00, "7",  300, "[STAT]", "HEAT", "Type 56 RR");
+    MainArmory[ 79] = new Weapon(  1225,    0,     0,   45,  5,  12,  0.00, "7",  300, "[HEAT][STAT]", "73mm HEAT rocket", "Type 56 RR");
     MainArmory[ 80] = new Weapon(  1400,    0,     0,   40,  0,  12,  2.00, "7",  328, "[HEAT][STAT][AOE]", "82mm HEAT Rocket", "TYPE 78 RR");
     MainArmory[ 81] = new Weapon(  1575,    0,     0,   30,  0,  12,  3.00, "7",  104, "[HEAT][STAT][AOE]", "90mm HEAT", "Pvpj 1110 m/77");
     MainArmory[ 82] = new Weapon(  1750,    0,     0,   20,  0,  12,  2.00, "7",   84, "[HEAT][STAT][AOE]", "73mm HEAT", "SPG-9");
@@ -1056,6 +1056,7 @@ function WeaponDataLoad()
     MainArmory[479] = new Weapon(   525,  525,     0,   45, 30,   0,  1.00, "232",   40, "", "5.56mm", "K2");             //shock haebyung only
     MainArmory[480] = new Weapon(   525,  525,     0,   45, 30,   0,  1.00, "232",   40, "", "5.56mm", "L85");            //shock, paras only
     MainArmory[1149] = new Weapon(  525,  525,     0,   45, 30,   0,  1.00, "232",   40, "", "7.62mm", "Rk 90 TP");       //shock
+    MainArmory[676] = new Weapon(   525,  525,     0,   45, 30,   0,  1.00, "248",   40, "", "5.45mm", "AKS-74U");        //shock, jeogeockdae
     MainArmory[529] = new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "355",   40, "", "7.62mm", "AK5");            //elite kustyagare90 only
     MainArmory[526] = new Weapon(   525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "9mm PB", "AUG Para");       //elite sasr only(?)
     MainArmory[531] = new Weapon(   595,  595,     0,   60, 40,   0,  1.00, "355",   55, "", "7.62mm", "H&K G3KA4");      //elite
@@ -1067,9 +1068,10 @@ function WeaponDataLoad()
     MainArmory[640] = new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "355",   40, "", "5.56mm", "Howa 89F Shiki"); //elite
     MainArmory[1045]= new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "396",   40, "", "5.56mm", "Gillon");         //elite
     MainArmory[1145]= new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "355",   40, "", "7.62mm", "Rk 62/76 TP");    //elite
-
-
-
+    MainArmory[1105] = new Weapon(  525,  525,     0,   60, 40,   0,  1.00, "533",   30, "", "7,92mm", "AP M-44");        //elite,
+    MainArmory[552] = new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "533",   40, "", "5.45mm", "AKS-74U");        //elite
+    MainArmory[297] = new Weapon(   525,  525,     0,   60, 40,   0,  1.00, "533",   40, "", "5.45mm", "LADA AKSU");      //elite
+    MainArmory[1095] = new Weapon(  525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "5.45mm", "Automat M-85");   //elite senke, padobranci
 
     //SMGs
     MainArmory[1094] = new Weapon(  455,  455,     0,   15, 15,   0,  1.00, "150",   30, "", "Cal .45", "Automat M1");    //militia, hjer HJEMMEVAERNET
@@ -1081,26 +1083,21 @@ function WeaponDataLoad()
     MainArmory[811] = new Weapon(   455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "9mm PB", "MP2A1");          //line Deckungsgruppe
     MainArmory[945] = new Weapon(   455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "9mm PB", "Uzi");            //line
     MainArmory[1111] = new Weapon(  455,  455,     0,   20, 20,   0,  1.00, "240",   30, "", "7,62mm", "Automat M-56");   //line
-    MainArmory[676] = new Weapon(   525,  525,     0,   30, 30,   0,  1.00, "342",   40, "", "5.45mm", "AKS-74U");        //shock
     MainArmory[1018]= new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "Kpist m/45B");    //shock
     MainArmory[1017]= new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "Newnanbu M66");   //shock JSDF only
     MainArmory[298] = new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "Skorpion");       //shock, Wachregiment
     MainArmory[301] = new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "STERLING");       //shock
     MainArmory[539] = new Weapon(   455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "vz.25");          //shock, lehka
     MainArmory[1139] = new Weapon(  455,  455,     0,   30, 30,   0,  1.00, "342",   30, "", "9mm PB", "Suomi KP");       //shock, sissi
-    MainArmory[552] = new Weapon(   525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "5.45mm", "AKS-74U");        //elite
-    MainArmory[297] = new Weapon(   525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "5.45mm", "LADA AKSU");      //elite
     MainArmory[551] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm SP6","AS VAL");         //elite, speznaz only
     MainArmory[686] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm PB", "Hovea M/49");     //elite, JAEGERE
     MainArmory[550] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm PB", "L34A1");          //elite nzsas, sbs
     MainArmory[498] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm PB", "MP5SD");          //elite
     MainArmory[813] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm PB", "Newnanbu M66");   //elite, kutei only <<correct, Eugen fucked up the dfisplay
     MainArmory[825] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm PB", "PM-63");          //elite, Formoza, Kampschwimmer
-    MainArmory[554] = new Weapon(   525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "7.62mm", "Type 64 SMG");    //elite, li jian only
-    MainArmory[233] = new Weapon(   525,  525,     0,   45, 45,   0,  1.00, "533",   40, "", "7.62mm", "Type 85 SMG");    //elite li jian only
+    MainArmory[554] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   40, "", "7.62mm", "Type 64 SMG");    //elite, li jian only
+    MainArmory[233] = new Weapon(   455,  455,     0,   45, 45,   0,  1.00, "533",   40, "", "7.62mm", "Type 85 SMG");    //elite li jian only
     MainArmory[946] = new Weapon(   455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mm PB", "Uzi");            //elite, KCT only
-    MainArmory[1095] = new Weapon(  525,  525,     0,   40, 40,   0,  1.00, "533",   40, "", "5.45mm", "Automat M-85");   //elite senke, padobranci
-    MainArmory[1105] = new Weapon(  455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "7,92mm", "AP M-44");        //elite,
     MainArmory[1154] = new Weapon(  455,  455,     0,   40, 40,   0,  1.00, "533",   30, "", "9mmPB", "Jatimatic");       //elite,
 
     //carabine
@@ -1246,7 +1243,9 @@ function WeaponDataLoad()
     MainArmory[1185] = new Weapon(  3500,    0,     0, 4550,  0,   0,  0.00, "2",  0, "[AOE][SMK][CORR]", "130mm rounds", "Type 68");
 	
     MainArmory[1147] = new Weapon(  1925,    0,     0,   40, 10,  11,  0.00, "6",  133, "[KE][AOE]", "115mm", "2A20");
-    MainArmory[1185] = new Weapon(  1400,    0,     0,   20,  0,   2,  0.00, "271", 80, "[KE][STAT]", "40mm rounds", "M2A1");MainArmory[1186] = new Weapon(  3500,    0,     0,   25,  0,   0, 13.00, "23",  600, "[AOE]", "400kg Iron bombs", "SAMP T200");
+    MainArmory[1185] = new Weapon(  1400,    0,     0,   20,  0,   2,  0.00, "271", 80, "[KE][STAT]", "40mm rounds", "M2A1");
+	MainArmory[1186] = new Weapon(  3500,    0,     0,   25,  0,   0, 13.00, "23",  600, "[AOE]", "400kg Iron bombs", "SAMP T200");
+    MainArmory[1187] = new Weapon(  1225,    0,     0,   45,  5,  12,  2.00, "7",  300, "[HEAT][STAT][AoE]", "73mm HEAT rocket", "Type 56 RR");
 	//last idx 1186
 }
 
