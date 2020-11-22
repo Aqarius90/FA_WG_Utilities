@@ -5243,7 +5243,7 @@ function Weaponize()
   CardsDB[ 736][0].W1 = new Arm(512,564); CardsDB[ 736][0].W2 = new Arm(335,3); CardsDB[ 736][0].W3 = new Arm(330,4);// "BRD", "F-4F KWS");
   CardsDB[ 737][0].W1 = new Arm(  0,   0); CardsDB[ 737][0].W2 = new Arm(510,4); CardsDB[ 737][0].W3 = new Arm(371,4);// "USA", "F-4J Phantom II");
   CardsDB[ 738][0].W1 = new Arm(  0,   0); CardsDB[ 738][0].W2 = new Arm(807,8); CardsDB[ 738][0].W3 = new Arm(330,2);// "USA", "F-4S Phantom II");
-  CardsDB[ 739][0].W1 = new Arm(  0,   0); CardsDB[ 739][0].W2 = new Arm(360,4200); CardsDB[ 739][0].W3 = new Arm(330,4);// "USA", "F-4G WILD WEASEL");
+  CardsDB[ 739][0].W1 = new Arm(  0,   0); CardsDB[ 739][0].W2 = new Arm(360,4); CardsDB[ 739][0].W3 = new Arm(330,4);// "USA", "F-4G WILD WEASEL");
   CardsDB[ 740][0].W1 = new Arm(615,280); CardsDB[ 740][0].W2 = new Arm(806,4); CardsDB[ 740][0].W3 = new Arm(  0,   0);// "ROK", "F-5A");
   CardsDB[ 741][0].W1 = new Arm(599,160); CardsDB[ 741][0].W2 = new Arm(805,2); CardsDB[ 741][0].W3 = new Arm(  0,   0);// "JAP", "F-86F KYOKKO");
   CardsDB[ 742][0].W1 = new Arm(599,160); CardsDB[ 742][0].W2 = new Arm(504,16); CardsDB[ 742][0].W3 = new Arm(  0,   0);// "ROK", "F-86F SABRE");
@@ -5814,7 +5814,7 @@ function Weaponize()
   CardsDB[ 192][1].W1 = new Arm(456,1600); CardsDB[ 192][1].W2 = new Arm(358,80); CardsDB[ 192][1].W3 = new Arm(  0,   0);// "DPRK", "GONGBYONG");
   CardsDB[ 193][1].W1 = new Arm(937,640); CardsDB[ 193][1].W2 = new Arm(208,2); CardsDB[ 193][1].W3 = new Arm(954,50);// "DPRK", "JEONGCHALDAE");
   CardsDB[ 194][1].W1 = new Arm(456,320); CardsDB[ 194][1].W2 = new Arm(178,6); CardsDB[ 194][1].W3 = new Arm(  0,   0);// "DPRK", "Strela-2");
-  CardsDB[ 195][1].W1 = new Arm(456,800); CardsDB[ 195][1].W2 = new Arm( 79,10); CardsDB[ 195][1].W3 = new Arm(  0,   0);// "DPRK", "BIBANCHUNGPO");
+  CardsDB[ 195][1].W1 = new Arm(456,800); CardsDB[ 195][1].W2 = new Arm(1187,10); CardsDB[ 195][1].W3 = new Arm(  0,   0);// "DPRK", "BIBANCHUNGPO");
   CardsDB[ 196][1].W1 = new Arm(473,3600); CardsDB[ 196][1].W2 = new Arm(208,12); CardsDB[ 196][1].W3 = new Arm(1012,750);// "POL", "NIEBIESKIE BERETY");
   CardsDB[ 197][1].W1 = new Arm(  0,   0); CardsDB[ 197][1].W2 = new Arm(239,6); CardsDB[ 197][1].W3 = new Arm(  0,   0);// "CZS", "OSA-AK");
   CardsDB[ 198][1].W1 = new Arm(  0,   0); CardsDB[ 198][1].W2 = new Arm(240,6); CardsDB[ 198][1].W3 = new Arm(  0,   0);// "CZS", "OSA-AKM");
