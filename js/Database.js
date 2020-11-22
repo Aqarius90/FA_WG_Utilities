@@ -2451,11 +2451,11 @@ function Mobilize()
     Traits(CardsDB[  90][0],  10,  4, 1,   35, 110,  0, 0, 1,  450, [ 9, 2, 5, 2]);// "DEN", "Centurion 84MM");
     Traits(CardsDB[  91][0],  10,  4, 1,   45, 110,  0, 0, 1,  450, [ 9, 2, 5, 2]);// "DEN", "Centurion Mk5/2-DK");
     Traits(CardsDB[  92][0],  10,  4, 1,   35, 110,  0, 0, 1,  600, [ 9, 2, 5, 2]);// "CAN", "Centurion Mk.6");
-    Traits(CardsDB[  93][0],  10,  4, 2,   55, 110,  0, 0, 1,  550, [19, 6,10, 6]);// "UK", "Challenger 1 Mk.1");
-    Traits(CardsDB[  94][0],  10,  4, 2,   60, 110,  0, 0, 1,  550, [23, 6,11, 6]);// "UK", "Challenger 2");
+    Traits(CardsDB[  93][0],  10,  4, 2,   55, 110,  0, 0, 1,  550, [19, 6,10, 4]);// "UK", "Challenger 1 Mk.1");
+    Traits(CardsDB[  94][0],  10,  4, 2,   60, 110,  0, 0, 1,  550, [23, 6,11, 4]);// "UK", "Challenger 2");
     Traits(CardsDB[  95][0],  10,  4, 2,   55, 110,  0, 0, 1,  550, [15, 3, 6, 3]);// "UK", "Challenger Marksman");
-    Traits(CardsDB[  96][0],  10,  4, 2,   55, 110,  0, 0, 1,  550, [19, 6,10, 6]);// "UK", "Challenger 1 Mk.2");
-    Traits(CardsDB[  97][0],  10,  4, 2,   50, 110,  0, 0, 1,  550, [20, 6,11, 6]);// "UK", "Challenger 1 Mk.3");
+    Traits(CardsDB[  96][0],  10,  4, 2,   55, 110,  0, 0, 1,  550, [19, 6,10, 4]);// "UK", "Challenger 1 Mk.2");
+    Traits(CardsDB[  97][0],  10,  4, 2,   50, 110,  0, 0, 1,  550, [20, 6,11, 4]);// "UK", "Challenger 1 Mk.3");
     Traits(CardsDB[  98][0],  10,  1, 2,   20,   0,  0, 2, 3,    0, [ 0, 0, 0, 0]);// "FRA", "Chasseurs");
     Traits(CardsDB[  99][0],  10,  1, 2,   20,   0,  0, 2, 3,    0, [ 0, 0, 0, 0]);// "FRA", "Chasseurs 85");
     Traits(CardsDB[ 100][0],  10,  4, 2,   45, 110,  0, 0, 1,  480, [11, 2, 4, 2]);// "UK", "Chieftan Marksman");
@@ -2749,7 +2749,7 @@ function Mobilize()
     Traits(CardsDB[ 388][0],  10,  3, 2,   60, 110,  0, 0, 1,  500, [12, 3, 6, 3]);// "USA", "MBT-70");
     Traits(CardsDB[ 389][0],  10,  4, 1,   90, 150,  0, 0, 1, 1750, [ 0, 0, 0, 0]);// "ANZAC", "MAN KATI 6x6");
     Traits(CardsDB[ 390][0],   5,  3, 1,   50, 150,  0, 0, 1,  500, [ 0, 0, 0, 0]);// "BRD", "MD Jupiter");
-    Traits(CardsDB[ 391][0],  10,  3, 1,   70, 150,  0, 0, 1, 1100, [ 0, 0, 0, 0]);// "BRD", "V-LKV MD Jupiter");
+    Traits(CardsDB[ 391][0],   5,  3, 1,   70, 150,  0, 0, 1, 1100, [ 0, 0, 0, 0]);// "BRD", "V-LKV MD Jupiter");
     Traits(CardsDB[ 392][0],   2,  1, 2,   15,   0,  0, 2, 4,    0, [ 0, 0, 0, 0]);// "UK", "MILAN 1");
     Traits(CardsDB[ 393][0],   5,  2, 2,   55, 150,  0, 0, 1, 1000, [ 0, 0, 0, 0]);// "USA", "M151A1 CP");
     Traits(CardsDB[ 394][0],  10,  3, 1,   70, 110,  0, 0, 1,  520, [ 4, 1, 2, 1]);// "BRD", "Marder 1");
@@ -3196,7 +3196,7 @@ function Mobilize()
     Traits(CardsDB[ 834][0],  20,  4, 1,    0,   0,  0, 0, 1,16000, [ 0, 0, 0, 0]);// "ANZAC", "FOB (ANZAC)");
     Traits(CardsDB[ 835][0],  20,  4, 1,    0,   0,  0, 0, 1,16000, [ 0, 0, 0, 0]);// "JAP", "FOB (JAP)");
     Traits(CardsDB[ 836][0],  20,  4, 1,    0,   0,  0, 0, 1,16000, [ 0, 0, 0, 0]);// "ROK", "FOB (ROK)");
-    Traits(CardsDB[ 837][0],  10,  3, 1,   50, 110,  0, 0, 1,  500, [20, 6,12, 6]);// "CAN", "CHIMERA");
+    Traits(CardsDB[ 837][0],  10,  3, 1,   50, 110,  0, 0, 1,  500, [20, 6,12, 4]);// "CAN", "CHIMERA");
     Traits(CardsDB[ 838][0],  10,  4, 1,   40, 110,  0, 0, 1,  450, [ 9, 2, 5, 2]);// "DEN", "Centurion 105MM");
     Traits(CardsDB[ 839][0],  10,  3, 3,   65, 110, 33, 0, 2,  500, [ 2, 1, 2, 1]);// "DEN", "VILDKAT");
     Traits(CardsDB[ 840][0],  10,  3, 4,   35, 110,  0, 0, 1,  320, [ 1, 0, 1, 0]);// "NOR", "NOAH");
