@@ -2497,7 +2497,7 @@ function Mobilize()
     Traits(CardsDB[ 136][0],  10,  2, 3,   95, 150,  0, 0, 2,  300, [ 1, 1, 1, 1]);// "CAN", "FERRET Mk.1");
     Traits(CardsDB[ 137][0],  10,  2, 3,   95, 150,  0, 0, 2,  300, [ 1, 1, 1, 1]);// "ANZAC", "FERRET Mk.2");
     Traits(CardsDB[ 138][0],  10,  3, 4,  100, 150, 50, 0, 2,  700, [ 2, 1, 1, 1]);// "ROK", "FIAT 6616");
-    Traits(CardsDB[ 139][0],  10,  3, 2,   80, 150,  0, 0, 1,  600, [ 0, 0, 0, 0]);// "BRD", "FRR Roland 2");
+    Traits(CardsDB[ 139][0],  10,  3, 2,   80, 150,  0, 0, 1,  600, [ 0, 0, 0, 0]);// "BRD", "FRR Roland 3");
     Traits(CardsDB[ 140][0],  10,  3, 2,   60, 110,  0, 0, 1,  600, [ 3, 2, 2, 2]);// "BRD", "FlakPz. Gepard");
     Traits(CardsDB[ 141][0],  10,  3, 2,   60, 110,  0, 0, 1,  600, [ 3, 2, 2, 2]);// "BRD", "FlakPz. Gepard A1");
     Traits(CardsDB[ 142][0],  10,  3, 2,   60, 110,  0, 0, 1,  600, [ 3, 2, 2, 2]);// "BRD", "FLAKPZ. GEPARD A2");
@@ -4643,7 +4643,7 @@ function Weaponize()
   CardsDB[ 136][0].W1 = new Arm(  0,   0); CardsDB[ 136][0].W2 = new Arm(  0,   0); CardsDB[ 136][0].W3 = new Arm(582,600);// "CAN", "FERRET Mk.1");
   CardsDB[ 137][0].W1 = new Arm(  0,   0); CardsDB[ 137][0].W2 = new Arm(  0,   0); CardsDB[ 137][0].W3 = new Arm(575,800);// "ANZAC", "FERRET Mk.2");
   CardsDB[ 138][0].W1 = new Arm(860,480); CardsDB[ 138][0].W2 = new Arm(440,320); CardsDB[ 138][0].W3 = new Arm(  0,   0);// "ROK", "FIAT 6616");
-  CardsDB[ 139][0].W1 = new Arm(  0,   0); CardsDB[ 139][0].W2 = new Arm(193,10); CardsDB[ 139][0].W3 = new Arm(  0,   0);// "BRD", "FRR Roland 2");
+  CardsDB[ 139][0].W1 = new Arm(  0,   0); CardsDB[ 139][0].W2 = new Arm(194,10); CardsDB[ 139][0].W3 = new Arm(  0,   0);// "BRD", "FRR Roland 3");
   CardsDB[ 140][0].W1 = new Arm(592,680); CardsDB[ 140][0].W2 = new Arm(  0,   0); CardsDB[ 140][0].W3 = new Arm(  0,   0);// "BRD", "FlakPz. Gepard");
   CardsDB[ 141][0].W1 = new Arm(594,680); CardsDB[ 141][0].W2 = new Arm(  0,   0); CardsDB[ 141][0].W3 = new Arm(  0,   0);// "BRD", "FlakPz. Gepard A1");
   CardsDB[ 142][0].W1 = new Arm(182,680); CardsDB[ 142][0].W2 = new Arm(695,8); CardsDB[ 142][0].W3 = new Arm(  0,   0);// "BRD", "FLAKPZ. GEPARD A2");
@@ -5672,7 +5672,7 @@ function Weaponize()
   CardsDB[  50][1].W1 = new Arm(175,22); CardsDB[  50][1].W2 = new Arm(442,300); CardsDB[  50][1].W3 = new Arm(532,510);// "USSR", "BMPT");
   CardsDB[  51][1].W1 = new Arm(147,40); CardsDB[  51][1].W2 = new Arm(842,4); CardsDB[  51][1].W3 = new Arm(  0,   0);// "DPRK", "KORSHUN");
   CardsDB[  52][1].W1 = new Arm(136,40); CardsDB[  52][1].W2 = new Arm(  0,   0); CardsDB[  52][1].W3 = new Arm(  0,   0);// "DPRK", "BM-21");
-  CardsDB[  53][1].W1 = new Arm(136,12); CardsDB[  53][1].W2 = new Arm(  0,   0); CardsDB[  53][1].W3 = new Arm(  0,   0);// "POL", "BM-24M");
+  CardsDB[  53][1].W1 = new Arm(994,12); CardsDB[  53][1].W2 = new Arm(  0,   0); CardsDB[  53][1].W3 = new Arm(  0,   0);// "POL", "BM-24M");
   CardsDB[  54][1].W1 = new Arm( 27,12); CardsDB[  54][1].W2 = new Arm(  0,   0); CardsDB[  54][1].W3 = new Arm(  0,   0);// "PRC", "BM-24");
   CardsDB[  55][1].W1 = new Arm(136,12); CardsDB[  55][1].W2 = new Arm(  0,   0); CardsDB[  55][1].W3 = new Arm(  0,   0);// "DPRK", "BM-24");
   CardsDB[  56][1].W1 = new Arm(  0,   0); CardsDB[  56][1].W2 = new Arm(  0,   0); CardsDB[  56][1].W3 = new Arm(567,1000);// "POL", "BRDM-1");

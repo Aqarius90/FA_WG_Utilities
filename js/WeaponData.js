@@ -151,7 +151,7 @@ function WeaponDataLoad()
     MainArmory[113] = new Weapon(  1925,    0,     0,   40,  0,   8,  3.00, "8",  104, "[KE][AOE][STAT]", "90mm", "M3");
     MainArmory[114] = new Weapon(  1925,    0,     0,   30,  5,   9,  3.00, "8",   98, "[KE][AOE]", "85mm", "D-70");
     MainArmory[115] = new Weapon(  1750,    0,     0,   40, 10,  10,  2.00, "8",   88, "[HEAT][AOE]", "76mm", "D-56T");
-    MainArmory[116] = new Weapon(  1925,    0,     0,   25, 10,  10,  3.00, "8",  121, "[KE][AOE]", "105mm", "L7");
+    MainArmory[116] = new Weapon(  1925,    0,     0,   45, 15,  10,  3.00, "8",  121, "[KE][AOE]", "105mm", "L7");
     MainArmory[117] = new Weapon(  1925,    0,     0,   40,  0,  11,  3.00, "8",   98, "[KE][STAT][AOE]", "85mm", "T62-85TC");
     MainArmory[118] = new Weapon(  1925,    0,     0,   45,  0,  11,  3.00, "10",  121, "[KE][AOE]", "105mm", "L7");
     MainArmory[119] = new Weapon(  2100,    0,     0,   45, 15,  11,  3.00, "8",  121, "[KE][AOE]", "105mm", "L7");
