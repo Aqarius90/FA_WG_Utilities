@@ -231,7 +231,7 @@ function WeaponDataLoad()
     MainArmory[194] = new Weapon(     0, 2800,  3500,   65, 65,   0,  6.00, "6s",  240, "[AOE][GUID][RAD]", "Radar missiles", "Roland 3");
     MainArmory[195] = new Weapon(  1925,    0,     0,   45, 35,   9,  3.00, "10",  121, "[KE][AOE]", "105mm", "L7A3");
     MainArmory[197] = new Weapon(  2100,    0,     0,   50, 35,  10,  3.00, "10",  121, "[HEAT][AOE]", "105mm HEAT", "L7A3");
-    MainArmory[198] = new Weapon(  1925,    0,     0,   55,  3,  11,  3.00, "10",  115, "[KE][AOE]", "100mm", "2A48-1");
+    MainArmory[198] = new Weapon(  1925,    0,     0,   65, 35,  11,  3.00, "10",  115, "[KE][AOE]", "100mm", "2A48-1");
     MainArmory[199] = new Weapon(  1925,    0,     0,   45, 35,  11,  3.00, "10",  121, "[KE][AOE]", "105mm", "L7A3");
     MainArmory[201] = new Weapon(  1925,    0,     0,   25,  0,  12,  2.00, "10",   95, "[HEAT][STAT][AOE]", "82mm HEAT", "BZK vz.59A");
     MainArmory[202] = new Weapon(  1925,    0,     0,   45, 35,  12,  3.00, "10",  121, "[KE][AOE]", "105mm", "L7A3");
@@ -744,7 +744,7 @@ function WeaponDataLoad()
     MainArmory[854] = new Weapon(     0, 2800,  2100,   45,  0,   0,  4.00, "5S",  160, "[AOE][GUID]", "SACLOS missile", "RBS 70 Mk.2");
     MainArmory[855] = new Weapon(     0, 2800,  2240,   55,  0,   0,  4.00, "5S",  160, "[AOE][GUID]", "SACLOS missile", "RBS 90");
     MainArmory[856] = new Weapon(  1925,    0,     0,   30, 15,  12,  3.00, "10",   90, "[HEAT]", "81mm HEAT", "Recoilless gun");
-    MainArmory[857] = new Weapon(  2800,    0,     0,   50, 40,  40,  0.00, "6s",  150, "[HEAT][SA]", "SALH missile", "Refleks");
+    MainArmory[857] = new Weapon(  2800,    0,     0,   50, 40,  22,  0.00, "6s",  150, "[HEAT][SA]", "SALH missile", "Refleks");
     MainArmory[858] = new Weapon(  2800,    0,     0,   50, 40,  22,  1.00, "6S",  150, "[HEAT][GUID]", "SALH missile", "Refleks");
     MainArmory[859] = new Weapon(  8750,    0,     0,   40, 40,  80,  4.00, "10S",    0, "[HEAT][FF][RAD][SHIP]", "Radar missiles", "RGM-84 Harpoon");
     MainArmory[860] = new Weapon(  1575, 1575,     0,   30, 15,   2,  1.00, "749",   46, "[KE][AOE]", "20mm", "Rh202");

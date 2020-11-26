@@ -4852,7 +4852,7 @@ function Weaponize()
   CardsDB[ 345][0].W1 = new Arm(755,40); CardsDB[ 345][0].W2 = new Arm(  0,   0); CardsDB[ 345][0].W3 = new Arm(582,900);// "NOR", "M48A1");
   CardsDB[ 346][0].W1 = new Arm(773,42); CardsDB[ 346][0].W2 = new Arm(  0,   0); CardsDB[ 346][0].W3 = new Arm(582,900);// "ROK", "M48A3K");
   CardsDB[ 347][0].W1 = new Arm(  0,   0); CardsDB[ 347][0].W2 = new Arm(110,12); CardsDB[ 347][0].W3 = new Arm(  0,   0);// "USA", "M48A3 Chaparral");
-  CardsDB[ 348][0].W1 = new Arm(774,37); CardsDB[ 348][0].W2 = new Arm(  0,   0); CardsDB[ 348][0].W3 = new Arm(582,900);// "ROK", "M48A5K");
+  CardsDB[ 348][0].W1 = new Arm(775,37); CardsDB[ 348][0].W2 = new Arm(  0,   0); CardsDB[ 348][0].W3 = new Arm(582,900);// "ROK", "M48A5K");
   CardsDB[ 349][0].W1 = new Arm(777,37); CardsDB[ 349][0].W2 = new Arm(  0,   0); CardsDB[ 349][0].W3 = new Arm(582,500);// "USA", "M48A5 USMC");
   CardsDB[ 350][0].W1 = new Arm(775,37); CardsDB[ 350][0].W2 = new Arm(  0,   0); CardsDB[ 350][0].W3 = new Arm(582,900);// "NOR", "M48A5");
   CardsDB[ 351][0].W1 = new Arm(778,37); CardsDB[ 351][0].W2 = new Arm(  0,   0); CardsDB[ 351][0].W3 = new Arm(582,900);// "ROK", "M48A5K WRSA");
